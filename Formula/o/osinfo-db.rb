@@ -1,8 +1,8 @@
 class OsinfoDb < Formula
   desc "Osinfo database of operating systems for virtualization provisioning tools"
   homepage "https://libosinfo.org/"
-  url "https://releases.pagure.org/libosinfo/osinfo-db-20240510.tar.xz", using: :nounzip
-  sha256 "08a2d521c485687f6be39940d5b3f61bc0f583bb7e3655a131c658385eb7e5ca"
+  url "https://releases.pagure.org/libosinfo/osinfo-db-20240701.tar.xz", using: :nounzip
+  sha256 "1d7381a72f0c45f473befa4a92fa010a37fc4f7b2bb5d1f68e06da440ef6905d"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,8 +11,7 @@ class OsinfoDb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2c5eb8a34a68ebc0a76ce1210e50c4423d8ce65876c022f6e9df34c03e141214"
+    sha256 cellar: :any_skip_relocation, all: "dbf14e46ea4e014a9b90d766e0771d6cf6638332c9c485a912580d4d900e675f"
   end
 
   depends_on "osinfo-db-tools" => [:build, :test]

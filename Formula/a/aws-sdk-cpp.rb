@@ -2,8 +2,8 @@ class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
   url "https://github.com/aws/aws-sdk-cpp.git",
-      tag:      "1.11.315",
-      revision: "a9fcd936ac12dde47aae4f7fef5442ebdbbd450e"
+      tag:      "1.11.345",
+      revision: "8d8e82ede537b8de94f95ddea44e78f845f4980c"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
 
@@ -12,17 +12,23 @@ class AwsSdkCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "323069a3197c3fd3f523a12cf777e64d3891f9191b652d2496b3691d3a49495a"
-    sha256 cellar: :any,                 arm64_ventura:  "795865a49e619bbe4aae75d45220545a310e1c2bcde650dffe89bbb7bedcc561"
-    sha256 cellar: :any,                 arm64_monterey: "416d271a72bc1aeb1e9e0792c96bea8f0df25c61deb6b9512f9cbc7e85c00822"
-    sha256 cellar: :any,                 sonoma:         "7e1f50ab624f60caa39c8265c03d8140025821448bbf0a8b2121f0f07cb34c7a"
-    sha256 cellar: :any,                 ventura:        "efde420cb2e0e3a31d5d3cde4451f432d1b33de7f09e7982286620fe0f3ab613"
-    sha256 cellar: :any,                 monterey:       "2d0f66a5361083978bdd4476078d091a889fa908fa092121a8205995f7a39deb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24748ae8d8b41a7c9cc8de6609b54e2f702efc5c65cef99c4a3bae62560a2ad8"
+    sha256 cellar: :any,                 arm64_sonoma:   "9af54c3abd28a0bfaae213293036ac3fffeee224df4364e4ec91fac9bea4ed0a"
+    sha256 cellar: :any,                 arm64_ventura:  "0b88ad1613da040536da8295dc20c40926d25064a5d1318cc0749ee80682990f"
+    sha256 cellar: :any,                 arm64_monterey: "1fe6e9055b4196899f38925c9b4dabef4f3e54a8c209929f6ef42d1e2d80b1b2"
+    sha256 cellar: :any,                 sonoma:         "53db07e1485c69e50fe5a8d9613d12f00ea63d7823fcacd4b30b9c6e1bba965a"
+    sha256 cellar: :any,                 ventura:        "f72eec8a2d018f12d0e4b89cb015214ab1e76ac5bcf952702338eba91f7cac73"
+    sha256 cellar: :any,                 monterey:       "9a31c2fdb2af047c5c2cc75e6b8cb97c4266a7f8db4b70ccb124fd2c427df47a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38dc50693937f382d924cdabc29fad982038c29b955f05c0430a1eb7248b4c3f"
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   conflicts_with "s2n", because: "both install s2n/unstable/crl.h"
 

@@ -6,17 +6,11 @@ class VirtManager < Formula
   url "https://releases.pagure.org/virt-manager/virt-manager-4.1.0.tar.gz"
   sha256 "950681d7b32dc61669278ad94ef31da33109bf6fcf0426ed82dfd7379aa590a2"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 7
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
-    rebuild 9
-    sha256 cellar: :any, arm64_sonoma:   "41fd6e9a29d3603489ab9da23e8966e1dcaaaecaf66e19ffe47122abdbe850d0"
-    sha256 cellar: :any, arm64_ventura:  "f53adafe25e436ef8e61ce865b1af111b8c2de9e4ddf1d0730f1c568c3339919"
-    sha256 cellar: :any, arm64_monterey: "e746ef562019ccc97d922eedcd91f93c1bbc9ef0db0e7065c8fef7bc1fbbdf77"
-    sha256 cellar: :any, sonoma:         "b7667d575c7a133e03822d83a5b57cb90077c8fbecfd6d79b1a162eef0af3ff0"
-    sha256 cellar: :any, ventura:        "fc0ce55d9c07f4c60731b8b2cfcdcf7359b1c4dfccc090e6bca981b9ea956d16"
-    sha256 cellar: :any, monterey:       "5c0e2b424eef79822016435dd21a2349b89a5d22f4d59f9c632114d7f57d966a"
+    sha256 cellar: :any_skip_relocation, all: "67acfb8187105c4c0f551dd26980cfdc44a8aba4b478034facc0d9e29cd3fbd9"
   end
 
   depends_on "docutils" => :build
@@ -30,6 +24,7 @@ class VirtManager < Formula
   depends_on "gtksourceview4"
   depends_on "libosinfo"
   depends_on "libvirt-glib"
+  depends_on "libvirt-python"
   depends_on "libxml2" # can't use from macos, since we need python3 bindings
   depends_on :macos
   depends_on "osinfo-db"
@@ -49,19 +44,14 @@ class VirtManager < Formula
     sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
-  resource "libvirt-python" do
-    url "https://files.pythonhosted.org/packages/47/f7/5c5112f79761616bf0388b97bb4d0ea1de1d015fb46a40672fe56fdc8ef0/libvirt-python-10.2.0.tar.gz"
-    sha256 "483a2e38ffc2e65f743e4c819ccb45135dbe50b594a0a2cd60b73843dcfde694"
-  end
-
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install

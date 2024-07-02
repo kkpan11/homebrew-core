@@ -3,20 +3,20 @@ class Sherlock < Formula
 
   desc "Hunt down social media accounts by username"
   homepage "https://sherlock-project.github.io"
-  url "https://files.pythonhosted.org/packages/2a/63/96b5e9a8a8785d4d3f41d1c8909833cd0d847b9feda1a38df5af2a426b30/sherlock_project-0.14.3.tar.gz"
-  sha256 "253066b2265ce689e2747242040c10e6f43d13364919a97b37ec04af769a1933"
+  url "https://files.pythonhosted.org/packages/eb/57/0ac8fcde9e2dbdacb20f48e8c20f3049972a59839d8bccbef0799b944140/sherlock_project-0.14.4.tar.gz"
+  sha256 "3c0edc4ebbcdb8eae03d5ce2e377e1c6839d73b8e77388b70125120537917022"
   license "MIT"
+  revision 2
   head "https://github.com/sherlock-project/sherlock.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0941a62b71366238596bec69055a31ac68eb66a545898af2452528c2e9d213f1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc885acb74e7e461058d721a29cecddc325d8143ae914021ec5b4b7e4e612249"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "999bfa592f902a31770dda5fa36db952b85c4c2ee1369621f2d64a42cdd46ecd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "23a394ef5c985aaa8fe0f8589fa345c83ed7dd507bc9a23aa301e379356abc70"
-    sha256 cellar: :any_skip_relocation, ventura:        "a5fc6bcb20e46893d386d68b75b0fa5acff19ddc5d05447782c68600fcf5e2fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "9a940590576be252cd2211bb1df4d0e9e328cdcc7febbe847d867063226ee235"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "149dc0544fd767c0a2071adfca76f8d99bf2c976c9730816ec74f28900650be4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42f1586e3de0478df13f1775afe67d61cd9bdfe776201209166ae3255b07217a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dac71187813214e99f3b43df9bf83988a7f59053ec5dee5a6940dbcc97005d20"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2c0fcb5ba4c1ba01792040ff58014909c5567be5ce619790c2c376e24fa28a6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0c8ae0cfe6ef4a1cb65fe62cb44488347681f8105996287d9bc49149648d3072"
+    sha256 cellar: :any_skip_relocation, ventura:        "c70840d3143289b9278f61419c047d1c9f52f41f4f423dd924c344c1322c2a19"
+    sha256 cellar: :any_skip_relocation, monterey:       "76a29ff9f4c86d04077b2b785f4750c6d8728dd89d52bf5b8aa8b9e279c8a551"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b5a61e377edbb8fbf8dc4e8fcddf883b59018f0bfaf73365eb93d6f457a54a7"
   end
 
   depends_on "cmake" => :build
@@ -54,8 +54,8 @@ class Sherlock < Formula
   end
 
   resource "openpyxl" do
-    url "https://files.pythonhosted.org/packages/42/e8/af028681d493814ca9c2ff8106fc62a4a32e4e0ae14602c2a98fc7b741c8/openpyxl-3.1.2.tar.gz"
-    sha256 "a6f5977418eff3b2d5500d54d9db50c8277a368436f4e4f8ddb1be3422870184"
+    url "https://files.pythonhosted.org/packages/14/b8/acf74229f1b2d9e961f155e0be04e4629a1b53b3eeb4f2ac35c10032cf1b/openpyxl-3.1.4.tar.gz"
+    sha256 "8d2c8adf5d20d6ce8f9bca381df86b534835e974ed0156dacefa76f68c1d69fb"
   end
 
   resource "pandas" do
@@ -79,8 +79,8 @@ class Sherlock < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "requests-futures" do
@@ -109,8 +109,8 @@ class Sherlock < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install

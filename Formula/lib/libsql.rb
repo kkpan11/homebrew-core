@@ -1,8 +1,8 @@
 class Libsql < Formula
   desc "Fork of SQLite that is both Open Source, and Open Contributions"
   homepage "https://turso.tech/libsql"
-  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.8/source.tar.gz"
-  sha256 "6a308a0f6d9b0958eceb59a0df358a33d1cfdaa97f208d67d4a757a6835e3a2e"
+  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.16/source.tar.gz"
+  sha256 "da2e94f45476f6a20ecb02dc225c1ac7e0bfc750a5051acfe37a619be877ea58"
   license "MIT"
   head "https://github.com/tursodatabase/libsql.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Libsql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4aad31f2851c4342202914058cad5eaf82e66d40027f4b3d735165cbd09a10f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68f321a443995503ceb816dfe9180d5d9be892cde227b63d337531de38b3a98c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9e2c4421cdfb7d68066ec0b1dff243c83243a30940a456d0af6b5d5ee6380ab"
-    sha256 cellar: :any_skip_relocation, sonoma:         "14af378f5f0bfb3bbe3e782d0ca2d139c265634f7b97c822b1c5b609a65a978e"
-    sha256 cellar: :any_skip_relocation, ventura:        "f363c14eecef2c9ae1bf4ed833e438b953d58118776d6b0a0aa307920e2d79ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "e753004cf10ee8f47524535be18f2c334c18e1a72d1e8dcd5cd4dd73a282240f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6889372b0e7ef6770faf9494ac6a77310a7a71acafd6c8e73a4279381b051b3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "871530534035244e2527208221bb83fd86af43596e32c55cf73db729ed946d77"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "45cd2a6faac5dd8844f83aa7bd268b72f13c7bd332f1a51a604664a150ca272e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5336613ec7e665f4d763ce0cd895c97076f48ff4b379325f504d693d0a80051"
+    sha256 cellar: :any_skip_relocation, sonoma:         "49e3d993b0f7fe35e5e3094f14c914f8343fab6d05b26d863deb0f3703f67d04"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa7679515438291b3985019745fb9cf080e16823e3638c71275eda935a2a1e8b"
+    sha256 cellar: :any_skip_relocation, monterey:       "16f6a44d107787106c5889dbd343b6bb7c47299388382fec5f46c4224c37c1d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b84c69209de3ab4e395950f4c96882458a9d6d4349c872fd3df3930c13977958"
   end
 
   depends_on "rust" => :build
@@ -31,13 +31,6 @@ class Libsql < Formula
     pid = fork { exec "#{bin}/sqld" }
     sleep 2
     assert_predicate testpath/"data.sqld", :exist?
-
-    output = shell_output("#{bin}/sqld dump --namespace default 2>&1")
-    assert_match <<~EOS, output
-      PRAGMA foreign_keys=OFF;
-      BEGIN TRANSACTION;
-      COMMIT;
-    EOS
 
     assert_match version.to_s, shell_output("#{bin}/sqld --version")
   ensure

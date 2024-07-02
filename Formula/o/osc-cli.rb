@@ -6,16 +6,16 @@ class OscCli < Formula
   url "https://files.pythonhosted.org/packages/02/cd/f1b796f5e7a301f6a3c0b910be07188cbfd329d2758e036d24ef26b4ee96/osc-sdk-1.11.0.tar.gz"
   sha256 "d3b71b326b0698da1b9a503cd511a992fe578375fd01b30bdec0d63d8328af66"
   license "BSD-3-Clause"
-  revision 4
+  revision 6
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35bd00458bab61efcb409ab18a064da27d13a217e1ce072f6bcaf34269d960f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35bd00458bab61efcb409ab18a064da27d13a217e1ce072f6bcaf34269d960f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "35bd00458bab61efcb409ab18a064da27d13a217e1ce072f6bcaf34269d960f3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "92f1db5ec7cd09963cb3fe79ded8cef1570d10add88fc62a5e50baf9c7a72cf9"
-    sha256 cellar: :any_skip_relocation, ventura:        "92f1db5ec7cd09963cb3fe79ded8cef1570d10add88fc62a5e50baf9c7a72cf9"
-    sha256 cellar: :any_skip_relocation, monterey:       "92f1db5ec7cd09963cb3fe79ded8cef1570d10add88fc62a5e50baf9c7a72cf9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23f8e8383c9927a3df2382858b05bf96b39c66f8f6e298cf8461a39eb64ff9d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "897074cc2efcffd7c1921ed445bedd78127adcdac4359583ee5fdb17b1a26c6c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "897074cc2efcffd7c1921ed445bedd78127adcdac4359583ee5fdb17b1a26c6c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "897074cc2efcffd7c1921ed445bedd78127adcdac4359583ee5fdb17b1a26c6c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7400067c8c2f1e25488635e9501f35e19658c98e8731191e5811a8f809c12929"
+    sha256 cellar: :any_skip_relocation, ventura:        "7400067c8c2f1e25488635e9501f35e19658c98e8731191e5811a8f809c12929"
+    sha256 cellar: :any_skip_relocation, monterey:       "7400067c8c2f1e25488635e9501f35e19658c98e8731191e5811a8f809c12929"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "249d4be534e14f3645d099169efd35bf708bccfbcca246fe71b50786d3e6080d"
   end
 
   depends_on "certifi"
@@ -42,13 +42,13 @@ class OscCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/7a/12/dc02a2401dac87cb2d3ea8d3b23eab30db4cd2948d5b048bf912b9fe959a/setuptools-69.4.tar.gz"
-    sha256 "659e902e587e77fab8212358f5b03977b5f0d18d4724310d4a093929fee4ca1a"
+    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
+    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
   end
 
   resource "six" do
@@ -62,13 +62,13 @@ class OscCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
-    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "xmltodict" do

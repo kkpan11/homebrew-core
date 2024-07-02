@@ -1,30 +1,32 @@
 class GoSizeAnalyzer < Formula
   desc "Analyzing the dependencies in compiled Golang binaries"
   homepage "https://github.com/Zxilly/go-size-analyzer"
-  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.0.10.tar.gz"
-  sha256 "d1db22afffe756229ad2046f36223d0a2ac0472c9c17313f37e159e2a03b32f8"
+  url "https://github.com/Zxilly/go-size-analyzer/archive/refs/tags/v1.3.14.tar.gz"
+  sha256 "3c5f2a70fac1097c1b66737fd3034630c65039cb9af50afa7cba02e526300adf"
   license "AGPL-3.0-only"
   head "https://github.com/Zxilly/go-size-analyzer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0295f8e805050118c524e9d65d526c22306ce409a3abf4e6dc833fb21a305ce3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8b452033f21a576645042523a0d9c89ab78d90e5333e2359563b2492dd7fb09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b105ccb44adea75f06bc9bb4626fdd971c840c2da80c32f3b544e9fca0d3c62f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9767a0f8154be2040312ac780d1b78136c1a2873d66d3ebfe83ca55318955400"
-    sha256 cellar: :any_skip_relocation, ventura:        "9676b74daabfb5291143a8738ae95ab5f47ed6db120c70a5da23fae0749caa77"
-    sha256 cellar: :any_skip_relocation, monterey:       "951928802b9c5feaf950048cf5b4c3cad87ebe60f05ae81447c7271f13dbbe8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e21ddadcb255c1ef0b898eaff1b913d6165c9490786ba0ead6a3ef6f5e640648"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1c746943810182660679b07379b0f38a108c96161fbff13ac9069b002107dcf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e09d35202e90434444c33cd3d81db4c83e97dda4cba6891f37486c98dfa198ae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c33e3ed9ed2f565b1702bb592dfc70c13b7c3ba92d08b424521cdcf297cb88ae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b526f63fb58cb867de203410554c9830b29fa3b7488cfc1283e89306dc930bbe"
+    sha256 cellar: :any_skip_relocation, ventura:        "7926333acc0858e33610966e5b8ecf7f67a9f7093c726a27d292e08292486f51"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe23c8a61b7bd367fd08f8f589bd7225bb9efaba01c69fc9b9325609ff9c0b44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "145883a5cffb7c53702c65dc74d9cd7c740a25690f1dfa9149058c665a8c6f14"
   end
 
   depends_on "go" => [:build, :test]
   depends_on "node" => :build
   depends_on "pnpm" => :build
 
+  conflicts_with "gwenhywfar", because: "both install `gsa` binaries"
+
   def install
     system "pnpm", "--dir", "ui", "install"
-    system "pnpm", "--dir", "ui", "build"
+    system "pnpm", "--dir", "ui", "build:ui"
 
-    mv "ui/dist/index.html", "internal/webui/index.html"
+    mv "ui/dist/webui/index.html", "internal/webui/index.html"
 
     ldflags = %W[
       -s -w

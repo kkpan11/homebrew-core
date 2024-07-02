@@ -2,19 +2,19 @@ class Eksctl < Formula
   desc "Simple command-line tool for creating clusters on Amazon EKS"
   homepage "https://eksctl.io"
   url "https://github.com/eksctl-io/eksctl.git",
-      tag:      "0.177.0",
-      revision: "02294680c0d7fb5843383c1aff654bf07729870d"
+      tag:      "0.183.0",
+      revision: "a8f8fdf2eb2afc44c661717bd65de0cf2e84a376"
   license "Apache-2.0"
   head "https://github.com/eksctl-io/eksctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b054a1b540f78aaeed41e0015fcc11d985d70a242e8db1ac07475ef7acd6374"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eeb145dba75af196e1b2e9c4ec96dc6cc9c4ce4a1d871c2700972f7afe7e22b0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e140fe9b6acac552a16aa8f941164e3bde7b63ad953fb13dae05d99c1050ed8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5b4aea2fab1f56b87f4d01ddb0f194c8e5712356e057c63d4e69fb7ae586bf73"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4923c1adc9c98a39bc97517604d822372588bb13c9b1d7f5100c0365059a0ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "f8d531ae21ff806ff4b5ca7b73687425fd95cbb3894baa26607413bdea300b2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59661db35f5c80a05e8828ee565f62aac6432c156a75f7e2f5c3eed60070b827"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e53715d38a5bb4e845d02b148e03710970d7c55e1e9e50b4463dfc85e2f251d6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0fc5a84f8c8a820ced257ef1d9e427fbded0465254b0bccbaec6cb2dbd3fa2c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9950cf542d597c04f6435cdd6b68738a74b2b2bf7c52fa61d9cb4db8bc4a23a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "96045b02c7486f9d29af23425916d8ed5d53fe61f74ddd98e7fc3f6452192b93"
+    sha256 cellar: :any_skip_relocation, ventura:        "6faca7aca059f276b4305e175f1a4887f434e7296c9ac46f9867a420638b0c0d"
+    sha256 cellar: :any_skip_relocation, monterey:       "176bde673208d7cebe38b32e56302d8f807c8ff31150e124ff0e41b0bac1197b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb9c083cc40603c475a90132f67e0b210136fc57df8dd363272b9a9e4c4753b3"
   end
 
   depends_on "counterfeiter" => :build
@@ -22,7 +22,6 @@ class Eksctl < Formula
   depends_on "go-bindata" => :build
   depends_on "ifacemaker" => :build
   depends_on "mockery" => :build
-  depends_on "aws-iam-authenticator"
 
   def install
     ENV["GOBIN"] = HOMEBREW_PREFIX/"bin"

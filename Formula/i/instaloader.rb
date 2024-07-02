@@ -3,19 +3,18 @@ class Instaloader < Formula
 
   desc "Download media from Instagram"
   homepage "https://instaloader.github.io/"
-  url "https://files.pythonhosted.org/packages/7e/35/1f8d36c0656d4797fc5089c016995447f2b439e8fb9df02bf9d7873566fc/instaloader-4.11.tar.gz"
-  sha256 "7478a1f0ed5c05911832c50cb19747243a461b5d434907f9fdb7d2d750d1b4f5"
+  url "https://files.pythonhosted.org/packages/85/f9/b044e398b4fe6de8d0173091f18e72e9c3dcf0f30c85f127bfc5f6a6b375/instaloader-4.12.tar.gz"
+  sha256 "0e3fa65dd4b033f2ef6022a04f95fec18e0258535aee985d0643895713f2eec3"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "759e5f69c7d3327c298b914de7bb7465aaeb2a99f97d5264e6019bdce9d43ca3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "759e5f69c7d3327c298b914de7bb7465aaeb2a99f97d5264e6019bdce9d43ca3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "759e5f69c7d3327c298b914de7bb7465aaeb2a99f97d5264e6019bdce9d43ca3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "759e5f69c7d3327c298b914de7bb7465aaeb2a99f97d5264e6019bdce9d43ca3"
-    sha256 cellar: :any_skip_relocation, ventura:        "759e5f69c7d3327c298b914de7bb7465aaeb2a99f97d5264e6019bdce9d43ca3"
-    sha256 cellar: :any_skip_relocation, monterey:       "759e5f69c7d3327c298b914de7bb7465aaeb2a99f97d5264e6019bdce9d43ca3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5970e63362fdf248a712e8810bf733bdee96c67a410d92fd63ae024bc353573"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4813cf7572418d8263b7401cf4adf6f21183a081adefc1ae3e3faba0064088fb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4813cf7572418d8263b7401cf4adf6f21183a081adefc1ae3e3faba0064088fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4813cf7572418d8263b7401cf4adf6f21183a081adefc1ae3e3faba0064088fb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4813cf7572418d8263b7401cf4adf6f21183a081adefc1ae3e3faba0064088fb"
+    sha256 cellar: :any_skip_relocation, ventura:        "4813cf7572418d8263b7401cf4adf6f21183a081adefc1ae3e3faba0064088fb"
+    sha256 cellar: :any_skip_relocation, monterey:       "4813cf7572418d8263b7401cf4adf6f21183a081adefc1ae3e3faba0064088fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f357109ab16e90602089beca3086e31de4b26aac95b80e38faafe2d6e9c7876"
   end
 
   depends_on "certifi"
@@ -32,13 +31,13 @@ class Instaloader < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install
@@ -46,8 +45,8 @@ class Instaloader < Formula
   end
 
   test do
-    output = shell_output("#{bin}/instaloader --login foo --password bar 2>&1", 1)
-    assert_match "Fatal error: Login error:", output
+    output = shell_output("#{bin}/instaloader --login foo --password bar 2>&1", 3)
+    assert_match "Login error", output
 
     assert_match version.to_s, shell_output("#{bin}/instaloader --version")
   end

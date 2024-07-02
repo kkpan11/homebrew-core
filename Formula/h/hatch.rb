@@ -3,18 +3,18 @@ class Hatch < Formula
 
   desc "Modern, extensible Python project management"
   homepage "https://hatch.pypa.io/latest/"
-  url "https://files.pythonhosted.org/packages/69/52/30848520dad584fa3bb5dba580a20607e2a3ee1ba932722028db5df1232c/hatch-1.11.0.tar.gz"
-  sha256 "0511e48b06576995a51a39af14c062431cbbbf22df8a4faccce41418ebccab30"
+  url "https://files.pythonhosted.org/packages/fd/40/dbf99436f18bd8b820d5690dff5a534092e1456ba74a87699118b0221417/hatch-1.12.0.tar.gz"
+  sha256 "ae80478d10312df2b44d659c93bc2ed4d33aecddce4b76378231bdf81c8bf6ad"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c76682632e9ab9e6b8ccdb78d99655fd100f6aea1408c27b3217d09a3064fbb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8781583593072034995bed722ec61f386153f629b3dfc218738de257dd33052"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d75c1f41455f0ea550c7e4b30130e80913505fba9d5164a13eb39dabbd6405ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "120fb74bc4dd09418343476040a178f276080ed71f27a6ca57126a2c96ee9961"
-    sha256 cellar: :any_skip_relocation, ventura:        "5b4b2d4c8f9c2032ce2ff1536b98c335e8806d3b6da068a973773fe5dd64f7a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "512575e4cba5df57a013c4de2fb405a87759c5b2762fd3f2f9cdbce5c2e7bf47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d7c1667c402008cc81790bd2bff09d856f299caf1e62b8fed160ce094578260"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1586c0458229a3cbd3974ba89ca757bdcc6dd68bffcfe5c0ab3f5a93945d5b01"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25177bf294ea5c30f3a9fcbf287224546b74e2598421e1195faeefd0b35d0d0f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "572fe1d6cdedb709540b8fd8d3b4d27509fb551dbf1c2f013b20f10d1a576475"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e1efc4720e11e002f57341fb61799c30116812a1e673f519290e2fd1bb577d0f"
+    sha256 cellar: :any_skip_relocation, ventura:        "b3700c08a93be1e40a8c07d6db61ab35f53fff55ec2f8a23bd578b13db75432c"
+    sha256 cellar: :any_skip_relocation, monterey:       "70f5d21f23bdd4dc7e4356bb10b30d1a096daf078c17fa41c93a714eaebf3e62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7b4a072a46c798bf28ff351affdd0f5ea6692d293e507f2a1c578797960e33e"
   end
 
   depends_on "certifi"
@@ -28,8 +28,8 @@ class Hatch < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
-    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
+    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
+    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
   end
 
   resource "click" do
@@ -133,8 +133,8 @@ class Hatch < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/b2/e4/2856bf61e54d7e3a03dd00d0c1b5fa86e6081e8f262eb91befbe64d20937/platformdirs-4.2.1.tar.gz"
-    sha256 "031cd18d4ec63ec53e82dceaac0417d218a6863f7745dfcc9efe7793b7039bdf"
+    url "https://files.pythonhosted.org/packages/f5/52/0763d1d976d5c262df53ddda8d8d4719eedf9594d046f117c25a27261a19/platformdirs-4.2.2.tar.gz"
+    sha256 "38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3"
   end
 
   resource "pluggy" do
@@ -183,8 +183,8 @@ class Hatch < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/73/e9/b732ae50ebe5e4949bb20a47243d9fee6f3c15027c3f8ffeaa0982e68173/trove-classifiers-2024.4.10.tar.gz"
-    sha256 "49f40bb6a746b72a1cba4f8d55ee8252169cda0f70802e3fd24f04b7fb25a492"
+    url "https://files.pythonhosted.org/packages/98/01/e2bc94b71ebaa2c8092cd392caaf5ad42d55c5aaa21a575ab7684e080851/trove_classifiers-2024.5.22.tar.gz"
+    sha256 "8a6242bbb5c9ae88d34cf665e816b287d2212973c8777dfaef5ec18d72ac1d03"
   end
 
   resource "userpath" do

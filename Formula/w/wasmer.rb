@@ -1,19 +1,19 @@
 class Wasmer < Formula
   desc "Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/refs/tags/v4.3.0.tar.gz"
-  sha256 "f975b852e0774d8c5ea0a184c6a39836a37dbf669c417a4c5ed2775805b505d7"
+  url "https://github.com/wasmerio/wasmer/archive/refs/tags/v4.3.2.tar.gz"
+  sha256 "7842ee0d9253c12785b5f59e6fc41b42956e1c1469478d1e12960906e9e1ccca"
   license "MIT"
   head "https://github.com/wasmerio/wasmer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53c270eab0b06cd9241f6cee1d03e0220b750d84e7845263768b80d601f898ea"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "340823b4582d3eed9a37fad2f7deae4f349aa77a99b9890d581f4969e86dc8a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b834f7d6fc1961a32c1e10ce8918a2e5a67a7086a7ece456a757f26c492f5b78"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6e036429de7761cbd9b4f28f167d5fc28a468b0a154af4dcf85b21132ba9f1ef"
-    sha256 cellar: :any_skip_relocation, ventura:        "c0e6582ca5f0fe764761829eb81bfd80c44b8e40655542b65ca99e036a121baf"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b948ffa901998398016f167420796aefa9c32966c07d8eb23f9705ffe6d972b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b637ae29287e5b7a2d2010024291ac9b1b07abf4b71787a063f11b42a37d238"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e139ef034dbefea7f202573c0822975d394a1da1c288d4c4afe237648cbcd066"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "727bed8c87db0fd44d07d09afa91e47562268fa7091b4b7853cae5181acec490"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e1ca4828725ac3fd8aee4b13beef4bcea1ca229d1a3294735a30b4012315bf2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7ed681ac16523bed0eebd4d3b394aadc4cc910ebd5b82a343e595c26ba4cdf5e"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf39251b08572f1e3e99e9119afd1af7ac1710121d234e326bdf573543c5ddeb"
+    sha256 cellar: :any_skip_relocation, monterey:       "5a4ee8655f2b56f1d51e03d64b2b5fb44ef5b97ade87931aa625e4d281f5c801"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5f3265b013954bb3d3393eb2474926cd74995a1e6fe4a5d6cb895c597b76766"
   end
 
   depends_on "cmake" => :build

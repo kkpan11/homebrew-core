@@ -169,6 +169,7 @@ jobs:
             --workflows=tests.yml \
             --committer="$BREWTESTBOT_NAME_EMAIL" \
             --root-url="https://ghcr.io/v2/homebrew/core" \
+            --retain-bottle-dir \
             ${{ inputs.autosquash && '--autosquash' || '--clean --no-cherry-pick' }} \
             ${{ inputs.message && '--message="$MESSAGE"' || '' }} \
             "$PR"

@@ -1,18 +1,18 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.76/vte-0.76.1.tar.xz"
-  sha256 "084e83ef765774269a4b29df97ca22edc343b9a1d81433d300b8cb2d087a1ec2"
+  url "https://download.gnome.org/sources/vte/0.76/vte-0.76.3.tar.xz"
+  sha256 "f678e94c056f377fd0021214adff5450cb172e9a08b160911181ddff7b7d5d60"
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "0aa63ad76cf7e037c35621512520ca6312a8709e25f877bb054e25dcedc27e6f"
-    sha256 arm64_ventura:  "09424815e4f6011b6094548b0ca590ad47ba65e5e2e4761d8464ec91dae721d4"
-    sha256 arm64_monterey: "9f4743abb7fe9c7d8e6cb5aff6d0dd5d1c2b0f325cb5b79fe802c28bcdc40b1f"
-    sha256 sonoma:         "f2a1266902eb1a303cd29c2b362c8508dd92f5a177610a5ca79848b3128cc712"
-    sha256 ventura:        "61c79e18b81355a6715f5c52f0b7ec3a21cfd8bbbd4c5983092cba8bee4a920a"
-    sha256 monterey:       "d3c35a14dfd6cf95dd159e7dae85732b5c6819bc7e22977f65407cf44e441dd4"
-    sha256 x86_64_linux:   "a93b0c3f9870a0caed82b99974ca9615caf9c5bd5325ab76708f84b8fa69ced0"
+    sha256 arm64_sonoma:   "c6248169a7e34fd09243939bcbd13cede157ad160ff8df50a2da0e199934c7af"
+    sha256 arm64_ventura:  "46dac39504a282e5f4547390c26b23da1103b21f5d59aa1830ea248c4678d5ef"
+    sha256 arm64_monterey: "bc029b69fe01c31a7d6035b3efdac0c9b7b81ef4f806b27fc80794e0dcdc380b"
+    sha256 sonoma:         "a1a93208443bd00f150b6d9f458bff57191172bfd7928f751ba17e9a49a2afc8"
+    sha256 ventura:        "8c9dcb8aac98c2a4f719f2867bc4e9c2e0e821b372be47dd5bd20475baf11bfe"
+    sha256 monterey:       "82976f2014bca9bdc1eea7c4fca88319aff00a784c0700fec7864f41a48f7870"
+    sha256 x86_64_linux:   "af3b9e4c9a0d1d846a1b3a24aee63b1b9439a0343370c952134752568924969f"
   end
 
   depends_on "gettext" => :build
@@ -21,12 +21,16 @@ class Vte3 < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
+  depends_on "at-spi2-core"
+  depends_on "cairo"
   depends_on "fribidi"
+  depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "gtk4"
   depends_on "icu4c"
+  depends_on "lz4"
   depends_on macos: :mojave
   depends_on "pango"
   depends_on "pcre2"

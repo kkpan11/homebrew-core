@@ -1,19 +1,19 @@
 class Melange < Formula
   desc "Build APKs from source code"
   homepage "https://github.com/chainguard-dev/melange"
-  url "https://github.com/chainguard-dev/melange/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "b70ee0cfabef9f12ba7ba54f54b6720c6cb4d86c29246a479db362a38de7fc93"
+  url "https://github.com/chainguard-dev/melange/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "c1ea39bcee7de125a98b8c4ed7a75196f57bc0f339c5f0feb9999950c5ededc3"
   license "Apache-2.0"
   head "https://github.com/chainguard-dev/melange.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e241b6d9e6179bde6404d2ae4161f10453af88840047ea378a2a49417c69c6a1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7b27cce3bd079f0f22ffe98d2f975684e34c4a8f982fb54f2acfbe1a342e7c3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6cd55c606487f9bc759a8ded8de3d3549622ea2cf3648ae1746d75446540b0f3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d40b29487cf9f4832ead46fd109e6fdd4a9a338f6e540a73184495a6c53d8c5d"
-    sha256 cellar: :any_skip_relocation, ventura:        "33c770bec692618f45420ea31271dd07dbf9140682775d28fe7f136953e6ed6a"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ffab7bb0cc03108f731df535712238d44ecf9a9c7733a598b632944d7c9565f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14bd8c8100e7dd77ed373326e2ecd01f37e4e6cea9fbcc23df258911eff80fce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "187e6448e8ee2b0609490b7b4d13c56f72c47a42c4039dce05b1bc1fb4287fee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2a90f4fb977024c358a25bf823d908688cfa30cc206d6e3c9a40dee69a2406a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8bf78e22c12e4728acd12cbe10925a32daafc87bd871ba3ad36d1f653915524"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a3158b7618daef5c3374ce614f66b359566b5a9b637d823e41b7df0d7a3f1776"
+    sha256 cellar: :any_skip_relocation, ventura:        "7f6f9652bfedf9695874594dab9f7c84e180a0310bc7fa7e07d2a9559e3691e7"
+    sha256 cellar: :any_skip_relocation, monterey:       "57ca739a00c5fbea2efd58811c73d899c5ef9e7f8403ddfa50834afdd9828a2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a87b60eb4cf180932831bfd89290c5a9b77d39294212de5e25e0f0b45a8c4a5c"
   end
 
   depends_on "go" => :build

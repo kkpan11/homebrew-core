@@ -6,16 +6,16 @@ class SphinxDoc < Formula
   url "https://files.pythonhosted.org/packages/b7/0a/b88033900b1582f5ed8f880263363daef968d1cd064175e32abfd9714410/sphinx-7.3.7.tar.gz"
   sha256 "a4a7db75ed37531c05002d56ed6948d4c42f473a36f46e1382b0bd76ca9627bc"
   license "BSD-2-Clause"
-  revision 1
+  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "022f66c695afc969866a4089c730c3a0819165fc07d0035512a9e760e96da2f7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2bac7d045434efe88d8145b316c7b44e6d0dbaeda6abf41445f72f25df46187"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "58b64d71e8d98e35815c38fdff25b538e466b88339d75ed152347a3e48a7564a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6978da95ff0918618eadaefb114f026c31ea7e1f16252945e8f8a8b97124da2e"
-    sha256 cellar: :any_skip_relocation, ventura:        "39b34fd064913fffdc07582aa327c6fe0b04773266f94d695c7afde15b024c30"
-    sha256 cellar: :any_skip_relocation, monterey:       "b845851390d59d3a7515f769028d31624fefecd63cbf7546d0dcff121a62bc1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "631735645fa5bc69afd34bf656db80c541204e7738a753fdca7c9702223a9700"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7186d6921a44384f9f45dfcd9548e2b0fd31f8c4716c30ce4fff3e12fc1bbcea"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28fffa95a0b3c9bc0eac0e88da131967c8777f4ec49164700ba488f0f367d405"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba9e4d6794480bb97281cc671cd709d5468d452c5f21fee507fdeacc882a8a5e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "645bcf66dfe4323d1c4bd1bf67eabee978d6033562c18aef39271ec326bd6f07"
+    sha256 cellar: :any_skip_relocation, ventura:        "45fd6b2f0a86d8a16b291dc2ee9809df92a2ea0ef8b74999a3fd8fd8e905d8bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "b8029904c4c447a7134ad8c1c5f36408a983a5b3b6f2c0ae40d822ad414aedc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f473bb1f49a141c993e7d7bc8b0c7a836e9f66711c5055913bdf3fbb73927c8d"
   end
 
   keg_only <<~EOS
@@ -72,8 +72,8 @@ class SphinxDoc < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pygments" do
@@ -82,8 +82,8 @@ class SphinxDoc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "snowballstemmer" do
@@ -127,8 +127,8 @@ class SphinxDoc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install

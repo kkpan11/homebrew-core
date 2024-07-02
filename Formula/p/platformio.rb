@@ -6,17 +6,17 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/13/78/8903f4f505a393ee48a18a00b4b9c866a726ef844d23ff3ce4863d710898/platformio-6.1.15.tar.gz"
   sha256 "d3209a60d40340fdbab2c76ee23303d90e5ecea0a11f92980c9d2068d0975fde"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ebcd4bfc0d65123e1d540d7e3331d956ed1be90c138dd682ebfa91167634f52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ebcd4bfc0d65123e1d540d7e3331d956ed1be90c138dd682ebfa91167634f52"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ebcd4bfc0d65123e1d540d7e3331d956ed1be90c138dd682ebfa91167634f52"
-    sha256 cellar: :any_skip_relocation, sonoma:         "897795ce217662c4126ae2154bf0d8bb8af2290feb68ed54dad134ec3c6b6a70"
-    sha256 cellar: :any_skip_relocation, ventura:        "897795ce217662c4126ae2154bf0d8bb8af2290feb68ed54dad134ec3c6b6a70"
-    sha256 cellar: :any_skip_relocation, monterey:       "897795ce217662c4126ae2154bf0d8bb8af2290feb68ed54dad134ec3c6b6a70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3b44acc28b1a7866bb82d3fba5c35608356992f13cf3467927a3b070b98518a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b54558f1c018e6a5b045232600640aba1d6ad8b4426f1121bb91525e66cd44da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b54558f1c018e6a5b045232600640aba1d6ad8b4426f1121bb91525e66cd44da"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b54558f1c018e6a5b045232600640aba1d6ad8b4426f1121bb91525e66cd44da"
+    sha256 cellar: :any_skip_relocation, sonoma:         "725b495355199793a16d05ca6ae27e7bdceb0100c96c5e0aaf3d601b1c1b643a"
+    sha256 cellar: :any_skip_relocation, ventura:        "725b495355199793a16d05ca6ae27e7bdceb0100c96c5e0aaf3d601b1c1b643a"
+    sha256 cellar: :any_skip_relocation, monterey:       "458768aa5e196f17f875968f5a7952089c1f44b6ff209b6f5ff37729a300f85b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "051511a8cb03d21fbdb47b3878253d46be046b78ee7996641b4fdbfb70cf2c93"
   end
 
   depends_on "certifi"
@@ -28,8 +28,8 @@ class Platformio < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
-    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
+    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
+    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
   end
 
   resource "bottle" do
@@ -68,13 +68,13 @@ class Platformio < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/a2/16/06ad266adc423f9d7ee49dce26787b973907aa70213760c9fe1711745405/marshmallow-3.21.2.tar.gz"
-    sha256 "82408deadd8b33d56338d2182d455db632c6313aa2af61916672146bb32edc56"
+    url "https://files.pythonhosted.org/packages/d6/31/0881962e77efa2d524ca80566ba1fb7cab000edaa9f4152b97a39b8d9a2d/marshmallow-3.21.3.tar.gz"
+    sha256 "4f57c5e050a54d66361e826f94fba213eb10b67b2fdb02c3e0343ce207ba1662"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pyelftools" do
@@ -88,8 +88,8 @@ class Platformio < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "semantic-version" do
@@ -113,8 +113,8 @@ class Platformio < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "uvicorn" do

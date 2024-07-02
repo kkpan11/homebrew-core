@@ -6,17 +6,17 @@ class Grokmirror < Formula
   url "https://files.pythonhosted.org/packages/b0/ef/ffad6177d84dafb7403ccaca2fef735745d5d43200167896a2068422ae89/grokmirror-2.0.11.tar.gz"
   sha256 "6bc1310dc9a0e97836201e6bb14ecbbee332b0f812b9ff345a8386cb267c908c"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 7
   head "https://github.com/mricon/grokmirror.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "472b5ba1714f9582795176f3f44c508c8b238a81aed315dfb0617ca2faf800f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "472b5ba1714f9582795176f3f44c508c8b238a81aed315dfb0617ca2faf800f4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "472b5ba1714f9582795176f3f44c508c8b238a81aed315dfb0617ca2faf800f4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "472b5ba1714f9582795176f3f44c508c8b238a81aed315dfb0617ca2faf800f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "472b5ba1714f9582795176f3f44c508c8b238a81aed315dfb0617ca2faf800f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "472b5ba1714f9582795176f3f44c508c8b238a81aed315dfb0617ca2faf800f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4f294fb082f7ca68dcbc696577c9e2810f5a7a0b64d20f2fd1857ab4edf5d3c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "876d748f82f612d1e03a8b388851f66723657d111f994ea3baecd25a55fd662b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "876d748f82f612d1e03a8b388851f66723657d111f994ea3baecd25a55fd662b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "876d748f82f612d1e03a8b388851f66723657d111f994ea3baecd25a55fd662b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "517640b908e4f0a45943066a9a1f892b1ff23c7b1db2fc37d57250c2cf5899e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "517640b908e4f0a45943066a9a1f892b1ff23c7b1db2fc37d57250c2cf5899e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "876d748f82f612d1e03a8b388851f66723657d111f994ea3baecd25a55fd662b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa39b7c533aa0a674759cc9c6906ec07cfdbf0c930e76e63bd8df310705249c8"
   end
 
   depends_on "certifi"
@@ -33,13 +33,13 @@ class Grokmirror < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install

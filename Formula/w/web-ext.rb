@@ -3,18 +3,18 @@ require "language/node"
 class WebExt < Formula
   desc "Command-line tool to help build, run, and test web extensions"
   homepage "https://github.com/mozilla/web-ext"
-  url "https://registry.npmjs.org/web-ext/-/web-ext-7.11.0.tgz"
-  sha256 "e3561fae3a56d2e645176122ebdb5bb3cd3bb60fee9ae9c921e92a0e521caa6f"
+  url "https://registry.npmjs.org/web-ext/-/web-ext-8.2.0.tgz"
+  sha256 "b29f14cd9f909fe7714c518527a2f6fffdbc9182cdaa83690eef07cb3fd77e1e"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ed58abfbfe9ec673a25cc89d2eb605fb1ce1f7368311955e140b4a5fe1dc7f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c806063f12a3bc0ff6d339e1e3e485d6f70db37d7745015c9cdccb1db09337c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4cc344463fdf9f6df3e3e19642ed3a893c403cc85932bb13896c9919030eefe"
-    sha256 cellar: :any_skip_relocation, sonoma:         "22508d98eec560de68db0b125892134903c6a159cac86d8171e3bf1a600096c8"
-    sha256 cellar: :any_skip_relocation, ventura:        "1a3b4a35bbd3d259e82945265c2e6072f1090ec4fbdbcb7d763f4fbbb13990b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e6f613f7453e96f47c1c1557f4e15c65681478a3628743a296acbfa55368f04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b61797ceb75bc11976d6487200fdb86277a4cdb72afad7601601ac1d3b31b9d7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48142765f68650ddaac03558ccb58318e6e6438580b4b734f4d2753baefbc818"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b164c30476dbb984922b5e40b6470fb6079a547e7b9d1b5bcd5b1307d13cd412"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e7360f97526ee4dbbab843c5922e151469555ecc0af493e516e117e354d5340"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0701520e4f7b454a8d62f3884176a95441ec8f64340887e93f24bb833ef7b774"
+    sha256 cellar: :any_skip_relocation, ventura:        "991d4dc4579451a5c1dc91c4b045e30a5131f2deffa92cdccdf311e9628f969d"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ec46ce0f5409217e729d9dcb11ca324ae40d0412b329925680fdfa9114f176a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7e19d476e945cb285263fbba68f94edbefd946e66beefe20147558e494bef51"
   end
 
   depends_on "node"

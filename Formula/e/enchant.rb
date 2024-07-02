@@ -1,18 +1,18 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://abiword.github.io/enchant/"
-  url "https://github.com/AbiWord/enchant/releases/download/v2.7.3/enchant-2.7.3.tar.gz"
-  sha256 "fe6ad4cbe8c71b9384ffdef962be52d4d2bd5ebfb6351435bb390543d4f78b1e"
+  url "https://github.com/AbiWord/enchant/releases/download/v2.8.1/enchant-2.8.1.tar.gz"
+  sha256 "ff79de470b8eb16f53849dc49f2bce8ca4eb7decabfc1349716fe12616e52f4e"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "a3379030d191b09ee2be1d48ab9442c5520d67379a16f1d4877690c7bf038b10"
-    sha256 arm64_ventura:  "de4743d60a4fdc142c1e2b777edf2116e9dd35f123a74e9b2ed51bb463eb83a3"
-    sha256 arm64_monterey: "84c4caea703ac25694264b8831cc683687e74d209d41d01a7c6f59012f12485c"
-    sha256 sonoma:         "c0731ff8693cb78abdfbab3d96dbbc82495c065e44cb6c3ac03e11dbdabb35b4"
-    sha256 ventura:        "2379943777e66e63bf3dbf53dcd2f54658ff114dae8e231d6f83c1d7cbf1beb8"
-    sha256 monterey:       "ec66f38b40c09c54d91d95eb6c017cb56b9e48462925cd80366240eed04597f9"
-    sha256 x86_64_linux:   "9e4d3561eefe47808a9093a86baffa79a7ee22384c6b8e52c1b13c2eeeb0d4d2"
+    sha256 arm64_sonoma:   "d20879e9c4f45cfa696d4038c3d46e975fafa20f74458c27eea9eab54107966f"
+    sha256 arm64_ventura:  "a81e8c7790174998dfa8f524757714d960529214985ade7d09d6e7109746bbaa"
+    sha256 arm64_monterey: "ea8c2446d044422788c8da29c8deca5bac1fd9af188448da142e214b4c06a97f"
+    sha256 sonoma:         "0962732fc652030fe2fc85b6eef4ccfa5472379d72c526d32d781d896e1ba734"
+    sha256 ventura:        "d3ab90d97d720399e3f7b241b3a1e3471222ee9a7b9e23b3b70ef5e840c41333"
+    sha256 monterey:       "6a737a7067a3032031d8a59ef70e5f043eebf59586c6797a66a5689744cfe86d"
+    sha256 x86_64_linux:   "b90f84daed3ce1a5e1f68afa87d30bdd9fd4ad02097ef6dc6a0c54c15bddcbb7"
   end
 
   depends_on "pkg-config" => :build
@@ -20,6 +20,10 @@ class Enchant < Formula
   depends_on "glib"
 
   uses_from_macos "mandoc" => :build
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "groff" => :build

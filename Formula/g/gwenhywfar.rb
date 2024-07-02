@@ -35,6 +35,8 @@ class Gwenhywfar < Formula
     depends_on "gettext"
   end
 
+  conflicts_with "go-size-analyzer", because: "both install `gsa` binaries"
+
   fails_with gcc: "5"
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -76,6 +78,7 @@ class Gwenhywfar < Formula
     system "./test_cpp"
 
     (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.29)
       project(test_gwen)
 
       find_package(Qt5 REQUIRED Core Widgets)

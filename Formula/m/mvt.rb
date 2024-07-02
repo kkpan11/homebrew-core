@@ -3,19 +3,19 @@ class Mvt < Formula
 
   desc "Mobile device forensic toolkit"
   homepage "https://docs.mvt.re/en/latest/"
-  url "https://files.pythonhosted.org/packages/0b/a7/e12932647247b7cd253698e6aa0d5f831700d3dd7688c366af85eb255b62/mvt-2.5.3.tar.gz"
-  sha256 "5727877815b3d5a2a98e21a6be9da51c3629eb548e424457e9e78ae183344264"
+  url "https://files.pythonhosted.org/packages/0d/12/a87132ab005aaa685663348df0a927c123a921ad8385813c83098c544269/mvt-2.5.4.tar.gz"
+  sha256 "bb539d853ad27d6499acbe03f9f4686b8738c624b68d226e1794fa1358f1dd0e"
   license :cannot_represent # Adaptation of MPL-2.0
   head "https://github.com/mvt-project/mvt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bb6112b3fdab872902bae9299ea016dcba55ae7d8bfad0638c83ca7d9cae2e6d"
-    sha256 cellar: :any,                 arm64_ventura:  "9e72428eecf447a69aee4f74c51c8e3122fc1de1b10ea845ff0891266e347ffd"
-    sha256 cellar: :any,                 arm64_monterey: "e77e732d2cd130fdc5fa8974c143d9dfe46cd182b8a379205ba483328df6f0cb"
-    sha256 cellar: :any,                 sonoma:         "f2bed1b23a51aa4036daf61f32310852b0baee68f1caf40f592be7886112d00b"
-    sha256 cellar: :any,                 ventura:        "c3d7b45622b2c8bb3d0dff41578a04c976a4e293a683ca461d7a5ec3252ceac3"
-    sha256 cellar: :any,                 monterey:       "3e53745e417e7ad9ca3f95e28d9ac3e5f82fca73c71d322f39dfa2a08520102b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0538ad91630242f39bc57e2b58fa219b23e6d4db6a40b4b788f4a2a8e3a099ef"
+    sha256 cellar: :any,                 arm64_sonoma:   "c8ffe44fe33fab85b1a096199142b82b3e60d4a9c61278dc1b4dadb8448f1632"
+    sha256 cellar: :any,                 arm64_ventura:  "08f7d90d39f957d989bf78ce9a52a0c0318ff2e484fca943b193290c676f0f17"
+    sha256 cellar: :any,                 arm64_monterey: "7b58b012a3c61ba10fd45529cfb74de4181ee3e626baff04d5909b7f8b9cf0f5"
+    sha256 cellar: :any,                 sonoma:         "4f3badbd0687dc0149d61afca3a2cdd75f536b3780e53c15140019a1db848805"
+    sha256 cellar: :any,                 ventura:        "21e5e751f862a5dbc67a8f8444825682e6090ca2d734899ba58ece0e51542538"
+    sha256 cellar: :any,                 monterey:       "d7a1c4ca7d3e8379a4a79a78e7d0a04fa2e520254e470b72a43b27e3500eef73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6b167ef9e4e88367e027284939b18baa7e828408fddd46f13c63d4493fa3940"
   end
 
   depends_on "certifi"
@@ -74,8 +74,8 @@ class Mvt < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
-    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
+    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
   end
 
   resource "pyahocorasick" do
@@ -94,8 +94,8 @@ class Mvt < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
-    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+    url "https://files.pythonhosted.org/packages/8e/62/8336eff65bcbc8e4cb5d05b55faf041285951b6e80f33e2bff2024788f31/pygments-2.18.0.tar.gz"
+    sha256 "786ff802f32e91311bff3889f6e9a86e81505fe99f2735bb6d60ae0c5004f199"
   end
 
   resource "pyyaml" do
@@ -104,8 +104,8 @@ class Mvt < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "rich" do
@@ -129,8 +129,8 @@ class Mvt < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install

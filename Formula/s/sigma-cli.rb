@@ -3,24 +3,26 @@ class SigmaCli < Formula
 
   desc "CLI based on pySigma"
   homepage "https://github.com/SigmaHQ/sigma-cli"
-  url "https://files.pythonhosted.org/packages/cf/45/eef555a909ff716108ded653decf0a7642bc80169fff9590b665638164a0/sigma_cli-1.0.2.tar.gz"
-  sha256 "8cb46dca0c5787969f33152c3cd085989fbc07a121d1c9a795664f7264c7ce9f"
+  url "https://files.pythonhosted.org/packages/70/e8/6a4e6aa2875494af43483a37c1715039d42a0ba54cb1353db5c3ebfded69/sigma_cli-1.0.4.tar.gz"
+  sha256 "30db40f7b6ea1cff8da5c03668ee37326fa371fa343129455741a6b8b68d81b2"
   license "LGPL-2.1-or-later"
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6b6e701817b106320edb36fec0cf1510f82c8c49e55ec94fffeaeeaf7068480a"
-    sha256 cellar: :any,                 arm64_ventura:  "814e141c723946566290a9fa2b4d8af367e3c766c19af2c213566d1877ac8632"
-    sha256 cellar: :any,                 arm64_monterey: "7693bea3f840d315573968ca20c7ab5af80a77400b1ec36063ac16efdd07110b"
-    sha256 cellar: :any,                 sonoma:         "76edd487f5668b1c65dabd348e5059a7b09ce43af74c1c8eed1665ced2712ce7"
-    sha256 cellar: :any,                 ventura:        "f5d26f222f1800fa6079eadadc513fe255fc34e7208f6d98ac49c4d02ec6746a"
-    sha256 cellar: :any,                 monterey:       "a10d17679c2253a82e387deb3ecea12f9a69d7afd8d6922c72d18aa13ccd8d26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e98fb83cf6151163c436b4e9554f45fa910f066fbff4bd030d70bcbd372072d1"
+    sha256 cellar: :any,                 arm64_sonoma:   "8439a0c2a45aaa1c899a5c0daadbacbae71b77147de663e7295f30cc78c2586a"
+    sha256 cellar: :any,                 arm64_ventura:  "6ef0b391bacd8cdd3f9cf96109dd6ae7bc41dd2f995eeb2798101927c7d2c51f"
+    sha256 cellar: :any,                 arm64_monterey: "18a93186e5c90b33d2052d22c334bfcd262cd1024eef11a615b7b36c5471d860"
+    sha256 cellar: :any,                 sonoma:         "61cf79d3604c52ec4f2495ca812785f7d9685cc65eea3e7c04c1f74855b88ba0"
+    sha256 cellar: :any,                 ventura:        "3e944f8927af1cbe15748a9c104f092a699aae778c67f958fd844d754cc72b34"
+    sha256 cellar: :any,                 monterey:       "0e618b15b6b2a0dc9e6bae2b7009bdfc569a473529b3cd8cda2b15b67146f052"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8785e69d0ae9286667a6163af0b0d5f2d7721353c785a65b57ccc2c50eb4b06"
   end
 
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "python@3.12"
+
+  conflicts_with "open-simh", because: "both install `sigma` binaries"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -68,8 +70,8 @@ class SigmaCli < Formula
   end
 
   resource "pysigma" do
-    url "https://files.pythonhosted.org/packages/8e/67/c02ba2ea1a93c9b614a7f694d62421dd8416da33b9ce8db9c39a55592885/pysigma-0.11.5.tar.gz"
-    sha256 "de27ef86db1b9341a8b540ca4691f489a9f5d63bc2de40bb3257221404d4f2d1"
+    url "https://files.pythonhosted.org/packages/47/32/19ab0e65b24f2e65f7409485065697abf93e5e8e9807a52e7eff81054470/pysigma-0.11.8.tar.gz"
+    sha256 "08ae6d134567960c39a1907c9111504a1a4cdbabe71555c1f62f7d67a6228298"
   end
 
   resource "pysigma-backend-sqlite" do
@@ -83,13 +85,13 @@ class SigmaCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "wcwidth" do

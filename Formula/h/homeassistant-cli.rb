@@ -6,17 +6,17 @@ class HomeassistantCli < Formula
   url "https://files.pythonhosted.org/packages/b2/98/fd5e7beb7cc135f80d78b32c85ac15f3ba9219063b794b1d184fb07fd84b/homeassistant-cli-0.9.6.tar.gz"
   sha256 "9b9b705eaf6ee40dc6a732f3458c78ba37b62b7330bc17b132e6fee385ec8606"
   license "Apache-2.0"
-  revision 8
+  revision 10
   head "https://github.com/home-assistant-ecosystem/home-assistant-cli.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e88f8d6a7e267d1d5e509c2373a3e1f84874301003b218f56a4d8894f5ed86cf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d7fbccf5353262ea0dc0f0e4d1b07800e5d8f5b2b6ca1e44a2de99d1375c40b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6278fa8eb0773a1bed7f8f159bc454acca8bd48ce13dfac455f77b1c72d83e02"
-    sha256 cellar: :any_skip_relocation, sonoma:         "653d115ff07297580536b256fce96b106bfd974a190a63923cabefdd765b3d7d"
-    sha256 cellar: :any_skip_relocation, ventura:        "9d26de05974dc5e2e70b182d687a2484c2bbd295249ccf0819762a69f429602f"
-    sha256 cellar: :any_skip_relocation, monterey:       "261c9d83240b63f0dd8b9f86f74f00976ec6668cfab204e00153a929bada5a8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d32a842456a1bb0a95a4f86ec4a9c019705b517f2912b6f89ae6af12908b61f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fac544b4cf348e537b4964eda92f42faea52e5f3a996c9a41fdf919fd1ae6fe9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e865749308f472c8242e09d2ab727feecfa6d46021e455a5811e260608bf8e22"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "91c820c33c4db70f167ec16381b9225ca0f75bee8430900c6504f2f3ba0b53a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "23f90431e63a1568b689724a65a998d7e0f78efa113b09357131e13da56779fe"
+    sha256 cellar: :any_skip_relocation, ventura:        "eb9c1d1b0f077520059bc34bc0bdc89d4d5ab8e4f79b5c82be878b06d9ac34dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "ddd44388260ca3fc6c9dc8b443063b1d670d267630c30111f4bb8bf43bf3d423"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34ec5ce0731f98386434496f12fe227f53d0eb2b51af2ea4cd006fb75851181e"
   end
 
   depends_on "python@3.12"
@@ -37,8 +37,8 @@ class HomeassistantCli < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/71/da/e94e26401b62acd6d91df2b52954aceb7f561743aa5ccc32152886c76c96/certifi-2024.2.2.tar.gz"
-    sha256 "0569859f95fc761b18b45ef421b1290a0f65f147e92a1e5eb3e635f9a5e4e66f"
+    url "https://files.pythonhosted.org/packages/07/b3/e02f4f397c81077ffc52a538e0aec464016f1860c472ed33bd2a1d220cc5/certifi-2024.6.2.tar.gz"
+    sha256 "3cd43f1c6fa7dedc5899d69d3ad0398fd018ad1a17fba83ddaf78aa46c747516"
   end
 
   resource "charset-normalizer" do
@@ -117,13 +117,13 @@ class HomeassistantCli < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/c0/d6/87709afa2a195ea902810dfaa796d21dd45d91b496dc98828073acbfe5af/regex-2024.4.28.tar.gz"
-    sha256 "83ab366777ea45d58f72593adf35d36ca911ea8bd838483c1823b883a121b0e4"
+    url "https://files.pythonhosted.org/packages/7a/db/5ddc89851e9cc003929c3b08b9b88b429459bf9acbf307b4556d51d9e49b/regex-2024.5.15.tar.gz"
+    sha256 "d3ee02d9e5f482cc8309134a91eeaacbdd2261ba111b0fef3748eeb4913e6a2c"
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "ruamel-yaml" do
@@ -152,8 +152,8 @@ class HomeassistantCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   resource "yarl" do

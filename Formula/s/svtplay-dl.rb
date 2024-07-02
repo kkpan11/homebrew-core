@@ -3,18 +3,18 @@ class SvtplayDl < Formula
 
   desc "Download videos from https://www.svtplay.se/"
   homepage "https://svtplay-dl.se/"
-  url "https://files.pythonhosted.org/packages/8d/51/3f79faba154f687d1af9c6804b3b836815722cba37df88b0f42c3fcb4282/svtplay-dl-4.71.tar.gz"
-  sha256 "44bad803675eef8f6d258f6e8510219ba99ba98967d3f7e23ed48bf081606963"
+  url "https://files.pythonhosted.org/packages/52/cc/c56624254fd8321d97094f56284c3ab0de5c2758155c50a0b2552bac33eb/svtplay_dl-4.89.tar.gz"
+  sha256 "28c5d7d4c8281d653dfb174b4c4780e4fe7ba120bcb8ce59ef698cafa15e4b5e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c56f1df76a1bd9ea619b8f6611da92cd5c21eba74fa40dec0a57acfe96f8e941"
-    sha256 cellar: :any,                 arm64_ventura:  "708713b6f1928c20a2bad87ca6d202a40d9c838b6bad4292ad285fdee60dde3a"
-    sha256 cellar: :any,                 arm64_monterey: "30f6ea2a660c515e0b16332d50cd34a5ff1f1da6a9bfcd54b99ff89963568139"
-    sha256 cellar: :any,                 sonoma:         "7193c9c786ba5831286a1a4306fb98953db898e81590d2bf906d0eb19409126b"
-    sha256 cellar: :any,                 ventura:        "a186382547c82a9b00f55df39d10d1797a2ca18e7d83a4ad9a8c9854d1f9233a"
-    sha256 cellar: :any,                 monterey:       "83da6faaa33bcec55520be610f59de855dec0e968952f86606b876bdb654af55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9164c46b928d404bf43e157898c3e326b096710c5d9ce5dec9d34ac0c328fa08"
+    sha256 cellar: :any,                 arm64_sonoma:   "62b8b1f23c5740be262b2fda0988c0ff8e1ba63dbeca2707f18f69dbd6b9fbf3"
+    sha256 cellar: :any,                 arm64_ventura:  "38ba44e8e71e2f104ca459228e41eba48eff14dd0da89ba1ba5fbb9f087d8240"
+    sha256 cellar: :any,                 arm64_monterey: "01c05bba57b0c4a1a2114902862b6055df28a8cb3c911c1926138ff9ba568944"
+    sha256 cellar: :any,                 sonoma:         "363f3c2f17b3cc5d1b1dcb06cf5d7923849f1d7337d9a260c79a1b95b0a4b8ad"
+    sha256 cellar: :any,                 ventura:        "4a6c0c8b90e8f24136255eaa7c7d089866efe9d54a292f8356676c8da7cf51b3"
+    sha256 cellar: :any,                 monterey:       "b04f4ccbb790169b8c39b57ddaf13f0e56f527b22e5550ae65d2f9a5dfc99aa1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb8638c46764917d27ed16898227a4fc3290787f49fe63503e78f604bcb47d09"
   end
 
   depends_on "certifi"
@@ -43,13 +43,13 @@ class SvtplayDl < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+    url "https://files.pythonhosted.org/packages/43/6d/fa469ae21497ddc8bc93e5877702dca7cb8f911e337aca7452b5724f1bb6/urllib3-2.2.2.tar.gz"
+    sha256 "dd505485549a7a552833da5e6063639d0d177c04f23bc3864e41e5dc5f612168"
   end
 
   def install

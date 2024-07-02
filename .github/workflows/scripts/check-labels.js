@@ -1,4 +1,6 @@
-module.exports = async ({github, context, core}, formulae_detect) => {
+module.exports = async ({github, context, core}, formulae_detect, dependent_testing) => {
+    const deps_suffix = dependent_testing ? '-deps' : ''
+
     const { data: { labels: labels } } = await github.rest.pulls.get({
       owner: context.repo.owner,
       repo: context.repo.repo,
@@ -23,18 +25,18 @@ module.exports = async ({github, context, core}, formulae_detect) => {
     }
 
     var linux_runner = 'ubuntu-22.04'
-    if (label_names.includes('CI-linux-self-hosted')) {
+    if (label_names.includes(`CI-linux-self-hosted${deps_suffix}`)) {
       linux_runner = 'linux-self-hosted-1'
-    } else if (label_names.includes('CI-linux-large-runner')) {
+    } else if (label_names.includes(`CI-linux-large-runner${deps_suffix}`)) {
       linux_runner = 'homebrew-large-bottle-build'
     }
     core.setOutput('linux-runner', linux_runner)
 
-    if (label_names.includes('CI-no-fail-fast')) {
-      console.log('CI-no-fail-fast label found. Continuing tests despite failing matrix builds.')
+    if (label_names.includes(`CI-no-fail-fast${deps_suffix}`)) {
+      console.log(`CI-no-fail-fast${deps_suffix} label found. Continuing tests despite failing matrix builds.`)
       core.setOutput('fail-fast', false)
     } else {
-      console.log('No CI-no-fail-fast label found. Stopping tests on first failing matrix build.')
+      console.log(`No CI-no-fail-fast${deps_suffix} label found. Stopping tests on first failing matrix build.`)
       core.setOutput('fail-fast', true)
     }
 
@@ -49,12 +51,22 @@ module.exports = async ({github, context, core}, formulae_detect) => {
       core.setOutput('test-dependents', true)
     }
 
-    if (label_names.includes('long build')) {
-      console.log('"long build" label found. Setting long GitHub Actions timeout.')
-      core.setOutput('timeout-minutes', 4320)
+    if (dependent_testing) {
+      if (label_names.includes('long dependent tests')) {
+        console.log('"long dependent tests" label found. Setting long GitHub Actions timeout.')
+        core.setOutput('long-timeout', true)
+      } else {
+        console.log('No "long dependent tests" label found. Setting short GitHub Actions timeout.')
+        core.setOutput('long-timeout', false)
+      }
     } else {
-      console.log('No "long build" label found. Setting short GitHub Actions timeout.')
-      core.setOutput('timeout-minutes', 120)
+      if (label_names.includes('long build')) {
+        console.log('"long build" label found. Setting long GitHub Actions timeout.')
+        core.setOutput('long-timeout', true)
+      } else {
+        console.log('No "long build" label found. Setting short GitHub Actions timeout.')
+        core.setOutput('long-timeout', false)
+      }
     }
 
     const test_bot_formulae_args = ["--only-formulae", "--junit", "--only-json-tab", "--skip-dependents"]
@@ -65,12 +77,12 @@ module.exports = async ({github, context, core}, formulae_detect) => {
     const test_bot_dependents_args = ["--only-formulae-dependents", "--junit"]
     test_bot_dependents_args.push(`--testing-formulae="${formulae_detect.testing_formulae}"`)
 
-    if (label_names.includes('CI-test-bot-fail-fast')) {
-      console.log('CI-test-bot-fail-fast label found. Passing --fail-fast to brew test-bot.')
+    if (label_names.includes(`CI-test-bot-fail-fast${deps_suffix}`)) {
+      console.log(`CI-test-bot-fail-fast${deps_suffix} label found. Passing --fail-fast to brew test-bot.`)
       test_bot_formulae_args.push('--fail-fast')
       test_bot_dependents_args.push('--fail-fast')
     } else {
-      console.log('No CI-test-bot-fail-fast label found. Not passing --fail-fast to brew test-bot.')
+      console.log(`No CI-test-bot-fail-fast${deps_suffix} label found. Not passing --fail-fast to brew test-bot.`)
     }
 
     if (label_names.includes('CI-build-dependents-from-source')) {
@@ -123,7 +135,7 @@ module.exports = async ({github, context, core}, formulae_detect) => {
     }
 
     if (label_names.includes('CI-skip-new-formulae-strict')) {
-      console.log('CI-skip-new-formulae-strict label found. Passing --skip-new-strictw to brew test-bot.')
+      console.log('CI-skip-new-formulae-strict label found. Passing --skip-new-strict to brew test-bot.')
       test_bot_formulae_args.push('--skip-new-strict')
     } else {
       console.log('No CI-skip-new-formulae-strict label found. Not passing --skip-new-strict to brew test-bot.')

@@ -3,25 +3,25 @@ class Autopep8 < Formula
 
   desc "Automatically formats Python code to conform to the PEP 8 style guide"
   homepage "https://github.com/hhatto/autopep8"
-  url "https://files.pythonhosted.org/packages/4a/65/d187da76e65c358654a1bcdc4cbeb85767433e1e3eb67c473482301f2416/autopep8-2.1.0.tar.gz"
-  sha256 "1fa8964e4618929488f4ec36795c7ff12924a68b8bf01366c094fc52f770b6e7"
+  url "https://files.pythonhosted.org/packages/6c/52/65556a5f917a4b273fd1b705f98687a6bd721dbc45966f0f6687e90a18b0/autopep8-2.3.1.tar.gz"
+  sha256 "8d6c87eba648fdcfc83e29b788910b8643171c395d9c4bcf115ece035b9c9dda"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "415d815c9b4e5ee07c93dd0cf243ba53d4a000fad65666282860584ccc6c91b6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "415d815c9b4e5ee07c93dd0cf243ba53d4a000fad65666282860584ccc6c91b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "415d815c9b4e5ee07c93dd0cf243ba53d4a000fad65666282860584ccc6c91b6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "415d815c9b4e5ee07c93dd0cf243ba53d4a000fad65666282860584ccc6c91b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "415d815c9b4e5ee07c93dd0cf243ba53d4a000fad65666282860584ccc6c91b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "415d815c9b4e5ee07c93dd0cf243ba53d4a000fad65666282860584ccc6c91b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42c6fabcffce03e577b1ba5417255ab1a80206828aea8bc1286a82b5bbe66e69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa5eefdba927b17be6fa5cfe0b544728dd0c231ec2def405a753902228b568fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa5eefdba927b17be6fa5cfe0b544728dd0c231ec2def405a753902228b568fc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa5eefdba927b17be6fa5cfe0b544728dd0c231ec2def405a753902228b568fc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aa5eefdba927b17be6fa5cfe0b544728dd0c231ec2def405a753902228b568fc"
+    sha256 cellar: :any_skip_relocation, ventura:        "aa5eefdba927b17be6fa5cfe0b544728dd0c231ec2def405a753902228b568fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa5eefdba927b17be6fa5cfe0b544728dd0c231ec2def405a753902228b568fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56cca739cf4278dbd934677b89f0d719983c50458681ee95f2339c22e0a5ce70"
   end
 
   depends_on "python@3.12"
 
   resource "pycodestyle" do
-    url "https://files.pythonhosted.org/packages/34/8f/fa09ae2acc737b9507b5734a9aec9a2b35fa73409982f57db1b42f8c3c65/pycodestyle-2.11.1.tar.gz"
-    sha256 "41ba0e7afc9752dfb53ced5489e89f8186be00e599e712660695b7a75ff2663f"
+    url "https://files.pythonhosted.org/packages/10/56/52d8283e1a1c85695291040192776931782831e21117c84311cbdd63f70c/pycodestyle-2.12.0.tar.gz"
+    sha256 "442f950141b4f43df752dd303511ffded3a04c2b6fb7f65980574f0c31e6e79c"
   end
 
   def install

@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v20.4.0",
-      revision: "7fc7671b8bc1ccc3b1f16a6ab83bc9f671db8b70"
+      tag:      "v21.1.0",
+      revision: "b3aeb14cc798f6d11deb2be913041be916f3b0cc"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -16,12 +16,12 @@ class StellarCore < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ec45f17fec3bb568029925c38d3145a664c42c37b0ba038334efa1fe2e27bfd5"
-    sha256 cellar: :any,                 arm64_ventura:  "4fb059fab7c88052472b1b0cbfb628b1c8b57200adb3c91e7d631d454ff75f95"
-    sha256 cellar: :any,                 arm64_monterey: "7ce21b48566f96764c36dc962188b86aa80878173ab7ede218a0026d54295ccf"
-    sha256 cellar: :any,                 ventura:        "bfbbf0872d9db07197fe17b2f4a4e2c0e72b170610da55243f3a9142871f76ea"
-    sha256 cellar: :any,                 monterey:       "3976e9131b2158d01e54efe8fd919f841cb65272d6ca9dfdc59ea54eb103fd62"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d08530260e8801b9e0d82f90d5bb0a5bf82aba51f163d29addd9bca858faf27"
+    sha256 cellar: :any,                 arm64_sonoma:   "a7ecf624d58c5397e328b7de784b542aba50af1bd2842cbca18861c04040bf80"
+    sha256 cellar: :any,                 arm64_ventura:  "5a5231e045ebd9714646d13c73e92247c2a401879559a02efb9c93716f52c8b0"
+    sha256 cellar: :any,                 arm64_monterey: "ec66a2049f7f1c695f0e1fa082a477c5ede7e55d7fd620877e97bdeeec33aaad"
+    sha256 cellar: :any,                 ventura:        "d0f1aac8c0831d284a51487c70e0ed17c1266d94dcba761c3091313f9cc42c67"
+    sha256 cellar: :any,                 monterey:       "d264099b21e38a38f133e386080b1005d404e8eaef99007b01904736e33a9e38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4eceec6dc5ad70604e14d636706a730375fde77a02abca75fd53bee8deb012e"
   end
 
   depends_on "autoconf" => :build

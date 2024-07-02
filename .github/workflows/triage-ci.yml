@@ -51,8 +51,6 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ steps.pr.outputs.number }}
-          PIP_AUDIT_MESSAGE: >
-            Ping @woodruffw @alex
           NEW_CONTRIBUTOR_MESSAGE: >
             Thanks for contributing to Homebrew! :tada: It looks like you're having trouble
             with a CI failure. See our [contribution guide](${{ github.event.repository.html_url }}/blob/HEAD/CONTRIBUTING.md)
@@ -92,10 +90,6 @@ jobs:
               )
             fi <<< "$response"
           }
-
-          post_comment_if_not_posted \
-            '.body | contains("brew-pip-audit")' \
-            "$PIP_AUDIT_MESSAGE"
 
           post_comment_if_not_posted \
             '.author_association == "FIRST_TIME_CONTRIBUTOR" or .author_association == "NONE"' \

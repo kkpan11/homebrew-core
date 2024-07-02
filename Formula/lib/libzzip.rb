@@ -1,18 +1,18 @@
 class Libzzip < Formula
   desc "Library providing read access on ZIP-archives"
   homepage "https://github.com/gdraheim/zziplib"
-  url "https://github.com/gdraheim/zziplib/archive/refs/tags/v0.13.74.tar.gz"
-  sha256 "319093aa98d39453f3ea2486a86d8a2fab2d5632f6633a2665318723a908eecf"
+  url "https://github.com/gdraheim/zziplib/archive/refs/tags/v0.13.77.tar.gz"
+  sha256 "50e166e6a879c2bd723e60e482a91ec793a7362fa2d9c5fe556fb0e025810477"
   license any_of: ["LGPL-2.0-or-later", "MPL-1.1"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "aca4eab72c715ab7d983c686a1a97da2f304fbf839320bd9633387a08c4181af"
-    sha256 cellar: :any,                 arm64_ventura:  "06c305eb6482de3e0230a402daaefdf05bc226648542657023ac67e5aad32fc2"
-    sha256 cellar: :any,                 arm64_monterey: "787bceef891ae29d120d2ea694a74e651fce950efd4d57c69e50aee04973e1fb"
-    sha256 cellar: :any,                 sonoma:         "b330e7536ae28e15f91b3555d7f8cbbcebe844fed4626c8681b65759778a28fc"
-    sha256 cellar: :any,                 ventura:        "51afecd606b2e052e77959fff735027a9287c9c1a507a8b45fb5cae8e1e4d892"
-    sha256 cellar: :any,                 monterey:       "defa6e5009fc00307cbcfc3e08b200aed53075267d871947873e8dbfb4d1b369"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e99b10c38cc9dde767e9340519cf325a810254591b36541496a645a0e7968a7"
+    sha256 cellar: :any,                 arm64_sonoma:   "7e15ef1c410977d744afa77ab826ddd6de188c16ded3ff91712b3cf84606f4dd"
+    sha256 cellar: :any,                 arm64_ventura:  "7333db2f19438375bdf8b944b536073837656092ff6327beb123baa4e4590644"
+    sha256 cellar: :any,                 arm64_monterey: "ca0251aef25c7acbc42c311b5cb5f5f7ae6640f757766051de82c70536e2dd35"
+    sha256 cellar: :any,                 sonoma:         "06dc5fb4ef2e7dd925921a2fff0a1ac9dfc733d8c073b7d25e94deca5853f38a"
+    sha256 cellar: :any,                 ventura:        "d4b57372da09eea95f1a5d2fa86d261ebfdcbe2c7d29686a309b44e5141ec3af"
+    sha256 cellar: :any,                 monterey:       "f55c8a81717f1b9676b56990eda4fcefed7d6706d562332acbdcbe54464869a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df661b10d55b6b58a5e8e28a237665549cdf964cb08fe7925ffc29789e7141c9"
   end
 
   depends_on "cmake" => :build

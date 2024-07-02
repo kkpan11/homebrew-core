@@ -1,8 +1,8 @@
 class FlowCli < Formula
   desc "Command-line interface that provides utilities for building Flow applications"
   homepage "https://onflow.org"
-  url "https://github.com/onflow/flow-cli/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "2e12067bd4a4a5034b26c0860c96d17790e6c089aac869705edfa610fd65a7b6"
+  url "https://github.com/onflow/flow-cli/archive/refs/tags/v1.20.5.tar.gz"
+  sha256 "654c29527bfefcbaf9ffb11d39629383a54abf2a6efe9b34d84889644b5dc975"
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git", branch: "master"
 
@@ -12,16 +12,18 @@ class FlowCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54328c43f3d453e97b582952b280fb0c8e20de144984c0a5eb8134db2f80b4aa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78c20a4b75795b44833dd1413e2a61ee5a850686b3f3994e208b09b6b7fdc655"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "05406c2886a712cd515804468e7fa62d400bc7e8758cf295936f2603374ef7e4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e09688f938040ce6d7e612449eead6a062528266af25479577869e003f22fafa"
-    sha256 cellar: :any_skip_relocation, ventura:        "65464161c28e891410e3d9efb144decebfc0d9084ae41f3b3d83bfeb4e325c4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "987f11235e2199d5aa02103fddba12196dd282f67a5d87b600180f71da5e87dd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4f69a02683e42bc8dc3aea18282c1decc571e29cfa215ed0af788607f36fbe4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5fb55ca02eca7019f0ac0f856d714323a1beac0bb3ae08b3923224804760e7b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80c9bedad29fa9f4c4de27f80312a756941d9226593e7cf12e18f32af0f8afd5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "39e341d9d44472f60a8495308b8407eeb6b023766cabb75371ab11942f3e5dbf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aa5370622028455e24ada74ee8670d391bee21f056d0b24455db4ffb6d76b706"
+    sha256 cellar: :any_skip_relocation, ventura:        "effe05a6c64b8d8aab2f81c043b0711632df0481ebb37ed2089a8c8df2a257e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "ebfcbe1a1f94b0efeebec2c6f81fab469ea71978d0f456db9cde8f103768c6c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3eeef7dd7c70439463b5cb5f767c52676b502a8d82cd3e4bca019815ed92f9d5"
   end
 
   depends_on "go" => :build
+
+  conflicts_with "flow", because: "both install `flow` binaries"
 
   def install
     system "make", "cmd/flow/flow", "VERSION=v#{version}"

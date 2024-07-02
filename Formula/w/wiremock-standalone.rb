@@ -1,8 +1,8 @@
 class WiremockStandalone < Formula
   desc "Simulator for HTTP-based APIs"
   homepage "https://wiremock.org/docs/running-standalone/"
-  url "https://search.maven.org/remotecontent?filepath=org/wiremock/wiremock-standalone/3.5.4/wiremock-standalone-3.5.4.jar"
-  sha256 "0658e4894b393ce3d8d9ef9b981f04eb3f81589304e8434ff4d0dcd17479565d"
+  url "https://search.maven.org/remotecontent?filepath=org/wiremock/wiremock-standalone/3.8.0/wiremock-standalone-3.8.0.jar"
+  sha256 "704b1adb183c6436f9fcb40ee468fe2c2b95d7c0fe2db10aee7ac64fe726d79f"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,13 @@ class WiremockStandalone < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "bdb1c5258c45681b89d44bbac9c3a949f38afdeef2295fae617d274f804a138e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0002c833486f0cada5db095a4496405c25432c2a06e7516bd3d79755d7db6fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0002c833486f0cada5db095a4496405c25432c2a06e7516bd3d79755d7db6fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0002c833486f0cada5db095a4496405c25432c2a06e7516bd3d79755d7db6fa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a0002c833486f0cada5db095a4496405c25432c2a06e7516bd3d79755d7db6fa"
+    sha256 cellar: :any_skip_relocation, ventura:        "a0002c833486f0cada5db095a4496405c25432c2a06e7516bd3d79755d7db6fa"
+    sha256 cellar: :any_skip_relocation, monterey:       "a0002c833486f0cada5db095a4496405c25432c2a06e7516bd3d79755d7db6fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0f377a6fcb578a5bdf29de7df224a143d5821cca20b74c6ac107efe29d40583"
   end
 
   depends_on "openjdk"

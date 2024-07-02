@@ -3,12 +3,18 @@ require "language/node"
 class Czg < Formula
   desc "Interactive Commitizen CLI that generate standardized commit messages"
   homepage "https://github.com/Zhengqbbb/cz-git"
-  url "https://registry.npmjs.org/czg/-/czg-1.9.1.tgz"
-  sha256 "b84e02dd3639ad5d5c16b283e1a489bcb5a33bd3359ceb1d6db2ed2eb00a18da"
+  url "https://registry.npmjs.org/czg/-/czg-1.9.3.tgz"
+  sha256 "c324e29a7ff02a0857987ad7f1f8601588cdf81ff792715f2e133eb653768f80"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "49ce4bfcecd606fc4433d4d6610b4e3159115bc3af65658e07f7c13f661339ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd7fb5e43ef603f5cef716e5ac20a1501a8bec34f1e8b0fb847b29ba73f53b59"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd7fb5e43ef603f5cef716e5ac20a1501a8bec34f1e8b0fb847b29ba73f53b59"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd7fb5e43ef603f5cef716e5ac20a1501a8bec34f1e8b0fb847b29ba73f53b59"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bd7fb5e43ef603f5cef716e5ac20a1501a8bec34f1e8b0fb847b29ba73f53b59"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd7fb5e43ef603f5cef716e5ac20a1501a8bec34f1e8b0fb847b29ba73f53b59"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd7fb5e43ef603f5cef716e5ac20a1501a8bec34f1e8b0fb847b29ba73f53b59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90e8aff93d4b3c16511f24a7846851dd694edf1ca21da0a55c1df9a4f4784264"
   end
 
   depends_on "node"

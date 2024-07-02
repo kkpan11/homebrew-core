@@ -1,25 +1,26 @@
 class Weechat < Formula
   desc "Extensible IRC client"
   homepage "https://www.weechat.org"
-  url "https://weechat.org/files/src/weechat-4.2.2.tar.xz"
-  sha256 "20968b22c7f0f50df9cf6ff8598dd1bd017c5759b2c94593f5d9ed7b24ebb941"
+  url "https://weechat.org/files/src/weechat-4.3.3.tar.xz"
+  sha256 "5587db6cea33895bda101c46a6d09e9fc08e0fca76ff8ac3b144dab32b105ed8"
   license "GPL-3.0-or-later"
   head "https://github.com/weechat/weechat.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "6a25e4faa83a58793ae52b2642634a9817cbadb07efab24c2fba3ae783a92f2a"
-    sha256 arm64_ventura:  "045fa311a13d43c47c4dcf7b08f77b4a0fc77bb4357bfb6a0845cfa688af7748"
-    sha256 arm64_monterey: "caef2e9324e76d6fbe1f30c60f1ec2df329c9e2173f4bfb773ec404aaea9539a"
-    sha256 sonoma:         "87db1528bec965f7bc9dc3917f4c439016ed43ed19f7fbe6cd3e96f5b7933a8e"
-    sha256 ventura:        "05266964237d2ee14c5f7e3d7931d93a2de97cd4414833b8ebd6772ed70a348c"
-    sha256 monterey:       "1ed41d2b0e425e5251c10644871360a4a67ebeafc2ca6928d0eea3fbbe5e34ba"
-    sha256 x86_64_linux:   "d886000cc69eed0bf0e3d363b328d64b2f056b9b392f344a108021a9dbe8e4ef"
+    sha256 arm64_sonoma:   "b47ba00856c83b2d740376c8fdd83692b8c0cafe9d45f576de7bbd31c4b1241a"
+    sha256 arm64_ventura:  "ddaa757e1e5f96ce83041ff81b995f058a0c8ab1f092c4a2cfba38a3e1e05df1"
+    sha256 arm64_monterey: "5e6c33212264419b34cf0c32999d7f3bcca7f4d7e275e9c0b78e6a8df94107c8"
+    sha256 sonoma:         "8c4d244fc82cb6ec1d5df7119c2f577fd074164dd9890103875ae8085e48fce9"
+    sha256 ventura:        "67153ba9a0d367e067d93644968d5d189e55a70ab890c997137441ce8bbd1785"
+    sha256 monterey:       "92fa472d2b676d2f040df8b7a42269fbb3f7c5ad2ade786bf398a6e50653b17a"
+    sha256 x86_64_linux:   "d0c2294b898f9e6269ef64c5d9c5ad640a296a48a456f617c559fb13568cc1ec"
   end
 
   depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "aspell"
+  depends_on "cjson"
   depends_on "gettext"
   depends_on "gnutls"
   depends_on "libgcrypt"
@@ -32,6 +33,11 @@ class Weechat < Formula
 
   uses_from_macos "curl"
   uses_from_macos "tcl-tk"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "libgpg-error"
+  end
 
   def python3
     which("python3.12")

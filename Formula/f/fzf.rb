@@ -1,19 +1,19 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/refs/tags/0.52.1.tar.gz"
-  sha256 "96848746ca78249c1fdd16f170776ce2f667097b60e4ffbd5ecdbd7dfac72ef9"
+  url "https://github.com/junegunn/fzf/archive/refs/tags/0.53.0.tar.gz"
+  sha256 "d45abbfb64f21913c633d46818d9d3eb3d7ebc7e94bd16f45941958aa5480e1d"
   license "MIT"
   head "https://github.com/junegunn/fzf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08672bc5edc69f7f2c1baf3179377218e49657beacccf5d59b0c8e338c98dd91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc791f731be60048f32e699009c290177d8eb9c01d132e6cc1f17480b8b744b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a65df316e698b60892a104fbc14cb05e8b7609197d7900cced22a37f70ad06e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4a9b7fa9a68a1d02d4c4c8c4b31d3d1d943238de445edb6d66e3fa73543222c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "31e8d7a022ff35d822cbc188b4a8802ffa74c347916d714ad6515e3e11c4fd72"
-    sha256 cellar: :any_skip_relocation, monterey:       "21b1748b50c54fc6b39a12e31d598f5825a35bd6ba1fe36a9865c087f3d226c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c94930e3f13691644c61f50681c3963b1660514d3ca7c16398bf08a167391b5e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f07ea86e64106fa20d553c2bc55ab51688eb3f420e87467d9ddfd0153906010e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed27a36aea432ac828bcc320cf204c8ccdf687b3f69cebcd8e49bc6ce15cc09c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f2431f067b24ef79fbffad7b72fc5164be879387df13661e2ffc2beba86c80a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4c705f6d1677e9c33a1872731ff8e4a6fae34839cfda17ca0a4cb24a9f0b7103"
+    sha256 cellar: :any_skip_relocation, ventura:        "5945e8a8323ef30dd6b047d57d7112530bff88d0fb48236cb958423e8c6be1d7"
+    sha256 cellar: :any_skip_relocation, monterey:       "18f1c856a22b005b0be450d277d16daf09d369744876fd4f0691f452b080c507"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81729c33eeb1f5092ec333ca4787bfeb90fa54cc4ec3650dbc4af0eefad530fa"
   end
 
   depends_on "go" => :build
@@ -42,7 +42,7 @@ class Fzf < Formula
         eval "$(fzf --bash)"
 
         # zsh
-        eval "$(fzf --zsh)"
+        source <(fzf --zsh)
 
         # fish
         fzf --fish | source

@@ -1,11 +1,8 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.org/"
-  url "https://c-ares.org/download/c-ares-1.28.1.tar.gz"
-  mirror "https://github.com/c-ares/c-ares/releases/download/cares-1_17_2/c-ares-1.28.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/dns/c-ares-1.28.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/dns/legacy/c-ares-1.28.1.tar.gz"
-  sha256 "675a69fc54ddbf42e6830bc671eeb6cd89eeca43828eb413243fd2c0a760809d"
+  url "https://github.com/c-ares/c-ares/releases/download/v1.31.0/c-ares-1.31.0.tar.gz"
+  sha256 "0167a33dba96ca8de29f3f598b1e6cabe531799269fd63d0153aa0e6f5efeabd"
   license "MIT"
   head "https://github.com/c-ares/c-ares.git", branch: "main"
 
@@ -15,13 +12,13 @@ class CAres < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2a9f7c8f62d45593810a0fc926f6eec6e71a027774424240485c7d89bce15270"
-    sha256 cellar: :any,                 arm64_ventura:  "b8d774a6004c8c25a5841967033468e742e4183a5e8e949339af6a767ae6da8b"
-    sha256 cellar: :any,                 arm64_monterey: "7c2c0ef8b218f3f399d05e0e1767484ff66227051b11de2665b9df4e55c85103"
-    sha256 cellar: :any,                 sonoma:         "acf887fff7983e2e9d5eae0c9e1d9e3a8876732f448fe1853c848695ad3e79a2"
-    sha256 cellar: :any,                 ventura:        "78ad4963b8c6fe375b855c852b84b94c543131d5b676a1d8cf18d246a54f69a7"
-    sha256 cellar: :any,                 monterey:       "a24809a5b29f4007977787ff9f5afcac869bdff46a28163537beef72fa4de645"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8f453981c410c937dae06314ad4e88a442a212ef1a3e0b8090a07755788299d"
+    sha256 cellar: :any,                 arm64_sonoma:   "11180fb00208951f6c8b3dec74aa45b3eca218aeb1eaf17d815b5b278e87b375"
+    sha256 cellar: :any,                 arm64_ventura:  "cb9eff64af832838a2602e5ac61a7c88577ff54a6388f29249b0a29098d1ce7a"
+    sha256 cellar: :any,                 arm64_monterey: "ed91ecf0fd5ca9f34bc22eb3e887340dbf9da9d7727aa4f0619e65bfed515a0e"
+    sha256 cellar: :any,                 sonoma:         "b023ac11fc4e1d06dceb10025399b8579d1b9169b9ca9a8380c7da0981b1d99c"
+    sha256 cellar: :any,                 ventura:        "bd75383890a841367ffbbedee20b2e597052dd67f858624ea7ac7d09ac18fb63"
+    sha256 cellar: :any,                 monterey:       "4d46dfc87289364928398ca768505f4f9cb82e5218bd53ba019eacb97c8db614"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e34f7b56d0ebe1796f064c5d026f70be92d2069f12ac60c585b12f822e2b8f2d"
   end
 
   depends_on "cmake" => :build
@@ -53,6 +50,6 @@ class CAres < Formula
     system ENV.cc, "test.c", "-L#{lib}", "-lcares", "-o", "test"
     system "./test"
 
-    system "#{bin}/ahost", "127.0.0.1"
+    system bin/"ahost", "127.0.0.1"
   end
 end

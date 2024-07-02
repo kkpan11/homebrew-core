@@ -1,19 +1,19 @@
 class Okteto < Formula
   desc "Build better apps by developing and testing code directly in Kubernetes"
   homepage "https://okteto.com"
-  url "https://github.com/okteto/okteto/archive/refs/tags/2.27.2.tar.gz"
-  sha256 "9024e7d3a4b0138d9979092266a840026eaabbe8ed282546094f6d590890ac35"
+  url "https://github.com/okteto/okteto/archive/refs/tags/2.28.1.tar.gz"
+  sha256 "9583f59799301e50590a3983bd4bb5cddf69556621c8a2a2e50aabbbb420eb68"
   license "Apache-2.0"
   head "https://github.com/okteto/okteto.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d771fe729ad56da16dd4fd13c53ec79427340afbb927537faa926ca422088118"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "06841db10283d5acccf19f37efed837aca88b7b47463a796fe081c57fa239fb5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b8463b5dc1fc6b097d6722316c404263aabe7f8b19904aab8c57ebd254efd49"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ef59cf03bad62be648fe64ba792e9f539daa6eb066fc44c936afcfa682eb18ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "725c93bfb63cbe5c5bdab7fcd51c130c1c098ac6c4106300a580461db60558bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "a72c895654c488567cf6d54dd742dd9b609374b9c05bf2d4ae868bc090a02f04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02c760308565289327b1c4153d76d6ec42c9228f9b27c560971c85b9f06b4dd5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ccddd082fcb1a8039acc6a670e096fd3c2106785d33c6d8b8b85ae60a7617a0f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "200e42550857eb63fe6f8c57e763cb7e4627c84068fac9129348c2e9095344a4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb6983eb47f7e2211ab9011e7601dc25ca3b3727411fd5761165576375008191"
+    sha256 cellar: :any_skip_relocation, sonoma:         "85cbb1c912a1d2d6692edfc670210cebffdf7f48c384f50f8d536085a0a85d1d"
+    sha256 cellar: :any_skip_relocation, ventura:        "f937f8e0755da662009300869c2e58921c36d6fbf322874e2f7df3670f034e44"
+    sha256 cellar: :any_skip_relocation, monterey:       "b6269c05231a2c119c7485dce9ed55b0473a32168ac7bd7002cf4255e45234b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db09d1393801befa410748cab79dd57790141a4ca33b9ab665e3359dde2e240d"
   end
 
   depends_on "go" => :build

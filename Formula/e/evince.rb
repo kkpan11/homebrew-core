@@ -1,18 +1,18 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://wiki.gnome.org/Apps/Evince"
-  url "https://download.gnome.org/sources/evince/46/evince-46.1.tar.xz"
-  sha256 "94bb525365b060a28c2f6017d22cbf2af5115507254aa42e9bfc000bbc18ab62"
+  url "https://download.gnome.org/sources/evince/46/evince-46.3.tar.xz"
+  sha256 "bc0d1d41b9d7ffc762e99d2abfafacbf745182f0b31d86db5eec8c67f5f3006b"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "ec95a235caf027b39df607166736e84cadf3eace6e20cb8e9fbf6d3dbb0b4bcc"
-    sha256 arm64_ventura:  "c66797edb522fb4c96bbfdb21a41ee8b6c57a9ad47c7216ba8ee997781432466"
-    sha256 arm64_monterey: "60a0c9948dc12632a4b42575c2ff76a11dd8c410981b4a246015954c0a7e71ae"
-    sha256 sonoma:         "709281ada16cd5535d0a5f5b4fcf52dff1aab9e9407a43f73b69b42a2d1d98c2"
-    sha256 ventura:        "c7612bb7d4caec292e23cae3f1582030dec1beb15e2372fecf45a5d5514d5aa1"
-    sha256 monterey:       "f616f09080b5cdf6927c48c772f783b94d3bfd42cdd6a569e9d3326ab73ebce8"
-    sha256 x86_64_linux:   "6f118a4bead166de35558897b55f8ee46fe8596813882bd199e2e1b47eca6956"
+    sha256 arm64_sonoma:   "fd325d001f0a26ede51f1169cd1d69f62189e22ca772ccf5949bf742702ee5eb"
+    sha256 arm64_ventura:  "4d2cf11142d80118155c6316be3d58a992a4d73c0345209e82a049a17fe5634d"
+    sha256 arm64_monterey: "8d230caaaa8ac63110bbdb04ea34656a1296cc3bb6d4873f7ef460e7dcaeec98"
+    sha256 sonoma:         "ba35131ca8404a18efb242555db8937e2c6e6ad6bdc6990717e2c174b177e8d2"
+    sha256 ventura:        "37dd9fab3bcc8986dc1e65b65a458197ff2d1d0f27e6a19a5c3f2271bf87ac72"
+    sha256 monterey:       "ebf12efd418ada6fd8f791e706dc3d8501cf91cca5e621ac54ec59ecc75066ce"
+    sha256 x86_64_linux:   "0fd0af71e2fe9b040ac804c68b6f1129b34d68803fb114a2d272dab2b34842d0"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -23,7 +23,12 @@ class Evince < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
+  depends_on "at-spi2-core"
+  depends_on "cairo"
   depends_on "djvulibre"
+  depends_on "gdk-pixbuf"
+  depends_on "gettext"
+  depends_on "glib"
   depends_on "gspell"
   depends_on "gtk+3"
   depends_on "hicolor-icon-theme"
@@ -32,7 +37,12 @@ class Evince < Formula
   depends_on "libhandy"
   depends_on "libsecret"
   depends_on "libspectre"
+  depends_on "libtiff"
+  depends_on "pango"
   depends_on "poppler"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   def install
     ENV["DESTDIR"] = "/"

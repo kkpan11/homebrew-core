@@ -3,21 +3,21 @@ class Jupyterlab < Formula
 
   desc "Interactive environments for writing and running code"
   homepage "https://jupyter.org/"
-  url "https://files.pythonhosted.org/packages/d0/b3/51d88c27256694761cdc56682393360596169cdb38e542c84e9337e577a0/jupyterlab-4.2.0.tar.gz"
-  sha256 "356e9205a6a2ab689c47c8fe4919dba6c076e376d03f26baadc05748c2435dd5"
+  url "https://files.pythonhosted.org/packages/85/48/48f2d49e8decd02839efd51080f4ae862bebc9e72f873d8d1fcf386405be/jupyterlab-4.2.1.tar.gz"
+  sha256 "a10fb71085a6900820c62d43324005046402ffc8f0fde696103e37238a839507"
   license all_of: [
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f31fab0a9e55c040593143ed97f40128646b6959c9a2e194ac29a2574c61ef2c"
-    sha256 cellar: :any,                 arm64_ventura:  "7d80f2c7917e74b3b88d8e151f3af42930bd8f2c380a4f476750d90d1bca6f2e"
-    sha256 cellar: :any,                 arm64_monterey: "f370a951318f25f9ecec8ae2d54ae4566f89dfc803ce806b1fa4d3da27950106"
-    sha256 cellar: :any,                 sonoma:         "9e1383af37dfa78e45f3a5be55e3b8ead40e8060ae03dce3731b418d46e00a0e"
-    sha256 cellar: :any,                 ventura:        "bd95de2aa213f259e286807081379ffc7178b12361c5c78f8b55105456d08def"
-    sha256 cellar: :any,                 monterey:       "22a4d29bc85c9a21403533da4969958aa6e9bd16e25432315590f414a3aff963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa93b431f2b00c41bf3587260a3ba0a80714b743159714b029c2b5ae0dd3d613"
+    sha256 cellar: :any,                 arm64_sonoma:   "d8bb0be5f5f148998e88961a12827bf36097fefc7a73c15c5f8076ce0052e468"
+    sha256 cellar: :any,                 arm64_ventura:  "687b2c0c93131ad14497ba423cb72501770bfd6c009b2da5627491d1316fe865"
+    sha256 cellar: :any,                 arm64_monterey: "0f68b6e6c62f64761b0f7a632d2f8883ea0915bf5df0aa30ab55b139ee4c504c"
+    sha256 cellar: :any,                 sonoma:         "4a0b77cac64a7215e8517f58d5ebd1f62e9d91625434ee666fdf35082210df4e"
+    sha256 cellar: :any,                 ventura:        "cca0634feea990810fd9e78f6086f3839b0f030342245dad40b7fd961a300999"
+    sha256 cellar: :any,                 monterey:       "aac9255deb71a0b5fca2fad65a8369852a1f2f67aedd18d749cd519bef7b4b32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38a7c7c4fc64dedfff5456bacb3d949b60823c9364e3c3cece127e8c2ea204aa"
   end
 
   depends_on "cmake" => :build # for ipykernel
@@ -215,8 +215,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-client" do
-    url "https://files.pythonhosted.org/packages/cd/5a/f4583ba60733b5a1cb1379acdf7c710fb1fb4d9df936a740f8cadf25d853/jupyter_client-8.6.1.tar.gz"
-    sha256 "e842515e2bab8e19186d89fdfea7abd15e39dd581f94e399f00e2af5a1652d3f"
+    url "https://files.pythonhosted.org/packages/ff/61/3cd51dea7878691919adc34ff6ad180f13bfe25fb8c7662a9ee6dc64e643/jupyter_client-8.6.2.tar.gz"
+    sha256 "2bda14d55ee5ba58552a8c53ae43d215ad9868853489213f37da060ced54d8df"
   end
 
   resource "jupyter-console" do
@@ -255,8 +255,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyterlab-server" do
-    url "https://files.pythonhosted.org/packages/2f/85/18ac6b587945f7d238d472ddf61760ab6f8119e41a4457d8a79dfcd92c18/jupyterlab_server-2.27.1.tar.gz"
-    sha256 "097b5ac709b676c7284ac9c5e373f11930a561f52cd5a86e4fc7e5a9c8a8631d"
+    url "https://files.pythonhosted.org/packages/84/9a/482357f942f256fa19be8807dd659dca1bbfae00989cc3a4daf44007f67f/jupyterlab_server-2.27.2.tar.gz"
+    sha256 "15cbb349dc45e954e09bacf81b9f9bcb10815ff660fb2034ecd7417db3a7ea27"
   end
 
   resource "markupsafe" do
@@ -405,8 +405,8 @@ class Jupyterlab < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
+    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
   end
 
   resource "rfc3339-validator" do
@@ -470,8 +470,8 @@ class Jupyterlab < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/b9/8d/7899dd731149418618522eb6846acae3f0edf0823d7ae54bb732d4140c95/trove_classifiers-2024.5.17.tar.gz"
-    sha256 "d47a6f1c48803091c3fc81f535fecfeef65b558f2b9e4e83df7a79d17bce8bbf"
+    url "https://files.pythonhosted.org/packages/98/01/e2bc94b71ebaa2c8092cd392caaf5ad42d55c5aaa21a575ab7684e080851/trove_classifiers-2024.5.22.tar.gz"
+    sha256 "8a6242bbb5c9ae88d34cf665e816b287d2212973c8777dfaef5ec18d72ac1d03"
   end
 
   resource "types-python-dateutil" do

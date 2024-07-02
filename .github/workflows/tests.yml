@@ -99,7 +99,7 @@ jobs:
       linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
       test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
-      timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
+      long-timeout: ${{ steps.check-labels.outputs.long-timeout }}
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
@@ -126,7 +126,7 @@ jobs:
             }
 
             try {
-              await script({github, context, core}, formulae_detect)
+              await script({github, context, core}, formulae_detect, false)
             } catch (error) {
               console.error(error);
             }
@@ -144,7 +144,7 @@ jobs:
       runners_present: ${{steps.determine-runners.outputs.runners_present}}
     env:
       HOMEBREW_LINUX_RUNNER: ${{needs.setup_tests.outputs.linux-runner}}
-      HOMEBREW_MACOS_TIMEOUT: ${{needs.setup_tests.outputs.timeout-minutes}}
+      HOMEBREW_MACOS_LONG_TIMEOUT: ${{needs.setup_tests.outputs.long-timeout}}
       TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
       DELETED_FORMULAE: ${{needs.formulae_detect.outputs.deleted_formulae}}
     steps:
@@ -202,57 +202,6 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
 
-  conclusion:
-    needs: [tests, setup_tests, setup_runners]
-    if: always() && github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check `tests` result
-        run: |
-          result='${{ needs.tests.result }}'
-          # Silence lint error about backtick usage inside single quotes.
-          # shellcheck disable=SC2016
-          printf '::notice ::`tests` job status: %s\n' "$result"
-
-          # Possible values are `success`, `failure`, `cancelled` or `skipped`.
-          # https://docs.github.com/en/actions/learn-github-actions/contexts#needs-context
-          if [[ "$result" = "failure" ]] || [[ "$result" = "cancelled" ]]
-          then
-            # Silence lint error about backtick usage inside single quotes.
-            # shellcheck disable=SC2016
-            printf '::error ::`tests` job %s.\n' "$result"
-            exit 1
-          fi
-
-          runners_present='${{ needs.setup_runners.outputs.runners_present }}'
-          syntax_only='${{ needs.setup_tests.outputs.syntax-only }}'
-
-          # The tests job can be skipped only if the PR is syntax-only
-          # or no runners were assigned.
-          if [[ "$result" = "skipped" ]] &&
-             [[ "$runners_present" = "false" || "$syntax_only" = "true" ]]
-          then
-            exit 0
-          fi
-
-          # The test job can succeed only if the PR is not syntax-only
-          # and runners were assigned. Otherwise it must have been skipped.
-          if [[ "$result" = "success" ]] &&
-             [[ "$runners_present" = "true" ]] &&
-             [[ "$syntax_only" = "false" ]]
-          then
-            exit 0
-          fi
-
-          # If we made it here, something went wrong with our workflow run that needs investigating.
-          printf '::error ::Unexpected outcome!\n'
-          # Silence lint error about backtick usage inside single quotes.
-          # shellcheck disable=SC2016
-          printf '::error ::`tests` job result: %s\n' "$result" # success/skipped
-          printf '::error ::runners assigned:   %s\n' "$runners_present" # true/false
-          printf '::error ::syntax-only:        %s\n' "$syntax_only" # true/false
-          exit 1
-
   setup_dep_tests:
     permissions:
       pull-requests: read
@@ -264,7 +213,7 @@ jobs:
       linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
       fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
       test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
-      timeout-minutes: ${{ steps.check-labels.outputs.timeout-minutes }}
+      long-timeout: ${{ steps.check-labels.outputs.long-timeout }}
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
@@ -291,7 +240,7 @@ jobs:
             }
 
             try {
-              await script({github, context, core}, formulae_detect)
+              await script({github, context, core}, formulae_detect, true)
             } catch (error) {
               console.error(error);
             }
@@ -310,7 +259,7 @@ jobs:
       runners_present: ${{steps.determine-dependent-runners.outputs.runners_present}}
     env:
       HOMEBREW_LINUX_RUNNER: ${{needs.setup_dep_tests.outputs.linux-runner}}
-      HOMEBREW_MACOS_TIMEOUT: ${{needs.setup_dep_tests.outputs.timeout-minutes}}
+      HOMEBREW_MACOS_LONG_TIMEOUT: ${{needs.setup_dep_tests.outputs.long-timeout}}
       TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
     steps:
       - name: Set up Homebrew
@@ -372,3 +321,54 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
           upload-bottles: false
+
+  conclusion:
+    needs: [tests, test_deps, setup_tests, setup_runners]
+    if: always() && github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check `tests` result
+        run: |
+          result='${{ needs.tests.result }}'
+          # Silence lint error about backtick usage inside single quotes.
+          # shellcheck disable=SC2016
+          printf '::notice ::`tests` job status: %s\n' "$result"
+
+          # Possible values are `success`, `failure`, `cancelled` or `skipped`.
+          # https://docs.github.com/en/actions/learn-github-actions/contexts#needs-context
+          if [[ "$result" = "failure" ]] || [[ "$result" = "cancelled" ]]
+          then
+            # Silence lint error about backtick usage inside single quotes.
+            # shellcheck disable=SC2016
+            printf '::error ::`tests` job %s.\n' "$result"
+            exit 1
+          fi
+
+          runners_present='${{ needs.setup_runners.outputs.runners_present }}'
+          syntax_only='${{ needs.setup_tests.outputs.syntax-only }}'
+
+          # The tests job can be skipped only if the PR is syntax-only
+          # or no runners were assigned.
+          if [[ "$result" = "skipped" ]] &&
+             [[ "$runners_present" = "false" || "$syntax_only" = "true" ]]
+          then
+            exit 0
+          fi
+
+          # The test job can succeed only if the PR is not syntax-only
+          # and runners were assigned. Otherwise it must have been skipped.
+          if [[ "$result" = "success" ]] &&
+             [[ "$runners_present" = "true" ]] &&
+             [[ "$syntax_only" = "false" ]]
+          then
+            exit 0
+          fi
+
+          # If we made it here, something went wrong with our workflow run that needs investigating.
+          printf '::error ::Unexpected outcome!\n'
+          # Silence lint error about backtick usage inside single quotes.
+          # shellcheck disable=SC2016
+          printf '::error ::`tests` job result: %s\n' "$result" # success/skipped
+          printf '::error ::runners assigned:   %s\n' "$runners_present" # true/false
+          printf '::error ::syntax-only:        %s\n' "$syntax_only" # true/false
+          exit 1

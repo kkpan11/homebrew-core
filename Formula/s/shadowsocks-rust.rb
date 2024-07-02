@@ -1,19 +1,19 @@
 class ShadowsocksRust < Formula
   desc "Rust port of Shadowsocks"
   homepage "https://github.com/shadowsocks/shadowsocks-rust"
-  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.18.4.tar.gz"
-  sha256 "1df8961d4b16f756081a554bf84ded124d43062f92cf36f2ac3f590ee72d22f3"
+  url "https://github.com/shadowsocks/shadowsocks-rust/archive/refs/tags/v1.20.1.tar.gz"
+  sha256 "95bef16ced3d937e085fdce0bc8de33e156c00bdc9c10100778d3e3ff4df95f0"
   license "MIT"
   head "https://github.com/shadowsocks/shadowsocks-rust.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "053f35bd787576270b15ac446718272347501e3441b67a70d10808b1d821a823"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2fa818b64dc66d7c7a0ec9301b99a00caca012522cf030b6460d66dbd0d3bd9c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cce3aede846d502a5fce7d571564bddfd00397ff6b13c9333672dcac42ad4f76"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9551589ff8cb41b6ed9793ccb47c01f3b1a47d19d21173a044a4877e23eb1223"
-    sha256 cellar: :any_skip_relocation, ventura:        "798d6f950bf3bd5c2aee1eb881fb3177538b7f4a01f4e490c152eaf8ce5b4add"
-    sha256 cellar: :any_skip_relocation, monterey:       "edb05d8b62f67b5851ad7a7167ccf724e76d2b25acd596816771952e783e6c4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37e2bf53d920b32fea977f7200e89ca727a33218a3969efa0b7f1a912562af5d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afabd67e02ac70fe8f64a7e3ee39a794d08bcfc3c6697f5fbbfeb7b12667b9f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db73da02b59928af38708f0d37ce817ef688aae06cffd886f8730ca963f677fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c42aaf88dea6cf657a6e452f749c0ac8c4a5455726e6092e4766870abde2e0ed"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a9e43ff5ef617e9fba2f3ea47f8f01c1454babe349afd6dd14f22b9d6f15f81"
+    sha256 cellar: :any_skip_relocation, ventura:        "2bcacc821587605c93d528eae92d1112615e1ff7a34fc582695195e2f47b4333"
+    sha256 cellar: :any_skip_relocation, monterey:       "0babb67fafb0ddc7fd99cfa401ba035c9ab2315409604aba9d0c7323c3cc90fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea0c91843d9e5137fb282d5ff3eff00f097c05df516698c06c2ea3ac7ab835a1"
   end
 
   depends_on "rust" => :build

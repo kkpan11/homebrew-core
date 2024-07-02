@@ -1,8 +1,8 @@
 class DockerCompose < Formula
   desc "Isolated development environments using Docker"
   homepage "https://docs.docker.com/compose/"
-  url "https://github.com/docker/compose/archive/refs/tags/v2.27.0.tar.gz"
-  sha256 "29b2232d1609dff03db74188a7944c85ba8b612f47a7e39938a43db8fb7d7067"
+  url "https://github.com/docker/compose/archive/refs/tags/v2.28.1.tar.gz"
+  sha256 "856f1b509ef7190fedadec369e290bfb08c2fafb4f858b80a27caf350554fb50"
   license "Apache-2.0"
   head "https://github.com/docker/compose.git", branch: "main"
 
@@ -15,13 +15,13 @@ class DockerCompose < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd0684e5d76a8e30b7b1e75742321f1cfbb957f20d2f89c516a73bdeb7e9a078"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c19d4c3386a59eef45f568ecf670d08c4e05cb537e839f7da5010b6a95a1a15"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3b7075d9834d86d4d80154e4df0843a767efb4a56da4a7f76d367efabe6ced3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eecda9ef02c7df206b12c1f164e4e56d809dbec34d005e6a94caabf6e5c02d4e"
-    sha256 cellar: :any_skip_relocation, ventura:        "0b24fb98947eddd4522805d4e762fdcb0bb7dae43bc269c5388f676cec989def"
-    sha256 cellar: :any_skip_relocation, monterey:       "5ace3b80acbd509b5025942ed6da23e900741937d894769fbf00e5a15beb6c21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "674dd5b14b746fc03e96301940a6368c84a835c4b38a615d283d7be82b3cc8f0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ff26c006d9eae4fc6ada0cc0f20ed36e33645ed6c6f5503e8b00276a756c110"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a112d315cda2fe91bff1500bba590a273d7916b909f0c4ace4314d598632c538"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "07b628e2b308a90520583d79a254b68a3c9c89f24d1aee0270b4f9ec8f1027e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c25d8d9e5b9160a7bd43dcbd427612a3b50cb1beca7dc568fa39b2bb4c84132a"
+    sha256 cellar: :any_skip_relocation, ventura:        "ef45f73780dde46c76c436e7aa921cf0744e229e230d8f898a8311bd061274a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "8d4b1db8dc5a4fe3fe5ef71c0be61c727144f493416255ec15ed7910934b323c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ae0f9500cb98f2a953f0abfef0bd8e93d8fe3caf0ec9c4e82c115156b87ecf6"
   end
 
   depends_on "go" => :build

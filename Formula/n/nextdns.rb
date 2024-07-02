@@ -1,19 +1,19 @@
 class Nextdns < Formula
   desc "CLI for NextDNS's DNS-over-HTTPS (DoH)"
   homepage "https://nextdns.io"
-  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.43.3.tar.gz"
-  sha256 "574b377d6f4af140e3dcfba78fcf68d52ddb32390c020d1fe9bc5ade0af85f97"
+  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.43.5.tar.gz"
+  sha256 "743f64d876c2c7afdae47716af1d41a6c5ec21adae74a318e5eb9319023a38c2"
   license "MIT"
   head "https://github.com/nextdns/nextdns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5ecd2983e97caa5ca4169d8bfa8b828ff198526a68bf4429ed71bd9f357c9d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97c80dc13dd3787e12d626af50a867ee98793fbc7911e4536175e9d3ae0b7720"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8abc16e9f911140fba6497c344818f20bde9feff58e7af41e7c9d5c2697f43a5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4dfc3e6e7fa9eee75a13096a80978ae60d3ade46333582b971ed5ef3c5c8315b"
-    sha256 cellar: :any_skip_relocation, ventura:        "fde6b2c87d02bc7eca523bd1fd0788adf7d836e0d5a1bea49357c692f543ba2a"
-    sha256 cellar: :any_skip_relocation, monterey:       "625754587ce0fb8a759e19c9ac3fd4f21dd199325beaf8e405dd1ec2a8f48b81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e487514277c9d5d09dae3788c0b0f5cd54f629bb822ec72b1c0987568c3bbd1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "84c5f6aea03060da28c575ada2a8a0dfbd9b24a17c9a9866907946d43931b010"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d75dbc158e5cd0805c938c49b8e81f1ee8adb71e54e3ea63d4a104eb91e6a1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "04fbd90d61c253e536942657dbc067b856eea479d095334b589911ecc71636a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8e0719adba9859b2e620feb4e30243cea09477dac912d101a40c3db8888241a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc86cd070f7364748641a3a4301dd57e5a19d8b7bb036fcf909fa4aaf97c98a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "208223fa6193735d453fef9a49e8b2c7c02990ced228c561366883872c5dc3b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de3f5666921a4842bc4ee14544adf63f2baa789fa3cf21ceae805ec4422e7b9d"
   end
 
   depends_on "go" => :build

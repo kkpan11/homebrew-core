@@ -3,18 +3,18 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/6e/6a/7f434e66ededc543a9363e020d829c255153df9342a10fe1f0d17d4ebcfa/diffoscope-267.tar.gz"
-  sha256 "c0a807aa66e18eae88c1adca28988675c9749d3ad1a8db3d2eb7e2afb8763568"
+  url "https://files.pythonhosted.org/packages/73/81/dd89a2e71dfc75eabe91102fd8970ef54e3fdfc54a5962e781f87c02a087/diffoscope-271.tar.gz"
+  sha256 "7690f284a84a866c6f89fa5bb33a867574417ee1c5f2c6d49655cd3761d0fe2c"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9450c648ccbbe34aaada84146ca6747ebeb553b8b87d7d31abf1e4b105c661b8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "55757312b0bb6733679e29116b92f5facce3b1b6969d5027ce3b838a65fecc0d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "089e692bfd4cb6970c0e0459d4bd12c6686a874ecda935cc83e5177ceff7d3f4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b5256ece0c0bb5515b8894d76a82d67b471120193d77868c215fddb2c2d1c1c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "fb5d69f48020b88cb67c3a7ac7674c239f6f2bff69c13a0bad1446cdc671cb78"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0707c27a40930ca7590f2890764ecec52aa8fde163fde43eca6419fe4cd61ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b93b78a4f5c02416d789d2bcce8d2042948b2f1f0c58bfbd041d44772a8e9f7a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8d62dff9c849ca8afd738960c7dccbd12ae2b46c5b61386925a0acc91bcfe75"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b8d62dff9c849ca8afd738960c7dccbd12ae2b46c5b61386925a0acc91bcfe75"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b8d62dff9c849ca8afd738960c7dccbd12ae2b46c5b61386925a0acc91bcfe75"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ac8593d976130f7c19114546aea746df6fe67143d1fe13f45dbfc329f6186604"
+    sha256 cellar: :any_skip_relocation, ventura:        "ac8593d976130f7c19114546aea746df6fe67143d1fe13f45dbfc329f6186604"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac8593d976130f7c19114546aea746df6fe67143d1fe13f45dbfc329f6186604"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3ab278c987220b1e4c0d08a346b2901330d58e2a6ac2f3f8d52aabc3da11e21"
   end
 
   depends_on "libarchive"

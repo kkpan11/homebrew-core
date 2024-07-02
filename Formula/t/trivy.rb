@@ -1,19 +1,19 @@
 class Trivy < Formula
   desc "Vulnerability scanner for container images, file systems, and Git repos"
   homepage "https://aquasecurity.github.io/trivy/"
-  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.51.2.tar.gz"
-  sha256 "b0e5e7b91114f2961e579852541bb0f99b3cc95a312a54833d2586a42e90b864"
+  url "https://github.com/aquasecurity/trivy/archive/refs/tags/v0.53.0.tar.gz"
+  sha256 "958a5f2ea846f102ca14d3c0627b04117f85c5b35b30ac68119184d13faa791e"
   license "Apache-2.0"
   head "https://github.com/aquasecurity/trivy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5b2c47c1beda167440e98c06e9c98f902e899c38586c9477899ef776f13ecd71"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b17cb8a8d8eb85e382b8c55349b834134ed59013828049a87f8f81ddf19018b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5f8a9e3d2d4e52dcf4e77ca2bc7796c0eb9023b4dcac7ae6d6846a1c7bbbc66"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9374d72e25a76652d175b0033d23a53fd30eb6d7ecd9d13a2e8e16cfa15e1441"
-    sha256 cellar: :any_skip_relocation, ventura:        "e71a2671146c10ad918bcd68cdf4b5798aeb08bb68ebbb018f2d8416e14c430c"
-    sha256 cellar: :any_skip_relocation, monterey:       "4950882aaeb720804e4493c3bac5f0a38336571942192503d7bd2f11e4c657ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d8608d57458afb29228958f2592ac4468f2f258eb68beed81b3d5c38b637c02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d0c2aa4b33b8c49145d2bcfecb229942cd39811b9aa2190d1f3c33bdddbf37e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b625288030eb1d78db8160af257804bb616f90e756f8dfea8fd9876be395c77"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5e86cd96218a2252a4d631b8e497f13db33f5b8ce03f31613f690853ea5c0cf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d182bf75aed0cf4e8871fd016018655336879fac144f404c9126d18474261de4"
+    sha256 cellar: :any_skip_relocation, ventura:        "ddbe03f511f8fd3a821a93913432fa2ea41b4d04296e8af27c74184328cf7261"
+    sha256 cellar: :any_skip_relocation, monterey:       "09b00845a16ac562e798a78b04b3796cbeed82fbb7d611f484ac0262cf018fee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a678633c7ef89ca1465449a7fe880e77c20b0775505670a1f7afba3b62884ef9"
   end
 
   depends_on "go" => :build
@@ -21,7 +21,7 @@ class Trivy < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/aquasecurity/trivy/pkg/version.ver=#{version}
+      -X github.com/aquasecurity/trivy/pkg/version/app.ver=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/trivy"
   end

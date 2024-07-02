@@ -3,19 +3,19 @@ require "language/node"
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-2.5.4.tgz"
-  sha256 "c914336f413d81b14c8e0f6e93d01e3c50af77a4bd34268282982b1872cfb36c"
+  url "https://registry.npmjs.org/appium/-/appium-2.11.1.tgz"
+  sha256 "7a7f33d2ee805398dd53d89aff1451ee1f97641078c863b3258df56704dd844a"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f70ef8ce550c14bab6f6d987c942138c816d2b99b913544729953872cf7e593b"
-    sha256 cellar: :any,                 arm64_ventura:  "f70ef8ce550c14bab6f6d987c942138c816d2b99b913544729953872cf7e593b"
-    sha256 cellar: :any,                 arm64_monterey: "f70ef8ce550c14bab6f6d987c942138c816d2b99b913544729953872cf7e593b"
-    sha256 cellar: :any,                 sonoma:         "cd1cd66afa239170d1f1a740345628cf79e8d43b76540f07363b2210ab58a48b"
-    sha256 cellar: :any,                 ventura:        "cd1cd66afa239170d1f1a740345628cf79e8d43b76540f07363b2210ab58a48b"
-    sha256 cellar: :any,                 monterey:       "cd1cd66afa239170d1f1a740345628cf79e8d43b76540f07363b2210ab58a48b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfcc83d987db413d3f7aef79553508872b3df52b4a77f91f42c55f4781dfb277"
+    sha256 cellar: :any,                 arm64_sonoma:   "2502470c73a3ae37df6895e063b0e1cd5cea848bb5bfb5947a33751bbdaa5abb"
+    sha256 cellar: :any,                 arm64_ventura:  "2502470c73a3ae37df6895e063b0e1cd5cea848bb5bfb5947a33751bbdaa5abb"
+    sha256 cellar: :any,                 arm64_monterey: "2502470c73a3ae37df6895e063b0e1cd5cea848bb5bfb5947a33751bbdaa5abb"
+    sha256 cellar: :any,                 sonoma:         "169a6c227eb79756d4bf4105aa94958ef502db9d7b5ded0792bcd2650dcf567f"
+    sha256 cellar: :any,                 ventura:        "169a6c227eb79756d4bf4105aa94958ef502db9d7b5ded0792bcd2650dcf567f"
+    sha256 cellar: :any,                 monterey:       "169a6c227eb79756d4bf4105aa94958ef502db9d7b5ded0792bcd2650dcf567f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb889518d8d61fc36aad762a18b49ecaccfcee02cb32c730faa96393117c8a6d"
   end
 
   depends_on "node"
