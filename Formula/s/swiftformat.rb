@@ -1,19 +1,19 @@
 class Swiftformat < Formula
   desc "Formatting tool for reformatting Swift code"
   homepage "https://github.com/nicklockwood/SwiftFormat"
-  url "https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.54.0.tar.gz"
-  sha256 "2a67b718c3ee0f8d8073bcdc8aab757abc0fe8fc97a81ae1151c3699ae72a4a1"
+  url "https://github.com/nicklockwood/SwiftFormat/archive/refs/tags/0.54.3.tar.gz"
+  sha256 "f0fb5df2945d49207ef50da971810e6879acb0153267bec0be0d882f77781649"
   license "MIT"
   head "https://github.com/nicklockwood/SwiftFormat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe9f74ac9328f6e71a44ac6a35b53e765526d020f47ae7b1dbdb3188f97b00cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8afeb9cd7e17d38ba45db65aa81a33e65357e51cfe5447d6bb7faea8bb74f5c0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa8f3d798d94b3c9a460c5df1cf1a14a1ca041381f139113fe9229e03007a163"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1ea8d82129474556a98ce1da2e63986a24a670eb3682283f9e4d435295851a15"
-    sha256 cellar: :any_skip_relocation, ventura:        "58a57921b9055a6d7728f5f19ca95a3f3cab307cddf0ddeac7cf1ca588226039"
-    sha256 cellar: :any_skip_relocation, monterey:       "c5a6ff5318a6774f153cf54e26b8b4ad63be14d6c1aa2663379285df553bb58d"
-    sha256                               x86_64_linux:   "b93ea4171c93acf7baa5c9e3eeaa6683563f6ecb9dde01ea2079500239b84eb4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cecdcf7705cb91f9ba9d08793c67edd61b7e1d1acbe2ee1ef598acfd7cfcc6b3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2222e0ffee8931b40c61548237ff2037a0e99139089a6df6ab4f3e1a23d0b7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e87d9ce5bb0f266c6a31e13752aa74b0ecc895b87eaec987297e2c24b69c505d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e56f11df75c29a52fc1a14d99fb0808858e15f989aac824202ca8380a29a5073"
+    sha256 cellar: :any_skip_relocation, ventura:        "1c4644e0db67009e71d72ff3139a870898f47dbdb38e4b1f9ca19e16e507a025"
+    sha256 cellar: :any_skip_relocation, monterey:       "b564501ae28caf4b5108a1ba351a6eb6f989522353cac25e078e8edf88239c96"
+    sha256                               x86_64_linux:   "82a084203a146c3f27e80440c3c5fc7c1222e1c58e8743445d3e880d1d913957"
   end
 
   depends_on xcode: ["10.1", :build]
@@ -31,6 +31,6 @@ class Swiftformat < Formula
         let baked: Bool
       }
     EOS
-    system "#{bin}/swiftformat", "#{testpath}/potato.swift"
+    system bin/"swiftformat", "#{testpath}/potato.swift"
   end
 end

@@ -2,18 +2,18 @@ class RustAnalyzer < Formula
   desc "Experimental Rust compiler front-end for IDEs"
   homepage "https://rust-analyzer.github.io/"
   url "https://github.com/rust-lang/rust-analyzer.git",
-       tag:      "2024-07-01",
-       revision: "ea7fdada6a0940b239ddbde2048a4d7dac1efe1e"
+       tag:      "2024-08-05",
+       revision: "c9109f23de57359df39db6fa36b5ca4c64b671e1"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8f6467775ad370f5e9ef6315077b5628996a6cca6241ea6e9b978c8350cd325e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "790145b0a598145ea437a54b35d4056378773b451f48463e0079bdf4b2415e41"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50ea4c22e98388f3369d58e7a6d1f7ff8ab99bd210aff0a41e4ccbdb73e3e6ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "448b36decc9df920ad3607e0cd5dfea51116cd63be7377bd68dd988afd02e9ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "4226d4766ffd3f6ba73ef27f787ffcfe722b184a0b4378b9d5833b03ebb3f46a"
-    sha256 cellar: :any_skip_relocation, monterey:       "7dd885d2e6f2e12330d8835c9443d529c2b7e1d888a045305324a693af135e1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a71e5da688f6015cb3b80579c76bd26e1c20f1ce89ae3f7aef072584cf1d714d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d92efeb1317481faf394efbca912b743f2b877c4b2730e43712692130695423a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f504c6fd160008beb6a5f391601895885386fe3a049face206aead9abc01494e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "546a0dd0b4b5822d915acbecbfd8572b5548fd35ad484530392807d62d35885a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "69548f0738cdd62db75520a553a6e62c1d8d7e9f1f7c9f687fda66a8bddf58e2"
+    sha256 cellar: :any_skip_relocation, ventura:        "f18dbda12bbfb15887f6c6198aaaa46b729d380cddeb9a370999c5971ecdf91d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a58997207c73e82157130c772b3c913d7fe0dc8bded916bfa247e59d2ae836ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78bfd13562c35a39b3afea19a2d8858fe4bf945e101059816e8ecf9aa21793f0"
   end
 
   depends_on "rust" => :build
@@ -70,6 +70,6 @@ class RustAnalyzer < Formula
 
     output = /Content-Length: \d+\r\n\r\n/
 
-    assert_match output, pipe_output("#{bin}/rust-analyzer", input, 0)
+    assert_match output, pipe_output(bin/"rust-analyzer", input, 0)
   end
 end

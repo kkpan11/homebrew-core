@@ -3,19 +3,19 @@ class CodecovCli < Formula
 
   desc "Codecov's command-line interface"
   homepage "https://cli.codecov.io/"
-  url "https://files.pythonhosted.org/packages/fa/f1/daea230aceead1973be73df60173ba3f416d1931f7f5cb34b94ea8f4f83e/codecov-cli-0.7.2.tar.gz"
-  sha256 "e755bca56404472c078255258854b5feca0b322f1ce613b140d193995e0a1bdc"
+  url "https://files.pythonhosted.org/packages/2d/a4/06b2261074ff110f8028a58f75ea196974305eff475a3cb4c99f3c616601/codecov-cli-0.7.3.tar.gz"
+  sha256 "126261cb308c70899a5b667517a9eccce8980e3c036627920f6fe613109ac013"
   license "Apache-2.0"
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5f954b8c265ed9b86adba987336a0decd0ff7869d443e2eaf9918c53762a662c"
-    sha256 cellar: :any,                 arm64_ventura:  "9cca954a70b8e1b3c5f8cd0d69d700f412bd0b343a8b4518c72160df41b79fe2"
-    sha256 cellar: :any,                 arm64_monterey: "86f7da3dcd0d21bf9f0c20623124098307b503ccaef50f86a10223e3d5994562"
-    sha256 cellar: :any,                 sonoma:         "95e7b8cac2fb83d130b9d23453635a4ec86e1abed697ad3e38287d337d8def70"
-    sha256 cellar: :any,                 ventura:        "cad5cb5ddcd363ff36fc346da6c554f28fef2ad4ce59722c44a321fb121b90a5"
-    sha256 cellar: :any,                 monterey:       "a33342f512762528e9750e8da9cdad50f4628e34d764e1db130bd688ebc34939"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e536ab92bc574729cf2628b79c20cc0a0ab607ad3b62ba2ee16dadf5449767f"
+    sha256 cellar: :any,                 arm64_sonoma:   "b287c2959805a3ef26d0e63559614d37c438ac786777866033c7646c1d5b3c88"
+    sha256 cellar: :any,                 arm64_ventura:  "640905c87f0898622867cb7d013f27bb8d3d1c43fb82ef7faa0deb1b6f9b1c52"
+    sha256 cellar: :any,                 arm64_monterey: "9b678dac61d0ed369de7be03658c35b93492266560e4d6bd64408c5c6450e08f"
+    sha256 cellar: :any,                 sonoma:         "098bca56b833360f3e04927279b648cf11f93f011ec3a4543762780c88a893b2"
+    sha256 cellar: :any,                 ventura:        "14258a3f27fa523e0f8cd8ba448e25ad9b4f6a41cc4ed16790dbe5c8e6b8f5c8"
+    sha256 cellar: :any,                 monterey:       "dda6d385b7d21fd9687c8f1f9e6371e1986958bd2494e7b400b85d525810e74b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efd78b377f5a98d1fdee60770d8155a838f1b4c8f9b18af304be4f83475b3fbc"
   end
 
   depends_on "rust" => :build
@@ -28,8 +28,8 @@ class CodecovCli < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/07/b3/e02f4f397c81077ffc52a538e0aec464016f1860c472ed33bd2a1d220cc5/certifi-2024.6.2.tar.gz"
-    sha256 "3cd43f1c6fa7dedc5899d69d3ad0398fd018ad1a17fba83ddaf78aa46c747516"
+    url "https://files.pythonhosted.org/packages/c2/02/a95f2b11e207f68bc64d7aae9666fed2e2b3f307748d5123dffb72a1bbea/certifi-2024.7.4.tar.gz"
+    sha256 "5a1e7645bc0ec61a09e26c36f6106dd4cf40c6db3a1fb6352b0244e7fb057c7b"
   end
 
   resource "charset-normalizer" do
@@ -93,8 +93,8 @@ class CodecovCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/0d/9d/c587bea18a7e40099857015baee4cece7aca32cd404af953bdeb95ac8e47/setuptools-70.1.1.tar.gz"
-    sha256 "937a48c7cdb7a21eb53cd7f9b59e525503aa8abaf3584c730dc5f7a5bec3a650"
+    url "https://files.pythonhosted.org/packages/32/c0/5b8013b5a812701c72e3b1e2b378edaa6514d06bee6704a5ab0d7fa52931/setuptools-71.1.0.tar.gz"
+    sha256 "032d42ee9fb536e33087fb66cac5f840eb9391ed05637b3f2a76a7c8fb477936"
   end
 
   resource "sniffio" do
@@ -122,6 +122,8 @@ class CodecovCli < Formula
   end
 
   test do
+    require "securerandom"
+
     assert_equal "codecovcli, version #{version}\n", shell_output("#{bin}/codecovcli --version")
 
     # Unfortunately `shell_output` doesn't capture standard error

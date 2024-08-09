@@ -1,8 +1,8 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.org/"
-  url "https://github.com/c-ares/c-ares/releases/download/v1.31.0/c-ares-1.31.0.tar.gz"
-  sha256 "0167a33dba96ca8de29f3f598b1e6cabe531799269fd63d0153aa0e6f5efeabd"
+  url "https://github.com/c-ares/c-ares/releases/download/v1.33.0/c-ares-1.33.0.tar.gz"
+  sha256 "3e41df2f172041eb4ecb754a464c11ccc5046b2a1c8b1d6a40dac45d3a3b2346"
   license "MIT"
   head "https://github.com/c-ares/c-ares.git", branch: "main"
 
@@ -12,13 +12,13 @@ class CAres < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "11180fb00208951f6c8b3dec74aa45b3eca218aeb1eaf17d815b5b278e87b375"
-    sha256 cellar: :any,                 arm64_ventura:  "cb9eff64af832838a2602e5ac61a7c88577ff54a6388f29249b0a29098d1ce7a"
-    sha256 cellar: :any,                 arm64_monterey: "ed91ecf0fd5ca9f34bc22eb3e887340dbf9da9d7727aa4f0619e65bfed515a0e"
-    sha256 cellar: :any,                 sonoma:         "b023ac11fc4e1d06dceb10025399b8579d1b9169b9ca9a8380c7da0981b1d99c"
-    sha256 cellar: :any,                 ventura:        "bd75383890a841367ffbbedee20b2e597052dd67f858624ea7ac7d09ac18fb63"
-    sha256 cellar: :any,                 monterey:       "4d46dfc87289364928398ca768505f4f9cb82e5218bd53ba019eacb97c8db614"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e34f7b56d0ebe1796f064c5d026f70be92d2069f12ac60c585b12f822e2b8f2d"
+    sha256 cellar: :any,                 arm64_sonoma:   "a58b7d447a4b9fb1d5ba0aa7dbcc32f54b0ddfa54ee28ad976f0f411a48e36af"
+    sha256 cellar: :any,                 arm64_ventura:  "8b835e7eaa0f62a9238ff0faec52d40be1a6e699f6badb38581a0990f918e425"
+    sha256 cellar: :any,                 arm64_monterey: "1d1a3ff3e65c1f79834a060f235d013e65dcd9b7c263c9405c304bb1f7b8105f"
+    sha256 cellar: :any,                 sonoma:         "8e9e4fa3e7edb5fd9f738c03534fa38b8f7624340c5bd0df6c39ad0ef5edd2c1"
+    sha256 cellar: :any,                 ventura:        "410fedce85a56aaca9e306e20a9ae23bb5df3b4c6baa7f311242fac405a19c4b"
+    sha256 cellar: :any,                 monterey:       "78f7456f765929089a9c351fe9fbc336d7bc35d4d1f6fb46ea9cce7feb6edff9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c8d7b7dcdd36ed424e5e76b3b9f0666d18f7520b37e894af27b1389e3a75329"
   end
 
   depends_on "cmake" => :build

@@ -3,19 +3,18 @@ class Molecule < Formula
 
   desc "Automated testing for Ansible roles"
   homepage "https://molecule.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/59/ad/303a000ff2e2ae9b0cf5300c37d79e7058607f16d9b1c667088d666c32e4/molecule-24.6.0.tar.gz"
-  sha256 "8decb4c684fcafb85a7b4f038da125ed425bdd10db76bf0cdb413f9b84e41b58"
+  url "https://files.pythonhosted.org/packages/7e/bd/3a9d05a1c5acdcb8da0fd7e9a0f8d8a68f4f450f194a327d4c2f8fb7e8ac/molecule-24.7.0.tar.gz"
+  sha256 "db2c7fa59923e9bf23d61a92a5b19d6881ec9ee5fe96ed9e9e9d700b02723f03"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b1dae6b01f722f104253e3191cb3f52e729a950538c9dd4abb77a3e3eb155bfc"
-    sha256 cellar: :any,                 arm64_ventura:  "b6d6a192221716656a347bf31ab4ef11516d50841ba6a193b426656122846c63"
-    sha256 cellar: :any,                 arm64_monterey: "adecfeddf939e14bfcfec136f5072c84327edeca4bc585c569cbba3a8f4e4144"
-    sha256 cellar: :any,                 sonoma:         "9c9e64dcf4ccc48b7a760bc5af9a31b3538e20d406daa47e294ba4e6a366a7a7"
-    sha256 cellar: :any,                 ventura:        "43b34e9619403bc9959e658d4476d535a6eac0c5b0c681f57673d77e7efb9541"
-    sha256 cellar: :any,                 monterey:       "a9440fa7ec1b19cead1a40cacccbc5a8cec9970a1d05721edfc314be33c5865e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c07bc9ecdf0385418c6f4f357541e7def377e8bcbe73a2c350fe0fa6d395398f"
+    sha256 cellar: :any,                 arm64_sonoma:   "1609b536dada3952d506037ff58eaa6b730f911a7b4f635ea31f84edbfcda8a2"
+    sha256 cellar: :any,                 arm64_ventura:  "f14933b0803838e767e047b8c19b645959971422f1d0b97ad55e7c9c0b0b1590"
+    sha256 cellar: :any,                 arm64_monterey: "7efb9962ab1d3382b75c9c208fac287d246868b7ad5db03d9bd386cbb27da7be"
+    sha256 cellar: :any,                 sonoma:         "e50083c0961a20f2c91d85ba5036f94193f29eeeb168adab4f43ff92ca4ae294"
+    sha256 cellar: :any,                 ventura:        "70f67b899a0c429f80cc95b64b1128bc083414006ed8f3465e2902bed5adb76b"
+    sha256 cellar: :any,                 monterey:       "e56b970437f14771388e9f0da6753254e176f0d20dbacbda2811a1c027404def"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29efce68ee8adebae9843f80ff342c246966416b7b80ce5d36a37d44e99dd5fb"
   end
 
   depends_on "rust" => :build
@@ -32,8 +31,8 @@ class Molecule < Formula
   end
 
   resource "ansible-compat" do
-    url "https://files.pythonhosted.org/packages/81/88/ae87126cee0295bd2906d8e74a157478447e46641d24ee9083fb881c4d66/ansible_compat-24.6.1.tar.gz"
-    sha256 "f93d4c347d8e1903c292449441c09a987d70366f9cadf9afe5e32dc8a0193cac"
+    url "https://files.pythonhosted.org/packages/81/81/6ca881fa0afc1f9975feb96d08e48f048d0e6542ea66cc9f67f79a403607/ansible_compat-24.7.0.tar.gz"
+    sha256 "7bc7a0c20a505a1eb6ff9877071fe20330130429087da298e25099a14f70d02f"
   end
 
   resource "ansible-core" do
@@ -97,8 +96,8 @@ class Molecule < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/19/f1/1c1dc0f6b3bf9e76f7526562d29c320fa7d6a2f35b37a1392cc0acd58263/jsonschema-4.22.0.tar.gz"
-    sha256 "5b22d434a45935119af990552c862e5d6d564e8f6601206b305a61fdf661a2b7"
+    url "https://files.pythonhosted.org/packages/38/2e/03362ee4034a4c917f697890ccd4aec0800ccf9ded7f511971c75451deec/jsonschema-4.23.0.tar.gz"
+    sha256 "d71497fef26351a33265337fa77ffeb82423f3ea21283cd9467bb03999266bc4"
   end
 
   resource "jsonschema-specifications" do
@@ -172,8 +171,8 @@ class Molecule < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/2d/aa/e7c404bdee1db7be09860dff423d022ffdce9269ec8e6532cce09ee7beea/rpds_py-0.18.1.tar.gz"
-    sha256 "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
+    url "https://files.pythonhosted.org/packages/36/a2/83c3e2024cefb9a83d832e8835f9db0737a7a2b04ddfdd241c650b703db0/rpds_py-0.19.0.tar.gz"
+    sha256 "4fdc9afadbeb393b4bbbad75481e0ea78e4469f2e1d713a90811700830b553a9"
   end
 
   resource "selinux" do

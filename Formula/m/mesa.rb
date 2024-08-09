@@ -3,19 +3,19 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.1.2.tar.xz"
-  sha256 "a2c584c8d57d3bd8ba11790a6e9ae3713f8821df96c059b78afb29dd975c9f45"
+  url "https://mesa.freedesktop.org/archive/mesa-24.1.4.tar.xz"
+  sha256 "7cf7c6f665263ad0122889c1d4b076654c1eedea7a2f38c69c8c51579937ade1"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "28b80ada0bee47994d0d1848a1c24c3fcdd395bf4184234e6a476b6a45af0b91"
-    sha256 arm64_ventura:  "6fc4ac52484afd4ad1e8c436d4a2a79c105815e7a0791ff36f77783dad1ada43"
-    sha256 arm64_monterey: "853aedabdc2866fab30bdc11b72dc9f167832b2d780c670784894d75fb5eec39"
-    sha256 sonoma:         "740d06c34657d3cc549e598095100d1147901705cb02c893570e038ca2e07516"
-    sha256 ventura:        "fe59cf0c6e9c5a112e41bf6dd40fbc4036a132cb287c597db8339e7ce7de6d9b"
-    sha256 monterey:       "65b758e9d65bd2abe3cd802d8cd6fc1eeef973fed1256d4cbc67046e6abb9e19"
-    sha256 x86_64_linux:   "8c7e3eed1063fb9d28f02917d391d70d1e2d57376dbae8383c56baa743738588"
+    sha256 arm64_sonoma:   "348ba2c226ff26b93fe79fb9493a1f0f25825958c76c4b737b0d3fb637125ad3"
+    sha256 arm64_ventura:  "e34fb6c20135c0947b46a1e1af5b78f8a1352b3de728dcf8b2209c7042496eef"
+    sha256 arm64_monterey: "b4ed0165c83bef72c448494e53fd6ca201b0c4a0ee4f5643188b0b718fd6bb98"
+    sha256 sonoma:         "2dd59d5aab145586f37c09d99d076d38822117fc6469d876546887eca12bc3d0"
+    sha256 ventura:        "e5f0b2197c85b3a9372c265a43c0b044f1be4b6dab1c58e8681c076967a4283f"
+    sha256 monterey:       "5c734798783dfd23cfea5cfaf250149ee9cc79acb18ff1c3694ad025461c812f"
+    sha256 x86_64_linux:   "f2ddf6fb20994f5cb28b7f538949aec943dfc9aa4fbcdfd5520028967d4ed346"
   end
 
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
@@ -129,7 +129,6 @@ class Mesa < Formula
       args += %w[
         -Ddri3=enabled
         -Degl=enabled
-        -Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink
         -Dgallium-extra-hud=true
         -Dgallium-nine=true
         -Dgallium-omx=disabled
@@ -154,6 +153,9 @@ class Mesa < Formula
         -Dvulkan-drivers=amd,intel,intel_hasvk,swrast,virtio
         -Dvulkan-layers=device-select,intel-nullhw,overlay
       ]
+      if Hardware::CPU.intel?
+        args << "-Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink"
+      end
     end
 
     system "meson", "setup", "build", *args, *std_meson_args

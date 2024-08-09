@@ -2,7 +2,7 @@ class Eralchemy < Formula
   include Language::Python::Virtualenv
 
   desc "Simple entity relation (ER) diagrams generation"
-  homepage "https://github.com/Alexis-benoist/eralchemy"
+  homepage "https://github.com/eralchemy/eralchemy"
   url "https://files.pythonhosted.org/packages/87/40/07b58c29406ad9cc8747e567e3e37dd74c0a8756130ad8fd3a4d71c796e3/ERAlchemy-1.2.10.tar.gz"
   sha256 "be992624878278195c3240b90523acb35d97453f1a350c44b4311d4333940f0d"
   license "Apache-2.0"
@@ -50,9 +50,9 @@ class Eralchemy < Formula
       sha256 "5c475bacd91a63490e1cbbd1741dc70a3435e98161b5b9458d195ee97f40a3fa"
     end
 
-    system "#{bin}/eralchemy", "-v"
+    system bin/"eralchemy", "-v"
     resource("er_example").stage do
-      system "#{bin}/eralchemy", "-i", "newsmeme.er", "-o", "test_eralchemy.pdf"
+      system bin/"eralchemy", "-i", "newsmeme.er", "-o", "test_eralchemy.pdf"
       assert_predicate Pathname.pwd/"test_eralchemy.pdf", :exist?
     end
   end

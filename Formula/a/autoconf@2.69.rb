@@ -1,6 +1,6 @@
 class AutoconfAT269 < Formula
   desc "Automatic configure script builder"
-  homepage "https://www.gnu.org/software/autoconf"
+  homepage "https://www.gnu.org/software/autoconf/"
   url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz"
   mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.69.tar.gz"
   sha256 "954bd69b391edc12d6a4a51a2dd1476543da5c6bbf05a95b59dc0dd6fd4c2969"
@@ -43,7 +43,7 @@ class AutoconfAT269 < Formula
     system "./configure", "--prefix=#{prefix}", "--with-lispdir=#{elisp}"
     system "make", "install"
 
-    rm_f info/"standards.info"
+    rm(info/"standards.info")
   end
 
   test do

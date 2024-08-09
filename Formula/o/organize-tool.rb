@@ -3,20 +3,18 @@ class OrganizeTool < Formula
 
   desc "File management automation tool"
   homepage "https://github.com/tfeldmann/organize"
-  url "https://files.pythonhosted.org/packages/af/4a/11b1925844ad5fc2c5da1f210650f637000ca14bdb6e9c303ab744191337/organize_tool-3.2.3.tar.gz"
-  sha256 "a7b5a776dbfd4b25b5e69f400a9b6b39dd9cf4d430ef0f18bc837d424a007b77"
+  url "https://files.pythonhosted.org/packages/ef/45/6b36a81132cd91b35f6727826533e9f166070eace72f3a09d85e7829c515/organize_tool-3.2.5.tar.gz"
+  sha256 "319930ddaf76712cdf8e8d208ac5718bf87d1101d33339eda5fc84e73d2d70cc"
   license "MIT"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "73906a6acb4e3af388264a6ddf7c3256c8b03a78ad0db054b1dba2e73924453a"
-    sha256 cellar: :any,                 arm64_ventura:  "ec7361084880943116924efd0304761a5fc1f043cde11fe948f4d96a643a5137"
-    sha256 cellar: :any,                 arm64_monterey: "413890c951e8deb339e142804f1154c1be2516d8f0701088ce82ecb033eb5fbd"
-    sha256 cellar: :any,                 sonoma:         "950daa20000394fec1b902477e84c3aa7b349369cf93c478500a32a7f41bcb0f"
-    sha256 cellar: :any,                 ventura:        "1e3cde0238c8557eb9eec456d6632c1faa906c56c09f72f8016c6f85841abd70"
-    sha256 cellar: :any,                 monterey:       "a748bb7e0ffce228ffe0db7cc2306f2c0ee449a5f3156bc8498b643b5d2a1e8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07ee8a42bf450de1e83d7d3a35d8986f48560eae96c86ba3e1f7730a8d8d45a6"
+    sha256 cellar: :any,                 arm64_sonoma:   "c1b17f658d37eb98e49a13c4cbbd7638cfcb1dc0cfd7d0dc33deac219b4c5863"
+    sha256 cellar: :any,                 arm64_ventura:  "8f80e0370202f9e12d8c22125bf5399d17d99fe3329d3a97f9cce8eebece36b2"
+    sha256 cellar: :any,                 arm64_monterey: "5f4ab525a626df8818847a83dc674fb27134297bbfe47125d39d81681677e01c"
+    sha256 cellar: :any,                 sonoma:         "d4a3feaa037e8559f40a787b685fa2bb4a092ca59188b1642888dd01101e0384"
+    sha256 cellar: :any,                 ventura:        "52bc5d9448deca0743e75845f05fa917cba3131f8b10869319b5fd91314ab931"
+    sha256 cellar: :any,                 monterey:       "994ad202d2786184ae6bd2f5b4496a85790a278def5d0c00ec2cff9704c39c59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "601a782331a666d86187440c6935ab87b9d7e33c7490ca7b2ed8a0bbff0d10a1"
   end
 
   depends_on "cmake" => :build
@@ -103,13 +101,13 @@ class OrganizeTool < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/0d/fc/ccd0e8910bc780f1a4e1ab15e97accbb1f214932e796cff3131f9a943967/pydantic-2.7.4.tar.gz"
-    sha256 "0c84efd9548d545f63ac0060c1e4d39bb9b14db8b3c0652338aecc07b5adec52"
+    url "https://files.pythonhosted.org/packages/8c/99/d0a5dca411e0a017762258013ba9905cd6e7baa9a3fd1fe8b6529472902e/pydantic-2.8.2.tar.gz"
+    sha256 "6f62c13d067b0755ad1c21a34bdd06c0c12625a22b0fc09c6b149816604f7c2a"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/02/d0/622cdfe12fb138d035636f854eb9dc414f7e19340be395799de87c1de6f6/pydantic_core-2.18.4.tar.gz"
-    sha256 "ec3beeada09ff865c344ff3bc2f427f5e6c26401cc6113d77e372c3fdac73864"
+    url "https://files.pythonhosted.org/packages/12/e3/0d5ad91211dba310f7ded335f4dad871172b9cc9ce204f5a56d76ccd6247/pydantic_core-2.20.1.tar.gz"
+    sha256 "26ca695eeee5f9f1aeeb211ffc12f10bcb6f71e2989988fda61dabd65db878d4"
   end
 
   resource "pygments" do

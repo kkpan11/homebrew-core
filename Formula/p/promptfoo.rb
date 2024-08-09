@@ -1,26 +1,24 @@
-require "language/node"
-
 class Promptfoo < Formula
   desc "Test your LLM app locally"
   homepage "https://promptfoo.dev/"
-  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.68.1.tgz"
-  sha256 "6e255213f495a7e47e7f67fc5da97ef50e412cc21c9385de278a779a78c1b4a7"
+  url "https://registry.npmjs.org/promptfoo/-/promptfoo-0.75.2.tgz"
+  sha256 "11082724b2df42e674c7c2fac4cffe2e018a40f13a86dadc07ddde6e2c879663"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3e74bcda97b1c6b0bbe23cd459a00f36650046ba05d656ec381c9809d9935767"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a11b28301bfb43d482d6cd161f9fed690572f8eb48601e8cb81a60c617286648"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b34e88ec1e8e775f3a8006bb6ef4f979498a39838cd1d63a495b492bfc6dfe67"
-    sha256 cellar: :any_skip_relocation, sonoma:         "282ad8bf2763725fdb9b0a3d4327819f9a683cb8ecd921c285e2abd4b57cacc8"
-    sha256 cellar: :any_skip_relocation, ventura:        "2cd07e8ed0c5a4fac24d874400e3881d06e3d5d014e8ded2e5b788c36b28820c"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b9b12dfcdf0610db8782df62aa7de86545fa431ae6e923e410f1b5324ee53ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c459293faefda0557d40a6330c388564d902e1c00d2bb819bb9119d04fe86db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37b65003288f0ef564720eb7c119e0002f17ed33838942be172afd02bbef19c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62f424b0a585454f4a99c685d15a6b4a181d383549617f6f06ffa37a6a8cba7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38b0943e15f8f124266949bbca090105515e563f6024a1a3df7f051f90353d07"
+    sha256 cellar: :any_skip_relocation, sonoma:         "275fb20a24e0fcf894edf481f1c5ad569b461e300c34f63b8220dd288d9756fe"
+    sha256 cellar: :any_skip_relocation, ventura:        "f315d824c2f583158483c2b9f693512069d9b743a85c90139177d7055d085fef"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d2e7f7d748d86168c86a41c87fea991bf09a2056ffbf92e2c43f45268c89c5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed01838076da780b44bf1ff436df43dbcd851b2a34cf6164f48f9330806a5a08"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

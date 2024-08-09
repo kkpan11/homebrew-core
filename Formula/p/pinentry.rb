@@ -1,10 +1,11 @@
 class Pinentry < Formula
   desc "Passphrase entry dialog utilizing the Assuan protocol"
   homepage "https://www.gnupg.org/related_software/pinentry/"
-  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.3.0.tar.bz2"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.3.0.tar.bz2"
-  sha256 "9b3cd5226e7597f2fded399a3bc659923351536559e9db0826981bca316494de"
+  url "https://www.gnupg.org/ftp/gcrypt/pinentry/pinentry-1.3.1.tar.bz2"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/pinentry/pinentry-1.3.1.tar.bz2"
+  sha256 "bc72ee27c7239007ab1896c3c2fae53b076e2c9bd2483dc2769a16902bce8c04"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/pinentry/"
@@ -12,20 +13,23 @@ class Pinentry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "929d0da215b25c904bd6745e6f61d778384857cd45221382670f72bf94d04968"
-    sha256 cellar: :any,                 arm64_ventura:  "90851b4108753f8b10f6c084200348809d3e306f5bf766fe8ba42b5358acd909"
-    sha256 cellar: :any,                 arm64_monterey: "14a6bd33b369d31d49e3e95c825b30cb17999412713c8d5fa9fa063aded47398"
-    sha256 cellar: :any,                 sonoma:         "bbcc4d94c528861d9d3823ad697f65b6e15562f80ca671beb723b338079c7024"
-    sha256 cellar: :any,                 ventura:        "f2f61b16e0cab610927e312be8cdff73c9b2a6da7fe97fde09e3b0ee27d01823"
-    sha256 cellar: :any,                 monterey:       "901f46be67b462a5939b59e4cd525b335522f091bde44a0d773b289f4a7f957b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cf5904bae7ec29fa198f7af8d75d0889286933e87c9886ab5c7a78e1aa72c9f"
+    sha256 cellar: :any,                 arm64_sonoma:   "d657fb607715d8f374bb50e79be0a1bb129bf1f0cfb0f706dc0688d10058ee89"
+    sha256 cellar: :any,                 arm64_ventura:  "5dc139b14332cfb907a8179e28d36a501266686699ce387f48452b060a21ebb3"
+    sha256 cellar: :any,                 arm64_monterey: "829c5388c7fc1c40eaeba29199ae97ebd727bc2df2f143f1a6818f07b79dff12"
+    sha256 cellar: :any,                 sonoma:         "6eb6f95ae8513f179cb658043457e39dbed3b95bbf1a7bb8aece3158d2fd4299"
+    sha256 cellar: :any,                 ventura:        "1a750d73932b1c874887b38e186ad2017a36f230f3306983575bfa8b35c25e0d"
+    sha256 cellar: :any,                 monterey:       "4bed735f12804f39955128939408210a31a8d0fd0b7d61f309779daa66053692"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3e303a0b8099dedac66bbc95a0fdc3cfda679e594e60972d99eb3025c6f79fb"
   end
 
   depends_on "pkg-config" => :build
   depends_on "libassuan"
   depends_on "libgpg-error"
 
+  uses_from_macos "ncurses"
+
   on_linux do
+    depends_on "glib"
     depends_on "libsecret"
   end
 
@@ -49,7 +53,7 @@ class Pinentry < Formula
   end
 
   test do
-    system "#{bin}/pinentry", "--version"
-    system "#{bin}/pinentry-tty", "--version"
+    system bin/"pinentry", "--version"
+    system bin/"pinentry-tty", "--version"
   end
 end

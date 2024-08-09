@@ -2,17 +2,17 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v5.1.1",
-      revision: "bda6eb03dcbcf12a5b7ae004c1240e38dd056d24"
+      tag:      "v5.2.0",
+      revision: "b22d5c61eef93475413724f49fd6a32980d2c746"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c60760645cffd8ea604f5e476467580af5cdb4b201f1e0b45f34187a5348f9b2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4f8232393f049730f19c9f0dc5a69e129a1c5c6381ac606bc94687a99c0eb33c"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e5437c2ce96d2e36849ddeb399da3ad0a2929a8ffcb8205049b523e27fd7cb9e"
-    sha256 cellar: :any_skip_relocation, ventura:       "4ac1fcecbced15059968d258d115c6e1988841c1c310d5d206de85bcd855e50b"
-    sha256                               x86_64_linux:  "a6b749743bcf6285f5c39c70b02cda498f34fee8e02609b0b1a2dfbaf9519989"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0b54fa041e5a4add7f9fc4086f935d9c525302d6a6c2928aa1a1806a2b16d953"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "40fe4f07c0eee3cd23908664e8b3b55f8ef9123556cbb4b9642dffa51c4c0919"
+    sha256 cellar: :any_skip_relocation, sonoma:        "9b283e72dcea24bc5daba1fcb3d3b09d7f1244fc03700bcf325811a5fda27587"
+    sha256 cellar: :any_skip_relocation, ventura:       "bb966a3213f8d06c23a81deb1cf2309f7ca75b85b50ac4ecf624a039ef84e81d"
+    sha256                               x86_64_linux:  "73aca5d1dfb039afdb36786e569d4c90b343ed6357484aae4741659218d9a161"
   end
 
   depends_on "go" => :build
@@ -42,8 +42,8 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.7.3.tar.gz"
-      sha256 "851ed29b92e15094d8eba91492b6d7bab74aff4538dae0c973eb7d8ff48afd8a"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.7.4.tar.gz"
+      sha256 "22a68a0b0f8120c8d4dde29856e2cc38b292ced1b1d4cd8bf3b709acadbddc88"
     end
   end
 
@@ -63,15 +63,15 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.11.0.tar.gz"
-      sha256 "5b96e5a00a41a550d716f1e5c180df6e0ee5b0ce20961827ef17aff3d6a92f9c"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.12.1.tar.gz"
+      sha256 "71e44922204da923b9f03b1306b9b0ba82673a201f3d96afc544f4ccdd4824d3"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.11.0.tar.gz"
-      sha256 "3e95b363f89a945ee6e63f51051f9eb982bdc469bf8e727b5d7adca676789750"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.12.1.tar.gz"
+      sha256 "557d275c9d7c2367b2d330c14717a36b6046d58eb7288adeebc88a285ad0ede8"
     end
   end
 
@@ -186,11 +186,8 @@ class Podman < Formula
       assert_match "Machine init complete", out
       system bin/"podman-remote", "machine", "rm", "-f", "homebrew-testvm"
     else
-      assert_equal %W[
-        #{bin}/podman
-        #{bin}/podman-remote
-        #{bin}/podmansh
-      ].sort, Dir[bin/"*"]
+      assert_equal %w[podman podman-remote podmansh]
+        .map { |binary| File.join(bin, binary) }.sort, Dir[bin/"*"]
       assert_equal %W[
         #{libexec}/podman/catatonit
         #{libexec}/podman/netavark

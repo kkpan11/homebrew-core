@@ -1,19 +1,19 @@
 class OsvScanner < Formula
   desc "Vulnerability scanner which uses the OSV database"
   homepage "https://github.com/google/osv-scanner"
-  url "https://github.com/google/osv-scanner/archive/refs/tags/v1.8.1.tar.gz"
-  sha256 "f734d2263f34975f6eb2d39f8457d78d55d8b302ee32cc3cb6e3ed513c7bfbb9"
+  url "https://github.com/google/osv-scanner/archive/refs/tags/v1.8.3.tar.gz"
+  sha256 "12e62afa96359587e6fa0d0120ee5b950b51e0efa8509948b08349cb34cfe2b0"
   license "Apache-2.0"
   head "https://github.com/google/osv-scanner.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dad022df39bd7e0a8c7696b66891720e5e84c9e370ebe1273317392654fadb5b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0957aef932aa98091d8bad85ca5df7d0a17ddf3410bdbe547ee127fbf9c11172"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fdc96b423d1d456fde47ef94b9e8e5e8e8afc1df1ea58104b3ed2360913d6278"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8d22d2072914d85cfc0487206885a99809a0fe0ffc0435c7378b0cf6b12eb3c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "db7fb9a1b8ba9719745163d532746f815d25c80fc992c2a5ae929ef05b73bb70"
-    sha256 cellar: :any_skip_relocation, monterey:       "9fe8b3226e2e654cadec2a8dfdba09e32bf120f2ea189e282a0631f8bf9e9377"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f01d44894a90775185c0dadff3620184d213c79d7e6aed73057869df086a292c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64980ead9a45e3b1d87ac82e629e63334ef9924153c7efbef8754920dac74e0e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c43b6e96b0cfddd2d1778774b98c694764c1b6cf19cca22dea3329906d22e17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "948b8f776bf757b1a4261fa43bb52f4897c70cada6d451f78944bb15f56ae829"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4251ed5dcc5e8049771539a6c2477f25bae496a6141b1b9b01194c33da64afbe"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f7f087b84591352e7f9ae1d78c5f47daf60de7f0d8bbffc7eb886617ae196b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "a12fea192862ec78fa5f772bd8155fa4d76e32afd134aa253451314088223051"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf8c93d4e8b49e6357222312da4070dbd7d6bf8d4182b079da72a26392c5c4da"
   end
 
   depends_on "go" => [:build, :test]

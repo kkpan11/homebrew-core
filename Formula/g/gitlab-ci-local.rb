@@ -1,27 +1,26 @@
-require "language/node"
-
 class GitlabCiLocal < Formula
   desc "Run gitlab pipelines locally as shell executor or docker executor"
   homepage "https://github.com/firecow/gitlab-ci-local"
-  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.52.0.tgz"
-  sha256 "c614c32d34cf6d754137bb5f1f1d73b529e5f850378857d1379f48e7b02a5a49"
+  url "https://registry.npmjs.org/gitlab-ci-local/-/gitlab-ci-local-4.52.2.tgz"
+  sha256 "c604bd7659ebffe8f5fd6ae90545f882b93bc6cededeb102167fbe72fe7d0950"
   license "MIT"
   head "https://github.com/firecow/gitlab-ci-local.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57856f44c2b0576e707adf330d5f6733dc10a5c015bb380ba8c8d19b83b50947"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57856f44c2b0576e707adf330d5f6733dc10a5c015bb380ba8c8d19b83b50947"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57856f44c2b0576e707adf330d5f6733dc10a5c015bb380ba8c8d19b83b50947"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a239fc7890fff3df37b71df4e4265114329e9381188e45680a0b492c229a5dc1"
-    sha256 cellar: :any_skip_relocation, ventura:        "a239fc7890fff3df37b71df4e4265114329e9381188e45680a0b492c229a5dc1"
-    sha256 cellar: :any_skip_relocation, monterey:       "a239fc7890fff3df37b71df4e4265114329e9381188e45680a0b492c229a5dc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eba9d35f17fab629b45c8a3fdb8cc37a0195ee5225d302b44f8e814458c5fd39"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "251e46c484c28faa95aa8cec426e066e013e647c79523955d252a51d5ab1c984"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "251e46c484c28faa95aa8cec426e066e013e647c79523955d252a51d5ab1c984"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "251e46c484c28faa95aa8cec426e066e013e647c79523955d252a51d5ab1c984"
+    sha256 cellar: :any_skip_relocation, sonoma:         "90004d99bbd489474b740c9d6a52f40064cd76bcc58fd3d1faa894a9b67cd277"
+    sha256 cellar: :any_skip_relocation, ventura:        "90004d99bbd489474b740c9d6a52f40064cd76bcc58fd3d1faa894a9b67cd277"
+    sha256 cellar: :any_skip_relocation, monterey:       "90004d99bbd489474b740c9d6a52f40064cd76bcc58fd3d1faa894a9b67cd277"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d99bc0193be79d676a0dbf430a91213717bb20ee15db5ef8d0b420c8c0f298aa"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

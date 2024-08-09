@@ -6,11 +6,6 @@ class Cmockery2 < Formula
   license "Apache-2.0"
   head "https://github.com/lpabon/cmockery2.git", branch: "master"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "ae822535550629aa3551bb7260330ca338c95c2f3c6b86641362524716aaa320"
     sha256 cellar: :any,                 arm64_ventura:  "9eefe7b0693c469ebd0406452350e1af83f0b343de3d114f0cceadd976e1b549"
@@ -27,6 +22,9 @@ class Cmockery2 < Formula
     sha256 cellar: :any,                 el_capitan:     "61b64aeaf89d205742bbb254148502cd2df83bcf05d20377bdce8637f275bee5"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3277107c3831686b1fbd803f8d5613f1c29800293c144b982b018f61b63b1870"
   end
+
+  # last commit was 7 years ago, cmockery is also deprecated
+  deprecate! date: "2024-07-07", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

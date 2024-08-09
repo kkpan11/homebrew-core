@@ -1,6 +1,6 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
-  homepage "https://www.gnu.org/software/octave/index.html"
+  homepage "https://octave.org/index.html"
   url "https://ftp.gnu.org/gnu/octave/octave-9.2.0.tar.xz"
   mirror "https://ftpmirror.gnu.org/octave/octave-9.2.0.tar.xz"
   sha256 "21417afb579105b035cac0bea09201522e384893ae90a781b8727efa32765807"
@@ -66,7 +66,13 @@ class Octave < Formula
   depends_on "sundials"
   depends_on "texinfo"
 
+  uses_from_macos "bzip2"
   uses_from_macos "curl"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "little-cms2"
+  end
 
   on_linux do
     depends_on "autoconf"

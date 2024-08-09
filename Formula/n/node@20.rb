@@ -1,8 +1,8 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.15.0/node-v20.15.0.tar.xz"
-  sha256 "0f4a7a051c35d95eb905e8cb2aa43c5d402b131203908fe633eb3cfa050ef907"
+  url "https://nodejs.org/dist/v20.16.0/node-v20.16.0.tar.xz"
+  sha256 "cd6c8fc3ff2606aadbc7155db6f7e77247d2d0065ac18e2f7f049095584b8b46"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class NodeAT20 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "7bfbc3c595fd32790fc9863ab16ecb403d53795cc7f8dc80fdd5f3a89c75ccab"
-    sha256 arm64_ventura:  "35ffa24da11a2d2800698f40d6167a7d1e30e10c1b28ee46ab4cf008e069bb7d"
-    sha256 arm64_monterey: "570887bfba167346d3d90a7bb66e58a1c343c8969db398fbe6fdef01cddc314c"
-    sha256 sonoma:         "10f0f471358014f3d0ddec4e4154a79bee084856966d0f0042874b3078740ae3"
-    sha256 ventura:        "1a6096c89ce39e6f890d2317d11176da239861639d84642aed8e5ce640ba6e0a"
-    sha256 monterey:       "33385c95cbac11c43d27bbb2448db266fdcc1bae04a245da21564c460ddd061c"
-    sha256 x86_64_linux:   "fce5ad1faad6f42a34031e0d0e0b7e3dc5d88f2470b677413f4409cf79b2d228"
+    sha256 arm64_sonoma:   "df42f678dad680563028a73512ef64a98b2d5af362e805b8a92c08cbbf60fc6e"
+    sha256 arm64_ventura:  "46670327779c802181c1388d164e7e5dbe0f4f81c9b39974408e3eb3893798d6"
+    sha256 arm64_monterey: "30071bfc012ad9f38ddaedab087c0a1bff2efd47d2557536a0c22ff188d3294a"
+    sha256 sonoma:         "6a0700d5b3f5470f72f463c9074f08063a5c6bfe576050dd15cdec5c39ec4b76"
+    sha256 ventura:        "691212e104f81294639719d8825cd0cb7eac8e70bcd8c5a0dffe969646056c1e"
+    sha256 monterey:       "85af4c8e8c5a50ce9df7a6ce7e1da1f93f4bc23e5f50f9caa11bfc0129362064"
+    sha256 x86_64_linux:   "0fc0c39c2ad321f07595845428270856e4f5fae8ea3735a015fc18d4b57a5908"
   end
 
   keg_only :versioned_formula

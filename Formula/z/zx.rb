@@ -1,26 +1,25 @@
-require "language/node"
-
 class Zx < Formula
   desc "Tool for writing better scripts"
   homepage "https://github.com/google/zx"
-  url "https://registry.npmjs.org/zx/-/zx-8.1.3.tgz"
-  sha256 "f044062b0f4fa172b19fddb1fd873a85eb2cbe8fc6a92c57b36a4fea6c3909d0"
+  url "https://registry.npmjs.org/zx/-/zx-8.1.4.tgz"
+  sha256 "dfdf71de383d5145c01063dd32fdfee95bbfd145b1470a4b69a995a33c752ca1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a6520a4148dce68a5398e12ec8f2848d1f818fb0b1e796fb40707569844262f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a6520a4148dce68a5398e12ec8f2848d1f818fb0b1e796fb40707569844262f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a6520a4148dce68a5398e12ec8f2848d1f818fb0b1e796fb40707569844262f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "61f2978658133749c3fb8f2d450f79a9d9359089bf4bc10aad3f836582a4d239"
-    sha256 cellar: :any_skip_relocation, ventura:        "61f2978658133749c3fb8f2d450f79a9d9359089bf4bc10aad3f836582a4d239"
-    sha256 cellar: :any_skip_relocation, monterey:       "61f2978658133749c3fb8f2d450f79a9d9359089bf4bc10aad3f836582a4d239"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4a2f020526e224fc01e55a83d7e2ed917f48ad2d6e5310f921137e03d58f60e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b454c529e1dc9d1dc584f6eb948c8e3a9937735b674e059a501e024bb7a4cef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b454c529e1dc9d1dc584f6eb948c8e3a9937735b674e059a501e024bb7a4cef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b454c529e1dc9d1dc584f6eb948c8e3a9937735b674e059a501e024bb7a4cef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "581b54bc7ee2b94eedb6129b6e510d5ac8998e551ddc4898af8273870619fe3c"
+    sha256 cellar: :any_skip_relocation, ventura:        "581b54bc7ee2b94eedb6129b6e510d5ac8998e551ddc4898af8273870619fe3c"
+    sha256 cellar: :any_skip_relocation, monterey:       "581b54bc7ee2b94eedb6129b6e510d5ac8998e551ddc4898af8273870619fe3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9b3a8e018f04112082fd0c0440304648cdba4d3f64bfc2cc1a3f5c53fcea71f"
   end
 
   depends_on "node"
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

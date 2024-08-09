@@ -1,19 +1,19 @@
 class Gittuf < Formula
   desc "Security layer for Git repositories"
   homepage "https://gittuf.dev/"
-  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "48b97161f3a852985963782686b597ba1692fa46bfc50449d12cbe75defb9043"
+  url "https://github.com/gittuf/gittuf/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "0f04fd9e786b3c34599433ed972331faa3518f6be70d939e4e37d4268eaa5619"
   license "Apache-2.0"
   head "https://github.com/gittuf/gittuf.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a97c22ae40def022d0823f51304daa498bd0d6f40e5ef2f28832f64816136046"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d899313a663f6407983f25562f66353a75b7895df96070461c650563950b0f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "90374fc254103ef62fffbe2aedcecaf144f92b1dc01284d0f6a45ff13b2fff24"
-    sha256 cellar: :any_skip_relocation, sonoma:         "519fa54668483568bd69988b4f531eb16ae55a1c2a706ce5df9e82057327518c"
-    sha256 cellar: :any_skip_relocation, ventura:        "9961f1d7784e85b9d9396a10271019847a43ccb8a860f7facd10a7f7f15841d0"
-    sha256 cellar: :any_skip_relocation, monterey:       "08ca70c67dcfd396cb83d781d5ce6e3b2b9eb937783016e17e0212a2c608364b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c787ef8ab9a55fa1b08fea170a41fe2e8cd74f139b030fb26c52d3ecefe384f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b78d7a4639cd1a2a45b60a11fe2287ac27b16e986944009a3a2cb5e14d372ba6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f78310dbc7aecf61b6e579eca9f02bd92b6356ee0ac989d781f1240015cedf95"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "55a9a79ba45dd46e45037b600c52c15aa44ae118b7189036ade1b6882fcd9402"
+    sha256 cellar: :any_skip_relocation, sonoma:         "731a4a6df77a7fddf2c014528d7c8da874916b168fb4b0c188be2a5d732c2ee9"
+    sha256 cellar: :any_skip_relocation, ventura:        "1314bdb21d09b6bcd79c9433009974605ce28beea2b5f71a78d01527cbc32b70"
+    sha256 cellar: :any_skip_relocation, monterey:       "fd4e266d9d123f1f8b27bfb2cac4d801ff4a18a534f3eca32e9012b947869ea0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20ca873cdd73adab226158b8a09cfaf49b51b984d3959d81fefc7be6a609ffe9"
   end
 
   depends_on "go" => :build

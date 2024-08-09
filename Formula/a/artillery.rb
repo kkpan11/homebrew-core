@@ -1,10 +1,8 @@
-require "language/node"
-
 class Artillery < Formula
   desc "Cloud-native performance & reliability testing for developers and SREs"
   homepage "https://artillery.io/"
-  url "https://registry.npmjs.org/artillery/-/artillery-2.0.16.tgz"
-  sha256 "72f0a777c9cd206ab72c75d3f8f4579ce987e839128fed3f83b2b142e5985eac"
+  url "https://registry.npmjs.org/artillery/-/artillery-2.0.19.tgz"
+  sha256 "72da0d609c219a9da05cbc6e18684730344aded8a191de7ae8fda24041522af7"
   license "MPL-2.0"
 
   livecheck do
@@ -13,13 +11,13 @@ class Artillery < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "788f7d6043879016c3ca70d706fa3a427ca923559feb63643458e67a14c65f64"
-    sha256                               arm64_ventura:  "0c4aaed820d67013421c4635b96fccf235f69561ad7957d831982850d49c6546"
-    sha256                               arm64_monterey: "081231b95808aed1f09a2baf136c706fb59703ad0525f1d00706d2361d671c03"
-    sha256                               sonoma:         "3c0013488b655fd517586347541f15c8d2c5f611e069a04dd2073c576f26fd76"
-    sha256                               ventura:        "4b4b2cbfba8914ba1c82e60133cb4b3132fc520d8bbfe61c8056ba43b4877360"
-    sha256                               monterey:       "a280767b9422afc9213bec89ecf45b5c2758c93bad44c3c1b7817f8cf3fb8612"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bf429c1a47a63aa69d69ec9c0716e7c829916c45288760b8e705180dfebad3f"
+    sha256                               arm64_sonoma:   "a1c65e5198a522567a6304e5e7d68e6a16ac1a3cd26c89c586c388c48fb18915"
+    sha256                               arm64_ventura:  "d614899b52e0ad4748ae2db47072b86204b8dfebf85385346bc6f36a7ac86902"
+    sha256                               arm64_monterey: "095e0cab2cbf6074de8565eec55bc82562049a5c897676705b6d82a9c5d94067"
+    sha256                               sonoma:         "9bc9f5b3b952755e6f47155b4b9f40a54070c44df7b5cf23277fa170feb8f99d"
+    sha256                               ventura:        "f9262b64d9fc141ca37c7409851e6d4060d11c4b14477abee3acb8d3f3ec1938"
+    sha256                               monterey:       "d6ee5c4fabb836720bccb100bc3a7410825dc4b0b033b133f29e31ee6a3378c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "665ea1e9a86e7c1da1402984a5b9c3ffc5d9fae2046d17be8766ad9651fea51d"
   end
 
   depends_on "node"
@@ -29,7 +27,7 @@ class Artillery < Formula
   end
 
   def install
-    system "npm", "install", *Language::Node.std_npm_install_args(libexec)
+    system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
   end
 

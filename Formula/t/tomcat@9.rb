@@ -1,9 +1,9 @@
 class TomcatAT9 < Formula
   desc "Implementation of Java Servlet and JavaServer Pages"
   homepage "https://tomcat.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.90/bin/apache-tomcat-9.0.90.tar.gz"
-  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.90/bin/apache-tomcat-9.0.90.tar.gz"
-  sha256 "318491c4be43494e6872b5277c40cac8506901d744ad09d37df62e88543f6223"
+  url "https://www.apache.org/dyn/closer.lua?path=tomcat/tomcat-9/v9.0.93/bin/apache-tomcat-9.0.93.tar.gz"
+  mirror "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.93/bin/apache-tomcat-9.0.93.tar.gz"
+  sha256 "69e0f353ea7d85004f9de379c1ea68e5775287fe2e0859c56081e085c1b29226"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,7 @@ class TomcatAT9 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, ventura:        "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7cd770729d57646c044dadf0a6da9555a658c9ff6ff2a8c50694f4259e8c744b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49cf6dcf30d756af974bfe7342d0fab0c80134ca201436c9a311f91eb460ef15"
+    sha256 cellar: :any_skip_relocation, all: "cc5392e1139455f4b4fdb7fccddf26105dbd36c84d9c640c09f70809472e6165"
   end
 
   keg_only :versioned_formula
@@ -26,7 +20,7 @@ class TomcatAT9 < Formula
 
   def install
     # Remove Windows scripts
-    rm_rf Dir["bin/*.bat"]
+    rm_r(Dir["bin/*.bat"])
 
     # Install files
     prefix.install %w[NOTICE LICENSE RELEASE-NOTES RUNNING.txt]

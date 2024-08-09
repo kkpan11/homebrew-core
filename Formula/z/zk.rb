@@ -1,10 +1,10 @@
 class Zk < Formula
   desc "Plain text note-taking assistant"
-  homepage "https://github.com/mickael-menu/zk"
-  url "https://github.com/mickael-menu/zk/archive/refs/tags/v0.14.1.tar.gz"
+  homepage "https://github.com/zk-org/zk"
+  url "https://github.com/zk-org/zk/archive/refs/tags/v0.14.1.tar.gz"
   sha256 "563331e1f5a03b4dd3a4ff642cc205cc7b6c3c350c98f627a3273067e7ec234c"
   license "GPL-3.0-only"
-  head "https://github.com/mickael-menu/zk.git", branch: "main"
+  head "https://github.com/zk-org/zk.git", branch: "main"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "f8f181e8d732eb66c3500a232cd4fb25f771b785389d97cf12f5095854529d10"
@@ -26,8 +26,8 @@ class Zk < Formula
   end
 
   test do
-    system "#{bin}/zk", "init", "--no-input"
-    system "#{bin}/zk", "index", "--no-input"
+    system bin/"zk", "init", "--no-input"
+    system bin/"zk", "index", "--no-input"
     (testpath/"testnote.md").write "note content"
     (testpath/"anothernote.md").write "todolist"
 

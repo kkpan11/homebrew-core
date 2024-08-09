@@ -1,6 +1,6 @@
 class Gnucobol < Formula
   desc "COBOL85-202x compiler supporting lots of dialect specific extensions"
-  homepage "https://www.gnu.org/software/gnucobol/"
+  homepage "https://gnucobol.sourceforge.io/"
   url "https://ftp.gnu.org/gnu/gnucobol/gnucobol-3.2.tar.xz"
   mirror "https://ftpmirror.gnu.org/gnucobol/gnucobol-3.2.tar.xz"
   sha256 "3bb48af46ced4779facf41fdc2ee60e4ccb86eaa99d010b36685315df39c2ee2"
@@ -96,8 +96,8 @@ class Gnucobol < Formula
     EOS
 
     # create test executable and run it, with verbose output
-    system "#{bin}/cobc", "-x", "-j", "-v", "hello.cob"
+    system bin/"cobc", "-x", "-j", "-v", "hello.cob"
     # now again as shared object (will also run cobcrun)
-    system "#{bin}/cobc", "-m", "-j", "-v", "hello.cob"
+    system bin/"cobc", "-m", "-j", "-v", "hello.cob"
   end
 end

@@ -2,19 +2,19 @@ class Metricbeat < Formula
   desc "Collect metrics from your systems and services"
   homepage "https://www.elastic.co/beats/metricbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.14.1",
-      revision: "c74896ed7acbb92921ee46fa5e3d66d575a8b0a9"
+      tag:      "v8.15.0",
+      revision: "76f45fe41cbd4436fba79c36be495d2e1af08243"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee8e4cddedb87fb913deee8e75f7c37bb70d7be142625b7d5adaade4492b4bb7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7022b5a6a1169b36bd97e3196c9ba23f84818b35b60791c3a7fb6f33f041edc2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5b5b7e31d0907b4cd3eb584e95642728c6253750b189e5a58881f7d8cd54b3f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5f83268dfea66373993d00bd97e6880bd987ef03ab7e4e4b64c69dfc026e6e90"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb1a04a389d4532d18c7a184dbeec941a6f0c5f3457b2f2443ca4585ae7d3291"
-    sha256 cellar: :any_skip_relocation, monterey:       "a6ae756087797e6e296a3a1a0296aa8b45eed7edf82ec789468661566a4ae9eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf8139561e64237fac866e8a7031bdafc1634a775462f902a607d19c7af1f574"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d24dea8e10f9135558e53dfae6c911de7ccaa18e1c477f175e2d522b41296cb7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bd0468c4227fe5b1062027923ba2c2534136b8c682c1199c5d3a56510d4d529"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2f5980cf5bde575e1677e9c69de67f28a31df9f764d12ca5df2fc996b52d5be"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0357d35d9e5d7d4ac67bb8719fa8c05320fb9deb5116e72f2757550f95197c27"
+    sha256 cellar: :any_skip_relocation, ventura:        "d085681f98b4ac39a29543af5bc0df7a8e7fac3150e99d9a8f83064d95d83076"
+    sha256 cellar: :any_skip_relocation, monterey:       "1734da64bc87320729bd562cde53c4bf058f5064cfa1bd6d0becd3f0cd25fe87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79b7883dda95fbdd6a577fb256c564e9971b539e4ada029023e719a5f9031322"
   end
 
   depends_on "go" => :build
@@ -24,7 +24,7 @@ class Metricbeat < Formula
 
   def install
     # remove non open source files
-    rm_rf "x-pack"
+    rm_r("x-pack")
 
     cd "metricbeat" do
       # don't build docs because it would fail creating the combined OSS/x-pack

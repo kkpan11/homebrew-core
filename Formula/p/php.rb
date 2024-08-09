@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.3.8.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.3.8.tar.xz"
-  sha256 "aea358b56186f943c2bbd350c9005b9359133d47e954cfc561385319ae5bb8d7"
+  url "https://www.php.net/distributions/php-8.3.10.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.10.tar.xz"
+  sha256 "a0f2179d00931fe7631a12cbc3428f898ca3d99fe564260c115af381d2a1978d"
   license "PHP-3.01"
 
   livecheck do
@@ -13,13 +13,13 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c12f12ba761f2cce5fab981de8774637e0cd935fb0c81dbf793e3a9b41a90dec"
-    sha256 arm64_ventura:  "59f19c0f40495582bb8f41a1237d5ab38b2fe236c30de327dfcfefed1eae3713"
-    sha256 arm64_monterey: "63d7a8ac9fea7e8bb010e3845f40af08c3c91b9ca5d3eca94283f8760ed5775d"
-    sha256 sonoma:         "5f80d6c7ef4a7fe02697bb289f1266e993e238ac6b9ec891e92060cd1d22e1a4"
-    sha256 ventura:        "ca5ce15f272d6fb80bf1b39dce271bafe7eefd8978c596f2aee6d3f5d694f29e"
-    sha256 monterey:       "bcd513e71e2f4fc50d426248b76681c462eaf53053efd587ed56a31ed73edca4"
-    sha256 x86_64_linux:   "4e71f9f072ba7d7e962875f267ba11d8aa33fb3f292bda646707907f6972dfac"
+    sha256 arm64_sonoma:   "0b6ba26212e16ecd59e268024e17946d95c4c0723e0234092c0c8700cd493110"
+    sha256 arm64_ventura:  "a424aba4cba7d90789adb33e0a872e8fa1ed602258f1949b8b053d37d8615576"
+    sha256 arm64_monterey: "fed1289395302144ef24cfd722271c7157d38fa0bb6dbf9e02c25ef4f9eb52e9"
+    sha256 sonoma:         "62fd74d18031c6c56771465fc3be13a3f2547fb4ffdba5cc521cbef12a707c1a"
+    sha256 ventura:        "b45cc254e2977b16e23e4dca6709b88b20014d39c970f98909a07ee2d6f1b814"
+    sha256 monterey:       "586392559420c6b6fef97137d623945e59a51dc177b02838b99d7268724d4558"
+    sha256 x86_64_linux:   "111e4a51d201e6d99f94256cf0bf4da6adeb88754616a677e77ada74170c19b7"
   end
 
   head do
@@ -202,7 +202,7 @@ class Php < Formula
     system "make", "install"
 
     # Allow pecl to install outside of Cellar
-    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
+    extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
     %w[development production].each do |mode|
@@ -260,7 +260,7 @@ class Php < Formula
     pecl_path = HOMEBREW_PREFIX/"lib/php/pecl"
     pecl_path.mkpath
     ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
-    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
+    extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 
@@ -337,8 +337,8 @@ class Php < Formula
                     (Formula["libpq"].opt_lib/shared_library("libpq", 5)).to_s
 
     system "#{sbin}/php-fpm", "-t"
-    system "#{bin}/phpdbg", "-V"
-    system "#{bin}/php-cgi", "-m"
+    system bin/"phpdbg", "-V"
+    system bin/"php-cgi", "-m"
     # Prevent SNMP extension to be added
     refute_match(/^snmp$/, shell_output("#{bin}/php -m"),
       "SNMP extension doesn't work reliably with Homebrew on High Sierra")

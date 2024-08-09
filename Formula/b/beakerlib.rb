@@ -1,18 +1,18 @@
 class Beakerlib < Formula
   desc "Shell-level integration testing library"
   homepage "https://github.com/beakerlib/beakerlib"
-  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.31.tar.gz"
-  sha256 "8aeba4c8174c31b86241d88138e61d541adaf07128d8233be2dd4e199c61f7d2"
+  url "https://github.com/beakerlib/beakerlib/archive/refs/tags/1.31.2.tar.gz"
+  sha256 "2a171c5bf640758eb2c0f177f4f96bdd5badbb05e24b48ed8684dc88f80b6da5"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "180179db23b4fde782658c3d2a79862fe78c96cf83f49c1207b8b0fc50e1995e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b3d212a4f5eb4dca27f8fd04b85256cd02ebb95d84bbd0d19a9c00de9fd22ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "072d47eff2232e98edb099c1183edee92ee7780ba5091d2530b1d1f4469f330c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f0c1ae49689a0b7deb5a4b1d535985b177a8ef92e09ee34b82914eecc876817"
-    sha256 cellar: :any_skip_relocation, ventura:        "7a48fc04ae1875fb6a2f98e64c472bf4b0ddbe56bc1700643bf76247e91aeb15"
-    sha256 cellar: :any_skip_relocation, monterey:       "6b73b5b96c04dc90ae79ada4c7d97564719d9ead2161e0ebe10563ac54ff35d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4c0f368852109144b69d1bcfcbc1f74bf73c1ab450483787795f2ff34e2e905"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "154c7a897d9ae0a67e8032f0edba8c79d134aa5e666c93d7e77be3b132d63159"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00c70b79b1effdd9802cb23d852b45006014fdde6bf797febe8a0ae5f03b0d32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "629e01c6983dd8b122c82e6aa6c78e2079e4dc3e3555a0c166bf64c583125edd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cd38c87e8dd9333398ba6722a0c5c66fd47bc669b148f5cd783a7e559e86144c"
+    sha256 cellar: :any_skip_relocation, ventura:        "6018de0a13981367deba8aa3961e20d303f61ffbcead72090f61df9f60b7344c"
+    sha256 cellar: :any_skip_relocation, monterey:       "dd51247f5c5a1d8b78742a738658538824ed2d1ed4cf26e8092db84e03643054"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "544a61047282be8469c696245cf6e7018b427676f3cbadf91697f26c0376681f"
   end
 
   on_macos do

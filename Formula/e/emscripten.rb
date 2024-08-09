@@ -1,10 +1,8 @@
-require "language/node"
-
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.61.tar.gz"
-  sha256 "bc5eff3d929a208173a61de47f0084e687d06df442c03684a796538d51e4a38b"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.64.tar.gz"
+  sha256 "7ee24e77ed0a026d00c3df2e46bfe53106ef61db57059949a38bc5bfe5399686"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,13 +16,13 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "19ecfeeb5c44879193306be8324b9c6344a89eb87ac2e8c582ab20750cc90cfa"
-    sha256 cellar: :any,                 arm64_ventura:  "53fd7b9cbc946040502507f3bb8bc74b59996e9e108ab2d478e1df45c31b9eab"
-    sha256 cellar: :any,                 arm64_monterey: "3d2dd7617d6168e1d32f0c93c96b08a139b5a08ac4da814e86e6ee602b72b4d5"
-    sha256 cellar: :any,                 sonoma:         "380b8d69c2b5b5df2e742c6e75dcda06cce9f23f7784c817eeaeda3532106e85"
-    sha256 cellar: :any,                 ventura:        "a4fe64490633d86507be16a67a6a9d2ba5883a923281eda1a4c15c23e1f07176"
-    sha256 cellar: :any,                 monterey:       "c43850bc36648a5427b7b900f05e4bd73a7b330b2d36327583daf7abe24fb120"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b597df87d3fa822a8bec1d751d62f03433584a643cce5a3a2892a29e976c7134"
+    sha256 cellar: :any,                 arm64_sonoma:   "432af91f2ade1d8e85874f04e76df164f4548e62ac5fceb90a5cc2ac1eea58a3"
+    sha256 cellar: :any,                 arm64_ventura:  "1cf2e895e590b84b4c9e000181691a9cea7af38d33b960758f4a3ced60f0f280"
+    sha256 cellar: :any,                 arm64_monterey: "f8e523ac02a1a37db0d4f343374dd66ee6138c22139372dea4fd3796f2927d28"
+    sha256 cellar: :any,                 sonoma:         "53153d67b2309100dc8ec96e84a4220d0fae354ab111f2306640c568b870d9c6"
+    sha256 cellar: :any,                 ventura:        "0994b8038dcd1989438eb5d1d3107fc3a2649102184ce0d421fc5887add19b3f"
+    sha256 cellar: :any,                 monterey:       "fbf9feaac390941e527fb84a24bf6c52c2d841836069cef71708ad20072008c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4390c874b43911d65c86b9dd5a0f8e447d56520f33e21e902b3eb3a5b3f29bc6"
   end
 
   depends_on "cmake" => :build
@@ -65,7 +63,7 @@ class Emscripten < Formula
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "921644ca65afbafb84fb82d58dacc4a028e2d720"
+        revision: "a8066e6618b93ea101e82b64690b9b62d7562609"
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -73,8 +71,8 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/1ef081b05c562936fc025dde39b444066d9d470f.tar.gz"
-    sha256 "464165e207f8ae83011561c95d7893b190f44cc8df4c98a76527f78eec27b4e4"
+    url "https://github.com/llvm/llvm-project/archive/4d8e42ea6a89c73f90941fd1b6e899912e31dd34.tar.gz"
+    sha256 "149721d58bd9e0f93f68750ce0520001daf06480b2168a2d615c7879bba37563"
   end
 
   def install
@@ -91,7 +89,7 @@ class Emscripten < Formula
     libexec.install buildpath.children
 
     # Remove unneeded files. See `tools/install.py`.
-    (libexec/"test/third_party").rmtree
+    rm_r(libexec/"test/third_party")
 
     # emscripten needs an llvm build with the following executables:
     # https://github.com/emscripten-core/emscripten/blob/#{version}/docs/packaging.md#dependencies
@@ -168,13 +166,12 @@ class Emscripten < Formula
     end
 
     cd libexec do
-      system "npm", "install", *Language::Node.local_npm_install_args
-      rm_f "node_modules/ws/builderror.log" # Avoid references to Homebrew shims
+      system "npm", "install", *std_npm_args(prefix: false)
       # Delete native GraalVM image in incompatible platforms.
       if OS.linux?
-        rm_rf "node_modules/google-closure-compiler-linux"
+        rm_r("node_modules/google-closure-compiler-linux")
       elsif Hardware::CPU.arm?
-        rm_rf "node_modules/google-closure-compiler-osx"
+        rm_r("node_modules/google-closure-compiler-osx")
       end
     end
 

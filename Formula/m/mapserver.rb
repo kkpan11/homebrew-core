@@ -1,8 +1,8 @@
 class Mapserver < Formula
   desc "Publish spatial data and interactive mapping apps to the web"
   homepage "https://mapserver.org/"
-  url "https://download.osgeo.org/mapserver/mapserver-8.0.2.tar.gz"
-  sha256 "0830c43feefeca132171b429403716a2cbaef0626d439f00e8a3a27a877724fe"
+  url "https://download.osgeo.org/mapserver/mapserver-8.2.1.tar.gz"
+  sha256 "bc2cb4339cfc241aa68c8ae35b0e8ee6c19da7781cad16653a26c5229f2c98f2"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Mapserver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "df083d3f5d77b1e7249efe82c9a5a4bfcac4b8db1f13929f457ec21124d281c5"
-    sha256 cellar: :any,                 arm64_ventura:  "dcc078b16c5b88ae71d02cbab742c5305e89a09f693ffa3e74cda590621181cf"
-    sha256 cellar: :any,                 arm64_monterey: "a8f9a340f6b553ce137c5e51f2229336f1c2002fe6b31809dfafdad667fb2118"
-    sha256 cellar: :any,                 sonoma:         "8c43b03c3d8b9c5435101147778e4973c0fef6cab6ba43e86a83ce02fbd00ad8"
-    sha256 cellar: :any,                 ventura:        "b2d9392c5109069c1f0e768259f9ee01ff00edbfa8e775fa810c9e70e66e3e0c"
-    sha256 cellar: :any,                 monterey:       "72eeddda6ab14b114187390402277ad5d51d499f40e8260633b311c1d900e971"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9fd28f83025099feb0251fea368c489d364ea67dcb36d8914d9f223ac6e7cf5"
+    sha256 cellar: :any,                 arm64_sonoma:   "de9bc65cac134171d94503eaafc64b595663de46095f28dc68f4c5e3214a8188"
+    sha256 cellar: :any,                 arm64_ventura:  "0de2cfa403f833911bc6f7e283d2b2f795e34a74ac8f38cca2fa889443ed97e6"
+    sha256 cellar: :any,                 arm64_monterey: "fa33dc7449716c6a44e7cb45fab1d4ae6501ea5ced32acd7e1ff0401f7bf8cc2"
+    sha256 cellar: :any,                 sonoma:         "34de2e88e3d3485be45e659c2e961333e895490a964830dfad261916b4137f9f"
+    sha256 cellar: :any,                 ventura:        "93e6b855b5489c183f56b806c68006564a5850a7e66d75af48d8e8d4ebf620a0"
+    sha256 cellar: :any,                 monterey:       "8d8ea69a27b1198e2e51abd148b1c4a8e11b6fa1883aca93d8bbc86d50342887"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdd9b644bc48d842675b3075643d312f9c19dbfeb896de2e11a045ab06281d87"
   end
 
   depends_on "cmake" => :build
@@ -67,8 +67,8 @@ class Mapserver < Formula
     if OS.mac?
       mapscript_rpath = rpath(source: prefix/Language::Python.site_packages(python3)/"mapscript")
       # Install within our sandbox and add missing RPATH due to _mapscript.so not using CMake install()
-      inreplace "mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}",
-                                                   "-Wl,-undefined,dynamic_lookup,-rpath,#{mapscript_rpath}"
+      inreplace "src/mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}",
+                                                       "-Wl,-undefined,dynamic_lookup,-rpath,#{mapscript_rpath}"
     end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
@@ -92,7 +92,7 @@ class Mapserver < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/mapscript/python"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/src/mapscript/python"
   end
 
   test do

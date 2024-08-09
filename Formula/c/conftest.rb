@@ -1,19 +1,19 @@
 class Conftest < Formula
   desc "Test your configuration files using Open Policy Agent"
   homepage "https://www.conftest.dev/"
-  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.53.0.tar.gz"
-  sha256 "64d9adf13daf1748865a0f6cc18506c9adf30b81e6cbc9408116fc79494f6c64"
+  url "https://github.com/open-policy-agent/conftest/archive/refs/tags/v0.55.0.tar.gz"
+  sha256 "fee1de2a5e7a094728ff5c8f754492e9c90180fde23b63299c0393c14c6c1e11"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/conftest.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12b25e100b4a8a554dcf8aac195a35d08530c6c92aac8f484427a818eb281632"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d179741accabef4d4f3d860c013ea591fe80a9ab2c9648469518b06e576fc01"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0af4978c0a6364f86e771f37ccfe92dc2ce10ad4b53339c1f9d448163639bbd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0b9f8fad25aeb3dcef89583c35300fec6caed6fc631e643ad265114e427a947a"
-    sha256 cellar: :any_skip_relocation, ventura:        "9a31cd1a1c4c2560d3f9553260fd8d838d47715277105fe02fa17ed7d9778f73"
-    sha256 cellar: :any_skip_relocation, monterey:       "c34b2730418865b7e76fa9cfedca86f5f57dc4fdd7d48db87b2d3dc73b3fc208"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef8aa837e8d9f4e86482a663ddae9057e08dd540e5f08fed76deab4503b11ac4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "97faabe0071274267d32e4f1b557034139e25e32c9920ea8b269d7f7bc2fd52c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c08d354576f9ce7c7c762ff1a382484a76000c2c88f82149ec87d886aeb3a9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "295bb7ba97435b76193b2d65632ab23f0c5a5b84ab141ac9e29a0e126fd953b7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "900a259adb4eca4d00199c164a0eaabbb77e3dc9a8349b77825d27e8df7a0c3c"
+    sha256 cellar: :any_skip_relocation, ventura:        "aa86394ffeee100bfaab4d29bf77722af07616dad5a75c1e1f400ff9431078cb"
+    sha256 cellar: :any_skip_relocation, monterey:       "46a97df86819ba444be427edc6d8e076ba2c661b16d187e9178ad7bf31f4ce0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "830b78d108854083af7bd2d3983a2bcff3bef7cb66eda00f69a2665b2b05c6b0"
   end
 
   depends_on "go" => :build
@@ -30,6 +30,6 @@ class Conftest < Formula
     # Using the policy parameter changes the default location to look for policies.
     # If no policies are found, a non-zero status code is returned.
     (testpath/"test.rego").write("package main")
-    system "#{bin}/conftest", "verify", "-p", "test.rego"
+    system bin/"conftest", "verify", "-p", "test.rego"
   end
 end

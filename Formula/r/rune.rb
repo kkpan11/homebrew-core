@@ -1,19 +1,19 @@
 class Rune < Formula
   desc "Embeddable dynamic programming language for Rust"
   homepage "https://rune-rs.github.io"
-  url "https://github.com/rune-rs/rune/archive/refs/tags/0.13.2.tar.gz"
-  sha256 "ae082dc218092d9ff67587d59035ad250350d3f7cbad5b7390241aedfa93d22e"
+  url "https://github.com/rune-rs/rune/archive/refs/tags/0.13.4.tar.gz"
+  sha256 "f6a1e89e4824d98319ec46722c05f1e62434543875ff3667732c161a0807ae20"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rune-rs/rune.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59281f74a7559cda69f42492fe1bce1ae7230bace893edf834c67265ac9412fe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0c0de05eeef2a1a24841dd3964d1933a69083dbf9fd5e5220e0ea0491ad510b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3aa9f62d32549c6506142fbd0e505b40b9e65e416c36f398d880fed05d5c095a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4ced2ce46ef5355f4d4271c999180e3a3b3e3f22451421a6821d18b97059ade7"
-    sha256 cellar: :any_skip_relocation, ventura:        "86e7a6bf07520f49820413991ff84c9e1163ad32ba5cee29cd031d8746c41698"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca1b65154871cf49c5d581bd1120ad992698bf08c7c3f1c00c6be192dc2c58fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "758823277fd63c8f94e23e9a407f7da25d71f34e3db9ae05d54a1c7857a32be1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "137ef65d7d822c2ed57bff8bc098ab11168c925d8198918f87b1fa93a376d362"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "336b0e074f43614610e54d207985063f9fe0a1440df2bf482efef46de51da3a9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17027733a8674785f55c44a21d2485ffb4d6ec6ef22c77868afad0094ce816bd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5938be9883cd38e142b464027dd8f8b28373544e815220131c9b3591e7e45369"
+    sha256 cellar: :any_skip_relocation, ventura:        "52b9a187f6b9b775b7eba9844bf7fe9630e333e3dfb59393f588bb91997aa470"
+    sha256 cellar: :any_skip_relocation, monterey:       "80c71954d4cb1d1fb5f6b2e629d1dedda3692499cae1f42feb5865db1a210b51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69183574c6b982ee2514f426b7d3c09e35e0fbdff198e6f9bf546a37d1197ba2"
   end
 
   depends_on "rust" => :build

@@ -3,18 +3,18 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/73/d7/8bbeb924924dbaa5bde92f30edfd544f864c2deefb54b30886816556d3e8/cycode-1.10.2.tar.gz"
-  sha256 "ed0458f9410cea2028e37f01bb31c28c444492ec44dd4050abfc4d3406e5358f"
+  url "https://files.pythonhosted.org/packages/93/92/c44d851efc4b70b7e69481a29ef1a359ed40f83adfe77e0c465604c5f2bf/cycode-1.10.7.tar.gz"
+  sha256 "56a6179e56d35628f81aafccfa21c89c1f93f0052d7f515838a59d0e349c3e21"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2075d3ceec4045a78518da9eec8b9e61b8c098922e39d5353a77d11d74d92f89"
-    sha256 cellar: :any,                 arm64_ventura:  "9c414505870d5a2e66c3c78ec51a77da505fb3fdd1861a798dd44dd446cd6051"
-    sha256 cellar: :any,                 arm64_monterey: "da47f81ce24ae452c6cda66cdc6b382089e34bdf7284fcbdd589f961070ff6a3"
-    sha256 cellar: :any,                 sonoma:         "77654bbb23c57c0524631f3e359993d7ce67dd8e46151a71d7fdcffc2016003e"
-    sha256 cellar: :any,                 ventura:        "2e0e999cda34d79130d3b2be9f563c484e45df85938ec60bd0cfdc6d4d4d000b"
-    sha256 cellar: :any,                 monterey:       "a5daa8a76f0ac9d9ce9d98b97cad59c5c69a5820031d0fe567cd4c116cdf9db9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a326ba7285e04fa6f4022013db7e023159a03cd0dadbd0f5128f001b86519e55"
+    sha256 cellar: :any,                 arm64_sonoma:   "933f52ecb8be85bda05568b44d0b161c90ef3c57c6cf2ea1663cae1e5acfed0a"
+    sha256 cellar: :any,                 arm64_ventura:  "3c402cf295f8687bc57b7fd50be91ceda876c8a47b89c89f46e265f4571ed105"
+    sha256 cellar: :any,                 arm64_monterey: "d5f92452d1a6266237083ee63112216089f3ae159814fb22b714f07343f5a3c3"
+    sha256 cellar: :any,                 sonoma:         "d46a5cd0c892502f0d7872cddad807e0291c88209a46fa38725eb882d192a72b"
+    sha256 cellar: :any,                 ventura:        "9d4b4d2a84802cd9e0c4ca04c61ad5f263b788e3682146ed776393a2e3efedae"
+    sha256 cellar: :any,                 monterey:       "811df684302715a8925e328cec3e58689c5995193f9dc2fd4626bfe792b2570d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69120b9ca655540e0fb13bc032f7dd54744e2ec23ffdb2f1e9d167706a2be158"
   end
 
   depends_on "certifi"
@@ -81,6 +81,11 @@ class Cycode < Formula
     sha256 "e0d8d0ac2f12da61956eb2306b69f9469b42f4deb0f3cb6ed47b9cce9996ced3"
   end
 
+  resource "pyjwt" do
+    url "https://files.pythonhosted.org/packages/30/72/8259b2bccfe4673330cea843ab23f86858a419d8f1493f66d413a76c7e3b/PyJWT-2.8.0.tar.gz"
+    sha256 "57e28d156e3d5c10088e0c68abb90bfac3df82b40a71bd0daa20c65ccd5c23de"
+  end
+
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
     sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
@@ -94,6 +99,11 @@ class Cycode < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
     sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+  end
+
+  resource "sentry-sdk" do
+    url "https://files.pythonhosted.org/packages/6d/b3/39e4cd04b75a1ada788342d0d30a781cf65b5e43da806d5bf2bad4846ea3/sentry_sdk-2.11.0.tar.gz"
+    sha256 "4ca16e9f5c7c6bc2fb2d5c956219f4926b148e511fffdbbde711dc94f1e0468f"
   end
 
   resource "six" do
@@ -112,8 +122,8 @@ class Cycode < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/0c/39/64487bf07df2ed854cc06078c27c0d0abc59bd27b32232876e403c333a08/urllib3-1.26.18.tar.gz"
-    sha256 "f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"
+    url "https://files.pythonhosted.org/packages/c8/93/65e479b023bbc46dab3e092bda6b0005424ea3217d711964ccdede3f9b1b/urllib3-1.26.19.tar.gz"
+    sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
   end
 
   def install

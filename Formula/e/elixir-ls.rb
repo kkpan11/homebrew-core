@@ -1,18 +1,12 @@
 class ElixirLs < Formula
   desc "Language Server and Debugger for Elixir"
   homepage "https://elixir-lsp.github.io/elixir-ls"
-  url "https://github.com/elixir-lsp/elixir-ls/archive/refs/tags/v0.22.0.tar.gz"
-  sha256 "aa142dbd3ab34db160a6d9ff63c2885a3313ae70148075bfcf3ebe5a767ad044"
+  url "https://github.com/elixir-lsp/elixir-ls/archive/refs/tags/v0.23.0.tar.gz"
+  sha256 "83c49ec9268ad76f9b7f72585e3cb9dd0199338be69a9ebf507d77109c6a5684"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59325f5ed48de38ea530b845d882ad423a17d5329efcbfe4903dd7b16f355a4f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59325f5ed48de38ea530b845d882ad423a17d5329efcbfe4903dd7b16f355a4f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59325f5ed48de38ea530b845d882ad423a17d5329efcbfe4903dd7b16f355a4f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "59325f5ed48de38ea530b845d882ad423a17d5329efcbfe4903dd7b16f355a4f"
-    sha256 cellar: :any_skip_relocation, ventura:        "59325f5ed48de38ea530b845d882ad423a17d5329efcbfe4903dd7b16f355a4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "59325f5ed48de38ea530b845d882ad423a17d5329efcbfe4903dd7b16f355a4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff87333cdd3f9d82ec4b693e2bb4e66b91242f618d752c11d8c008d70a54452a"
+    sha256 cellar: :any_skip_relocation, all: "ac2c1e3936ae2dd6b89466853db8ec6d08aff1697a450330207d8940a20a1954"
   end
 
   depends_on "elixir"
@@ -41,7 +35,7 @@ class ElixirLs < Formula
       "processId\":88075,\"rootUri\":null,\"capabilities\":{},\"trace\":\"ver" \
       "bose\",\"workspaceFolders\":null}}\r\n"
 
-    output = pipe_output("#{bin}/elixir-ls", input, 0)
+    output = pipe_output(bin/"elixir-ls", input, 0)
     assert_match "Content-Length", output
   end
 end
