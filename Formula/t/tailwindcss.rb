@@ -1,18 +1,17 @@
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.9.tar.gz"
-  sha256 "41421c59cd274999a083cc618300a53572a2de7e93bc32f7d6663f1c5c02acc8"
+  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.13.tar.gz"
+  sha256 "3ac83895e2351bac12479eaa1d4dffd5d6a929c82757521cbabbfebed85933da"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "196257c0ea44b076b71c9501801331f9143149f6b7b5be53de9b5a76c14f2571"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eaf2107ccd4b874c6fdc9eb5f59235d4afcb5849c66ea971d31b514daa2bf2a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4eaf2107ccd4b874c6fdc9eb5f59235d4afcb5849c66ea971d31b514daa2bf2a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9df545b831278d8412229d33a4ca7fa1b17b42f8ed9c7f62268f3e398aa18687"
-    sha256 cellar: :any_skip_relocation, ventura:        "4b30a7b4b2eb468ac81d351962c9c13b7acace8364a1c88d85e42b3f55a52fcd"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b30a7b4b2eb468ac81d351962c9c13b7acace8364a1c88d85e42b3f55a52fcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fbe203f13429e084b6d3d6bc4df6a32518da2fcd17f8f5eb8e725b836438f8f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "613ebe03c67b2f4c3f88a696b68cee1b723bc90378b2422fa563aa9b30c8bc2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "613ebe03c67b2f4c3f88a696b68cee1b723bc90378b2422fa563aa9b30c8bc2b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "32f5fa0824ad4027ae85cb375ac51d11a7de54dfb1f959bc4d4aaedf0f3d550b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "121a3221bf548cc96ba10aff24cec95222c962030e8c5cdd55cb4c3b104df972"
+    sha256 cellar: :any_skip_relocation, ventura:       "b1dd365c794395f682186b495f8dc9eaa5f920eb0b63a5e972dcfe6921b35654"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fb09e9fabb76f2c2b4e7ce81a17e909ec97247e0e647b1b1cb71cb12b6d1d795"
   end
 
   depends_on "node" => :build

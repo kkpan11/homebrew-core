@@ -4,7 +4,12 @@ class LibassuanAT2 < Formula
   url "https://gnupg.org/ftp/gcrypt/libassuan/libassuan-2.5.7.tar.bz2"
   mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/libassuan/libassuan-2.5.7.tar.bz2"
   sha256 "0103081ffc27838a2e50479153ca105e873d3d65d8a9593282e9c94c7e6afb76"
-  license "GPL-3.0-only"
+  # NOTE: We exclude LGPL-3.0-or-later as corresponding code is only used on Windows CE.
+  license all_of: [
+    "LGPL-2.1-or-later",
+    "GPL-3.0-or-later", # assuan.info
+    "FSFULLR", # libassuan-config, libassuan.m4
+  ]
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/libassuan/"
@@ -12,6 +17,7 @@ class LibassuanAT2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sequoia:  "24910ee0977d721b85bd2df1372698beaa6d11716b81e7a49512ccc9c79ba4da"
     sha256 cellar: :any,                 arm64_sonoma:   "0d4fd656fbf3db20892da64bec2eb966842de215a23c2008ecdf9198a68d5211"
     sha256 cellar: :any,                 arm64_ventura:  "22fd67c9fe966a0dfb7b26546828ef966ce53ece9ef297114932ea657927395f"
     sha256 cellar: :any,                 arm64_monterey: "bfb5e94cf8e6416253a63a0161fd1ae6f3665d71b4f83bacefea4043ae2f46b4"
@@ -26,10 +32,9 @@ class LibassuanAT2 < Formula
   depends_on "libgpg-error"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--enable-static"
+    system "./configure", "--disable-silent-rules",
+                          "--enable-static",
+                          *std_configure_args
     system "make", "install"
 
     # avoid triggering mandatory rebuilds of software that hard-codes this path

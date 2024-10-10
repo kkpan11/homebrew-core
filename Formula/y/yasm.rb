@@ -4,6 +4,12 @@ class Yasm < Formula
   url "https://www.tortall.net/projects/yasm/releases/yasm-1.3.0.tar.gz"
   mirror "https://ftp.openbsd.org/pub/OpenBSD/distfiles/yasm-1.3.0.tar.gz"
   sha256 "3dce6601b495f5b3d45b59f7d2492a340ee7e84b5beca17e48f862502bd5603f"
+  license all_of: [
+    "BSD-2-Clause",
+    "BSD-3-Clause",
+    :public_domain,
+    any_of: ["Artistic-1.0-Perl", "GPL-2.0-or-later", "LGPL-2.0-or-later"], # libyasm/bitvect.c
+  ]
   revision 2
 
   livecheck do
@@ -13,6 +19,7 @@ class Yasm < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "45b7744e4f66670c270ac4aa64836625a1806db9ac97920476620d340cbbdd96"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8201d94c49a9f010d7b7fa185eb2658484ed9d063b0334baff12659bebb22246"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b59763588b57923ad20c8090a7382aa361efc2503ad788dae648c95f24f410a4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d1a844ce9a26db6d2a5c72dbced52b7fbfc8491bfde95a2f026eaa1e46433be"

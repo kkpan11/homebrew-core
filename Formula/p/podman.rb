@@ -2,18 +2,18 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v5.2.0",
-      revision: "b22d5c61eef93475413724f49fd6a32980d2c746"
+      tag:      "v5.2.4",
+      revision: "76d0859d9f6e5d7c84392da9dcd2fae3447f789d"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "35039786ed085cf96d522f1e35b3e90224f10e760032544d584cc9d4c6a4a431"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "89c29ec97b26be94a928b75e02aa28217a61565f2c55b190f274ae857cf17b4d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e84bb90cd355bb7059c8e79c16be10ff50e19715cd4fe66b03802c9102d89a29"
-    sha256 cellar: :any_skip_relocation, ventura:       "24d6a62cd56d88c1a5b5c420d1cd6a2a058dcc2a9187c33846b2726ef5030816"
-    sha256                               x86_64_linux:  "4b9bbd3d3aa5d68e1bfec7b270e30fe398eb1c5ac7247dfccf504ba4402a954d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4da39d3fbebbc9abf77b743cc608d5920bba702f16c61667f6acc2824a0a7383"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66d592ecf1206c24e3d9cf4d6bb4568f51d24a3780b17f36bf86cbcd3dbbb8e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1119f378c89dfccd27deac5c6341808354449bfeaaa37c11bbe135297be47046"
+    sha256 cellar: :any_skip_relocation, sonoma:        "88a6e9d579afafbb67fa3b725a20cec502c6ff80a197d66f9dc9020a3b1a66bb"
+    sha256 cellar: :any_skip_relocation, ventura:       "a6a485de41a14569c53a3948f794cb9274ddcae7836d22d10bdb098a4b07293c"
+    sha256                               x86_64_linux:  "7d0d4f90e04ba2fd4b71ddb1bb57b3fbfe1b854dab820e02bffc6876cf2476e2"
   end
 
   depends_on "go" => :build
@@ -44,8 +44,8 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.7.4.tar.gz"
-      sha256 "22a68a0b0f8120c8d4dde29856e2cc38b292ced1b1d4cd8bf3b709acadbddc88"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.7.5.tar.gz"
+      sha256 "d635bc55dbb97cf2a469427fb84b7a90f37540f14b090c21356cce2e549b46e0"
     end
   end
 
@@ -65,15 +65,15 @@ class Podman < Formula
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.12.1.tar.gz"
-      sha256 "71e44922204da923b9f03b1306b9b0ba82673a201f3d96afc544f4ccdd4824d3"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.12.2.tar.gz"
+      sha256 "d1e5a7e65b825724fd084b0162084d9b61db8cda1dad26de8a07be1bd6891dbc"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.12.1.tar.gz"
-      sha256 "557d275c9d7c2367b2d330c14717a36b6046d58eb7288adeebc88a285ad0ede8"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.12.2.tar.gz"
+      sha256 "19317d97525c19135b31f76101b9c13bf2b009cecfc11f467b2ab30fb2641867"
     end
   end
 

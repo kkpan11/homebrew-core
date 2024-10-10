@@ -1,8 +1,8 @@
 class Abcmidi < Formula
   desc "Converts abc music notation files to MIDI files"
   homepage "https://ifdo.ca/~seymour/runabc/top.html"
-  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2024.08.11.zip"
-  sha256 "cd13edf91b48662551d590733a38477ccb8eeedf7c03e46ec3e3eee2af8935d7"
+  url "https://ifdo.ca/~seymour/runabc/abcMIDI-2024.10.10.zip"
+  sha256 "23335a04071d03ce908da4d6fd8a60ffd8cfb30437165e0107c2d810799cc70b"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,19 +11,16 @@ class Abcmidi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "720d22d768630d678e57a6e43433d5c92bae858d05a3dfde1675df8899507021"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d107c14343858a9ee28980c49d592ac39c0aaee4756ab57f9a6127cb0967a01d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3e2f761af8025b526ca809e02420da1281d0541937ce95c08be0d92013d4c70"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5803679fb616509967a8b2d63e615d4fd77ca2a04b5afc33e4036b5760ddd9e0"
-    sha256 cellar: :any_skip_relocation, ventura:        "1ab7f03c2c2616db5a275f7a920c44be39278ff753d03fce726b1d90d97c13ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "470deda3d4247b658f09424c3a75d7d149f4043a567bc7e425da25341d0e29d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dc7683cab03f8fcef2436303ff306ab4f475d557379a0b2b564d907abe6b6ae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "480ec32329fcc96c8546f87ecf55c416757c3b08807d2e57f46b7d2356535744"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "21e0ff3ef8f2ac32ce4e6dc88b340ba9c8cd3cb820417ddbe23523a303e50178"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "cb5f81436e025607b4798c1fd881a420fb3b1bab327a2150216ba1984aa69ae4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b6bb7bfe11c2e61d3aff011f449424d9784c96a60c6019c29e6623bea730e911"
+    sha256 cellar: :any_skip_relocation, ventura:       "626bba57526d0887aba39c773e6f3f17867b583cc3a32d46829e103a61a303ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c5e49a9c81ce155960e7fded67664adf769f2434e3fa4ffd459b065943ac308"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

@@ -1,18 +1,17 @@
 class Mako < Formula
   desc "Production-grade web bundler based on Rust"
   homepage "https://makojs.dev"
-  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.8.0.tgz"
-  sha256 "d425408272a92f34a8c41c6ca41afad2ec37739244723e89a1d1c5f2caa8591f"
+  url "https://registry.npmjs.org/@umijs/mako/-/mako-0.8.15.tgz"
+  sha256 "c9bda60ce9eef8ba37f7d37f3e4cb478807352c1d6415f1274930ff30c2893ec"
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "29796abe1fa7ff3b6be2a42f7d550887689cf2a0f1ecaa428285d8fe1099096e"
-    sha256                               arm64_ventura:  "78a6bd11a6e15939c7eadaae8e4a50a0ee5ec18796296dc9a5404f0c22b64322"
-    sha256                               arm64_monterey: "231bd0c41f31f1002140403b375071391e20e9ebfbf750af3f2914b3b49e8711"
-    sha256                               sonoma:         "230cfee0a3189b5845463f8531bcc270c2b97ca74d509e50aea4250b32b09a48"
-    sha256                               ventura:        "990c9f0546742bb06272fd270a07fcdd1a366a11c12def7dd868e33d580a40ad"
-    sha256                               monterey:       "c9e3b0bd1a07a0daa3ae9d242b52df9fdd0dec4ce75ca59fb8f3d2afff23f0db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c25fc5a4c2d6914862b6d8d033602fd88fd07dca9289641988fb7996af6c3bb"
+    sha256 cellar: :any,                 arm64_sequoia: "62c7f062019bf9a0e2672c1b3d71fdcfe9db095f377024ae459e9d3b014e0f3b"
+    sha256 cellar: :any,                 arm64_sonoma:  "62c7f062019bf9a0e2672c1b3d71fdcfe9db095f377024ae459e9d3b014e0f3b"
+    sha256 cellar: :any,                 arm64_ventura: "62c7f062019bf9a0e2672c1b3d71fdcfe9db095f377024ae459e9d3b014e0f3b"
+    sha256 cellar: :any,                 sonoma:        "298a584ada7cd3be692562fbba4d3352842031638020386b2501534c2cc7095c"
+    sha256 cellar: :any,                 ventura:       "298a584ada7cd3be692562fbba4d3352842031638020386b2501534c2cc7095c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9e00a2cf16e1dcc4ba1d0c3c83130a2b85a2037ca6cd339f68e5482f9c89ee39"
   end
 
   depends_on "node"

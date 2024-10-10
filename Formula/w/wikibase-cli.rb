@@ -1,18 +1,17 @@
 class WikibaseCli < Formula
   desc "Command-line interface to Wikibase"
   homepage "https://github.com/maxlath/wikibase-cli"
-  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.0.4.tgz"
-  sha256 "aa7c2fc83e6024d680ee5b334e451e01c17f22664c8880622699531269c1bcfa"
+  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.2.1.tgz"
+  sha256 "8371a5d4d5639bd0336d39a970fd902113ed9d52b0f7aaae6415914fe2d15906"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43268910237dc658e9825b3ca57773b347b8034bd5e57643e8045d608d9af41a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43268910237dc658e9825b3ca57773b347b8034bd5e57643e8045d608d9af41a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "43268910237dc658e9825b3ca57773b347b8034bd5e57643e8045d608d9af41a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3a71aeeb739536ec6420ebf8df0aa29527b9bd80ab63bfbe5e321381ab4a65fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a71aeeb739536ec6420ebf8df0aa29527b9bd80ab63bfbe5e321381ab4a65fc"
-    sha256 cellar: :any_skip_relocation, monterey:       "3a71aeeb739536ec6420ebf8df0aa29527b9bd80ab63bfbe5e321381ab4a65fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43268910237dc658e9825b3ca57773b347b8034bd5e57643e8045d608d9af41a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
+    sha256 cellar: :any_skip_relocation, sonoma:        "4f2407affb3594b812a51b642b54da829f70311f45da052ad93470ded69079ab"
+    sha256 cellar: :any_skip_relocation, ventura:       "4f2407affb3594b812a51b642b54da829f70311f45da052ad93470ded69079ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7b5bf7e82c50dfc1811b24f27745e7176cede497b76417e6b791f29ded672a95"
   end
 
   depends_on "node"

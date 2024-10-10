@@ -1,19 +1,17 @@
 class ApifyCli < Formula
   desc "Apify command-line interface"
   homepage "https://docs.apify.com/cli"
-  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.2.tgz"
-  sha256 "dfe8bf7a168cf221ef85380b78c3b7b56c1b19b059f8ec4003f3e9c9c2bd6bb0"
+  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.20.9.tgz"
+  sha256 "179e6f1543d2149af82e3cba4c4bd3e7cfaa872506c0df902d5714689a9ae1c3"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e937e9d467b1d3b055c2b00593e4612c54c469a28f4dd4f8e999e0919e94b0b4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e937e9d467b1d3b055c2b00593e4612c54c469a28f4dd4f8e999e0919e94b0b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e937e9d467b1d3b055c2b00593e4612c54c469a28f4dd4f8e999e0919e94b0b4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "412ec2fac67bb901b3d66f1c2b4f5f983472410bf2b8717a0b68d8d1059687c3"
-    sha256 cellar: :any_skip_relocation, ventura:        "412ec2fac67bb901b3d66f1c2b4f5f983472410bf2b8717a0b68d8d1059687c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "412ec2fac67bb901b3d66f1c2b4f5f983472410bf2b8717a0b68d8d1059687c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afea6964352ba306bbf32c79e177509dad9f15f7cd484795e963fbf2b5812546"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42d08e6d26dd93e1fa2cfb9147f1fcc10f886f0b7acf2fa56533a201107f3d39"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "42d08e6d26dd93e1fa2cfb9147f1fcc10f886f0b7acf2fa56533a201107f3d39"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "42d08e6d26dd93e1fa2cfb9147f1fcc10f886f0b7acf2fa56533a201107f3d39"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0994cc43fc123fddfc4df322d1fc7a46ece484f26dbda0a73062d3d2342dcdb3"
+    sha256 cellar: :any_skip_relocation, ventura:       "0994cc43fc123fddfc4df322d1fc7a46ece484f26dbda0a73062d3d2342dcdb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f9dbb57de9c2892b982e2d73d247696ed9304fd19b12b6f36b1a0ee9cfd5b84f"
   end
 
   depends_on "node"

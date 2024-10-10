@@ -6,9 +6,9 @@ class GccAT10 < Formula
   sha256 "25109543fdf46f397c347b5d8b7a2c7e5694a5a51cce4b9c6e1ea8a71ca307c1"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
+  # https://gcc.gnu.org/gcc-10/
   livecheck do
-    url :stable
-    regex(%r{href=.*?gcc[._-]v?(10(?:\.\d+)+)(?:/?["' >]|\.t)}i)
+    skip "No longer developed or maintained"
   end
 
   bottle do
@@ -22,6 +22,7 @@ class GccAT10 < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
+  depends_on maximum_macos: [:ventura, :build]
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
@@ -163,7 +164,7 @@ class GccAT10 < Formula
       specs = libgcc/"specs"
       ohai "Creating the GCC specs file: #{specs}"
       specs_orig = Pathname.new("#{specs}.orig")
-      rm([specs_orig, specs])
+      rm([specs_orig, specs].select(&:exist?))
 
       system_header_dirs = ["#{HOMEBREW_PREFIX}/include"]
 

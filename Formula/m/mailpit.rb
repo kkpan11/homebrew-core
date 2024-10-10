@@ -1,18 +1,17 @@
 class Mailpit < Formula
   desc "Web and API based SMTP testing"
   homepage "https://mailpit.axllent.org/"
-  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.20.1.tar.gz"
-  sha256 "5aae3ff63ac9af3e4f25242b4cb3656a94722933223121a45634fdfbb3ae3814"
+  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.20.5.tar.gz"
+  sha256 "2b5420e7f05f7f64beb129687a4cddab007dc766490c3551bffd166993af5c76"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af9226e0f114df43b9e29e36f4229f087bca45f0615ad123e2d90d681067ba7c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e00727750d88c9f6fcc531a60aad25f0dc4ed900cab7c008279245868f74b0cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "096753eaf9962b90349261860c8138909cb91bfd9ce18361347d067758ec035c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "48c29215bfa4246d8cc74e34f035c43d756e2ee721450f2874c04405171eb1bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "ece4d032d2040a298a08529e4f1085c055d6388702edb9bc62ecf0331f6979df"
-    sha256 cellar: :any_skip_relocation, monterey:       "24c7db42f265b6b7ff38aae3e53039cbe70663b2e767d0e96d45e726c8d63fc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4c1ef19374ae32d23bb4154fdd5b1a1d3d79334dd3ff824d72c0d13784ae6c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2f56395405a4d49c5f7b513eb949e598a4da82e10ed81f56ac1666c6b2571f4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f38b68d1d67dfa173cf3686b31f7d465a872695ca78bf8f6eb2bd94be01b3c42"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a3b2fc25750dd06379839f1e3212c17afba66df4ee3f948c06cc110943082746"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e8958a45a3d2cf94e946623c124c6316e20ec1b51457594186b0b21c866bee4b"
+    sha256 cellar: :any_skip_relocation, ventura:       "118f1c4450d8b5a0cdc853730338135d567b30ec450f020c12d5e02e16384b35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff9c6bc0fcb4a97a9bb7347019143df252e9df2753a158afdbde41a632379aac"
   end
 
   depends_on "go" => :build
