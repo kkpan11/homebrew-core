@@ -45,6 +45,8 @@ alsa-lib
 amber
 ammonite-repl
 amp
+ampl-asl
+ampl-mp
 amqp-cpp
 amtterm
 ancient
@@ -352,6 +354,7 @@ cassandra-cpp-driver
 cassandra-reaper
 cassowary
 castxml
+cataclysm
 catch2
 cava
 cbc
@@ -415,6 +418,7 @@ chicken
 chisel-tunnel
 chkbit
 chkrootkit
+choose-gui
 choose-rust
 chroma
 chromaprint
@@ -479,6 +483,7 @@ cmu-pocketsphinx
 cmus
 cnats
 cntb
+coal
 cobalt
 coccinelle
 cocoapods
@@ -488,6 +493,7 @@ code-cli
 code-minimap
 code-server
 codec2
+codecov-cli
 codelimit
 coder
 codespell
@@ -720,6 +726,7 @@ dprint
 dra
 draco
 drafter
+dragonbox
 driftctl
 drill
 drogon
@@ -953,6 +960,7 @@ fortls
 fossil
 fourmolu
 fourstore
+fox
 fping
 fplll
 fq
@@ -1262,7 +1270,6 @@ hopenpgp-tools
 hoverfly
 howard-hinnant-date
 hpack
-hpp-fcl
 htmldoc
 htmlq
 htmltest
@@ -1291,6 +1298,7 @@ i2util
 iamb
 iamy
 ibazel
+icbirc
 icloudpd
 icon
 ignite
@@ -1489,6 +1497,7 @@ kubehound
 kubekey
 kubelogin
 kubent
+kubeone
 kubergrunt
 kubernetes-cli
 kubernetes-cli@1.29
@@ -1692,6 +1701,7 @@ libtorrent-rakshasa
 libtrace
 libtrng
 libucl
+libultrahdr
 libunibreak
 libuninameslist
 libunistring
@@ -1725,7 +1735,6 @@ libxslt
 libxt
 libxvmc
 libzim
-libzip
 libzzip
 license-eye
 licensed
@@ -1805,6 +1814,7 @@ makepkg
 mako
 man-db
 manifest-tool
+manticoresearch
 mantra
 mapcidr
 mapproxy
@@ -2257,6 +2267,7 @@ php-code-sniffer
 php-cs-fixer
 php@8.1
 php@8.2
+php@8.3
 phpmd
 phpmyadmin
 phpunit
@@ -2443,6 +2454,7 @@ radamsa
 radare2
 rage
 railway
+rainfrog
 rakudo-star
 rancher-cli
 ranger
@@ -2466,6 +2478,7 @@ recc
 recode
 recoverpy
 redict
+redka
 redress
 redwax-tool
 regclient
@@ -2655,6 +2668,7 @@ sipp
 siril
 sispmctl
 sjk
+sk
 skaffold
 skate
 skeema
@@ -2724,6 +2738,7 @@ spoofdpi
 spot
 spotbugs
 spotify_player
+sq
 sql-migrate
 sqlancer
 sqlboiler
@@ -3119,6 +3134,7 @@ wego
 werf
 west
 wgcf
+wget2
 whistle
 whois
 widelands
@@ -3245,6 +3261,7 @@ zoro
 zoxide
 zpaqfranz
 zsh-autosuggestions
+zsh-lovers
 zsh-vi-mode
 zsh-you-should-use
 zshdb
