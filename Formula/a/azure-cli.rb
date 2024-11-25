@@ -23,8 +23,8 @@ class AzureCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "ff63d27dc6262753ee4406650111ce108893a0de1bc7e6a97f9e9a68f29e949f"
   end
 
-  # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
-  depends_on "pkg-config" => :build
+  # `pkgconf`, `rust`, and `openssl@3` are for cryptography.
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libsodium"
   depends_on "libyaml"
@@ -750,10 +750,10 @@ class AzureCli < Formula
       end
     end
 
-    (bin/"az").write <<~EOS
+    (bin/"az").write <<~SHELL
       #!/usr/bin/env bash
       AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -Im azure.cli "$@"
-    EOS
+    SHELL
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "az",
                                          base_name: "az", shell_parameter_format: :arg)

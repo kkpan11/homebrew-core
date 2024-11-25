@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://github.com/ggerganov/llama.cpp"
   # CMake uses Git to generate version information.
   url "https://github.com/ggerganov/llama.cpp.git",
-      tag:      "b4150",
-      revision: "a5e47592b6171ae21f3eaa1aba6fb2b707875063"
+      tag:      "b4161",
+      revision: "b756441104ca8384640d6df22ba4ea6dab7ad799"
   license "MIT"
   head "https://github.com/ggerganov/llama.cpp.git", branch: "master"
 
@@ -14,19 +14,19 @@ class LlamaCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "2fc976ed998fa3e22f6da1509bd40a3dd3c031cde7be24a07fe7632cb681a6b7"
-    sha256 cellar: :any,                 arm64_sonoma:  "24717e2ccfd1e8ccefe85d5e9c6f5be2007c3d6e7e9e08d68ca2a4821c54f39a"
-    sha256 cellar: :any,                 arm64_ventura: "8e914f5a1a7083134916b463fa9ed692679835ce2d6d4246bfffd4dd5dbbc06a"
-    sha256 cellar: :any,                 sonoma:        "72f2ce899208adc6e63099da86a2e6205b7a455e0bf3de52e658730f146782b5"
-    sha256 cellar: :any,                 ventura:       "c4d12ec603e9f06ed688054b79c4ea56534570eff103de71fe170e56d9f99778"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "528ccb64c81f836e0a18c9d2e017cfee072a63286b280dbcb130c93c8fe42733"
+    sha256 cellar: :any,                 arm64_sequoia: "f3cad0a6308eed796fd8372d2e1fd76e8ff301a85741fc7d00880cd7f03b10fa"
+    sha256 cellar: :any,                 arm64_sonoma:  "ec95820edb230a06c4b14a529b8de14d12d77ac46024d938164ba4be9dbb1e7b"
+    sha256 cellar: :any,                 arm64_ventura: "a085d512b12ff57ed06afa0c4943cf073b41b1bbc522d2213775fb757b87adbc"
+    sha256 cellar: :any,                 sonoma:        "8a712817d8fca8db4a607fd50e4b81670146243d0fd375d3388f00ee3143617e"
+    sha256 cellar: :any,                 ventura:       "13b78fa75b4254a75a1247fbf0a2529bb221a5e53794529f7ff5c4bea4fb12a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58a02f5aebc300e1c46cf9f3aa6bd9682054ff2eaff4b8a2190f1433275e1567"
   end
 
   depends_on "cmake" => :build
   uses_from_macos "curl"
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "openblas"
   end
 

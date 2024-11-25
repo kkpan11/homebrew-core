@@ -12,8 +12,8 @@ on:
         description: Custom list of formulae to livecheck and bump if outdated
         required: false
   schedule:
-    # Every 3 hours with an offset of 15 minutes
-    - cron: "15 */3 * * *"
+    # Every 3 hours from 1 through 23 with an offset of 45 minutes
+    - cron: "45 1-23/3 * * *"
 
 permissions:
   contents: read
