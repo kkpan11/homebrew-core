@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2024.11.21.tar.gz"
-  sha256 "44ca96113ccdf87b14fbc4f64875243c0c611b9063d7c8a99d21d8b8ef1f3794"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2024.11.31.tar.gz"
+  sha256 "dd044d96da27578b2b960d4a14626d7ad3f284fe16d826f7bb1a8192fb7ebd37"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -12,15 +12,15 @@ class Mise < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "d08adb059d37af92d78c0edfadb2183591c14826b91593b23761498adac118ee"
-    sha256 cellar: :any,                 arm64_sonoma:  "040cb0b4c56f48167fd3b1c70266e93e3c750ad6aff77681455d68c4d5607d66"
-    sha256 cellar: :any,                 arm64_ventura: "f2862965c20cb9ed3f1f38d5da69243f6c68a230d0ad022c8b11a721be20fd7d"
-    sha256 cellar: :any,                 sonoma:        "54be0f3fe94cadd0f8f5cda1ce5e182332035814946497022472fbf4223bb78a"
-    sha256 cellar: :any,                 ventura:       "fbffb3834f152378d551204969cee24f092b92bb69af59524117a1273fd5a91c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c13eb44454fa3607998975a2c581c26e397e6874d461fd5b875c3fd7fa2a299d"
+    sha256 cellar: :any,                 arm64_sequoia: "d8dc8a28ddfe999fa99bb2df01ed0bb7ffc8ffdab62736cff27e52f7db54a4aa"
+    sha256 cellar: :any,                 arm64_sonoma:  "0d59f06a009b0e465d64bc7ddf557df310c15b007f9ef5a176ed4cf03c8f3d5b"
+    sha256 cellar: :any,                 arm64_ventura: "2f269e6c36727d6f59fb6d59766edfbc99284a87888af698ca37aabe9b3cd006"
+    sha256 cellar: :any,                 sonoma:        "0feb5138d1ea0bb2519d8afb86d295c0c1f2c51e3d84faa9c0eb7a01aeec5572"
+    sha256 cellar: :any,                 ventura:       "3c5418cafb735b177096e3f82004b8d1a3f4522fa14d8f9ffa373b927760dfbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de4853df57bba91aaa39cabc90b8059f28a00860c99c87d5d13652ddd9f6103d"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
 
   depends_on "libgit2"

@@ -33,6 +33,7 @@ akamai
 alda
 alembic
 algol68g
+aliae
 aliddns
 aliyun-cli
 aliyunpan
@@ -45,6 +46,8 @@ alsa-lib
 amber
 ammonite-repl
 amp
+ampl-asl
+ampl-mp
 amqp-cpp
 amtterm
 ancient
@@ -340,6 +343,7 @@ cargo-make
 cargo-nextest
 cargo-outdated
 cargo-release
+cargo-run-bin
 cargo-udeps
 cargo-watch
 cargo-zigbuild
@@ -352,6 +356,7 @@ cassandra-cpp-driver
 cassandra-reaper
 cassowary
 castxml
+cataclysm
 catch2
 cava
 cbc
@@ -415,6 +420,7 @@ chicken
 chisel-tunnel
 chkbit
 chkrootkit
+choose-gui
 choose-rust
 chroma
 chromaprint
@@ -479,6 +485,7 @@ cmu-pocketsphinx
 cmus
 cnats
 cntb
+coal
 cobalt
 coccinelle
 cocoapods
@@ -488,6 +495,7 @@ code-cli
 code-minimap
 code-server
 codec2
+codecov-cli
 codelimit
 coder
 codespell
@@ -597,7 +605,6 @@ czg
 czkawka
 d2
 daemon
-dafny
 dagger
 daktilo
 daq
@@ -719,7 +726,9 @@ dpp
 dprint
 dra
 draco
+draft
 drafter
+dragonbox
 driftctl
 drill
 drogon
@@ -741,6 +750,7 @@ duckdb
 duckscript
 dufs
 dug
+dum
 dumpling
 dunamai
 dune
@@ -953,6 +963,7 @@ fortls
 fossil
 fourmolu
 fourstore
+fox
 fping
 fplll
 fq
@@ -977,6 +988,7 @@ fuc
 fuego-firestore
 func-e
 functionalplus
+funzzy
 fuse-overlayfs
 fuseki
 futhark
@@ -1262,7 +1274,6 @@ hopenpgp-tools
 hoverfly
 howard-hinnant-date
 hpack
-hpp-fcl
 htmldoc
 htmlq
 htmltest
@@ -1291,6 +1302,7 @@ i2util
 iamb
 iamy
 ibazel
+icbirc
 icloudpd
 icon
 ignite
@@ -1465,6 +1477,7 @@ kor
 kotlin
 kotlin-language-server
 kpcli
+kraftkit
 krakend
 krb5
 krew
@@ -1489,6 +1502,7 @@ kubehound
 kubekey
 kubelogin
 kubent
+kubeone
 kubergrunt
 kubernetes-cli
 kubernetes-cli@1.29
@@ -1692,6 +1706,7 @@ libtorrent-rakshasa
 libtrace
 libtrng
 libucl
+libultrahdr
 libunibreak
 libuninameslist
 libunistring
@@ -1725,7 +1740,6 @@ libxslt
 libxt
 libxvmc
 libzim
-libzip
 libzzip
 license-eye
 licensed
@@ -1750,6 +1764,7 @@ litmusctl
 little-cms2
 livekit
 livekit-cli
+lla
 llama.cpp
 llgo
 llm
@@ -1805,6 +1820,7 @@ makepkg
 mako
 man-db
 manifest-tool
+manticoresearch
 mantra
 mapcidr
 mapproxy
@@ -2257,13 +2273,15 @@ php-code-sniffer
 php-cs-fixer
 php@8.1
 php@8.2
-phpmd
+php@8.3
 phpmyadmin
 phpunit
 phylum-cli
 pianod
 picard-tools
+picotool
 pidgin
+pie
 pig
 pillow
 pinentry
@@ -2313,13 +2331,13 @@ popeye
 portablegl
 porter
 postgis
-postgresql@12
 postgresql@13
 postgresql@14
 postgresql@15
 postgresql@16
 postgrest
 poutine
+powerline-go
 powerman
 powerman-dockerize
 pqiv
@@ -2379,7 +2397,6 @@ pycodestyle
 pycparser
 pyenv
 pyenv-virtualenv
-pyflow
 pygit2
 pygments
 pygobject3
@@ -2443,6 +2460,7 @@ radamsa
 radare2
 rage
 railway
+rainfrog
 rakudo-star
 rancher-cli
 ranger
@@ -2466,8 +2484,10 @@ recc
 recode
 recoverpy
 redict
+redka
 redress
 redwax-tool
+regal
 regclient
 regina-rexx
 regipy
@@ -2520,6 +2540,7 @@ rpmspectool
 rqlite
 rrdtool
 rsgain
+rshijack
 rswift
 rsyncy
 rsyslog
@@ -2583,6 +2604,7 @@ scipy
 scm-manager
 scnlib
 scons
+scooter
 scorecard
 scotch
 scrapy
@@ -2612,6 +2634,7 @@ serialosc
 serpl
 serverless
 service-weaver
+sesh
 sf
 sfcgal
 sfml
@@ -2655,6 +2678,7 @@ sipp
 siril
 sispmctl
 sjk
+sk
 skaffold
 skate
 skeema
@@ -2724,6 +2748,7 @@ spoofdpi
 spot
 spotbugs
 spotify_player
+sq
 sql-migrate
 sqlancer
 sqlboiler
@@ -2931,6 +2956,7 @@ toml11
 toot
 topfew
 topgrade
+topiary
 tor
 tox
 toxcore
@@ -3119,6 +3145,7 @@ wego
 werf
 west
 wgcf
+wget2
 whistle
 whois
 widelands
@@ -3245,6 +3272,7 @@ zoro
 zoxide
 zpaqfranz
 zsh-autosuggestions
+zsh-lovers
 zsh-vi-mode
 zsh-you-should-use
 zshdb

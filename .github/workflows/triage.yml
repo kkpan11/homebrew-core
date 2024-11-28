@@ -347,7 +347,13 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/.+/(dart-sdk|envoy|qt(@5)?|texlive).rb
+              path: "Formula/.+/(\
+                dart-sdk|\
+                envoy|\
+                qt(@5)?|\
+                teleport|\
+                texlive\
+                ).rb"
               keep_if_no_match: true
               allow_any_match: true
 

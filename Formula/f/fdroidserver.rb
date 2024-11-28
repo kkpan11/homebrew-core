@@ -3,32 +3,34 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  url "https://files.pythonhosted.org/packages/37/0e/cd734dac6ed40a836db568895be0a898b03fd91c5c391a9e9dfdd03d7934/fdroidserver-2.3.0.tar.gz"
-  sha256 "5589d392636e114af1fef6412c6d38320a68c1a3b55e42c4f5bf2ae254aa0046"
+  url "https://files.pythonhosted.org/packages/51/1b/ec2cae4ba139f72ec4e178618cd58ec103cce1629cb32e6c654adad9a768/fdroidserver-2.3.2.tar.gz"
+  sha256 "b50212b5f25544eb6e330afe757bdee0043f26b4e3cdff7b0f056fff37a0f36e"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4a45fca73a6b891df4948f25a5e92e02490fcdf56c1bd00a4db7052dea9ebfa1"
-    sha256 cellar: :any,                 arm64_sonoma:  "b85590112620b612793b2dc9ec7dd48710726e6e9e5c1ecbb6cf5356f8f37b38"
-    sha256 cellar: :any,                 arm64_ventura: "34008b256d12deb45c84c6b80b0442a4b17f9f790ba95c1eac0da881a021d44a"
-    sha256 cellar: :any,                 sonoma:        "4ca260563d1d994217a298dc0c6f3da55beeb4f02a82e60d2b0af2e5a3462cb7"
-    sha256 cellar: :any,                 ventura:       "445acfce45cf874c5c40da8275bde9dece1f98e6ac02c00ae67055772143a64f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "feb8080862617be10435166b43c71dc7ae32c766de2a4895291afcdbafcfc1be"
+    sha256 cellar: :any,                 arm64_sequoia: "478dc374c926e2571efe36ccfff02778e7b56a32fee219e25cbecf6ad615b165"
+    sha256 cellar: :any,                 arm64_sonoma:  "81e9a2ad1277850d68e787bbd5666dc978e6a6a6cc720ae227457f981b1b5345"
+    sha256 cellar: :any,                 arm64_ventura: "1c399d1714a793e292ae4ee220d1d695671a60ca759c984ff483abdbccf8ac7e"
+    sha256 cellar: :any,                 sonoma:        "4f702ac788f64cd33cbd5e27352156921de04e2d9c2fcfa49e81c39c49485d70"
+    sha256 cellar: :any,                 ventura:       "249c125772e8b7db8ad79909c99731344f23dcd4a23d4c644af8954343f21492"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ddaadab6b43a462548a1254123ff18c8bdce0688e0e6509bdbae486e2385551c"
   end
 
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "pybind11" => :build
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "freetype"
+  depends_on "libmagic"
   depends_on "libsodium" # for pynacl
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python@3.12"
   depends_on "qhull"
+  depends_on "rclone"
   depends_on "s3cmd"
 
   uses_from_macos "libffi", since: :catalina
@@ -40,8 +42,8 @@ class Fdroidserver < Formula
   end
 
   resource "androguard" do
-    url "https://files.pythonhosted.org/packages/3d/00/f53ff1247c47a9edee6d8537e7092ad20a005665a9e9e007e1eca7825dc6/androguard-4.1.2.tar.gz"
-    sha256 "9d09390f85cd3af763ab34df565154b4e863b556347bf0b04c4b83bca21dece7"
+    url "https://files.pythonhosted.org/packages/83/78/0f44e8f0fd10493b3118d79d60599c93e5a2cd378d83054014600a620cba/androguard-3.3.5.tar.gz"
+    sha256 "f0655ca3a5add74c550951e79bd0bebbd1c5b239178393d30d8db0bd3202cda2"
   end
 
   resource "apache-libcloud" do
@@ -234,6 +236,11 @@ class Fdroidserver < Formula
     sha256 "5f4e983f40564c576c7c8635ae88db5956bb2229d7e9237d03b3c0b0190eaf42"
   end
 
+  resource "puremagic" do
+    url "https://files.pythonhosted.org/packages/09/2d/40599f25667733e41bbc3d7e4c7c36d5e7860874aa5fe9c584e90b34954d/puremagic-1.28.tar.gz"
+    sha256 "195893fc129657f611b86b959aab337207d6df7f25372209269ed9e303c1a8c0"
+  end
+
   resource "pydot" do
     url "https://files.pythonhosted.org/packages/85/10/4e4da8c271540dc35914e927546cbb821397f0f9477f4079cd8732946699/pydot-3.0.2.tar.gz"
     sha256 "9180da540b51b3aa09fbf81140b3edfbe2315d778e8589a7d0a4a69c41332bae"
@@ -334,7 +341,6 @@ class Fdroidserver < Formula
     # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    ENV["SODIUM_INSTALL"] = "system"
     venv = virtualenv_install_with_resources without: "matplotlib"
 
     # `matplotlib` needs extra inputs to use system libraries.
@@ -386,9 +392,14 @@ class Fdroidserver < Formula
       (testpath/"fdroid/config/categories.yml").write <<~YAML
         Development:
           name: Development
+          icon: category_development.png
         System:
           name: System
+          icon: category_system.png
       YAML
+
+      cp test_fixtures("test.png"), testpath/"fdroid/config/category_development.png"
+      cp test_fixtures("test.png"), testpath/"fdroid/config/category_system.png"
 
       (testpath/"fdroid/metadata/fake.yml").write <<~YAML
         Categories:

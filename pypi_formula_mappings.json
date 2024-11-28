@@ -225,6 +225,10 @@
   "cookiecutter": {
     "exclude_packages": ["certifi"]
   },
+  "core-lightning": {
+    "package_name": "",
+    "extra_packages": ["mako", "setuptools"]
+  },
   "credstash": {
     "exclude_packages": ["cryptography"]
   },
@@ -351,6 +355,10 @@
     "extra_packages": ["pyobjc-framework-localauthentication"]
   },
   "git-review": {
+    "exclude_packages": ["certifi"]
+  },
+  "glances": {
+    "package_name": "glances[web]",
     "exclude_packages": ["certifi"]
   },
   "glib": {
@@ -866,6 +874,7 @@
     "exclude_packages": ["certifi"]
   },
   "virt-manager": {
+    "package_name": "",
     "exclude_packages": ["certifi"],
     "extra_packages": ["requests"]
   },
