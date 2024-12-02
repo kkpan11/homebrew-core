@@ -1,18 +1,26 @@
 class OhMyPosh < Formula
   desc "Prompt theme engine for any shell"
   homepage "https://ohmyposh.dev"
-  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/refs/tags/v24.6.5.tar.gz"
-  sha256 "667da8545a426a8744c0bfd1b8d00b996404d406bbd33babeb9d6a6a9dd43bb2"
+  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/refs/tags/v24.11.4.tar.gz"
+  sha256 "c3f79e2886ec4a0b0f0224dcb249f999b97356a65cdbe187edd7a7d907c06776"
   license "MIT"
   head "https://github.com/JanDeDobbeleer/oh-my-posh.git", branch: "main"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "46cc9bebcfaad4b9fd90098b36c345240f248bd777e1a3ac056113b22bd3f4ef"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eb5386fe914e8a75171715b697b1a3dca1c143706e31e818aa1f092427e09013"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8a70711a1d24aa807262c312b0d8870b322249e53245806b0c1518239c5d1a49"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b06ed7b991d57e914ad42307e2348512df754f34f85c5adaa98de5cfee89c631"
-    sha256 cellar: :any_skip_relocation, ventura:       "38916903141cca8312be31ab6949c8888be44cb8f9036173e0c7b4d5bd552784"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "58ac2c47279a2055f9290881909ee67d5a0cfd0ce94744acf1de9f93b24c9311"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "349f171c2bae2d972d991ea24a9a27916b61ee56a23cf54c5d28e3916a2c98b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2fd43bf235c51cd206f4a320a08493aee10abecf9127a36886db65443423aeb3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "674aae0a37a51f984481c16827fce3be91e788f73b065d0f9196003e2d456c33"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df322f5af7161b733e59e6a23673aa7a5e0c8b8351cb9b669c5d64b4091eb6ef"
+    sha256 cellar: :any_skip_relocation, ventura:       "a32deed5f6873187e5585b750588b8fba81f29336be5787f91d5d6eb2735ca3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "062259d437dbbf35a1354e25d69400d9de99d21d49ef2864569d58eb3faf39db"
   end
 
   depends_on "go" => :build

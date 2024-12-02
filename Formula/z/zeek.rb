@@ -1,9 +1,8 @@
 class Zeek < Formula
   desc "Network security monitor"
-  homepage "https://www.zeek.org"
-  url "https://github.com/zeek/zeek.git",
-      tag:      "v7.0.4",
-      revision: "f300ddb9fe018fe26209310e13ea2f7e4eb95702"
+  homepage "https://zeek.org/"
+  url "https://github.com/zeek/zeek/releases/download/v7.0.4/zeek-7.0.4.tar.gz"
+  sha256 "131050fee95fd76400322cc9e80db6d797e296361d43e3fb10f3ceb1bf93428e"
   license "BSD-3-Clause"
   head "https://github.com/zeek/zeek.git", branch: "master"
 
@@ -35,8 +34,6 @@ class Zeek < Formula
   uses_from_macos "libpcap"
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
-
-  fails_with gcc: "5"
 
   def install
     # Remove SDK paths from zeek-config. This breaks usage with other SDKs.
@@ -70,10 +67,10 @@ class Zeek < Formula
     assert_match "version #{version}", shell_output("#{bin}/zeek --version")
     assert_match "ARP packet analyzer", shell_output("#{bin}/zeek --print-plugins")
     system bin/"zeek", "-C", "-r", test_fixtures("test.pcap")
-    assert_predicate testpath/"conn.log", :exist?
-    refute_predicate testpath/"conn.log", :empty?
-    assert_predicate testpath/"http.log", :exist?
-    refute_predicate testpath/"http.log", :empty?
+    assert_path_exists testpath/"conn.log"
+    refute_empty (testpath/"conn.log").read
+    assert_path_exists testpath/"http.log"
+    refute_empty (testpath/"http.log").read
     # For bottling MacOS SDK paths must not be part of the public include directories, see zeek/zeek#1468.
     refute_includes shell_output("#{bin}/zeek-config --include_dir").chomp, "MacOSX"
   end

@@ -1,8 +1,8 @@
 class Kubefirst < Formula
   desc "GitOps Infrastructure & Application Delivery Platform for kubernetes"
   homepage "https://kubefirst.konstruct.io/docs/"
-  url "https://github.com/konstructio/kubefirst/archive/refs/tags/v2.7.5.tar.gz"
-  sha256 "10c3221644dd340c3edff97b9d57ff02285fc7764671dec944aa1e4b4e9ee83e"
+  url "https://github.com/konstructio/kubefirst/archive/refs/tags/v2.7.7.tar.gz"
+  sha256 "c574012f9d2050d09b060618ec45077c503b5646a7dc81581980c0bba89e7887"
   license "MIT"
   head "https://github.com/konstructio/kubefirst.git", branch: "main"
 
@@ -14,12 +14,12 @@ class Kubefirst < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "17203f4aacfc0a0999faad40e096f5ed9829b60166101f7451e94a9ffa4e28de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ebe79efd58d01272836108fadc246cf7610d7a9afeeace008dda8a6d40bfb06f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "bc68256a4bbc9fe4cbcde64309f39193f67d9c1e7968034f987dcd33447c3287"
-    sha256 cellar: :any_skip_relocation, sonoma:        "213b0a7d44e080b7f23f93973aaf579aeaf50dcccdac5dc786a493571ce8b92f"
-    sha256 cellar: :any_skip_relocation, ventura:       "c351024ffec6eb250ce5d3ab3de6b2a75646335cb1d6d6c0b533bf81bd52388e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b650b094954e43881eeb1e28886d945cd2d36e9b2e5dfe68eeb60e8f6a4dc241"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0d26a520b09bf5b2a275d079be8fb9f0f776e48805c26202039a7320cadee4e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "70197e8744370b0363c7204bfae3dffc39bb308f977103e8283479dd1e4d3303"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ee84dee7890c11b4fca5ce5beb8722f6c55121063fb510b570b967fc60e6f06"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6ce3cd3b08a8239224ff0a5b6939b00b2a8efea2122d1abff33738fdf6cd8bbb"
+    sha256 cellar: :any_skip_relocation, ventura:       "a0485eaea6689736dbeb2bd7126f35c1d9347ab82d81d59615461f4bdb5b8d5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "106e35b8dfb0d185ed826ddc828790edc2e022db59afbb8dc78d9f283d7b241b"
   end
 
   depends_on "go" => :build

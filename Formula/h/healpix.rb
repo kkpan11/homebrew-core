@@ -18,7 +18,7 @@ class Healpix < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "cfitsio"
 
   def install
@@ -47,7 +47,7 @@ class Healpix < Formula
   end
 
   test do
-    (testpath/"test.cxx").write <<-EOS
+    (testpath/"test.cxx").write <<~CPP
       #include <math.h>
       #include <stdio.h>
       #include "chealpix.h"
@@ -60,7 +60,7 @@ class Healpix < Formula
           ns1  = npix2nside(npix);
         }
       };
-    EOS
+    CPP
 
     system ENV.cxx, "-o", "test", "test.cxx", "-L#{lib}", "-lchealpix"
     system "./test"

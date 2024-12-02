@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/refs/tags/4.10.0.tar.gz"
   sha256 "b2171af5be6b26f7a06b1229948bbb2bdaa74fcf5cd097e0af6378fce50a6eb9"
   license "Apache-2.0"
-  revision 12
+  revision 14
   head "https://github.com/opencv/opencv.git", branch: "4.x"
 
   livecheck do
@@ -13,15 +13,15 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:  "de25a8e698f799ef0ec18f6a10e68ced4662cbe434b15190bb1ae77a58e082cf"
-    sha256 arm64_ventura: "dd6e20b2ffd3f7d59ca63986c1ebd401a218cf60584f5b06b2633b6ad1183765"
-    sha256 sonoma:        "a1a65f508c0ff07d95b2d14719917bf70a28b39e1224c677dfb6bcfa76c6ff31"
-    sha256 ventura:       "1cfcea05855bb12f02327b073e2ff100a1aa2a09226260d362653ed580bb4009"
-    sha256 x86_64_linux:  "6372c078b4664d54f3b20c7dd89d1acad8c335f31dbd48f895c42c0312223c5d"
+    sha256 arm64_sonoma:  "15ee039ee39c46732bd981dd3c8b8041f94c6935a70859ef34c753306541393c"
+    sha256 arm64_ventura: "73e8f3f29418fa8afb70b7029bb858a0a7f1ddcae7cb94636bfea4ccf30fa6de"
+    sha256 sonoma:        "57059b3122714e51bcab5d262418de9ed31aa3056143bda488af8236d24e0b30"
+    sha256 ventura:       "17cce69218e5bff7812321680bdb4ca65901e89cfefef274f3085ecc13435a01"
+    sha256 x86_64_linux:  "63d76fa129a636dc6b2b0291f51a940f00d8972409358ebf60c515d8a06f7166"
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
   depends_on "abseil"
   depends_on "ceres-solver"
@@ -61,8 +61,6 @@ class Opencv < Formula
     depends_on "glib"
     depends_on "gtk+3"
   end
-
-  fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
     url "https://github.com/opencv/opencv_contrib/archive/refs/tags/4.10.0.tar.gz"
@@ -185,7 +183,7 @@ class Opencv < Formula
       }
     CPP
     system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}/opencv4", "-o", "test"
-    assert_equal shell_output("./test").strip, version.to_s
+    assert_equal version.to_s, shell_output("./test").strip
 
     output = shell_output("#{python3} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp

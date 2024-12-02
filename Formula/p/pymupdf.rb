@@ -4,14 +4,15 @@ class Pymupdf < Formula
   url "https://files.pythonhosted.org/packages/e0/6b/6bd735144a190d26dcc23f98b4aae0e09b259cc4c87bba266a39b7b91f56/PyMuPDF-1.24.14.tar.gz"
   sha256 "0eed9f998525eaf39706dbf2d0cf3162150f0f526e4a36b1748ffa50bde581ae"
   license "AGPL-3.0-only"
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5508c01e68aa780d289eac25180329d8cfacab94b7c704feb383c2b3cb34f696"
-    sha256 cellar: :any,                 arm64_sonoma:  "2027a33c7d8581a8850f3726192dacf7045a06fa600b89b2712eea0e99026048"
-    sha256 cellar: :any,                 arm64_ventura: "2490d3ff014c7e37c2b3ec4088cfa07a4a728cd008a4bd2633695482246701b0"
-    sha256 cellar: :any,                 sonoma:        "91a80f3224f6cb1fb557dc67bd32b20c5ab63c2afe3eb91df16eed1070ecfc66"
-    sha256 cellar: :any,                 ventura:       "b48815ca8574fa5e1a036d9bd4c47da98962b94eacd8731d3f77bbd04a30885a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "763356379c2d8a5f89da7c5e7cf96d92527748b3fa6d2782b4230d2a05f1de53"
+    sha256 cellar: :any,                 arm64_sequoia: "64cf0006afd80161e68ef5ce0dcdb871c73151dbdad6f2b6b4d7930e3293a63f"
+    sha256 cellar: :any,                 arm64_sonoma:  "e5275dd33e381f0675acc97a48417277abea2ec15442591de5721366adcf6e6c"
+    sha256 cellar: :any,                 arm64_ventura: "59bffec7b21dbf9af7fdf773964d2e057ca6e168da1e5687987e65bfdb84fb08"
+    sha256 cellar: :any,                 sonoma:        "f5aa9121a4391d6837fbb2fc058f375830d581d270ac86aaf92046cbf95e9eb5"
+    sha256 cellar: :any,                 ventura:       "5e091b1a390cde51ef30ec52cb0397b849637b3c2f5fd7cd22cabd50586a0bbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f56bb281d7031d5b6a3e3896e5b16a9fec93b8c968aa676699b55c3316d23ed7"
   end
 
   depends_on "freetype" => :build
@@ -22,6 +23,12 @@ class Pymupdf < Formula
 
   def python3
     "python3.12"
+  end
+
+  # fix build with mupdf 1.25.0, upstream pr ref, https://github.com/pymupdf/PyMuPDF/pull/4094
+  patch do
+    url "https://github.com/pymupdf/PyMuPDF/commit/8609db72eb59d95ffa37c05991a0b83220865677.patch?full_index=1"
+    sha256 "3582c6ad6dcd5bc476913128fb3e922b6be9b18d6ed51b1fad1e88acd3b0aaa4"
   end
 
   def install

@@ -1,30 +1,24 @@
 class Sk < Formula
   desc "Fuzzy Finder in rust!"
   homepage "https://github.com/lotabout/skim"
-  url "https://github.com/lotabout/skim/archive/refs/tags/v0.10.4.tar.gz"
-  sha256 "eb5609842ad7c19b1267e77682ee5ae11aa8e84e46c27d9d198cc22d00c5e924"
+  url "https://github.com/lotabout/skim/archive/refs/tags/v0.15.4.tar.gz"
+  sha256 "2e6f4638b1fd7a0bb14fb53945b7cbae050597535fda253de912534b1475aa8d"
   license "MIT"
   head "https://github.com/lotabout/skim.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "e8607c7f9e3c72059b5168aded78582bfe459e754381f669cce9a6169523832f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0aa120c7df0fb4a61903c952d5a64dad4030a0b1a48df8c2d0bac01dac458ec8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e28dbbdb5930443d04b934d8966af2dec58f037f859432f7a412c52568990e1d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a96933375963dac24744a541d7835a9694bf9050481e8d302b9f22187a0e8184"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e7b9c3bc71263bd5f16a6cdf08cb36e1076ea698f5b26fcac5fa8fe1c82032c1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e6e9e40fdafaf8d5807947b960698535edf426923fbcef6ebc5ff70dc114aa89"
-    sha256 cellar: :any_skip_relocation, ventura:        "afaa23049ae7c7268e5bc86bdba95abe0d99dfe83057c4614ce95ae7ac580830"
-    sha256 cellar: :any_skip_relocation, monterey:       "de7b821fe89afa96598770fdd98d7b55a78b57be6867284f6e4aa41db9469331"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ab8e698b22382f4faed083f426fb8aa1fa0e0393c7e43169deba03021fa502ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9dee90b1f10ffc8ab60ed7549c0c5fb16afda00b94de1a34eee59ffd21205412"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "07d328b42233d8152edbbe925574fda4b99208fae936b0939339fc3cd3f47e11"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "392bac4648bd14593527db79d5fbe8ea369cc359a3e008081881f378003d7bb0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "75d5e9bdef31bac6251fd3d718d0273deb8643252332a28e4468c6074bd29195"
+    sha256 cellar: :any_skip_relocation, sonoma:        "58c76b8d9f1b86ec2259e0a7f492865c49adf06684d2cebc7b54e3192e21d6ae"
+    sha256 cellar: :any_skip_relocation, ventura:       "d4c19d3bb6c6a7e53bd253a65f9905eada2ecaaebcb35452f351089887603266"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7c81fdbe60d0f5cd0781b8d09379e3053cd769ab20774d5c31e0dc548fe5890b"
   end
 
   depends_on "rust" => :build
 
   def install
-    (buildpath/"src/github.com/lotabout").mkpath
-    ln_s buildpath, buildpath/"src/github.com/lotabout/skim"
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "skim")
 
     pkgshare.install "install"
     bash_completion.install "shell/key-bindings.bash"

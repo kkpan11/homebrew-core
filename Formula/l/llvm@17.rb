@@ -40,13 +40,10 @@ class LlvmAT17 < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
   end
-
-  # Fails at building LLDB
-  fails_with gcc: "5"
 
   # Fix arm64 misoptimisation in some cases.
   # https://github.com/Homebrew/homebrew-core/issues/158957
