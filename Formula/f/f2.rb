@@ -1,24 +1,29 @@
 class F2 < Formula
   desc "Command-line batch renaming tool"
   homepage "https://github.com/ayoisaiah/f2"
-  url "https://github.com/ayoisaiah/f2/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "8b0776bdbde03041191d5d307a8f5b5aa8e87eb4380fb28f4c15d23975287a30"
+  url "https://github.com/ayoisaiah/f2/archive/refs/tags/v2.0.3.tar.gz"
+  sha256 "164e1282ae1f2ea6a8af93c785d7bb214b09919ad8537b8fbab5b5bc8ee1a396"
   license "MIT"
   head "https://github.com/ayoisaiah/f2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0853ce2da036fbc32572f8f7dd3431776ba12e634e10e193b3663207b8b5cbdd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0853ce2da036fbc32572f8f7dd3431776ba12e634e10e193b3663207b8b5cbdd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0853ce2da036fbc32572f8f7dd3431776ba12e634e10e193b3663207b8b5cbdd"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b8291620aa08cd378c056224a6acb2735f96c3e1ce0712bfd696b0ff0335b29f"
-    sha256 cellar: :any_skip_relocation, ventura:       "b8291620aa08cd378c056224a6acb2735f96c3e1ce0712bfd696b0ff0335b29f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8cd393b6f4e925a9e15ada03637aa261ad154eb8e90a155b73105c858d96e0ba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8302833ac2fb9359a9219c8157f0f2b89cfc0a1c77878d333def7a43386aa33b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8302833ac2fb9359a9219c8157f0f2b89cfc0a1c77878d333def7a43386aa33b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8302833ac2fb9359a9219c8157f0f2b89cfc0a1c77878d333def7a43386aa33b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8bd506a72e01572496aec534f019ba39752b8f8c9974cdae26c0aad3c2f9b247"
+    sha256 cellar: :any_skip_relocation, ventura:       "8bd506a72e01572496aec534f019ba39752b8f8c9974cdae26c0aad3c2f9b247"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42b70125dde40f56f721d1f02904018d5ce9bfaf048a5c0cd4d22465a2a25851"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd..."
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/f2"
+
+    bash_completion.install "scripts/completions/f2.bash" => "f2"
+    fish_completion.install "scripts/completions/f2.fish"
+    zsh_completion.install "scripts/completions/f2.zsh" => "_f2"
   end
 
   test do

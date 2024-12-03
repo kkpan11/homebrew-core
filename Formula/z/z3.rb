@@ -27,11 +27,9 @@ class Z3 < Formula
   # which does not need Python.
   depends_on "python@3.13" => [:build, :test]
 
-  fails_with gcc: "5"
-
   fails_with :clang do
     build 1000
-    cause <<-EOS
+    cause <<~EOS
       Z3 uses modern C++17 features, which is not supported by Apple's clang until
       later macOS (10.14).
     EOS

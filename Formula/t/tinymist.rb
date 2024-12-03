@@ -1,8 +1,8 @@
 class Tinymist < Formula
   desc "Language server for Typst"
   homepage "https://github.com/Myriad-Dreamin/tinymist"
-  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.12.2.tar.gz"
-  sha256 "f51531ff4ffee1dbeb6dbadf9db45312a81eb1177f886ac9df01766a65fe4ddb"
+  url "https://github.com/Myriad-Dreamin/tinymist/archive/refs/tags/v0.12.8.tar.gz"
+  sha256 "69755c0b6561d18517361a9d90c636ba95f18e32bb23cd752f5658657189c340"
   license "Apache-2.0"
   head "https://github.com/Myriad-Dreamin/tinymist.git", branch: "main"
 
@@ -15,12 +15,12 @@ class Tinymist < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f6d5f81c2055d3c55d93fe88134d8fcdb13297aebadcba6f68d87ce3202831f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9b204c15d6f120c7445d2a185b6fa8db2ca8948ecebcb0c625d95e60e53d47a0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8021582c7faba5cf239fe588c9e2d30302f9dc178a415bd0b775a6a900c45a09"
-    sha256 cellar: :any_skip_relocation, sonoma:        "62090b299af3f5507d766d5ea8d62fbc081acd45c3f7650278062a2b1d90c7a7"
-    sha256 cellar: :any_skip_relocation, ventura:       "c50d4bf9da9ef387b6ba960976ff07b934e6adc7cf682604446f00119be12550"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1d2f120cf8789480a1e3eda9d57e6f6ac19aa2b52a375d9b262d28b1aea9b76f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9a93ca39a0782d91ae11390e8daff2236b6d056538f0eb354aee3274b209e6cb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "46ef52b24c9d3ce557977cdaf814223c6a14fcf6a56f042a0e0d1c8ca2d812c2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "bc773169ddb34215d9c85e6cf05030f85c9eec4f049ad5be0f9412497d410a7d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "eaebb4b11909573d985562e99c18ff34eeef130f5f62681d51c5088ce20e5bdb"
+    sha256 cellar: :any_skip_relocation, ventura:       "f0b37b29c9a3a2643b1f9d9de5ef23739023463c04a01c8eb2c8daa838188551"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b9ebb0b1307714d8fa7cca2a53457cd54d0e84f3c5997f9991b28af842f24b54"
   end
 
   depends_on "rust" => :build

@@ -1,8 +1,8 @@
 class Gleam < Formula
   desc "Statically typed language for the Erlang VM"
   homepage "https://gleam.run"
-  url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "86bdaa4b7803230bd434044e0632f6d31246a8514fd68d10c3add9dfff400544"
+  url "https://github.com/gleam-lang/gleam/archive/refs/tags/v1.6.3.tar.gz"
+  sha256 "2d73320ebe7ea7154ca63f08f70b19de8e283bd198b5ce58fae19c01187e65d6"
   license "Apache-2.0"
   head "https://github.com/gleam-lang/gleam.git", branch: "main"
 
@@ -12,15 +12,15 @@ class Gleam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "84740cac7c3dac5dd0a205f086583c6b426c8d9cbdbc0907e01453cc371a7a1e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "612498f5b8b28c059b59304ff85d4c50b74b3ef985a32c02d102561d6153fc67"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7712445491215f929ed9bf729da333a8dbabf69d69e117f20d9bc74dc74807d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cd8ea45e615c2c7d469faac0091e129817716fa2c56742e61dbe6ebf54441435"
-    sha256 cellar: :any_skip_relocation, ventura:       "17e7a0b7cc7e8117492da196cdd75daceb299967a965f6360bf598db26055a96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb8e8b1a2a0e59d243b9a6cbe860c167b4ef48770a953964e2341a0b35cec15a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "29aface473ee96ccb4a9c712134f863978ff1f22bca4b9d86a5a40ca8f761a10"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d5df8619f337ce4997aac1bfc7f5996d77fe81360907015448c95f4d69a2e6c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "91b42381d1a44e337dfa25597bbdf94766a3e58bfc54ec64930603964d8b3543"
+    sha256 cellar: :any_skip_relocation, sonoma:        "776e9d7aac46cd581801239b6818bd1fd2468ea056c9a1e4607677f7f82d6836"
+    sha256 cellar: :any_skip_relocation, ventura:       "64fbf7a3b89561fb503f65027cd5fcfa9f8d4003fbc09c9763c1df8e2e3f689b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd6e6dda3a2d8209aa7d1b15f10efde65c41f9b1b7b5b358f83b5da926d38099"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "erlang"
   depends_on "rebar3"
@@ -30,7 +30,6 @@ class Gleam < Formula
   end
 
   test do
-    Dir.chdir testpath
     system bin/"gleam", "new", "test_project"
     Dir.chdir "test_project"
     system bin/"gleam", "test"

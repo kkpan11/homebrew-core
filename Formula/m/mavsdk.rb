@@ -2,10 +2,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v2.12.12",
-      revision: "a82b29756dcc4ea44c8c2c18f116b2cbdf4142c3"
+      tag:      "v2.13.0",
+      revision: "ce9d3a3eda54eca4b592ab730e1e6aed337902cb"
   license "BSD-3-Clause"
-  revision 2
 
   livecheck do
     url :stable
@@ -13,12 +12,12 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "6f81895874e5573a901011927889ec705ec4ab1172d88a9b9b811c5f7708634e"
-    sha256 cellar: :any,                 arm64_sonoma:  "bbb0d5177410f0db0b18e84298d002551cda1d4e81466c5502834e93333325c0"
-    sha256 cellar: :any,                 arm64_ventura: "4fd2439d351162478e6625efb39037c6c04908d106bc8f46159da4e1bf6c390d"
-    sha256 cellar: :any,                 sonoma:        "27c9833b28759f21a5525a8fce87f558f5beb657b649a150213d3c93fa04fb7c"
-    sha256 cellar: :any,                 ventura:       "be5ace487484082f83dd0d5601f8bba19fbbd68649814d50aceee3de081e3ed5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "870e273549285d7479f11b21d710e323db4c338819c0a37629f05f3167aaa2d0"
+    sha256 cellar: :any,                 arm64_sequoia: "d16591a4a698dd8e098aa7f0b505a2d9b1d38cedb94aa67c89f90c4099e7683c"
+    sha256 cellar: :any,                 arm64_sonoma:  "4b8851409dd1a8735554d8616d81aaa91caa402aa0e551eea4414f360287e7a8"
+    sha256 cellar: :any,                 arm64_ventura: "e913c8021d7de9ed4878e1bee8940fbd76056ef9687bc265a910eea2a564ebc6"
+    sha256 cellar: :any,                 sonoma:        "eea536a4407964f87af3f19423fdb7758ba26b10ef0b1b3053ef175685606910"
+    sha256 cellar: :any,                 ventura:       "d4ea20a4a668211a927a56cfb06370f4827d06d192e9af30460650569bdb3393"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8428823a23a42cd13b1c5109d384794dce66856ec190ac679e39aede05c63d34"
   end
 
   depends_on "cmake" => :build
@@ -42,13 +41,11 @@ class Mavsdk < Formula
 
   fails_with :clang do
     build 1100
-    cause <<-EOS
+    cause <<~EOS
       Undefined symbols for architecture x86_64:
         "std::__1::__fs::filesystem::__status(std::__1::__fs::filesystem::path const&, std::__1::error_code*)"
     EOS
   end
-
-  fails_with gcc: "5"
 
   # ver={version} && \
   # curl -s https://raw.githubusercontent.com/mavlink/MAVSDK/v$ver/third_party/mavlink/CMakeLists.txt && \

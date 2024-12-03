@@ -9,23 +9,25 @@ class Jupyterlab < Formula
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5419bb5a0d2771b555280542c9c9642f5130bed981295f9bd5ad7d3b6935256a"
-    sha256 cellar: :any,                 arm64_sonoma:  "da61d3f319a7f0d0252df921ed42bb660d1839c0b0d8d01e0db849392ca30470"
-    sha256 cellar: :any,                 arm64_ventura: "32be9288de3afb93d82495b3e6663d9508f6eadb0fa55bae8f72bae086f14c27"
-    sha256 cellar: :any,                 sonoma:        "1fa255a1ea15f121a8a813690387292c6c6af4706777556e1b0381de67265246"
-    sha256 cellar: :any,                 ventura:       "6883a78cb795b6bde892d718aa1a8e46293eace3e4fb01a151394933c7cbd568"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e825f842dabe2aedb7c0c2bfbe52a861e31a0d72b5df8c4b66fdd438987a51b2"
+    sha256 cellar: :any,                 arm64_sequoia: "603a01fd87960638d7cb89187b43a0c42ad31ed2b102d50e1bffa87a6a560fc3"
+    sha256 cellar: :any,                 arm64_sonoma:  "ef45b500aefc929c52341ccdfdb19315caa44f7a4693bc036701bcf4017532ef"
+    sha256 cellar: :any,                 arm64_ventura: "ceb091b710d290f98566d25340d5e110b9876361358f981d79ab37fe8ab65094"
+    sha256 cellar: :any,                 sonoma:        "a350c90e92508b9dfa629d486794d0edceb44f54df2c8133d36cce04a93ccd4f"
+    sha256 cellar: :any,                 ventura:       "ba0149168f05ad612cd355c5bf88b444f345bf2b28ba8c03fdac0fd1abb88068"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c646fcf4c3c14cd2d37a992e60d87bd456a95e7f679e26aa60d1196ab51208d0"
   end
 
   depends_on "cmake" => :build # for ipykernel
+  depends_on "ninja" => :build # for ipykernel
   depends_on "rust" => :build # for rpds-py
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "node"
   depends_on "pandoc"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
   depends_on "zeromq"
 
   uses_from_macos "expect" => :test
@@ -104,8 +106,8 @@ class Jupyterlab < Formula
   end
 
   resource "debugpy" do
-    url "https://files.pythonhosted.org/packages/e4/5e/7667b95c9d7ddb25c047143a3a47685f9be2a5d3d177a85a730b22dc6e5c/debugpy-1.8.8.zip"
-    sha256 "e6355385db85cbd666be703a96ab7351bc9e6c61d694893206f8001e22aee091"
+    url "https://files.pythonhosted.org/packages/88/92/15b454c516c4c53cc8c03967e4be12b65a1ea36db3bb4513a7453f75c8d8/debugpy-1.8.9.zip"
+    sha256 "1339e14c7d980407248f09824d1b25ff5c5616651689f1e0f0e51bdead3ea13e"
   end
 
   resource "decorator" do
@@ -429,8 +431,8 @@ class Jupyterlab < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/db/722a42ffdc226e950c4757b3da7b56ff5c090bb265dccd707f7b8a3c6fee/setuptools-75.5.0.tar.gz"
-    sha256 "5c4ccb41111392671f02bb5f8436dfc5a9a7185e80500531b133f5775c4163ef"
+    url "https://files.pythonhosted.org/packages/43/54/292f26c208734e9a7f067aea4a7e282c080750c4546559b58e2e45413ca0/setuptools-75.6.0.tar.gz"
+    sha256 "8199222558df7c86216af4f84c30e9b34a61d8ba19366cc914424cdbd28252f6"
   end
 
   resource "six" do
@@ -464,8 +466,8 @@ class Jupyterlab < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/ee/66/398ac7167f1c7835406888a386f6d0d26ee5dbf197d8a571300be57662d3/tornado-6.4.1.tar.gz"
-    sha256 "92d3ab53183d8c50f8204a51e6f91d18a15d5ef261e84d452800d4ff6fc504e9"
+    url "https://files.pythonhosted.org/packages/59/45/a0daf161f7d6f36c3ea5fc0c2de619746cc3dd4c76402e9db545bd920f63/tornado-6.4.2.tar.gz"
+    sha256 "92bad5b4746e9879fd7bf1eb21dce4e3fc5128d71601f80005afa39237ad620b"
   end
 
   resource "traitlets" do
@@ -514,7 +516,7 @@ class Jupyterlab < Formula
   end
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def install

@@ -27,7 +27,7 @@ class Knot < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
   depends_on "fstrm"
   depends_on "gnutls"
@@ -89,8 +89,8 @@ class Knot < Formula
   service do
     run opt_sbin/"knotd"
     require_root true
-    input_path "/dev/null"
-    log_path "/dev/null"
+    input_path File::NULL
+    log_path File::NULL
     error_log_path var/"log/knot.log"
   end
 

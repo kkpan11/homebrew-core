@@ -1,24 +1,24 @@
 class Docfx < Formula
   desc "Tools for building and publishing API documentation for .NET projects"
   homepage "https://dotnet.github.io/docfx/"
-  url "https://github.com/dotnet/docfx/archive/refs/tags/v2.78.0.tar.gz"
-  sha256 "d4b2c80d2042ec81b85b9ae5dd026a6dde71c8029db3113d5a101d07dc078ccb"
+  url "https://github.com/dotnet/docfx/archive/refs/tags/2.78.2.tar.gz"
+  sha256 "0b0f53532fc887a1b7444d8c45f89d49250b6d26d8a24f8865563c4e916c1621"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "855573d550a5f2c34d59fb49a075678326b23c3ae49816d1db2727da4406a075"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "620faab34ebdd849ec36d5a796ddb56e14815df5e44030990af321ea70868a4b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fc6108b87bcf053f572b87b741373901288fa52fd16f6f1a9e65a83769da2852"
-    sha256 cellar: :any_skip_relocation, ventura:       "1d86bcb6083dd8da25f7eb7a872519c86ea2c1808cedd55f69b189bb36abb146"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e115c51f534956a337e9b96194e9735892046f8ab8f7e14db40ae6e3f2b58e81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5bb8a82895b1ddb4721e6270e4f51e9c3e2e8d07f43c369fccb67a7efb6ea213"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e70aa4aa303dc525b97bccce9228e0a26d0268dd3046eae0785b4665812fb928"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "75bf66e4af1da6da77ac5c25007082280340b8a40c142f81f56cb213acc6765f"
+    sha256 cellar: :any_skip_relocation, ventura:       "189b92cafeaf9437f082c044a848830ee569ae69ce4c41843c522eb3608c62b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0fad1e16707f9965f898ba6f8782aa79d1538ad0b87d48a0f2285703c1ed2ed4"
   end
 
   depends_on "dotnet"
 
   def install
+    ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
+
     dotnet = Formula["dotnet"]
-    os = OS.mac? ? "osx" : OS.kernel_name.downcase
-    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
     # specify the target framework to only target the currently used version of
     # .NET, otherwise additional frameworks will be added due to this running
@@ -28,8 +28,8 @@ class Docfx < Formula
       --configuration Release
       --framework net#{dotnet.version.major_minor}
       --output #{libexec}
-      --runtime #{os}-#{arch}
       --no-self-contained
+      --use-current-runtime
       -p:Version=#{version}
       -p:TargetFrameworks=net#{dotnet.version.major_minor}
     ]
