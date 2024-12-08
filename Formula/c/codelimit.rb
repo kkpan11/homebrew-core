@@ -3,18 +3,17 @@ class Codelimit < Formula
 
   desc "Your Refactoring Alarm"
   homepage "https://github.com/getcodelimit/codelimit"
-  url "https://files.pythonhosted.org/packages/e8/2c/6989c481e2635c4e464edcc8a5b1d142312539e005afed22575e3fb0bc0c/codelimit-0.10.0.tar.gz"
-  sha256 "735e4f699aca08d69f821f50aa76eabfdb4be9ad0c879a5d3ad097684fda3c1c"
+  url "https://files.pythonhosted.org/packages/fd/5e/933e6ff6f03ea33c818156842f66323afc886d93f90cd0081aa031eee574/codelimit-0.12.1.tar.gz"
+  sha256 "e444ea032fd61aae9279be8ed7011ecc2426930b2f0c313e343d26f96cea0dc9"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "cb69862445339bf0d50908cd1d835641f1aaaab52ce25a14b3b3fc3e85b1db0e"
-    sha256 cellar: :any,                 arm64_sonoma:  "e443b317ad39607918a6889cae8fd2c8e6ccd826df4f71de598746981ded9412"
-    sha256 cellar: :any,                 arm64_ventura: "bf4225b7b9e9dcc5906b7e2cce676a1ee749a6b222f6c8e66efb76868eae6ae6"
-    sha256 cellar: :any,                 sonoma:        "17110b0503bf03e1d194ba9fa75d106c31790234f6797af0b134e7bf705f7bc8"
-    sha256 cellar: :any,                 ventura:       "b14677a5568198ed3ac00d0b4573e222ddd96642933131fabde4167564121d97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a94c93b2440ac1ceea8f3dad620e790633cdc21868dfc1097a98e6a726518ee5"
+    sha256 cellar: :any,                 arm64_sequoia: "82ffc46773c06b74d0221b3cba5867ff2c7ff85c5c38b0e027cbc42e108b56ba"
+    sha256 cellar: :any,                 arm64_sonoma:  "c113e7434bc139ada958de868769f6f9cddaabd23d97a9c90e5111c6d212fbc8"
+    sha256 cellar: :any,                 arm64_ventura: "2f81481ba455f927e9bbd2c0556dc640413090b96b9a3d0421824bbefbcf3a07"
+    sha256 cellar: :any,                 sonoma:        "6b215e1045fcb8f5c9e006c86f15feff6a1ddfdde6c8cff5b86a2f5cb9205dc1"
+    sha256 cellar: :any,                 ventura:       "8b8bde9ed26015d41aa0194c401bb1c88d3159de772be9050e9f4e0d6cd1c7e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cce2d9cbf013636fa5a26e5eb867d82a8b580513e3f09aca171feccd8db0cf2d"
   end
 
   depends_on "certifi"
@@ -22,13 +21,13 @@ class Codelimit < Formula
   depends_on "python@3.13"
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/bc/69/2f6d5a019bd02e920a3417689a89887b39ad1e350b562f9955693d900c40/aiohappyeyeballs-2.4.3.tar.gz"
-    sha256 "75cf88a15106a5002a8eb1dab212525c00d1f4c0fa96e551c9fbe6f09a621586"
+    url "https://files.pythonhosted.org/packages/7f/55/e4373e888fdacb15563ef6fa9fa8c8252476ea071e96fb46defac9f18bf2/aiohappyeyeballs-2.4.4.tar.gz"
+    sha256 "5fdd7d87889c63183afc18ce9271f9b0a7d32c2303e394468dd45d514a757745"
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/1d/cd/af0e573bdb77ae7df1148fe8e4ea854215a37db0b116aac6b5496335095e/aiohttp-3.11.4.tar.gz"
-    sha256 "9d95cce8bb010597b3f2217155befe4708e0538d3548aa08d640ebf54e3f57cb"
+    url "https://files.pythonhosted.org/packages/94/c4/3b5a937b16f6c2a0ada842a9066aad0b7a5708427d4a202a07bf09c67cbb/aiohttp-3.11.10.tar.gz"
+    sha256 "b1fc6b45010a8d0ff9e88f9f2418c6fd408c99c211257334aff41597ebece42e"
   end
 
   resource "aiosignal" do
@@ -82,8 +81,8 @@ class Codelimit < Formula
   end
 
   resource "propcache" do
-    url "https://files.pythonhosted.org/packages/a9/4d/5e5a60b78dbc1d464f8a7bbaeb30957257afdc8512cbb9dfd5659304f5cd/propcache-0.2.0.tar.gz"
-    sha256 "df81779732feb9d01e5d513fad0122efb3d53bbc75f61b2a4f29a020bc985e70"
+    url "https://files.pythonhosted.org/packages/20/c8/2a13f78d82211490855b2fb303b6721348d0787fdd9a12ac46d99d3acde1/propcache-0.2.1.tar.gz"
+    sha256 "3f77ce728b19cb537714499928fe800c3dda29e8d9428778fc7c186da4c09a64"
   end
 
   resource "pygments" do
@@ -122,8 +121,8 @@ class Codelimit < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/4b/d5/0d0481857de42a44ba4911f8010d4b361dc26487f48d5503c66a797cff48/yarl-1.17.2.tar.gz"
-    sha256 "753eaaa0c7195244c84b5cc159dc8204b7fd99f716f11198f999f2332a86b178"
+    url "https://files.pythonhosted.org/packages/b7/9d/4b94a8e6d2b51b599516a5cb88e5bc99b4d8d4583e468057eaa29d5f0918/yarl-1.18.3.tar.gz"
+    sha256 "ac1801c45cbf77b6c99242eeff4fffb5e4e73a800b5c4ad4fc0be5def634d2e1"
   end
 
   def install
