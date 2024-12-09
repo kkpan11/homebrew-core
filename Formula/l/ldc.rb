@@ -23,7 +23,7 @@ class Ldc < Formula
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "llvm@18"
   depends_on "zstd"
 
@@ -85,12 +85,12 @@ class Ldc < Formula
     # nor should it be used for the test.
     ENV.method(DevelopmentTools.default_compiler).call
 
-    (testpath/"test.d").write <<~EOS
+    (testpath/"test.d").write <<~D
       import std.stdio;
       void main() {
         writeln("Hello, world!");
       }
-    EOS
+    D
     system bin/"ldc2", "test.d"
     assert_match "Hello, world!", shell_output("./test")
     with_env(PATH: "#{llvm.opt_bin}:#{ENV["PATH"]}") do
