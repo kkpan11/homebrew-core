@@ -6,8 +6,8 @@ class Llvm < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.3/llvm-project-19.1.3.src.tar.xz"
-    sha256 "324d483ff0b714c8ce7819a1b679dd9e4706cf91c6caf7336dc4ac0c1d3bf636"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.5/llvm-project-19.1.5.src.tar.xz"
+    sha256 "bd8445f554aae33d50d3212a15e993a667c0ad1b694ac1977f3463db3338e542"
 
     # Backport relative `CLANG_CONFIG_FILE_SYSTEM_DIR` patch.
     # Remove in LLVM 20.
@@ -24,13 +24,12 @@ class Llvm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia: "d54670a89c5beeb469091bd895d560e23820f1c3b8e3188685eed08a99c6f75d"
-    sha256 cellar: :any,                 arm64_sonoma:  "e563ec784c4232867374c900d6402197392dd139bf0bd520670193abad02d0c9"
-    sha256 cellar: :any,                 arm64_ventura: "232ce61ccf98ca57fc92f2b65337a0cb2f87f98cdf090e94f8816a6ce3f5547e"
-    sha256 cellar: :any,                 sonoma:        "36145cfee5c0398188d702bd8399207c6ee8c8c6ba3b3b3b1f22bd0641d113f8"
-    sha256 cellar: :any,                 ventura:       "707225be33b04c17fee25e02424a842c63306e8db056cfac208ba517e1c1c252"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c51736b56dcf9714b31b0be4dc505382346f2880519b8059365b2e030183cea"
+    sha256 cellar: :any,                 arm64_sequoia: "b6493a9057ae767e2aed3ca28415d63cdf434fbf50b1bab8b2288a8fb60ef3c8"
+    sha256 cellar: :any,                 arm64_sonoma:  "3f5f4564695b9d08b461099a2674eff8b652a943ac838c550b2b3760b916160a"
+    sha256 cellar: :any,                 arm64_ventura: "49b60f0530b3d1bc89fa9e4e9de55bdfb35352730890a7fa010383b81bb562b3"
+    sha256 cellar: :any,                 sonoma:        "15f82c8945c3c5c3b81a7e406307b4e0f5f5edba9da8e57dfcd7c185df795305"
+    sha256 cellar: :any,                 ventura:       "fcb8d13ba1327569b3a2cfa09a0ea36be2e58503794e42c02186f9d7c87479b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9100176d57b910eb87519ba93f8b53d43c222e374b09904abad951a79f3d632d"
   end
 
   keg_only :provided_by_macos
@@ -50,13 +49,10 @@ class Llvm < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "binutils" # needed for gold
     depends_on "elfutils" # openmp requires <gelf.h>
   end
-
-  # Fails at building LLDB
-  fails_with gcc: "5"
 
   # Support simplified triples in version config files.
   # https://github.com/llvm/llvm-project/pull/111387
@@ -492,7 +488,7 @@ class Llvm < Formula
   def write_config_files(macos_version, kernel_version, arch)
     clang_config_file_dir.mkpath
 
-    arches = Set.new([:arm64, :x86_64])
+    arches = Set.new([:arm64, :x86_64, :aarch64])
     arches << arch
     sysroot = if macos_version >= "10.14" || (macos_version.blank? && kernel_version.blank?)
       "#{MacOS::CLT::PKG_PATH}/SDKs/MacOSX#{macos_version}.sdk"
@@ -507,7 +503,7 @@ class Llvm < Formula
       arches.each do |target_arch|
         config_file = "#{target_arch}-apple-#{system}#{version}.cfg"
         (clang_config_file_dir/config_file).atomic_write <<~CONFIG
-          --sysroot=#{sysroot}
+          -isysroot #{sysroot}
         CONFIG
       end
     end
@@ -731,7 +727,7 @@ class Llvm < Formula
     end
 
     # Testing mlir
-    (testpath/"test.mlir").write <<~EOS
+    (testpath/"test.mlir").write <<~MLIR
       func.func @main() {return}
 
       // -----
@@ -743,7 +739,7 @@ class Llvm < Formula
 
       // expected-error @+1 {{redefinition of symbol named 'foo'}}
       func.func @foo() { return }
-    EOS
+    MLIR
     system bin/"mlir-opt", "--split-input-file", "--verify-diagnostics", "test.mlir"
 
     (testpath/"scanbuildtest.cpp").write <<~CPP
@@ -768,10 +764,10 @@ class Llvm < Formula
 
     # This will fail if the clang bindings cannot find `libclang`.
     with_env(PYTHONPATH: prefix/Language::Python.site_packages(python3)) do
-      system python3, "-c", <<~EOS
+      system python3, "-c", <<~PYTHON
         from clang import cindex
         cindex.Config().get_cindex_library()
-      EOS
+      PYTHON
     end
 
     unless versioned_formula?
