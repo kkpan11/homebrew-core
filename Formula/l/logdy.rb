@@ -1,32 +1,37 @@
 class Logdy < Formula
   desc "Web based real-time log viewer"
   homepage "https://logdy.dev"
-  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "7aec95af51d4d954ad01fcdd7e925269fa4cdbadab5484761c56fc54dc122c38"
+  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.13.3.tar.gz"
+  sha256 "c89bdf341cecfd6bfcd72ff97fe51faf8f129543861f8c85c4135a3e56c6cb4c"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "b97337df265fafda2d9c799c804e889503ec51d81030d61f95a48a58d9958f66"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "903dda9a2dc16f7195b4bb3dfe94bcb7b91b1ec62b6cc1e89c7f9c3125b644d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "903dda9a2dc16f7195b4bb3dfe94bcb7b91b1ec62b6cc1e89c7f9c3125b644d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "903dda9a2dc16f7195b4bb3dfe94bcb7b91b1ec62b6cc1e89c7f9c3125b644d2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "60c0887e8ddacd4b9cd8ba871acac5634b44ff46b7d1ce3e3e46ff1abca7a0d2"
-    sha256 cellar: :any_skip_relocation, ventura:        "60c0887e8ddacd4b9cd8ba871acac5634b44ff46b7d1ce3e3e46ff1abca7a0d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "60c0887e8ddacd4b9cd8ba871acac5634b44ff46b7d1ce3e3e46ff1abca7a0d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "632e162a3f8827b9ef6518a554653588474fadfedd0dfb92cf3a5523ad1b3170"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4484a77d5af10c4430614b626dc544a16070e6aef847480e328125002bb5298e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4484a77d5af10c4430614b626dc544a16070e6aef847480e328125002bb5298e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4484a77d5af10c4430614b626dc544a16070e6aef847480e328125002bb5298e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "b9b90e04949805725a7343ea2990e17c9efdf17b828a014f886ae7bdf44115cd"
+    sha256 cellar: :any_skip_relocation, ventura:       "b9b90e04949805725a7343ea2990e17c9efdf17b828a014f886ae7bdf44115cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a4c17d360ebeec5f2ba0609c752d5b5f3efee5aa5811c28a2d63808fb31215c"
   end
 
   depends_on "go" => :build
 
+  # fix build with removing `PersistentPostRun`, upstream pr ref, https://github.com/logdyhq/logdy-core/pull/69
+  patch do
+    url "https://github.com/logdyhq/logdy-core/commit/4d845c0f09054940fc63f2c22cf183f4c99a8539.patch?full_index=1"
+    sha256 "dbc3d2ec8ed4e7635ad4911d7b4fd0cd6929260e2d6dea871bba53765b2737ee"
+  end
+
   def install
     ldflags = "-s -w -X main.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
+
+    generate_completions_from_executable(bin/"logdy", "completion")
   end
 
   test do
     port = free_port
-    r, _, pid = PTY.spawn("#{bin}/logdy --port=#{port}")
+    r, _, pid = PTY.spawn("#{bin}/logdy stdin --port=#{port}")
     assert_match "Listen to stdin (from pipe)", r.readline
   ensure
     Process.kill("TERM", pid)

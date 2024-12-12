@@ -1,8 +1,8 @@
 class Oxlint < Formula
   desc "Suite of high-performance tools for JavaScript and TypeScript written in Rust"
   homepage "https://oxc.rs/"
-  url "https://github.com/oxc-project/oxc/archive/refs/tags/oxlint_v0.13.0.tar.gz"
-  sha256 "7554f33a52582fcf0fc2e78fbea048bc718cbb481f8b2d0d82aaf8fe9b92edc7"
+  url "https://github.com/oxc-project/oxc/archive/refs/tags/oxlint_v0.15.0.tar.gz"
+  sha256 "028ea15c7a5372d246802f072e22de111588def5c6e5d9e57615b10f18926077"
   license "MIT"
   head "https://github.com/oxc-project/oxc.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Oxlint < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f9a919660075068f784af8657ea2a6d27b8b0382bb8c6c01c779e00dad71b5df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a78a2b0f5ed9a16ae074e2a0d823fe158aa418ee6fff8c06428b2f8e86f2ac2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "116a6b67a595c55dd3ddd0515c03061500700a6d980981e12336c23fb9b707a4"
-    sha256 cellar: :any_skip_relocation, sonoma:        "682bc3d976578f64db9920466acced8f2b7e7ceef77a3eb0191e1fb4bb99737e"
-    sha256 cellar: :any_skip_relocation, ventura:       "541ba8aaaff8ebda5677e1f252333013dbe2cf1bbf286258421262305f616c2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "002d852a0c39bc000fdd45f697598b9cfa50b3314866152fe67ceaaa399a947a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d53af3233e50ae6f1d4cc7f0d6df0d58c49ac0c4a2bf10f180b569f1747416bc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "22d4fba7c99686092a0380f04e1869823bd2a7a1743ea7a098c168d9baccb522"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5c9e6c717081460e76b1e1befbb5797a897f514836e97b9dce211b7fbeb04b83"
+    sha256 cellar: :any_skip_relocation, sonoma:        "84057f23c7f01c3e2c65d1c1d46500d7aea1f297d502a7450438d6037e1c8042"
+    sha256 cellar: :any_skip_relocation, ventura:       "99f568cb3a3e40daf2947f46d3af97a0bc736082ad6a38633b287ad2361057bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ffdb03873a3b66c55487116b879e56ce1070825962f06873e25ae0320d3a764"
   end
 
   depends_on "rust" => :build

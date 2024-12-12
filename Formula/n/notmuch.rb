@@ -24,7 +24,7 @@ class Notmuch < Formula
   depends_on "doxygen" => :build
   depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "sphinx-doc" => :build
 
   depends_on "cffi"
@@ -71,10 +71,10 @@ class Notmuch < Formula
   end
 
   test do
-    (testpath/".notmuch-config").write <<~EOS
+    (testpath/".notmuch-config").write <<~INI
       [database]
       path=#{testpath}/Mail
-    EOS
+    INI
     (testpath/"Mail").mkpath
     assert_match "0 total", shell_output("#{bin}/notmuch new")
 

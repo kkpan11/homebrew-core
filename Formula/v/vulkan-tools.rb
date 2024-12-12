@@ -1,8 +1,8 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.301.tar.gz"
-  sha256 "452a1693fdde1f175fc82e3461ebd09cb8285246972bc6dc206ad0f72f6a5acd"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.4.303.tar.gz"
+  sha256 "958b646bbc5ac0a54908342df30da8c183690f579dce7f7130ac93d433d9d3a8"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
@@ -12,12 +12,12 @@ class VulkanTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c72441ec7074f919043960b7a6591a57a46deabdb5399f1813c75ec01475c8bd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "aa4fbb2a6dbeef14f9d08312821d0b410bf5de7f979a84c4682fd96d7969986a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "4eaf9e252b184cf9edb02ad6a702b246d85828c8905aece9d8f278b045f2de4e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "69c80ed2d26fcc51eb5cac03cf706673fdcbcd237b4bd50b1a42463565f85495"
-    sha256 cellar: :any_skip_relocation, ventura:       "3db415130b9eb50be3f8a7ceae2d356297b9ccbf5598b8d6bbc941dbf90ce8a6"
-    sha256                               x86_64_linux:  "68947f934c976c414fb9e904bccdf7736e124102798a9e4b8542390f2b2b0fe7"
+    sha256 cellar: :any, arm64_sequoia: "872a558c1472790bbf9bc61178e5d19f7667ae66924742e297cc0e82b1e0de77"
+    sha256 cellar: :any, arm64_sonoma:  "973ea0a35ec96802320aed1f8917b1bbcef927c2ff128211dad8b7f6492654e4"
+    sha256 cellar: :any, arm64_ventura: "c0fb86994bc2e78c73fe77801e882ba476679fe4e1f5bb47de6205fc63728dbb"
+    sha256 cellar: :any, sonoma:        "bd7fe2d33f381f1580e63c2bb4de15a792d24ba8a46ad2c6792faa4a4e1cc972"
+    sha256 cellar: :any, ventura:       "557f80503f2089d62eb5fa2c72922a094b587737f1e8fd29517168a4a1cbf363"
+    sha256               x86_64_linux:  "08104be509c17e7f951a2c9adc4c7c5d037f98389b2fca59ca7dc4188e8db93f"
   end
 
   depends_on "cmake" => :build

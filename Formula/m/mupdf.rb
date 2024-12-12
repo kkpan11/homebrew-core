@@ -1,8 +1,8 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.24.10-source.tar.gz"
-  sha256 "939285b5f97caf770fd46cbe7e6cc3a695ab19bb5bfaf5712904549cef390b7b"
+  url "https://mupdf.com/downloads/archive/mupdf-1.25.2-source.tar.gz"
+  sha256 "36ccf6a5e691e188acf8db6e98d08bf05f27bb4ce30432dc15fc76d329a92d4d"
   license "AGPL-3.0-or-later"
   head "https://git.ghostscript.com/mupdf.git", branch: "master"
 
@@ -12,16 +12,16 @@ class Mupdf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fe57d3d13d9321e91933fc2d7585f6bca8708ab0dbe8fe1e3849aec2379b81a3"
-    sha256 cellar: :any,                 arm64_sonoma:  "70c09e3a60b7d3c32fa5e2fd56545f3a368204d030b3e05a2c2ddece08009a0f"
-    sha256 cellar: :any,                 arm64_ventura: "fa0dcf9267d522c2dbd0477a9bc8ecec12802dc89c9a3ec7b70e3ae327c0e1d0"
-    sha256 cellar: :any,                 sonoma:        "acfbe85c59dd0bc52ff68ad8a1beefc4e812425fb8735674b359d2de025eb2d0"
-    sha256 cellar: :any,                 ventura:       "bfbcb1b4667d7af9bd929a3d487587fb7fbc2be2ae323b309c8f8e439f8674b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2fdf3c61a96a4da5de7333b4c09f6a5b0ae08409de2d727d08f1d1e9e01abd25"
+    sha256 cellar: :any,                 arm64_sequoia: "1b7801fd4b0bd46ec9bc359a2b8864c9e0de64c7fa8fba1db8da673d26d37022"
+    sha256 cellar: :any,                 arm64_sonoma:  "15ac76451b89e8e20b484c498f94a8ebc33def7259b2efb8a96b61c7e079c01d"
+    sha256 cellar: :any,                 arm64_ventura: "423efdee8d46f66a813bc4947c2245aff39b5a551f6891130a2e2900c18b36da"
+    sha256 cellar: :any,                 sonoma:        "10e6b44dd4b169c254aac15aa9dcad74d57beb5bd018c5c2bcbb8392129b4cac"
+    sha256 cellar: :any,                 ventura:       "8f55b178d67386266b4e595f5f400564d9d0913e98707f240a7759ef8db03252"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "acc31439cdf72becf21084bc53cd41ba1231361e330c8bc08066f34b4ae0bf72"
   end
 
   depends_on "llvm" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "swig" => :build
   depends_on "freetype"
   depends_on "gumbo-parser"
@@ -78,8 +78,8 @@ class Mupdf < Formula
         ["LIBJPEG", "libjpeg"],
         ["OPENJPEG", "libopenjp2"],
       ].each do |argname, libname|
-        args << "SYS_#{argname}_CFLAGS=#{Utils.safe_popen_read("pkg-config", "--cflags", libname).strip}"
-        args << "SYS_#{argname}_LIBS=#{Utils.safe_popen_read("pkg-config", "--libs", libname).strip}"
+        args << "SYS_#{argname}_CFLAGS=#{Utils.safe_popen_read("pkgconf", "--cflags", libname).strip}"
+        args << "SYS_#{argname}_LIBS=#{Utils.safe_popen_read("pkgconf", "--libs", libname).strip}"
         args << "HAVE_SYS_#{argname}=yes"
       end
 

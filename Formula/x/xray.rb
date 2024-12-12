@@ -1,8 +1,8 @@
 class Xray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://xtls.github.io/"
-  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v24.11.11.tar.gz"
-  sha256 "4ba61bf03096809ef9a7fb27fa7e8232bcc79ae1cc2ac1b601abe0366879111c"
+  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v24.11.30.tar.gz"
+  sha256 "1ed728cf32cf9227c73e1b3651465eb089c6d2f42367cf40df62c4ba0edfc765"
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git", branch: "main"
 
@@ -12,29 +12,29 @@ class Xray < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d67343c17a9a3efedaf9ec76abd2ec44b3bceb40ecd6bdd28339f0279e530b17"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d67343c17a9a3efedaf9ec76abd2ec44b3bceb40ecd6bdd28339f0279e530b17"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "d67343c17a9a3efedaf9ec76abd2ec44b3bceb40ecd6bdd28339f0279e530b17"
-    sha256 cellar: :any_skip_relocation, sonoma:        "4eaa54c8d69e78fe4101edf79b4ab501b89c9b843f6955201b9bffff276ff359"
-    sha256 cellar: :any_skip_relocation, ventura:       "4eaa54c8d69e78fe4101edf79b4ab501b89c9b843f6955201b9bffff276ff359"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f42df56155fbbcafcfba0d3a80607993b57bbf239489551dfe61613a5b29fc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "34cb663875b8b8f4586387bfdad5c982ea8e49bb2fb262c16b50d97e07ff26f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "34cb663875b8b8f4586387bfdad5c982ea8e49bb2fb262c16b50d97e07ff26f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "34cb663875b8b8f4586387bfdad5c982ea8e49bb2fb262c16b50d97e07ff26f2"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fa3b28fbab7ce97d309d050354ce1770118617679f58a5ff17937a14ae036eee"
+    sha256 cellar: :any_skip_relocation, ventura:       "fa3b28fbab7ce97d309d050354ce1770118617679f58a5ff17937a14ae036eee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8ff62b7a7b3dc83e4136636a8238a54c25714ad4ef8672f34cb13def748d9c41"
   end
 
   depends_on "go" => :build
 
   resource "geoip" do
-    url "https://github.com/v2fly/geoip/releases/download/202410310053/geoip.dat"
-    sha256 "2762fa0a7d1728089b7723b7796cb5ca955330a3fa2e4407fa40e480fbf9cea7"
+    url "https://github.com/v2fly/geoip/releases/download/202411280056/geoip.dat"
+    sha256 "0b92efbe8e6a8255d3142751964931d2ca4801b51f0cd12c05963e23e0062a52"
   end
 
   resource "geosite" do
-    url "https://github.com/v2fly/domain-list-community/releases/download/20241104071109/dlc.dat"
-    sha256 "dbda1fe2eeea9cf0ea02f69be0e1db27a5034d331d78f84a1ea6770c1e9f0166"
+    url "https://github.com/v2fly/domain-list-community/releases/download/20241112092643/dlc.dat"
+    sha256 "f04433837b88a3f49d7cd6517c91e8f5de4e4496f3d88ef3b7c6be5bb63f4c6f"
   end
 
   resource "example_config" do
     # borrow v2ray example config
-    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v5.19.0/release/config/config.json"
+    url "https://raw.githubusercontent.com/v2fly/v2ray-core/v5.22.0/release/config/config.json"
     sha256 "15a66415d72df4cd77fcd037121f36604db244dcfa7d45d82a0c33de065c6a87"
   end
 

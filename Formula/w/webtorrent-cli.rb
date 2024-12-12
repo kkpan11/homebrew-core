@@ -30,9 +30,6 @@ class WebtorrentCli < Formula
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     libexec.glob("lib/node_modules/webtorrent-cli/node_modules/{bufferutil,utp-native,utf-8-validate}/prebuilds/*")
            .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
-
-    # Replace universal binaries with their native slices
-    deuniversalize_machos
   end
 
   test do
@@ -43,7 +40,7 @@ class WebtorrentCli < Formula
       &tr=https://tracker.archlinux.org:443/announce
     EOS
 
-    expected_output_raw = <<~EOS
+    expected_output_raw = <<~JSON
       {
         "xt": "urn:btih:9eae210fe47a073f991c83561e75d439887be3f3",
         "dn": "archlinux-2017.02.01-x86_64.iso",
@@ -59,7 +56,7 @@ class WebtorrentCli < Formula
         ],
         "urlList": []
       }
-    EOS
+    JSON
     expected_json = JSON.parse(expected_output_raw)
     actual_output_raw = shell_output("#{bin}/webtorrent info '#{magnet_uri}'")
     actual_json = JSON.parse(actual_output_raw)

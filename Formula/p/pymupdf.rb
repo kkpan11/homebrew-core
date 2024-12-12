@@ -1,17 +1,17 @@
 class Pymupdf < Formula
   desc "Python bindings for the PDF toolkit and renderer MuPDF"
   homepage "https://pymupdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/e0/6b/6bd735144a190d26dcc23f98b4aae0e09b259cc4c87bba266a39b7b91f56/PyMuPDF-1.24.14.tar.gz"
-  sha256 "0eed9f998525eaf39706dbf2d0cf3162150f0f526e4a36b1748ffa50bde581ae"
+  url "https://files.pythonhosted.org/packages/c3/88/76c076c152be6d29a792defc3b3bff73de7f690e55f978b66adf6dbb8a1a/pymupdf-1.25.1.tar.gz"
+  sha256 "6725bec0f37c2380d926f792c262693c926af7cc1aa5aa2b8207e771867f015a"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5508c01e68aa780d289eac25180329d8cfacab94b7c704feb383c2b3cb34f696"
-    sha256 cellar: :any,                 arm64_sonoma:  "2027a33c7d8581a8850f3726192dacf7045a06fa600b89b2712eea0e99026048"
-    sha256 cellar: :any,                 arm64_ventura: "2490d3ff014c7e37c2b3ec4088cfa07a4a728cd008a4bd2633695482246701b0"
-    sha256 cellar: :any,                 sonoma:        "91a80f3224f6cb1fb557dc67bd32b20c5ab63c2afe3eb91df16eed1070ecfc66"
-    sha256 cellar: :any,                 ventura:       "b48815ca8574fa5e1a036d9bd4c47da98962b94eacd8731d3f77bbd04a30885a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "763356379c2d8a5f89da7c5e7cf96d92527748b3fa6d2782b4230d2a05f1de53"
+    sha256 cellar: :any,                 arm64_sequoia: "be92d5188177ced0d861b266c170c8ab7ce173abf42e08caa13c1f3ba9a27781"
+    sha256 cellar: :any,                 arm64_sonoma:  "fe6def3f2d051dfdc0907a07bccd1c8742d57f2fe4eeb930163f137c02a6db4c"
+    sha256 cellar: :any,                 arm64_ventura: "5417f1b35048cce7e5c2c057357342605f03dd2e0a63d6f88ae9817824ee4e56"
+    sha256 cellar: :any,                 sonoma:        "bae7122e5d37c38b3de1a7a72325c9ecb84c700861e77e4ff3b30e788683669f"
+    sha256 cellar: :any,                 ventura:       "400da05009236699d49d1450c7810fe07df70b3fe3aa77061b8318280cea9f97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a82fba95aeb56cbb6b32bb647f2e02e55aaeed394f2a25276c9818567b97a46f"
   end
 
   depends_on "freetype" => :build

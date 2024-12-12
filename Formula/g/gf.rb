@@ -1,18 +1,18 @@
 class Gf < Formula
   desc "App development framework of Golang"
   homepage "https://goframe.org"
-  url "https://github.com/gogf/gf/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "a40d3644999a68e043c3a3ce57c616df6c02680825b3ce1307c7ffc50b3a4d62"
+  url "https://github.com/gogf/gf/archive/refs/tags/v2.8.2.tar.gz"
+  sha256 "5094a638133e998d569c223fcdbf68249d05e22a1b19a7f5f9b2e84576117d2b"
   license "MIT"
   head "https://github.com/gogf/gf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "badbdc4091d9623dc4b8569c5660c9874658c3fcbbf2ace4b2f4ab3b15cfe21d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "badbdc4091d9623dc4b8569c5660c9874658c3fcbbf2ace4b2f4ab3b15cfe21d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "badbdc4091d9623dc4b8569c5660c9874658c3fcbbf2ace4b2f4ab3b15cfe21d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "68c03f76d24265926e61fdc688c95824f4e59a33ce7561a143e07ed9dc57bdfd"
-    sha256 cellar: :any_skip_relocation, ventura:       "68c03f76d24265926e61fdc688c95824f4e59a33ce7561a143e07ed9dc57bdfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c100e7af085e9e7f73ac486a64c7c044df658e816e92018844537cd4370b8693"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "100a140d9ec2669654b27a14294b3085444aa6cf6980ba97e4ebf67fa11a0459"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "100a140d9ec2669654b27a14294b3085444aa6cf6980ba97e4ebf67fa11a0459"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "100a140d9ec2669654b27a14294b3085444aa6cf6980ba97e4ebf67fa11a0459"
+    sha256 cellar: :any_skip_relocation, sonoma:        "af7483153b6eb085df3e88e1e09af717d3bb4f983ffab10edf3cce67db276109"
+    sha256 cellar: :any_skip_relocation, ventura:       "af7483153b6eb085df3e88e1e09af717d3bb4f983ffab10edf3cce67db276109"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f7a488c009cf61a1fdd385973e23903e1853fd009d73dfe02fc722e849606531"
   end
 
   depends_on "go" => [:build, :test]
