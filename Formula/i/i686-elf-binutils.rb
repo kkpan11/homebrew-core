@@ -21,7 +21,7 @@ class I686ElfBinutils < Formula
     sha256 x86_64_linux:   "261dda7591614a6c0ff80dff4f7b85b1b746c97dc5510a695fae6f894559e6f9"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "zstd"
 
   uses_from_macos "zlib"
@@ -44,7 +44,7 @@ class I686ElfBinutils < Formula
   end
 
   test do
-    (testpath/"test-s.s").write <<~EOS
+    (testpath/"test-s.s").write <<~ASM
       .section .data
       .section .text
       .globl _start
@@ -52,7 +52,7 @@ class I686ElfBinutils < Formula
           movl $1, %eax
           movl $4, %ebx
           int $0x80
-    EOS
+    ASM
 
     system bin/"i686-elf-as", "--32", "-o", "test-s.o", "test-s.s"
     assert_match "file format elf32-i386",

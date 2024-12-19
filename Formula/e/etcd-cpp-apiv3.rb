@@ -4,15 +4,16 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 17
+  revision 19
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "eae08a8ebe03d7f50e2652d1492cdcb15eb812aaf5ecf9d8f30e1ae6993c57f9"
-    sha256 cellar: :any,                 arm64_sonoma:  "40e9e03088afec1230e9f1eb9b9c537e818981627a7e5de2bc8314c7c73cb98e"
-    sha256 cellar: :any,                 arm64_ventura: "776250e354e3ac2d1ac415369858cd1460afa987d7e592fab9f97f8413435df9"
-    sha256 cellar: :any,                 sonoma:        "377981f70cba4f15d820106b4cd8260893a40532fd4ce9a0f6b1684636549a07"
-    sha256 cellar: :any,                 ventura:       "d1941f788e048b0456058c296e58d3dac5623a3d876957cf8eacade1867f0a25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3b0556472f4d881f9883ae82c6fe318d0799da70f73c86c86fe029a2305a316"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "59d3e284ea8592f558ce43cfee1eddcb3b5269a3a26fec1f403697549742ea3a"
+    sha256 cellar: :any,                 arm64_sonoma:  "1d0908b4654879dcaffb04cbc1f3571e303eb38978892f69f1291d15ec7cfcdf"
+    sha256 cellar: :any,                 arm64_ventura: "274fde2e831cd1f6af729e8af565db98fc939761803a5e5df3372ca72dcf2881"
+    sha256 cellar: :any,                 sonoma:        "29ebb350a0c47d1161c7c0d5976f0c41197fad29bada8eb61fa56c7d9b24b60e"
+    sha256 cellar: :any,                 ventura:       "e6c9603decc4f48dc91d2045ab2bc1861d89099716f106efcac6d9802ac67616"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cea14adff73410fade32286d54cd161c6885177a0e3771ffe7adf2d50853261d"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -69,6 +70,7 @@ class EtcdCppApiv3 < Formula
       target_link_libraries(test_etcd_cpp_apiv3 PRIVATE etcd-cpp-api)
     CMAKE
 
+    ENV.append_path "CMAKE_PREFIX_PATH", Formula["boost@1.85"].opt_prefix
     ENV.delete "CPATH"
     system "cmake", ".", "-Wno-dev", "-DCMAKE_BUILD_RPATH=#{HOMEBREW_PREFIX}/lib"
     system "cmake", "--build", "."

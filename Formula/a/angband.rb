@@ -1,6 +1,6 @@
 class Angband < Formula
   desc "Dungeon exploration game"
-  homepage "https://angband.github.io/angband/"
+  homepage "https://rephial.org/"
   url "https://github.com/angband/angband/releases/download/4.2.5/Angband-4.2.5.tar.gz"
   sha256 "c4cacbdf28f726fcb1a0b30b8763100fb06f88dbb570e955232e41d83e0718a6"
   license "GPL-2.0-only"
@@ -46,7 +46,7 @@ class Angband < Formula
 
   test do
     script = (testpath/"script.exp")
-    script.write <<~EOS
+    script.write <<~SHELL
       #!/usr/bin/expect -f
       set timeout 10
       spawn angband
@@ -55,7 +55,7 @@ class Angband < Formula
       sleep 2
       send -- "\x18"
       expect eof
-    EOS
+    SHELL
     system "expect", "-f", "script.exp"
   end
 end

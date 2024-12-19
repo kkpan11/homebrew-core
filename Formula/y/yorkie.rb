@@ -1,8 +1,8 @@
 class Yorkie < Formula
   desc "Document store for collaborative applications"
   homepage "https://yorkie.dev/"
-  url "https://github.com/yorkie-team/yorkie/archive/refs/tags/v0.5.5.tar.gz"
-  sha256 "d48e4c3236dad86989ee3c0981bda9a65c2ede700ecd7b7e12364db24c0e73a6"
+  url "https://github.com/yorkie-team/yorkie/archive/refs/tags/v0.5.8.tar.gz"
+  sha256 "a9e2442c24f1ac388f3e0fea594c7ca5146716b9a8d97c57df755be4a650f50b"
   license "Apache-2.0"
   head "https://github.com/yorkie-team/yorkie.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Yorkie < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32796298f7583530a1e5c405bcb8cd2c55ed9fdd53bb7a7f4390095fdb05d3a5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "32796298f7583530a1e5c405bcb8cd2c55ed9fdd53bb7a7f4390095fdb05d3a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "32796298f7583530a1e5c405bcb8cd2c55ed9fdd53bb7a7f4390095fdb05d3a5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "b5e60f2bc450e585a80c88eedbbd673443515b67d42208fb171c6cf606551891"
-    sha256 cellar: :any_skip_relocation, ventura:       "b5e60f2bc450e585a80c88eedbbd673443515b67d42208fb171c6cf606551891"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "988ea39bbe1c0939e08b6cb9a114cd58d0d20a8c266bb2bb11745d7f7e2d3017"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "618ed6016260b30b3041fe520128f161a37f7ec2ca62536d80e4e9d66ff90695"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "618ed6016260b30b3041fe520128f161a37f7ec2ca62536d80e4e9d66ff90695"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "618ed6016260b30b3041fe520128f161a37f7ec2ca62536d80e4e9d66ff90695"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e8401ef64aa584df42ba04dbe72afc037be84a5bdbb681982096c0d5913b8ca4"
+    sha256 cellar: :any_skip_relocation, ventura:       "e8401ef64aa584df42ba04dbe72afc037be84a5bdbb681982096c0d5913b8ca4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03578845ee786860938a0e725e117f2134f6a7333cab958c1a86f92de0449710"
   end
 
   depends_on "go" => :build
@@ -42,9 +42,7 @@ class Yorkie < Formula
   end
 
   test do
-    yorkie_pid = fork do
-      exec bin/"yorkie", "server"
-    end
+    yorkie_pid = spawn bin/"yorkie", "server"
     # sleep to let yorkie get ready
     sleep 3
     system bin/"yorkie", "login", "-u", "admin", "-p", "admin", "--insecure"

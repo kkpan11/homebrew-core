@@ -44,11 +44,9 @@ class V8 < Formula
   end
 
   on_linux do
-    depends_on "pkg-config" => :build
+    depends_on "pkgconf" => :build
     depends_on "glib"
   end
-
-  fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#74
@@ -116,11 +114,11 @@ class V8 < Formula
     ENV.prepend_path "PATH", buildpath/"gn/out"
 
     # create gclient_args.gni
-    (buildpath/"build/config/gclient_args.gni").write <<~EOS
+    (buildpath/"build/config/gclient_args.gni").write <<~GN
       declare_args() {
         checkout_google_benchmark = false
       }
-    EOS
+    GN
 
     # setup gn args
     gn_args = {

@@ -2,9 +2,10 @@ class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
   # NOTE: Make sure to update RPATHs if any "@rpath-referenced libraries" show up in `brew linkage`
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_09_2.tar.gz"
-  sha256 "0f35a088da9594e362fb7c9c68d96a18af1cff502ddec334ff1d2baf1a4dd6d3"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2024_09_3.tar.gz"
+  sha256 "5d6a44be526e26ae80bb225df4bb0344e52c502b7f874ee824cfb2dc01adafeb"
   license "BSD-3-Clause"
+  revision 2
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -16,17 +17,17 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "61674359a743393a777b44ce39de07ec9a1fcc0352093f772f4c882ed1a7c55e"
-    sha256 cellar: :any,                 arm64_sonoma:  "8e611d0361fd1872190aea4567a708eef22a95c335843bdbd239539f35218564"
-    sha256 cellar: :any,                 arm64_ventura: "2ddb01cb87c2037eb26f4abc943da0e6fe1034798ed9d4f5dc874933fd53eaff"
-    sha256 cellar: :any,                 sonoma:        "445790fbfac2605edfddf32375c46f7b89f3337c0786175003fe5445f5ea8b90"
-    sha256 cellar: :any,                 ventura:       "bc070e3ad07b0ee7b52e03adc1330b09bee83ba4975937d2e5902a1fe169460e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c16a7271b4724a39caf14a6b6ac6878f6b81c56bcd0340de05ae5ef831990c1"
+    sha256 cellar: :any,                 arm64_sequoia: "04a77cb92f3c67849d3f046a652e99679d07b48befed0e014fae96e08e0ccc35"
+    sha256 cellar: :any,                 arm64_sonoma:  "1ffbf363e92ff8297dbcf793e3f77d90b833030969a976e18124a92f69d5da32"
+    sha256 cellar: :any,                 arm64_ventura: "159a4ea1365be8f9efd22e15926a80c9a5c17f8a4e22723df05299e3ec11e08e"
+    sha256 cellar: :any,                 sonoma:        "bfd0a5d1b2ffab0a552d51a0ff065b8277f47b6a5cba6aa14f6a6f77e816b011"
+    sha256 cellar: :any,                 ventura:       "faa5f2fbeea734fd545537338e4a38d196d853428bbc2959905eb1f7cc6f80c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5e63f11877ffb1e51a04824633873fe49dfc824e15de193aeab64e2c003ae87c"
   end
 
   depends_on "catch2" => :build
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
   depends_on "boost"
@@ -39,18 +40,10 @@ class Rdkit < Formula
   depends_on "maeparser"
   depends_on "numpy"
   depends_on "py3cairo"
-  depends_on "python@3.12"
-
-  # Apply open PR commit to use .dylib for PostgreSQL 16+ modules
-  # TODO: Remove if merged and available in a release
-  # PR ref: https://github.com/rdkit/rdkit/pull/7869
-  patch do
-    url "https://github.com/rdkit/rdkit/commit/3ade0f8cd31be54fc267b9f5e94e8aa755f56f36.patch?full_index=1"
-    sha256 "09696dc4c26832f5c5126d059ae0d71a12ab404438e55e8f9a90880a1fad6c03"
-  end
+  depends_on "python@3.13"
 
   def python3
-    "python3.12"
+    "python3.13"
   end
 
   def postgresqls

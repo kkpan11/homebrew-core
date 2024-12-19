@@ -1,18 +1,18 @@
 class PhylumCli < Formula
   desc "Command-line interface for the Phylum API"
   homepage "https://www.phylum.io"
-  url "https://github.com/phylum-dev/cli/archive/refs/tags/v7.1.4.tar.gz"
-  sha256 "6c23deb87e3ca8c3d893d8050fbf61fbbd43694daa36cd37af23c8daaf776d57"
+  url "https://github.com/phylum-dev/cli/archive/refs/tags/v7.2.0.tar.gz"
+  sha256 "9d3937365bd6f19d9c15825e1fd211dedeeba553e36b926270077334618eeaa3"
   license "GPL-3.0-or-later"
   head "https://github.com/phylum-dev/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "faae0a25ba3bae571acba338b6a9159c89b4320b77017907ab50f2eb30c18908"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "557b5bcec8674c15b96549f5b3351b8fb13fc27ae66c429c6358c7326c40a430"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "cf5d9cc2dfd34f41093f4ec2a83a151eb67c9e044cd08db24567fa6c4bcafa07"
-    sha256 cellar: :any_skip_relocation, sonoma:        "fab5158561d5876b115f6ffc7af8afa7d16c439364434a5ea145b06ec501a054"
-    sha256 cellar: :any_skip_relocation, ventura:       "b1a68dd6ab8f470403ec8a5c500e10480698c52b00fede6ca19cf26dea4e9890"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "167e4b4400a8f746a927b61a0d08eac810b2e05f118fc6ec8a5ae1f4b81c9552"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2248bc67e53c347d61f0fb1be8a6703b7a8b792287919ca2e6dfa8faab260fe6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4a2d01cd1473ae6046819b5f78fa61002f03a2bfa61868f18f8624072d56b9ef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "86e4825546eb7d9a2f0a0d18fe0abb8dbe2f2ce1102965517b5e6fefbfa4fe07"
+    sha256 cellar: :any_skip_relocation, sonoma:        "017670f96f40bcf3b773e5312291777da13e15cf9a312b5bc7734c3f7acb34a1"
+    sha256 cellar: :any_skip_relocation, ventura:       "ce0aed61f00d9e35a01c072ca1905a3867b4ae33c2ea4b03eafb2951ae4b5d12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e1e27b04e4f08b0021bef9c5f666d6876e9fb5e4066d550d38c5687e84604efa"
   end
 
   depends_on "protobuf" => :build

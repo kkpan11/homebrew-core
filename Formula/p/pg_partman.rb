@@ -1,18 +1,17 @@
 class PgPartman < Formula
   desc "Partition management extension for PostgreSQL"
   homepage "https://github.com/pgpartman/pg_partman"
-  url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v5.1.0.tar.gz"
-  sha256 "3e3a27d7ff827295d5c55ef72f07a49062d6204b3cb0b9a048645d6db9f3cb9f"
+  url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v5.2.2.tar.gz"
+  sha256 "c67898c7b131d66b835b44d92013e9e07f0834b253505ef2808de6826e3e558d"
   license "PostgreSQL"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "995615e05892a4a62213fd7248beaef88fdd345b3a386b6378f93f28e42112de"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2c2e05b74290971c37bb8cd1af765a95e1b9f3241cdd73373a74b125619a74da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "f44f771ad70e19ef41072b2a1465ce0aa1019cd77c475d6a9583484c284eaa0b"
-    sha256 cellar: :any_skip_relocation, sonoma:        "1c474f3a11de006f0c84e159dc21971c5da027b0138f52d5f31689baad2afa53"
-    sha256 cellar: :any_skip_relocation, ventura:       "a9ce480d5188be5afa9ab08a75c12f2fc1f6993fa948d1350b2528c9d7687128"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "61a6d1327005efb276aa8487952bd916293aa83a33efc96307334faa2bbfa2d9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a8a2d74617d5cd8a5ad3551405e33804c14c1e568e2a32a9681be48c4350683f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a01b6b2b975c1a385bfb04bb939184c836d66ae5af851d0d63dccd42184de552"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "e81653ea3a8982418dc0c52d9d5c90d221b99a36ee32de40786e2f9314d84dc4"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6996a3477d03ee5a6d907789d4a75a9da60d4eaf9717e8f98d2054208f354aab"
+    sha256 cellar: :any_skip_relocation, ventura:       "c6759ee065d0d726f1d9b001ffb8a532c2063b190a811916c82e1c14ca5637fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1eeb5c7b4e011002c6d7cee8b607665525d2eb7252581a014a39c8bce4bd747"
   end
 
   depends_on "postgresql@14" => [:build, :test]

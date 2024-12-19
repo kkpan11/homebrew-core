@@ -2,17 +2,17 @@ class RustAnalyzer < Formula
   desc "Experimental Rust compiler front-end for IDEs"
   homepage "https://rust-analyzer.github.io/"
   url "https://github.com/rust-lang/rust-analyzer.git",
-       tag:      "2024-11-18",
-       revision: "ba56d9b9b5f7ae7311b4bd1cc47159d87eb033d0"
+       tag:      "2024-12-16",
+       revision: "27e824fad4cb40f9e475757871e7d259d73f20da"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "12544f6a233567ecc4c1acec8f77291807d01720359fcd9d043e0db19d1f2f95"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8f0a4feadd91f4a5c88f47407cfe95c1b93983ba8b80dc8c8c7fc42da963b6a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e38ecaaf874cda94559d6a0fd1f8bb326e287bd1408bb6f73cb482d8235b3fde"
-    sha256 cellar: :any_skip_relocation, sonoma:        "748d89ae5fb761274d3b4bc0913dda63bf2bcee8cea5c277124b6ed2f7a22b77"
-    sha256 cellar: :any_skip_relocation, ventura:       "0995229a3af4e3ac9c30795cfef88e71bacf55f924da38f518c8157b15bfe626"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2c64e08afb8b3dc440bd6ef439b15351f1b86a9e64effbc95ecfab8ff45ba9e1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7a13ad96b76fd618ef74c5eadad35e5680b2c674add634fa74130f94dd8b2b86"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e2aac2c178236b1eaf4eedb410d11b8a7842a4de3b32d9d1d5a4a492b03c134f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ec639dcc64878672d0a47e8a23b94f3b3132a7751f3b056fb3963c82c97e90c6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "fc2267a8554a41de411d8a6816d28f73bff8fa25257087d20a51ae5c474233d1"
+    sha256 cellar: :any_skip_relocation, ventura:       "bb348766a1713728f3b9ba983ccca1906e1cafe45ce47d3ecb0ca6fef06d3f35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "14dffe55618d8579c6139689e5a2a403eae13f340b37089de0713d89160274c9"
   end
 
   depends_on "rust" => :build
@@ -30,42 +30,42 @@ class RustAnalyzer < Formula
   end
 
   test do
-    input = rpc <<-EOF
-    {
-      "jsonrpc":"2.0",
-      "id":1,
-      "method":"initialize",
-      "params": {
-        "rootUri": "file:/dev/null",
-        "capabilities": {}
+    input = rpc <<~JSON
+      {
+        "jsonrpc":"2.0",
+        "id":1,
+        "method":"initialize",
+        "params": {
+          "rootUri": "file:/dev/null",
+          "capabilities": {}
+        }
       }
-    }
-    EOF
+    JSON
 
-    input += rpc <<-EOF
-    {
-      "jsonrpc":"2.0",
-      "method":"initialized",
-      "params": {}
-    }
-    EOF
+    input += rpc <<~JSON
+      {
+        "jsonrpc":"2.0",
+        "method":"initialized",
+        "params": {}
+      }
+    JSON
 
-    input += rpc <<-EOF
-    {
-      "jsonrpc":"2.0",
-      "id": 1,
-      "method":"shutdown",
-      "params": null
-    }
-    EOF
+    input += rpc <<~JSON
+      {
+        "jsonrpc":"2.0",
+        "id": 1,
+        "method":"shutdown",
+        "params": null
+      }
+    JSON
 
-    input += rpc <<-EOF
-    {
-      "jsonrpc":"2.0",
-      "method":"exit",
-      "params": {}
-    }
-    EOF
+    input += rpc <<~JSON
+      {
+        "jsonrpc":"2.0",
+        "method":"exit",
+        "params": {}
+      }
+    JSON
 
     output = /Content-Length: \d+\r\n\r\n/
 
