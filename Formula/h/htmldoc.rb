@@ -1,23 +1,21 @@
 class Htmldoc < Formula
   desc "Convert HTML to PDF or PostScript"
   homepage "https://www.msweet.org/htmldoc/"
-  url "https://github.com/michaelrsweet/htmldoc/archive/refs/tags/v1.9.18.tar.gz"
-  sha256 "be5368912062e6604fdf2ecffe4692c4b31764dbd83578e7dd5b457e42c007b8"
+  url "https://github.com/michaelrsweet/htmldoc/archive/refs/tags/v1.9.20.tar.gz"
+  sha256 "a155c86c69f90a426ff7244bd046bad026cc5ba9ac2be89dcb1d7973c52d5d82"
   license "GPL-2.0-only"
   head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
   bottle do
-    sha256 arm64_sequoia:  "b5862b0ead7bad774ddea06553f4fed4adab8b7c2eba4d9be47d212892149e30"
-    sha256 arm64_sonoma:   "b3daefc48f25c937c30c5a7d8dcc4b74e042ba33c24d804b4c9a5ac8f8112182"
-    sha256 arm64_ventura:  "195a8758cd0ed5bc3bd6acb57786bc44ec896a4c340429e31278ad5076730086"
-    sha256 arm64_monterey: "5bebc747c06a7a7a1126786f9b55a516dd7ba93d517639eae4f0327ace137296"
-    sha256 sonoma:         "d7cf9d6323503a41782c3abba270cff6c2065ad5241f084ac00d4b495286e92a"
-    sha256 ventura:        "ddb2695cb9af62aa13d49a8e8dbc6103f57a3eb5d02b434e083f215d0de35a3b"
-    sha256 monterey:       "eae62c45aaa7d1961d7693053f3d1997f13ae23464f9f1158afcff57c45cebe2"
-    sha256 x86_64_linux:   "415b9a4e9cc544df43b3d2de79f08bbb5ce2d2c391bdafc2ef7c9f268f509aac"
+    sha256 arm64_sequoia: "5183e094ab3128b038025333172df99251d2a4f1db6c409d892eba9ff9967270"
+    sha256 arm64_sonoma:  "3957858cee344323b79f139e3659f40112509a8a63305422c18a523f3a4ebd78"
+    sha256 arm64_ventura: "fc6b29637b2e230ee3f969118df765352cc4c55c496ba0aa28b3ccd8db3fa762"
+    sha256 sonoma:        "7bb2bc2ad093d1d9ab36698bb927dd6ace11ca733f300c18bf8f7299588cf1a4"
+    sha256 ventura:       "905cc97f81a0215aa7b1c90b8679ed67e5446b1b533173f2a2d288b4db4fbc96"
+    sha256 x86_64_linux:  "cff32d4cdcf1043c08056a4a3bcacb77de58c679c878bbe983f8de9fc75d438c"
   end
 
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
 
@@ -29,9 +27,9 @@ class Htmldoc < Formula
   end
 
   def install
-    system "./configure", *std_configure_args,
-                          "--mandir=#{man}",
-                          "--without-gui"
+    system "./configure", "--mandir=#{man}",
+                          "--without-gui",
+                          *std_configure_args
     system "make"
     system "make", "install"
   end

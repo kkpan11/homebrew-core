@@ -1,26 +1,31 @@
-class PhpAT80 < Formula
+class PhpAT83 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.0.30.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.0.30.tar.xz"
-  sha256 "216ab305737a5d392107112d618a755dc5df42058226f1670e9db90e77d777d9"
+  url "https://www.php.net/distributions/php-8.3.15.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.3.15.tar.xz"
+  sha256 "3df5d45637283f759eef8fc3ce03de829ded3e200c3da278936a684955d2f94f"
   license "PHP-3.01"
-  revision 1
+
+  livecheck do
+    url "https://www.php.net/downloads"
+    regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
+  end
 
   bottle do
-    sha256 arm64_sonoma:   "0aa6da1fd999d315d7d42ae51796f460533a7248748e1e42557e52097f597bca"
-    sha256 arm64_ventura:  "212de9c894fb8bfeb4870f014ce8308263741520b3092a7cbb362fd923cc2a5c"
-    sha256 arm64_monterey: "c1d0e5f42ed1abe9637547eb84b68b88a7a40e6b07849b2d64c40a8d61964330"
-    sha256 sonoma:         "c34fa228729baed2a6dbd01ca83bb5ace382321e34bb44b8f00a4da09dbef43a"
-    sha256 ventura:        "0c665c9e1121469a9e72df861bf94ec0921a2e348d3bfb80229c358847b5cb93"
-    sha256 monterey:       "22732c140ddb1dcdecd43b5f577b400b0447da81f516e63b07bcc4f2dc9f53fe"
-    sha256 x86_64_linux:   "482be56d682d6e802f7c11a97d16d2fcee39d594d050f6571a3711ce2ef518ce"
+    sha256 arm64_sequoia: "508bc7f3a10b4408713cacb79395036322510125783a874332106aef0f6f4d45"
+    sha256 arm64_sonoma:  "778d2ad8da5f2e9ec0554c9ffd6f9eb632beaaf172756927ca642d16d7ccdee2"
+    sha256 arm64_ventura: "8395f9fb05cded18c4098e05cda79534b241e4406ce45abd38c4970c65264a3b"
+    sha256 sonoma:        "aa7c3ea39f845972f2291f4196f0745dc3959442ef868b4c4c48ddd85b54d5f3"
+    sha256 ventura:       "3e314556bdf37c1fde5817c02bb7d8793c0058ac47f673daf58ecb415b4d7ff9"
+    sha256 x86_64_linux:  "466a6380a2d52ee8cef68a4821edf69ae23110842766fe4c15b83e73b26cd3b1"
   end
 
   keg_only :versioned_formula
 
-  disable! date: "2023-11-29", because: :versioned_formula
+  # Security Support Until 31 Dec 2027
+  # https://www.php.net/supported-versions.php
+  deprecate! date: "2027-12-31", because: :unsupported
 
   depends_on "httpd" => [:build, :test]
   depends_on "pkgconf" => :build
@@ -34,8 +39,7 @@ class PhpAT80 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  # Re-add an ICU4C dependency if extracting formula
-  # TODO: depends_on "icu4c"
+  depends_on "icu4c@76"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"
@@ -58,19 +62,8 @@ class PhpAT80 < Formula
 
   on_macos do
     # PHP build system incorrectly links system libraries
-    # see https://github.com/php/php-src/pull/3472
+    # see https://github.com/php/php-src/issues/10680
     patch :DATA
-  end
-
-  # Let PHP8.0 support OpenSSL3
-  patch do
-    url "https://raw.githubusercontent.com/shivammathur/php-src-backports/2bcb0b/patches/0002-Add-minimal-OpenSSL-3.0-patch-PHP8.0.patch"
-    sha256 "8c359c0b0cc63dc6779a4fb1b2ba5ca555eb60e962013123dcb1239aef5cee9a"
-  end
-
-  patch do
-    url "https://raw.githubusercontent.com/shivammathur/php-src-backports/2bcb0b/patches/0003-Fix-bug-79589-ssl3_read_n-unexpected-eof-while-reading-PHP8.0.patch"
-    sha256 "3383d1881379827e02b42842367666725f4f54f4364d937c6acb0ee67bce84a2"
   end
 
   def install
@@ -125,6 +118,10 @@ class PhpAT80 < Formula
     # sdk path or it won't find the headers
     headers_path = "=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
 
+    # `_www` only exists on macOS.
+    fpm_user = OS.mac? ? "_www" : "www-data"
+    fpm_group = OS.mac? ? "_www" : "www-data"
+
     args = %W[
       --prefix=#{prefix}
       --localstatedir=#{var}
@@ -146,7 +143,6 @@ class PhpAT80 < Formula
       --enable-pcntl
       --enable-phpdbg
       --enable-phpdbg-readline
-      --enable-phpdbg-webhelper
       --enable-shmop
       --enable-soap
       --enable-sockets
@@ -159,8 +155,8 @@ class PhpAT80 < Formula
       --with-external-gd
       --with-external-pcre
       --with-ffi
-      --with-fpm-user=_www
-      --with-fpm-group=_www
+      --with-fpm-user=#{fpm_user}
+      --with-fpm-group=#{fpm_group}
       --with-gettext=#{Formula["gettext"].opt_prefix}
       --with-gmp=#{Formula["gmp"].opt_prefix}
       --with-iconv#{headers_path}
@@ -208,21 +204,26 @@ class PhpAT80 < Formula
     system "make", "install"
 
     # Allow pecl to install outside of Cellar
-    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
+    extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
     orig_ext_dir = File.basename(extension_dir)
     inreplace bin/"php-config", lib/"php", prefix/"pecl"
-    inreplace "php.ini-development", %r{; ?extension_dir = "\./"},
-      "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
+    %w[development production].each do |mode|
+      inreplace "php.ini-#{mode}", %r{; ?extension_dir = "\./"},
+        "extension_dir = \"#{HOMEBREW_PREFIX}/lib/php/pecl/#{orig_ext_dir}\""
+    end
 
     # Use OpenSSL cert bundle
     openssl = Formula["openssl@3"]
-    inreplace "php.ini-development", /; ?openssl\.cafile=/,
-      "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""
-    inreplace "php.ini-development", /; ?openssl\.capath=/,
-      "openssl.capath = \"#{openssl.pkgetc}/certs\""
+    %w[development production].each do |mode|
+      inreplace "php.ini-#{mode}", /; ?openssl\.cafile=/,
+        "openssl.cafile = \"#{openssl.pkgetc}/cert.pem\""
+      inreplace "php.ini-#{mode}", /; ?openssl\.capath=/,
+        "openssl.capath = \"#{openssl.pkgetc}/certs\""
+    end
 
     config_files = {
       "php.ini-development"   => "php.ini",
+      "php.ini-production"    => "php.ini-production",
       "sapi/fpm/php-fpm.conf" => "php-fpm.conf",
       "sapi/fpm/www.conf"     => "php-fpm.d/www.conf",
     }
@@ -261,12 +262,12 @@ class PhpAT80 < Formula
     pecl_path = HOMEBREW_PREFIX/"lib/php/pecl"
     pecl_path.mkpath
     ln_s pecl_path, prefix/"pecl" unless (prefix/"pecl").exist?
-    extension_dir = Utils.safe_popen_read("#{bin}/php-config", "--extension-dir").chomp
+    extension_dir = Utils.safe_popen_read(bin/"php-config", "--extension-dir").chomp
     php_basename = File.basename(extension_dir)
     php_ext_dir = opt_prefix/"lib/php"/php_basename
 
     # fix pear config to install outside cellar
-    pear_path = HOMEBREW_PREFIX/"share/pear@#{version.major_minor}"
+    pear_path = HOMEBREW_PREFIX/"share/pear"
     cp_r pkgshare/"pear/.", pear_path
     {
       "php_ini"  => etc/"php/#{version.major_minor}/php.ini",
@@ -400,7 +401,7 @@ class PhpAT80 < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
@@ -413,7 +414,7 @@ class PhpAT80 < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure

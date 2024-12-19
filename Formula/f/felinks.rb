@@ -17,7 +17,7 @@ class Felinks < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
 
   depends_on "brotli"
   depends_on "libcss"
@@ -65,11 +65,11 @@ class Felinks < Formula
   end
 
   test do
-    (testpath/"test.html").write <<~EOS
+    (testpath/"test.html").write <<~HTML
       <!DOCTYPE html>
       <title>Hello World!</title>
       Abracadabra
-    EOS
+    HTML
     assert_match "Abracadabra", shell_output("#{bin}/elinks -dump test.html").chomp
   end
 end

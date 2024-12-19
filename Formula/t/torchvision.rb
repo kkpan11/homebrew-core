@@ -6,6 +6,7 @@ class Torchvision < Formula
   url "https://github.com/pytorch/vision/archive/refs/tags/v0.20.1.tar.gz"
   sha256 "7e08c7f56e2c89859310e53d898f72bccc4987cd83e08cfd6303513da15a9e71"
   license "BSD-3-Clause"
+  revision 3
 
   livecheck do
     url :stable
@@ -13,12 +14,12 @@ class Torchvision < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "ddd4155568a1a1211d0ee070cf1764c478cb528b0d1e8980282d994b9a5b7ee0"
-    sha256 cellar: :any,                 arm64_sonoma:  "c4a9c19972be69f7c10698c7894b1866e2e428d89e13a688d71a51662574d0c1"
-    sha256 cellar: :any,                 arm64_ventura: "fc0f71492417e1e807e8e2e3b82f56c18c93a44df7ec944b64a436c716e4c1d3"
-    sha256 cellar: :any,                 sonoma:        "9c595e870a7655759085ffd8403f5d8d189cca197d476afd3027861ecf141ef4"
-    sha256 cellar: :any,                 ventura:       "50a015a4b3922e04b3de07806ac1518650da4ad4b2cf6ef7de9f39a2d8253db7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c2039e549331051fb86453077590995dc2e1bc53c9a1253f00a967364693991"
+    sha256 cellar: :any,                 arm64_sequoia: "b367ef8cf692bac69e4cfe24c7eabce764344991c447b251507f8807d971874b"
+    sha256 cellar: :any,                 arm64_sonoma:  "0e71494f9ec936471ef58930ce261b3f4ded075c84d81d172b28c020e395a047"
+    sha256 cellar: :any,                 arm64_ventura: "a21c2de0fa176fa42625f94f359b83c04b4e4a26b73801591ed191119af266e1"
+    sha256 cellar: :any,                 sonoma:        "05e70b7033d9d42c5d0432dbe55434ca761d3e7e15fdf3d16efac6ab05f6b0c7"
+    sha256 cellar: :any,                 ventura:       "5f8bb74ad80014dc53ae9214380ce61223d29e80ff5c9c3463816b54a33de3db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d3b97abefade2b0a47e7de8cc82b6f46317c66798f4f8c9cb718a5ef8be8a423"
   end
 
   depends_on "cmake" => :build
@@ -99,11 +100,11 @@ class Torchvision < Formula
 
     # test that the `torchvision` Python module is available
     cp test_fixtures("test.png"), "test.png"
-    system libexec/"bin/python", "-c", <<~EOS
+    system libexec/"bin/python", "-c", <<~PYTHON
       import torch
       import torchvision
       t = torchvision.io.read_image("test.png")
       assert isinstance(t, torch.Tensor)
-    EOS
+    PYTHON
   end
 end

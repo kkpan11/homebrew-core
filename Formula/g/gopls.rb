@@ -1,9 +1,10 @@
 class Gopls < Formula
   desc "Language server for the Go language"
   homepage "https://github.com/golang/tools/tree/master/gopls"
-  url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.16.2.tar.gz"
-  sha256 "be68b3159fcb8cde9ebb8b468f67f03531c58be2de33edbac69e5599f2d4a2c1"
+  url "https://github.com/golang/tools/archive/refs/tags/gopls/v0.17.0.tar.gz"
+  sha256 "0d362528c42d4110933515cbabd7c6383048eb279a0b74a6322883acbcc3a381"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,21 +13,19 @@ class Gopls < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "223e48d4c467cede757b4b68014d372269645dbfb01b2bf9ee5be6f3db2ed24b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ba123574ac5e829f2cbc22e1d25ecbbde34b0a0a57daf1d1756d316dc844425"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ba123574ac5e829f2cbc22e1d25ecbbde34b0a0a57daf1d1756d316dc844425"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ba123574ac5e829f2cbc22e1d25ecbbde34b0a0a57daf1d1756d316dc844425"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ef67a637954689ad1c05e3eff2fe276e0e0e25ab7c8e9b717d3c15e9bbc40f1b"
-    sha256 cellar: :any_skip_relocation, ventura:        "ef67a637954689ad1c05e3eff2fe276e0e0e25ab7c8e9b717d3c15e9bbc40f1b"
-    sha256 cellar: :any_skip_relocation, monterey:       "ef67a637954689ad1c05e3eff2fe276e0e0e25ab7c8e9b717d3c15e9bbc40f1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae3af2df59d74264cce09c7e6841526f91c600ec34b178fbd17162933747058d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "1d156d28282c10967957c40f1ea07f048ce3f3b1d49b7e2de37d3b70cb0b892e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "1d156d28282c10967957c40f1ea07f048ce3f3b1d49b7e2de37d3b70cb0b892e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1d156d28282c10967957c40f1ea07f048ce3f3b1d49b7e2de37d3b70cb0b892e"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5cfc1a6fdbeec255cbaccacdecc385b92d6cb8e57cc368e38ff05f72ec09fc78"
+    sha256 cellar: :any_skip_relocation, ventura:       "5cfc1a6fdbeec255cbaccacdecc385b92d6cb8e57cc368e38ff05f72ec09fc78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "22bed3dd34535a938cda120f194071ea2082b4509a202ff0d26db1677be4e65f"
   end
 
   depends_on "go" => :build
 
   def install
     cd "gopls" do
-      system "go", "build", *std_go_args
+      system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=v#{version}")
     end
   end
 
@@ -34,7 +33,8 @@ class Gopls < Formula
     output = shell_output("#{bin}/gopls api-json")
     output = JSON.parse(output)
 
-    assert_equal "gopls.add_dependency", output["Commands"][0]["Command"]
     assert_equal "buildFlags", output["Options"]["User"][0]["Name"]
+    assert_equal "Go", output["Lenses"][0]["FileType"]
+    assert_match version.to_s, shell_output("#{bin}/gopls version")
   end
 end

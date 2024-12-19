@@ -1,8 +1,8 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
-  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.30.1.tar.gz"
-  sha256 "5248311a3d8ce65f6f48756dfc0df9f8922d64f5201ee8d980497d52e924906e"
+  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.32.1.tar.gz"
+  sha256 "f08efaaffa9f1c58b085105acfc41c65ed8f5721bdc7b1746b80700c727a4f60"
   license "MIT"
   head "https://github.com/fastfetch-cli/fastfetch.git", branch: "dev"
 
@@ -12,19 +12,19 @@ class Fastfetch < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "2ba0aaadc4875972c6dec5490a45a9efc09d1374d3863aaf6ab4c4bf391ce2f3"
-    sha256 arm64_sonoma:  "af31b4bec50b0a0d6f49554c73b72a61ab4b7321dbafe982de46aed989f120c9"
-    sha256 arm64_ventura: "b684e4f4066e0ff71c068c40dad6bac448ce69c481f7e7b97aed356de6baab0e"
-    sha256 sonoma:        "985a991fd1a9d3f5ea8e721e79a150b97d2d132cda598735e71cdc00d963adc6"
-    sha256 ventura:       "7a2b918a20bff83f61d28276ff341dabea84414d7d260ae4390b0e30b3a43e37"
-    sha256 x86_64_linux:  "c9c434f04308a17f5fc6ef1206ad2a5b70e3eb3b3a7a5f8c97a85f29de45ca71"
+    sha256 arm64_sequoia: "94988083e11c0625cea82eee35f3c587b5f42fd6eef4ddd495f5017af476d26e"
+    sha256 arm64_sonoma:  "405ad07f6494a9320f128302aee6c37867673b39494b2f3f47ecb018d424843f"
+    sha256 arm64_ventura: "5021dd8a74d9e6913d67dbb93cf4d3d9ffafc515eed23263ee0bf93039532cc0"
+    sha256 sonoma:        "c8d9fc3e9de479ceac2fae756de2a7e6211225639fcfc26473f30af13f0704c7"
+    sha256 ventura:       "e234078ec26a64ef7dff62322675022a028a8c30c62b4b0dacafb4c2735e49fc"
+    sha256 x86_64_linux:  "902da4edb8629b92e2f4366c18dcf1a88f09119e98442e693b91dce7046f5aa3"
   end
 
   depends_on "chafa" => :build
   depends_on "cmake" => :build
   depends_on "glib" => :build
   depends_on "imagemagick" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "python@3.13" => :build
   depends_on "vulkan-loader" => :build
 

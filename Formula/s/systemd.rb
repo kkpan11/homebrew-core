@@ -3,8 +3,8 @@ class Systemd < Formula
 
   desc "System and service manager"
   homepage "https://systemd.io"
-  url "https://github.com/systemd/systemd/archive/refs/tags/v256.8.tar.gz"
-  sha256 "b3d003b4f6d1ab0bfae0cf7a37c4aa559923c49bc8e9d1331b7459e12ebc357a"
+  url "https://github.com/systemd/systemd/archive/refs/tags/v257.tar.gz"
+  sha256 "14f6907eb5e289d8c39cbe1ef891ca54d8a0e3582c986a9ef5844b3f29add43b"
   license all_of: [
     # Main license is LGPL-2.1-or-later while systemd-udevd is GPL-2.0-or-later
     "LGPL-2.1-or-later",
@@ -30,7 +30,7 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "e7af990380e1203731c37fd78c1b4c5561405e60e1b75b7f3111e030dd7f11fa"
+    sha256 x86_64_linux: "6582edc340fea863d9c7707a49745aa6f8cfe402ca8c278b07446751934263e7"
   end
 
   depends_on "coreutils" => :build
@@ -41,7 +41,7 @@ class Systemd < Formula
   depends_on "libxslt" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkgconf" => :build
   depends_on "python@3.12" => :build
   depends_on "glib"
   depends_on "libcap"
@@ -98,6 +98,7 @@ class Systemd < Formula
       -Dmicrohttpd=disabled
       -Dp11kit=disabled
       -Dpam=disabled
+      -Dshellprofiledir=no
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
