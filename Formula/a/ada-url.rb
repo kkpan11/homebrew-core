@@ -1,18 +1,18 @@
 class AdaUrl < Formula
   desc "WHATWG-compliant and fast URL parser written in modern C++"
   homepage "https://github.com/ada-url/ada"
-  url "https://github.com/ada-url/ada/archive/refs/tags/v3.1.3.tar.gz"
-  sha256 "8bd8df0413d57b56b32e6a5216a1c7f402a52edf33172a39e80484ccce0bb627"
+  url "https://github.com/ada-url/ada/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "49935314401b78f728f9d9bcc2e4a38905f62d4987621a2b318d251e3a04acf3"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3d0c7d205062304e7987762407467db755f399a1571ad60800f32704e856e22e"
-    sha256 cellar: :any,                 arm64_sonoma:  "1b65fd469391d24415b9becfd75a17b8152ce0a1f82bdd84fdf84021c2a3c761"
-    sha256 cellar: :any,                 arm64_ventura: "f38f7af9255f3ef5af68360c08935b0b6e84bc9f16a2cb95a59573d91002fc7b"
-    sha256 cellar: :any,                 sonoma:        "485bde8945602efba97f9b7f3bf57175701c54a4e212b3d74a63f4ba3d33b617"
-    sha256 cellar: :any,                 ventura:       "ac3b862b510dc1d7277f92a0b6f3106c713014cf4c5921a62a22966829971e6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e53bea71239ec13fb530aa3db57df9863dcdfa43878453d115f743c0c12f656b"
+    sha256 cellar: :any,                 arm64_sequoia: "30b3650ff80c9a8a8245b986b2cd0cffe3127102d420214d7d99cd41c0149c2a"
+    sha256 cellar: :any,                 arm64_sonoma:  "e99fb8674f4532d20b91a1c9a242bece2c8da9fd86f4990a7e1115b3fe6137fd"
+    sha256 cellar: :any,                 arm64_ventura: "5774a1c1fbfdf50a478b24fcf97258251f60f4fca0b3ec7e70fcaffea8d3ddcf"
+    sha256 cellar: :any,                 sonoma:        "4da908e0d4a9d26c8a5776d9f39f439c36256b5e7c5e37f5874185d7676639d6"
+    sha256 cellar: :any,                 ventura:       "c7df375bbd01b21c2b764bcef8dad522f984efb73d9c5e346c64ffb72781207f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9251875d60535fdf8230b995a18a6a5f7d1eb5b524bcd0372bbc8437ca004100"
   end
 
   depends_on "cmake" => :build
