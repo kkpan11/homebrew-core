@@ -1,4 +1,5 @@
 a2ps
+ab-av1
 abcmidi
 abi3audit
 abseil
@@ -198,6 +199,7 @@ axel
 azcopy
 azqr
 azure-core-cpp
+azure-storage-common-cpp
 azurehound
 b2-tools
 babel
@@ -715,6 +717,7 @@ datasette
 dav1d
 dbml-cli
 dbus
+dbus-glib
 dcd
 dcm2niix
 ddclient
@@ -1145,6 +1148,7 @@ gcalcli
 gcem
 gci
 gcovr
+gcr
 gcsfuse
 gdal
 gdbm
@@ -1232,6 +1236,7 @@ glasskube
 glaze
 gleam
 glfw
+glib
 glib-networking
 glibmm
 glibmm@2.66
@@ -1288,6 +1293,7 @@ golangci-lint
 golangci-lint-langserver
 gollama
 gomi
+gomplate
 google-authenticator-libpam
 google-benchmark
 google-java-format
@@ -1457,6 +1463,7 @@ html2markdown
 htmldoc
 htmlq
 htmltest
+htop
 htpdate
 httm
 httpd
@@ -1468,6 +1475,7 @@ hubble
 huggingface-cli
 hugo
 humanlog
+hurl
 hut
 hwatch
 hwloc
@@ -1489,6 +1497,7 @@ icon
 identme
 ignite
 igraph
+iguana
 igv
 iir1
 ijq
@@ -1670,6 +1679,7 @@ ki
 kickstart
 kics
 killport
+kim-api
 kin
 kind
 kiota
@@ -1693,6 +1703,7 @@ kpcli
 kraftkit
 krakend
 krb5
+krep
 krew
 ksh93
 ksops
@@ -1846,9 +1857,11 @@ libgit2@1.8
 libgpg-error
 libgr
 libgsf
+libgudev
 libgusb
 libgweather
 libhandy
+libharu
 libheif
 libhubbub
 libical
@@ -1985,6 +1998,7 @@ libxcvt
 libxdmcp
 libxext
 libxi
+libxkbcommon
 libxkbfile
 libxls
 libxlsxwriter
@@ -2303,6 +2317,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmdump
 ncmpc
 ncmpcpp
 ncnn
@@ -2337,6 +2352,7 @@ newman
 newrelic-cli
 newrelic-infra-agent
 newsboat
+newt
 nextdns
 nexttrace
 nfdump
@@ -2388,6 +2404,7 @@ ntfy
 nuclei
 nudoku
 nuget
+nuitka
 numactl
 numbat
 numcpp
@@ -2730,6 +2747,7 @@ procps
 procs
 proftpd
 proj
+projectable
 prometheus
 prometheus-cpp
 promptfoo
@@ -3205,6 +3223,7 @@ spoofdpi
 spot
 spotbugs
 spotify_player
+spytrap-adb
 sq
 sql-formatter
 sql-migrate
@@ -3265,6 +3284,7 @@ stow
 stp
 strace
 streamlink
+streamrip
 streamvbyte
 stress-ng
 stripe-cli
@@ -3321,6 +3341,7 @@ t-completion
 ta-lib
 tabiew
 tach
+taglib
 tailscale
 tailspin
 tailwindcss
@@ -3802,6 +3823,7 @@ zf
 zfind
 zig
 zigmod
+zile
 zim
 zint
 zipkin

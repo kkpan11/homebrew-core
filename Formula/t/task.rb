@@ -1,8 +1,8 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.3.0/task-3.3.0.tar.gz"
-  sha256 "7fd1e3571f673679758f001b5f44963eee59fd0d2cac887a5807cf2fd90856a1"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.4.1/task-3.4.1.tar.gz"
+  sha256 "23eb60f73e42f16111cc3912b44ee12be6768860a2db2a9c6a47f8ac4786bac3"
   license "MIT"
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
 
@@ -12,12 +12,12 @@ class Task < Formula
   end
 
   bottle do
-    sha256                               arm64_sequoia: "1ef979eb7314c0a8ca74f96e7f935fba946b7128bd1614a1d7bf97d155901087"
-    sha256                               arm64_sonoma:  "cfb3f2ca6cb41ffba4fea6adb21d8549e2d893cccbb7b0d8ffc53d160bdc41e8"
-    sha256                               arm64_ventura: "7ccbcc8c40f100e4700f0926041946d45bafe6da725545fb9bf0be7be4392232"
-    sha256                               sonoma:        "fab3bdfd1bfc3c86525b6b00c67c4bb1dc0168d8605711d333b59ca3fdd6ad4f"
-    sha256                               ventura:       "b34afc2fc079048ff7f573e9b1509554171753dc511f6d71106eb1002d4d06ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c7526a9f1bc1c91caed713777dc56860544fd67ecb78d40d7bfed24bc9d4763"
+    sha256                               arm64_sequoia: "e9f5596f4410829165b5884d30c10c784ba5e096ca118ec9739119b678d6ec10"
+    sha256                               arm64_sonoma:  "0148f717868777b7ebc63d40e8800a38042a12a1717c8cfa22c8e74e47c6a9ef"
+    sha256                               arm64_ventura: "a6c60113d44922bdba309d58bb265ad1cec5109d1b5ab3b4f43e69f952464397"
+    sha256                               sonoma:        "2f4aafa45935096b86b0e83ca5734fd0014583db767868dae81c436ddec82b0c"
+    sha256                               ventura:       "7a9f8b67f6ed92259cd1ba03dc22c1954bf96ec684bebbc76d2fd060392621bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "03fbb2a6f7dc6876e237cd114f2fc6cbd854fdd238d194e932a6cc8f50e1c9e3"
   end
 
   depends_on "cmake" => :build

@@ -3,18 +3,18 @@ class Tach < Formula
 
   desc "Tool to enforce dependencies using modular architecture"
   homepage "https://docs.gauge.sh/getting-started/introduction"
-  url "https://files.pythonhosted.org/packages/a2/df/2a06db39ae9b2372dd2b11e85bfcb3626ee4e41b1180d7ee41763e759efa/tach-0.27.2.tar.gz"
-  sha256 "7a830654e81f96b8561288c765800d3a7c5f525e771ba9d3180f8d4191440dab"
+  url "https://files.pythonhosted.org/packages/b3/4b/e618b08b1e6354673cb39f8d52bf4677448b81404579073e1c4e85401d79/tach-0.28.1.tar.gz"
+  sha256 "c03bf287e22672eba61329d9cdc586e4cfa97f6ce7d774f33ff20af9caed531f"
   license "MIT"
   head "https://github.com/gauge-sh/tach.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "a55199e94d0a0e0cc3d7f672627038d4a3ced52230694af9428552e497696218"
-    sha256 cellar: :any,                 arm64_sonoma:  "eaedbfdf5c8272891623601dbce2badbc60e2c0f5824c0ade047fad060ceee14"
-    sha256 cellar: :any,                 arm64_ventura: "ce59988f0b51a150dc0eb210d6161b4ce9daf13d3a25a45b80e7e9722d51fde8"
-    sha256 cellar: :any,                 sonoma:        "b28a6257c59063bcbe8609e458993bafb327be550f329ebf270de445d406fb64"
-    sha256 cellar: :any,                 ventura:       "323b65ab0366f09992dbbbc435e31e3b303db655ce27099054107f45a2daf690"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec89ff10c00212ccd291ca267bbbb05bddbad095215405c4b6eb4ac54373dc60"
+    sha256 cellar: :any,                 arm64_sequoia: "48f46160d07eca2e71d0d544716de72c29d1dceb01a0c0e975a3b6fc629282a1"
+    sha256 cellar: :any,                 arm64_sonoma:  "7df68fbfab3b1aa6f07c15f2ce25c30a2ba1f7e945dccdbe15773aa707938d3a"
+    sha256 cellar: :any,                 arm64_ventura: "248594099414e5293d600021f3512b4e8a16d23725bba2120fbfb4a7ae87cb6a"
+    sha256 cellar: :any,                 sonoma:        "238b7871e3853924e1bd180b3f78d4000f7bde46d1959d049d03ea809b3ece45"
+    sha256 cellar: :any,                 ventura:       "92741c1eee165a0b088f117a416fc8f84e06ca8fdd0ee28aaf90038c1c8d66a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bbb8fa0a638743e5dbca6d5244c50f69c5fc3e9ec641405934e7f0f6aa2b3acb"
   end
 
   depends_on "rust" => :build
@@ -103,6 +103,6 @@ class Tach < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/tach --version")
 
-    assert_match "tach.toml not found", shell_output("#{bin}/tach server 2>&1", 1)
+    assert_match "Configuration file not found.", shell_output("#{bin}/tach server 2>&1", 1)
   end
 end

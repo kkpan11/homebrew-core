@@ -3,14 +3,13 @@ class Fortls < Formula
 
   desc "Fortran language server"
   homepage "https://fortls.fortran-lang.org/"
-  url "https://files.pythonhosted.org/packages/f1/82/b0f91372538de824bccb5e4fe8936e47f6771dbd700a74d35e19045050b5/fortls-3.1.2.tar.gz"
-  sha256 "93ea78598492ac699f7cefb624e89bf5012d44604d07fbe5ad4a31e32fc977bc"
+  url "https://files.pythonhosted.org/packages/9c/4d/f20faeaa25127087f5ca08c19a5b23b5fc1138c333a78a048274530ce8f5/fortls-3.2.1.tar.gz"
+  sha256 "33d0f8eddc22778d06380c95a37d2d59baf56ca390268bf1408840ac415ab830"
   license "MIT"
   head "https://github.com/fortran-lang/fortls.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "adcb346ec466108c4913bcb503e59ff3cf83c6ac25dd2898a5b3bcc4c598eaea"
+    sha256 cellar: :any_skip_relocation, all: "2c1f32d947a705c480f9bfef022f1883ace204bc9a2e977920c46c72dc0c3dfc"
   end
 
   depends_on "python@3.13"
@@ -18,13 +17,13 @@ class Fortls < Formula
   conflicts_with "fortran-language-server", because: "both install `fortls` binaries"
 
   resource "json5" do
-    url "https://files.pythonhosted.org/packages/91/59/51b032d53212a51f17ebbcc01bd4217faab6d6c09ed0d856a987a5f42bbc/json5-0.9.25.tar.gz"
-    sha256 "548e41b9be043f9426776f05df8635a00fe06104ea51ed24b67f908856e151ae"
+    url "https://files.pythonhosted.org/packages/85/3d/bbe62f3d0c05a689c711cff57b2e3ac3d3e526380adb7c781989f075115c/json5-0.10.0.tar.gz"
+    sha256 "e66941c8f0a02026943c52c2eb34ebeb2a6f819a0be05920a6f5243cd30fd559"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://files.pythonhosted.org/packages/d0/63/68dbb6eb2de9cb10ee4c9c14a0148804425e13c4fb20d61cce69f53106da/packaging-24.2.tar.gz"
+    sha256 "c228a6dc5e932d346bc5739379109d49e8853dd8223571c7c5b55260edc0b97f"
   end
 
   def install

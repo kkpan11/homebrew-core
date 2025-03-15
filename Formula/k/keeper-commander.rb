@@ -3,18 +3,18 @@ class KeeperCommander < Formula
 
   desc "Command-line and SDK interface to Keeper Password Manager"
   homepage "https://docs.keeper.io/en/privileged-access-manager/commander-cli/overview"
-  url "https://files.pythonhosted.org/packages/de/0d/fab8514dd3a522b1a2a66e9ed7e425b6c2aad1c2034e5923c1f873c0c6a8/keepercommander-17.0.8.tar.gz"
-  sha256 "e3c082c02132b22e0e20d44b7c6440a0663941e5e3b405cedc13745fccd80a3f"
+  url "https://files.pythonhosted.org/packages/f2/4e/18d6e6635f8bc007349e86cec30873fdbf0abe83a57ae3db0fdf603eaf99/keepercommander-17.0.10.tar.gz"
+  sha256 "0678434f4ca632a68b41a05f861a9f5f22ae13a715866e7395a924d8b7d99999"
   license "MIT"
   head "https://github.com/Keeper-Security/Commander.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "728a5d165e650e94d98b33be4a0b65db4c2a3ad55852c8d3b61be2a9052111ac"
-    sha256 cellar: :any,                 arm64_sonoma:  "2783108c6fb02eaa3ca64242508f9866d4895e1e0b93b69a020d519e5d6aadc4"
-    sha256 cellar: :any,                 arm64_ventura: "05fab0098f7954b7eafd49b1bc68fd87e16de11b06225f3948b090b68fedbb47"
-    sha256 cellar: :any,                 sonoma:        "10ba16f0a00b17ac94e02a5d9c655c8850b9a9d6d7eb422fad19502b5310a34d"
-    sha256 cellar: :any,                 ventura:       "354e0651a47ec314d938fc90188a34726b7fe4e8c13ef5b46c61bba6a3e8958b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b31d05ae22bc75fc901390b96758e91bd83b5f9aeb0bbe3f2e0d5eb8a44897c8"
+    sha256 cellar: :any,                 arm64_sequoia: "75027ed5e3d4ca0c9225e70ffa11c8b972caaac7118bbbfe388b8c10cb785e68"
+    sha256 cellar: :any,                 arm64_sonoma:  "11e44f064d782a1f95f5b213a50a1ea5cd62c76d8566a3d63c088a41cfa67122"
+    sha256 cellar: :any,                 arm64_ventura: "ce6e53a70dfe6be928b3f7f91504ee019c80f0035f3e463e52fcc72b690228f4"
+    sha256 cellar: :any,                 sonoma:        "8e9c1caf06e46a849716fd7a6248acdb698b6dba865a9531b6f9c74472a59b80"
+    sha256 cellar: :any,                 ventura:       "e7634acb7899cd3e70ccc7745de857e10ad1a0e712455ee87f26238d4c43af62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0bb961866e2e05be87e4de88d808d80f388192efdf6190acee31d7e8bfa78783"
   end
 
   # bcrypt dependencies
@@ -76,8 +76,8 @@ class KeeperCommander < Formula
   end
 
   resource "protobuf" do
-    url "https://files.pythonhosted.org/packages/f7/d1/e0a911544ca9993e0f17ce6d3cc0932752356c1b0a834397f28e63479344/protobuf-5.29.3.tar.gz"
-    sha256 "5da0f41edaf117bde316404bad1a486cb4ededf8e4a54891296f648e8e076620"
+    url "https://files.pythonhosted.org/packages/55/de/8216061897a67b2ffe302fd51aaa76bbf613001f01cd96e2416a4955dd2b/protobuf-6.30.1.tar.gz"
+    sha256 "535fb4e44d0236893d5cf1263a0f706f1160b689a7ab962e9da8a9ce4050b780"
   end
 
   resource "pycryptodomex" do
@@ -105,14 +105,19 @@ class KeeperCommander < Formula
     sha256 "3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
   end
 
+  resource "python-dotenv" do
+    url "https://files.pythonhosted.org/packages/bc/57/e84d88dfe0aec03b7a2d4327012c1627ab5f03652216c63d49846d7a6c58/python-dotenv-1.0.1.tar.gz"
+    sha256 "e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
     sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d1/53/43d99d7687e8cdef5ab5f9ec5eaf2c0423c2b35133a2b7e7bc276fc32b21/setuptools-75.8.2.tar.gz"
-    sha256 "4880473a969e5f23f2a2be3646b2dfd84af9028716d398e46192f84bc36900d2"
+    url "https://files.pythonhosted.org/packages/32/d2/7b171caf085ba0d40d8391f54e1c75a1cda9255f542becf84575cfd8a732/setuptools-76.0.0.tar.gz"
+    sha256 "43b4ee60e10b0d0ee98ad11918e114c70701bc6051662a9a675a0496c1a158f4"
   end
 
   resource "tabulate" do
@@ -136,8 +141,8 @@ class KeeperCommander < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/2e/7a/8bc4d15af7ff30f7ba34f9a172063bfcee9f5001d7cef04bee800a658f33/websockets-15.0.tar.gz"
-    sha256 "ca36151289a15b39d8d683fd8b7abbe26fc50be311066c5f8dcf3cb8cee107ab"
+    url "https://files.pythonhosted.org/packages/21/e6/26d09fab466b7ca9c7737474c52be4f76a40301b08362eb2dbc19dcc16c1/websockets-15.0.1.tar.gz"
+    sha256 "82544de02076bafba038ce055ee6412d68da13ab47f0c60cab827346de828dee"
   end
 
   resource "zipp" do

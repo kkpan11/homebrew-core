@@ -1,17 +1,17 @@
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.16.7.tgz"
-  sha256 "640f1b843bed71d4e663bf37d337acb384e28bf55491c8d007b2ec6bf04e9f95"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-2.16.9.tgz"
+  sha256 "9de0a3c17817d11ede9c1aa71337abfeeeca9155609eaa64fabc3ccdba7a558c"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c1e5906545467115f4a3c4433bb1edb5c5a3a809820b0b729d7564034a76b8b1"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c1e5906545467115f4a3c4433bb1edb5c5a3a809820b0b729d7564034a76b8b1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "c1e5906545467115f4a3c4433bb1edb5c5a3a809820b0b729d7564034a76b8b1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2dc4ed64496568f8250238ef211e05ead02af9b4721a991c3bdfdbf1ab58e84b"
-    sha256 cellar: :any_skip_relocation, ventura:       "2dc4ed64496568f8250238ef211e05ead02af9b4721a991c3bdfdbf1ab58e84b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c1e5906545467115f4a3c4433bb1edb5c5a3a809820b0b729d7564034a76b8b1"
+    sha256 cellar: :any,                 arm64_sequoia: "283b7f0ef0418c38ddaf81ce5a713a1923e067bd057036d177a8fcec3314680d"
+    sha256 cellar: :any,                 arm64_sonoma:  "283b7f0ef0418c38ddaf81ce5a713a1923e067bd057036d177a8fcec3314680d"
+    sha256 cellar: :any,                 arm64_ventura: "283b7f0ef0418c38ddaf81ce5a713a1923e067bd057036d177a8fcec3314680d"
+    sha256 cellar: :any,                 sonoma:        "68e8526ff355ee0ef8d7c7d4ca0ecf7936c759c84acb730e41059d050a6049b4"
+    sha256 cellar: :any,                 ventura:       "68e8526ff355ee0ef8d7c7d4ca0ecf7936c759c84acb730e41059d050a6049b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4c431dd0da9fa5bc0d31b23ecbe5164d7507148cfab039d10ea650c378647f01"
   end
 
   depends_on "node"
@@ -19,6 +19,10 @@ class Asyncapi < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink Dir["#{libexec}/bin/*"]
+
+    # Cleanup .pnpm folder
+    node_modules = libexec/"lib/node_modules/@asyncapi/cli/node_modules"
+    rm_r (node_modules/"@asyncapi/studio/build/standalone/node_modules/.pnpm") if OS.linux?
   end
 
   test do

@@ -3,17 +3,18 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.82/glib-2.82.5.tar.xz"
-  sha256 "05c2031f9bdf6b5aba7a06ca84f0b4aced28b19bf1b50c6ab25cc675277cbc3f"
+  url "https://download.gnome.org/sources/glib/2.84/glib-2.84.0.tar.xz"
+  sha256 "f8823600cb85425e2815cfad82ea20fdaa538482ab74e7293d58b3f64a5aff6a"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia: "1cb81bf4e51c9d5f2076bd25f048d54e3dfef275a56181ae556d0f00202134f9"
-    sha256 arm64_sonoma:  "0f59834321c70454c8287133ae3b6d299e5555fd1e90168ef800b8583e85f02c"
-    sha256 arm64_ventura: "76c6ad473c539a960692819801a130d4b943d3228c45dfb5738ba6bdde2433d8"
-    sha256 sonoma:        "1617041c672d28d0689cfb148bea039d99ce5672e785ac668b05899de3cae025"
-    sha256 ventura:       "1f7cf7df88c97edde8ed504caa2fbf4930bd72306a639c7c75c79e628f9ecea6"
-    sha256 x86_64_linux:  "0db74b4ee32118ea223445f654487ca4b1349535e35be07b98d486cae80e1ebd"
+    rebuild 1
+    sha256 arm64_sequoia: "420f2762df64908e59b6052c41580bd03ed980eabbc6b6203c3b4eaa6658ade6"
+    sha256 arm64_sonoma:  "cb1ba6ea1a2e751508329e84a0c6a5787611c02c346c4f0a0e5f58f72e173c1b"
+    sha256 arm64_ventura: "67780cccb994a6864c561eb2e7a4f4744d48ffdf3b48731668ab35a02c871469"
+    sha256 sonoma:        "a4f443dd989b7ea9d7a6bc3ed45e77e904a5e753025094350130168f2407e685"
+    sha256 ventura:       "4647e5269bb706b3c22ddc1123fa007ee232981ebbe0d9d74f8ce88756bbfe7f"
+    sha256 x86_64_linux:  "6ecc4ef1d72d1f6bc3a5635452f30ae30483928b834ae1b906d1b793004d2c3f"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -21,19 +22,17 @@ class Glib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
+  depends_on "python-setuptools" => :build # for gobject-introspection
+  depends_on "python@3.13" => :build
   depends_on "pcre2"
 
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi", since: :catalina
-  uses_from_macos "python", since: :catalina
+  uses_from_macos "python"
   uses_from_macos "zlib"
 
   on_macos do
     depends_on "gettext"
-  end
-
-  on_system :linux, macos: :mojave_or_older do
-    depends_on "python-setuptools" => :build # for gobject-introspection
   end
 
   on_linux do
@@ -53,12 +52,6 @@ class Glib < Formula
   resource "gobject-introspection" do
     url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
     sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
-  end
-
-  # Backport PATH python shebang rather than manually rewriting
-  patch do
-    url "https://gitlab.gnome.org/GNOME/glib/-/commit/160e55575e2183464dbf5aa733d6c2df3c674c4c.diff"
-    sha256 "29b178b53a9a636ca9538ee97e20838b9942d24018d6679d3cc29e59b3b6c0c1"
   end
 
   # replace several hardcoded paths with homebrew counterparts

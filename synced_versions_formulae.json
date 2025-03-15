@@ -36,6 +36,7 @@
   ["gcc", "libgccjit"],
   ["gdb", "aarch64-elf-gdb", "arm-none-eabi-gdb", "i386-elf-gdb", "riscv64-elf-gdb", "x86_64-elf-gdb"],
   ["git", "git-credential-libsecret", "git-gui", "git-svn"],
+  ["gnome-online-accounts", "libgoa"],
   ["hdf5", "hdf5-mpi"],
   ["ilmbase", "openexr@2"],
   ["libmediainfo", "media-info"],

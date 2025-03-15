@@ -392,7 +392,7 @@
     "exclude_packages": ["certifi", "pillow"]
   },
   "gptme": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "pillow"]
   },
   "graph-tool": {
     "package_name": "",
@@ -975,6 +975,7 @@
     "exclude_packages": ["certifi"]
   },
   "zim": {
+    "package_name": "",
     "extra_packages": ["pyxdg", "setuptools"]
   }
 }
