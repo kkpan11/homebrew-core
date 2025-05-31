@@ -15,6 +15,7 @@ actionlint
 activemq
 ad
 ada-url
+adamstark-audiofile
 adapterremoval
 adaptivecpp
 adb-enhanced
@@ -262,6 +263,7 @@ bbot
 bbtools
 bc
 bc-gh
+bcftools
 bcoin
 bcpp
 bde
@@ -694,6 +696,7 @@ crabz
 cracklib
 crane
 crates-tui
+crd2pulumi
 cri-tools
 crispy-doom
 croaring
@@ -1565,6 +1568,7 @@ htmlq
 htmltest
 htop
 htpdate
+htslib
 httm
 httpd
 httpie
@@ -1827,6 +1831,7 @@ ksops
 ktexttemplate
 ktfmt
 ktoblzcheck
+ktop
 ktor
 kty
 kube-bench
@@ -2574,6 +2579,7 @@ notcurses
 noti
 notifiers
 notify
+nova
 nox
 nping
 npm-check-updates
@@ -2911,6 +2917,7 @@ podofo
 podsync
 poetry
 poke
+polaris
 policy_sentry
 policy-engine
 polkit
@@ -3113,6 +3120,7 @@ readpe
 readsb
 rebar3
 recc
+reckoner
 recode
 recoverpy
 redict
@@ -3241,6 +3249,7 @@ safety
 sagittarius-scheme
 samba
 saml2aws
+samtools
 sbcl
 sbom-tool
 sbt
