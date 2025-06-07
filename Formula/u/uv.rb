@@ -1,19 +1,19 @@
 class Uv < Formula
   desc "Extremely fast Python package installer and resolver, written in Rust"
   homepage "https://docs.astral.sh/uv/"
-  url "https://github.com/astral-sh/uv/archive/refs/tags/0.7.8.tar.gz"
-  sha256 "4f12e8b5f9706e28d689d3df47a14cda07fb638dbd83889233fdbf2e1e01d9db"
+  url "https://github.com/astral-sh/uv/archive/refs/tags/0.7.12.tar.gz"
+  sha256 "b327d4ea57ccecfd5edc8a3cefbebb62a8089e22a264b440d44d4168b1b9dfbc"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/astral-sh/uv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e30a739658e6103669299e1e4c2be82d2ee7069c81a1d79eb0c281b7f656c5f7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "94428e3bae615004462f8c02440c86c13d74656723bd43f07adca11a8cff2730"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ee9433b898bb64d166568e050ee1678ed5777e66a952ae84b9ca8ddfb2242a8"
-    sha256 cellar: :any_skip_relocation, sonoma:        "2c7ba09947d1c2dd0a7e137979b452b4dcb143d09c4b9e857cd14da4c1abc2cf"
-    sha256 cellar: :any_skip_relocation, ventura:       "42ff474cb862957b61d935dab7a38f5ea78398455de3017bebbbdb170e3d5c33"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d94150fe523423606f7a97fbfe59712569bebd4002431b4edb7277a3c1447888"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4604027e63a74b20b9879d08b5708c488e96cd11f999c29b92310360ba3a6699"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "660b5fe8f6b3d3fc415ec8163916c256b11eb127cac70eb36a19af5fcde9b7ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9a40784a9c4a58aa1facc595b3c5c0dde726ea022549507fda7e5109e8506f76"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "12d5058163d58e19dedd4680d511e7e2732bd0b62a0a9ce82cd5d783e1a46841"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0631c94d26b4c6d6391ae5794d36d042392fdb2d226dc65cefc1f333a6f3ad09"
+    sha256 cellar: :any_skip_relocation, ventura:       "0e1ad39bc22ecc43476c02af9317d14512a8fd4ca7db2aebdaec8d4ad11e3947"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4ebd406d1e3a6866ed6b478d463c3c3218fb8738c2acf2bcca3f8bc85274409a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6682584d99c0e0fdf2b017385fc0078d7010207b7f78153a89cb86183cc0106d"
   end
 
   depends_on "pkgconf" => :build
@@ -26,7 +26,7 @@ class Uv < Formula
   def install
     ENV["UV_COMMIT_HASH"] = ENV["UV_COMMIT_SHORT_HASH"] = tap.user
     ENV["UV_COMMIT_DATE"] = time.strftime("%F")
-    system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/uv")
+    system "cargo", "install", *std_cargo_args(path: "crates/uv")
     generate_completions_from_executable(bin/"uv", "generate-shell-completion")
     generate_completions_from_executable(bin/"uvx", "--generate-shell-completion")
   end

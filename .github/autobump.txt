@@ -15,6 +15,7 @@ actionlint
 activemq
 ad
 ada-url
+adamstark-audiofile
 adapterremoval
 adaptivecpp
 adb-enhanced
@@ -262,6 +263,7 @@ bbot
 bbtools
 bc
 bc-gh
+bcftools
 bcoin
 bcpp
 bde
@@ -279,6 +281,7 @@ bedops
 bee
 behaviortree.cpp
 bench
+benchi
 bender
 benthos
 berglas
@@ -573,6 +576,7 @@ clive
 cljfmt
 cloc
 clojure
+clojure-lsp
 clojurescript
 closure-compiler
 cloud-nuke
@@ -694,6 +698,8 @@ crabz
 cracklib
 crane
 crates-tui
+crd2pulumi
+credo
 cri-tools
 crispy-doom
 croaring
@@ -1427,6 +1433,7 @@ gql
 gradle
 gradle-completion
 gradle-profiler
+gradle@7
 grafana
 grafana-agent
 grafana-alloy
@@ -1561,10 +1568,12 @@ hsd
 html-xml-utils
 html2markdown
 htmldoc
+htmlhint
 htmlq
 htmltest
 htop
 htpdate
+htslib
 httm
 httpd
 httpie
@@ -1720,6 +1729,7 @@ jp2a
 jpeg-turbo
 jpeg-xl
 jprq
+jq
 jql
 jr
 jreleaser
@@ -1769,6 +1779,7 @@ kanata
 kapacitor
 kapp
 karchive
+kargo
 karmadactl
 kaskade
 katago
@@ -1827,6 +1838,7 @@ ksops
 ktexttemplate
 ktfmt
 ktoblzcheck
+ktop
 ktor
 kty
 kube-bench
@@ -2098,6 +2110,7 @@ libstrophe
 libsvgtiny
 libsvm
 libtasn1
+libtatsu
 libtensorflow
 libtickit
 libtiff
@@ -2160,6 +2173,7 @@ libxt
 libxv
 libxvmc
 libxxf86vm
+libzdb
 libzim
 libzzip
 license-eye
@@ -2253,6 +2267,7 @@ macchina
 mackup
 macmon
 mactop
+maeparser
 mafft
 mage
 magic_enum
@@ -2379,6 +2394,7 @@ miniupnpc
 minizinc
 minizip
 minizip-ng
+mint
 mintoolkit
 minuit2
 mise
@@ -2574,6 +2590,7 @@ notcurses
 noti
 notifiers
 notify
+nova
 nox
 nping
 npm-check-updates
@@ -2911,12 +2928,15 @@ podofo
 podsync
 poetry
 poke
+polaris
 policy_sentry
 policy-engine
 polkit
 polynote
 ponyc
 popeye
+poppler
+poppler-qt5
 portablegl
 porter
 poselib
@@ -3113,6 +3133,7 @@ readpe
 readsb
 rebar3
 recc
+reckoner
 recode
 recoverpy
 redict
@@ -3241,6 +3262,8 @@ safety
 sagittarius-scheme
 samba
 saml2aws
+samply
+samtools
 sbcl
 sbom-tool
 sbt
@@ -3463,6 +3486,7 @@ spr
 spytrap-adb
 sq
 sql-formatter
+sql-lint
 sql-migrate
 sqlancer
 sqlboiler
@@ -3476,6 +3500,7 @@ sqlmap
 sqlpage
 sqlparse
 sqlx-cli
+sqruff
 squashfuse
 squealer
 squid
@@ -3765,6 +3790,7 @@ trojan-go
 trufflehog
 trurl
 tsduck
+tsnet-serve
 tt
 ttdl
 tty-share
