@@ -15,6 +15,7 @@ actionlint
 activemq
 ad
 ada-url
+adamstark-audiofile
 adapterremoval
 adaptivecpp
 adb-enhanced
@@ -110,6 +111,7 @@ arcade-learning-environment
 archi-steam-farm
 arduino-cli
 arelo
+ares
 argc
 argo
 argocd
@@ -262,6 +264,7 @@ bbot
 bbtools
 bc
 bc-gh
+bcftools
 bcoin
 bcpp
 bde
@@ -279,6 +282,7 @@ bedops
 bee
 behaviortree.cpp
 bench
+benchi
 bender
 benthos
 berglas
@@ -474,6 +478,7 @@ cdxgen
 cekit
 censys
 cern-ndiff
+certbot
 certifi
 certigo
 cf
@@ -573,6 +578,7 @@ clive
 cljfmt
 cloc
 clojure
+clojure-lsp
 clojurescript
 closure-compiler
 cloud-nuke
@@ -694,6 +700,8 @@ crabz
 cracklib
 crane
 crates-tui
+crd2pulumi
+credo
 cri-tools
 crispy-doom
 croaring
@@ -921,6 +929,7 @@ duplicity
 duply
 dust
 dvc
+dvisvgm
 dwarfs
 dwarfutils
 dwm
@@ -939,6 +948,7 @@ earthly
 easeprobe
 easy-rsa
 easyengine
+easyrpg-player
 eccodes
 ecflow-ui
 echidna
@@ -998,6 +1008,7 @@ erlang
 erlang_ls
 erlang@25
 erlang@26
+erlfmt
 erofs-utils
 esbuild
 eslint
@@ -1219,6 +1230,7 @@ gauge
 gawk
 gaze
 gcalcli
+gcc@13
 gcem
 gci
 gcli
@@ -1244,6 +1256,7 @@ geos
 geoserver
 geph4
 gersemi
+gerust
 getmail6
 gettext
 gexiv2
@@ -1307,6 +1320,7 @@ gitql
 gitsign
 gittuf
 gitu
+gitwatch
 giza
 gjs
 gkrellm
@@ -1367,6 +1381,7 @@ gocloc
 gocryptfs
 goctl
 godap
+goenv
 goffice
 gofumpt
 goimports
@@ -1388,7 +1403,6 @@ gopass
 gopass-jsonapi
 gopeed
 gopls
-goplus
 gor
 goread
 goredo
@@ -1427,6 +1441,7 @@ gql
 gradle
 gradle-completion
 gradle-profiler
+gradle@7
 grafana
 grafana-agent
 grafana-alloy
@@ -1561,10 +1576,12 @@ hsd
 html-xml-utils
 html2markdown
 htmldoc
+htmlhint
 htmlq
 htmltest
 htop
 htpdate
+htslib
 httm
 httpd
 httpie
@@ -1720,6 +1737,7 @@ jp2a
 jpeg-turbo
 jpeg-xl
 jprq
+jq
 jql
 jr
 jreleaser
@@ -1769,6 +1787,7 @@ kanata
 kapacitor
 kapp
 karchive
+kargo
 karmadactl
 kaskade
 katago
@@ -1827,6 +1846,7 @@ ksops
 ktexttemplate
 ktfmt
 ktoblzcheck
+ktop
 ktor
 kty
 kube-bench
@@ -1899,6 +1919,7 @@ lcm
 lcov
 ld-find-code-refs
 ldc
+ldcli
 ldns
 leaf-proxy
 leakcanary-shark
@@ -2012,6 +2033,7 @@ libjwt
 libkeccak
 libksba
 liblc3
+liblcf
 liblinear
 liblouis
 liblqr
@@ -2098,6 +2120,7 @@ libstrophe
 libsvgtiny
 libsvm
 libtasn1
+libtatsu
 libtensorflow
 libtickit
 libtiff
@@ -2106,6 +2129,7 @@ libtommath
 libtool
 libtorrent-rakshasa
 libtorrent-rasterbar
+libtpms
 libtrace
 libtrng
 libucl
@@ -2160,6 +2184,7 @@ libxt
 libxv
 libxvmc
 libxxf86vm
+libzdb
 libzim
 libzzip
 license-eye
@@ -2253,6 +2278,7 @@ macchina
 mackup
 macmon
 mactop
+maeparser
 mafft
 mage
 magic_enum
@@ -2336,6 +2362,7 @@ memtester
 menhir
 mercurial
 mergiraf
+mesa
 meson
 meta-package-manager
 metabase
@@ -2361,6 +2388,7 @@ millet
 mimalloc
 mimirtool
 minder
+mingw-w64
 minica
 minicom
 miniflux
@@ -2379,6 +2407,7 @@ miniupnpc
 minizinc
 minizip
 minizip-ng
+mint
 mintoolkit
 minuit2
 mise
@@ -2574,6 +2603,7 @@ notcurses
 noti
 notifiers
 notify
+nova
 nox
 nping
 npm-check-updates
@@ -2740,6 +2770,7 @@ ospray
 osslsigncode
 osv-scanner
 otel-cli
+oterm
 otf2
 otree
 ots
@@ -2911,12 +2942,15 @@ podofo
 podsync
 poetry
 poke
+polaris
 policy_sentry
 policy-engine
 polkit
 polynote
 ponyc
 popeye
+poppler
+poppler-qt5
 portablegl
 porter
 poselib
@@ -2993,6 +3027,7 @@ pueue
 pug
 pugixml
 pulsarctl
+pulumictl
 pumba
 punktf
 pure
@@ -3113,6 +3148,7 @@ readpe
 readsb
 rebar3
 recc
+reckoner
 recode
 recoverpy
 redict
@@ -3241,6 +3277,8 @@ safety
 sagittarius-scheme
 samba
 saml2aws
+samply
+samtools
 sbcl
 sbom-tool
 sbt
@@ -3460,9 +3498,11 @@ spot
 spotbugs
 spotify_player
 spr
+sprocket
 spytrap-adb
 sq
 sql-formatter
+sql-lint
 sql-migrate
 sqlancer
 sqlboiler
@@ -3476,6 +3516,8 @@ sqlmap
 sqlpage
 sqlparse
 sqlx-cli
+sqruff
+squashfs
 squashfuse
 squealer
 squid
@@ -3565,6 +3607,7 @@ swift-format
 swift-protobuf
 swift-sh
 swiftformat
+swiftly
 swiftplantuml
 swig
 swtpm
@@ -3612,6 +3655,7 @@ tcpreplay
 tcpsplit
 tcsh
 tdb
+tea
 tealdeer
 tectonic
 teensy_loader_cli
@@ -3667,6 +3711,7 @@ tf-summarize
 tfautomv
 tfcmt
 tfel
+tfmcp
 tfmigrate
 tfmv
 tfprovidercheck
@@ -3703,6 +3748,7 @@ tio
 tippecanoe
 titlecase
 tkey-ssh-agent
+tldx
 tlsx
 tmex
 tml
@@ -3765,6 +3811,7 @@ trojan-go
 trufflehog
 trurl
 tsduck
+tsnet-serve
 tt
 ttdl
 tty-share
@@ -3772,6 +3819,7 @@ tty-solitaire
 ttyd
 ttyplot
 tuisky
+tun2proxy
 tup
 twine
 twitch-cli
@@ -4032,6 +4080,7 @@ xeol
 xerces-c
 xfig
 xgboost
+xgo
 xh
 xinit
 xk6
@@ -4104,6 +4153,7 @@ zabbix
 zabbix-cli
 zbctl
 zchunk
+zebra
 zeek
 zellij
 zenith
