@@ -132,6 +132,10 @@
   "bpython": {
     "exclude_packages": ["certifi"]
   },
+  "btcli": {
+    "exclude_packages": ["certifi", "cffi", "cryptography", "numpy", "pycparser", "six"],
+    "extra_packages": ["setuptools"]
+  },
   "buku": {
     "package_name": "buku[server]",
     "exclude_packages": ["certifi", "cryptography"]
@@ -632,6 +636,9 @@
   "osc-cli": {
     "exclude_packages": ["certifi"]
   },
+  "oterm": {
+    "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser"]
+  },
   "otterdog": {
     "exclude_packages": ["certifi", "cryptography"]
   },
@@ -656,6 +663,9 @@
   },
   "pferd": {
     "exclude_packages": ["certifi", "cryptography"]
+  },
+  "pieces-cli": {
+    "exclude_packages": ["certifi"]
   },
   "pip-audit": {
     "exclude_packages": ["certifi"]

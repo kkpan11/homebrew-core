@@ -1,8 +1,8 @@
 class Infisical < Formula
   desc "CLI for Infisical"
   homepage "https://infisical.com/docs/cli/overview"
-  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.4.tar.gz"
-  sha256 "c1feb571d7bc552be7773c69eb5ca50ef836e83b3315bc7b5305b43bce58aa5e"
+  url "https://github.com/Infisical/infisical/archive/refs/tags/infisical-cli/v0.41.85.tar.gz"
+  sha256 "f530480aaa6961617ac17877615df50fdcacc413fbe0adad53795e58e166d2ac"
   license "MIT"
   head "https://github.com/Infisical/infisical.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Infisical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "2b05ceb87bfd5a3d0cf6bdbc381a2c78f3d5f382ff5be6974825093d0df6f542"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "2b05ceb87bfd5a3d0cf6bdbc381a2c78f3d5f382ff5be6974825093d0df6f542"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2b05ceb87bfd5a3d0cf6bdbc381a2c78f3d5f382ff5be6974825093d0df6f542"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9bb232e0c304647c237abac6e202ccad1d0109915a837a3a20586dedfefbdbea"
-    sha256 cellar: :any_skip_relocation, ventura:       "9bb232e0c304647c237abac6e202ccad1d0109915a837a3a20586dedfefbdbea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91f65d44bf5b2c1edb6d209b83ecee996675188e03dd0844fe2beb7c82fbfce7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "857158ede07931a0ed126717c6908dadcd305845a656f95101db5eb1e5c0a078"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "857158ede07931a0ed126717c6908dadcd305845a656f95101db5eb1e5c0a078"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "857158ede07931a0ed126717c6908dadcd305845a656f95101db5eb1e5c0a078"
+    sha256 cellar: :any_skip_relocation, sonoma:        "53e57cd6653311bd60cffcf0853111b6661f690659bf1edc1dfe8dcc3380d1b6"
+    sha256 cellar: :any_skip_relocation, ventura:       "53e57cd6653311bd60cffcf0853111b6661f690659bf1edc1dfe8dcc3380d1b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ef67ae02d8ea100c7b7dbdaa24948ecb37b49ff72650069ed3d4b0060be7f7c7"
   end
 
   depends_on "go" => :build
@@ -38,7 +38,7 @@ class Infisical < Formula
     output = shell_output("#{bin}/infisical reset")
     assert_match "Reset successful", output
 
-    output = shell_output("#{bin}/infisical init 2>&1", 1)
-    assert_match "You must be logged in to run this command.", output
+    output = shell_output("#{bin}/infisical agent 2>&1")
+    assert_match "starting Infisical agent", output
   end
 end

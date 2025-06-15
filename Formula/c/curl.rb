@@ -2,24 +2,12 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  # `url` goes below this comment when the `stable` block is removed.
-
+  url "https://curl.se/download/curl-8.14.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_14_1/curl-8.14.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.14.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.14.1.tar.bz2"
+  sha256 "5760ed3c1a6aac68793fc502114f35c3e088e8cd5c084c2d044abdf646ee48fb"
   license "curl"
-
-  stable do
-    url "https://curl.se/download/curl-8.14.0.tar.bz2"
-    mirror "https://github.com/curl/curl/releases/download/curl-8_14_0/curl-8.14.0.tar.bz2"
-    mirror "http://fresh-center.net/linux/www/curl-8.14.0.tar.bz2"
-    mirror "http://fresh-center.net/linux/www/legacy/curl-8.14.0.tar.bz2"
-    sha256 "efa1403c5ac4490c8d50fc0cabe97710abb1bf2a456e375a56d960b20a1cba80"
-
-    # fix https://github.com/curl/curl/issues/17473
-    # curl_multi_add_handle() returning OOM when using more than 400 handles
-    patch do
-      url "https://github.com/curl/curl/commit/d16ccbd55de80c271fe822f4ba8b6271fd9166ff.patch?full_index=1"
-      sha256 "d30d4336e2422bedba66600b4c05a3bed7f9c51c1163b75d9ee8a27424104745"
-    end
-  end
 
   livecheck do
     url "https://curl.se/download/"
@@ -27,13 +15,13 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4e1a9fa77c2e2c80589750f54fafcd2f014a3251aef28cd7159ae21f63407ce6"
-    sha256 cellar: :any,                 arm64_sonoma:  "1cee86f0eaf6551365e196be37dd6b8c5ba4ceba762dfb562acc31cb37f453ae"
-    sha256 cellar: :any,                 arm64_ventura: "2dd30282842f21a92915c671e0c7ef48cd100f3c8a9ec0dba92e042de1d561c0"
-    sha256 cellar: :any,                 sonoma:        "3d8219f0c288493ac8c49ff3038dbdfd14bad581c6e384939693fcdaeaa91a6f"
-    sha256 cellar: :any,                 ventura:       "02364a79a7e5efb5ec6711ae3dc67c06f60a876477c9a8c04df328de01248e28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "2e4acfcc5932b7e7a6a52f487cf41560bda3fb02c69f34bf37f55499b70eb803"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9b902e408c4295747033a0a608d9593ff11d247283d1aa939b666af9ceb28e27"
+    sha256 cellar: :any,                 arm64_sequoia: "a208325a56e95796533140b94783a70603e8e78718249b7d3580da12da24ebaf"
+    sha256 cellar: :any,                 arm64_sonoma:  "9e23c9408e31d5e0aada20daa57dd13f012b5430410c78ee6d9dadfc81b2fb16"
+    sha256 cellar: :any,                 arm64_ventura: "3533a79f542d152fe7eac26c7cbeaeaf141eff9c85debc32db1681857cd2ca91"
+    sha256 cellar: :any,                 sonoma:        "cf79c9d7b13b861cea4359140ea82e97b2d1bbca1083d2dbe8b74b7fae4051d7"
+    sha256 cellar: :any,                 ventura:       "a09d7b8ad2616b22848e5dd0bb52bae7e7cab1517cd1245cb53af1b3e2a9eb7d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "81ab501f75ec3305e4b4c624c15d1b0042645dbbf0f73e5975032ca37284bd51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "42ab4d16878ac6b3cee935dbe5e27c290b671566c4352c41bd9982dc5b7620be"
   end
 
   head do
@@ -62,14 +50,15 @@ class Curl < Formula
     depends_on "libidn2"
   end
 
-  conflicts_with "wcurl", because: "both install `wcurl` binary"
-
   def install
     tag_name = "curl-#{version.to_s.tr(".", "_")}"
     if build.stable? && stable.mirrors.grep(/github\.com/).first.exclude?(tag_name)
       odie "Tag name #{tag_name} is not found in the GitHub mirror URL! " \
            "Please make sure the URL is correct."
     end
+
+    # Use our `curl` formula with `wcurl`
+    inreplace "scripts/wcurl", 'CMD="curl "', "CMD=\"#{opt_bin}/curl \""
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
 

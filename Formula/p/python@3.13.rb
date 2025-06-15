@@ -1,25 +1,26 @@
 class PythonAT313 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.3/Python-3.13.3.tgz"
-  sha256 "988d735a6d33568cbaff1384a65cb22a1fb18a9ecb73d43ef868000193ce23ed"
+  url "https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz"
+  sha256 "e6190f52699b534ee203d9f417bdbca05a92f23e35c19c691a50ed2942835385"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
     regex(%r{href=.*?v?(3\.13(?:\.\d+)*)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "dc65e80c2e67b98e2b5a610c599a6caf6e5cc9f94b385f7930c6555d47b9c12e"
-    sha256 arm64_sonoma:  "e14e0976380241105b8c4737071993963aa87147bede5f2a323e55550416ad39"
-    sha256 arm64_ventura: "2381209e4fb6d953475633da2ccca863e2dd50fea0f9880583f651a2d562561c"
-    sha256 sequoia:       "674123b52921d6534a78cfd389ea9b4a72a90a4da785e255181a181b754382db"
-    sha256 sonoma:        "bed042b37aca3b6f1aaf850158fd9cb89493f93b0d3bf6aa53646e022bf140b6"
-    sha256 ventura:       "b6f6d2b014c4ab61b1ccebf03778179dd738d75e98880d5ebddb033681279a09"
-    sha256 arm64_linux:   "4ea057be0d5d34b687f2ff8bcb479f087ac8ef0e276487a55aed47adfa6106c1"
-    sha256 x86_64_linux:  "9d6fcd14d185e1c4ca5cdada7941749ce18211d6c328e8abb4e4e3bf0061303f"
+    sha256 arm64_sequoia: "969e945c1395d108d37bfac36b97362af0f178a2d8bd1d50c78dee513641d790"
+    sha256 arm64_sonoma:  "127b07661e52959bda9f83bfc06842d716ba14d5e9392a9e57c8b45ab02cb88e"
+    sha256 arm64_ventura: "cfa5b86eb3af3de8a9f8d888594782c47f4100aaf89c6fca0ca7b5bba3274e50"
+    sha256 sequoia:       "ec5409ff39fd160ba5e20b0116563a45e97efaeb78b069b086b073147dcc76bc"
+    sha256 sonoma:        "5f3cbf44236f40b2606d1b51697a1096746e40ab932b1e4490857339bf2d0409"
+    sha256 ventura:       "9a8ce602a47de2c8211b6b4d7966ffb0187e6fcadc02efce4c66c88ef1c98c40"
+    sha256 arm64_linux:   "706afae0bbbf9c29474a4f8e408fdf880245021dafa603fdbab9d9529f4d6252"
+    sha256 x86_64_linux:  "2ba66dd4896497954b0bb6e83fabd03680f15a505b4113d6a8f3fdc5d612be58"
   end
 
   depends_on "pkgconf" => :build
@@ -70,8 +71,8 @@ class PythonAT313 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "wheel" do
