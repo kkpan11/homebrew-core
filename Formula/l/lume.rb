@@ -1,8 +1,8 @@
 class Lume < Formula
   desc "Create and manage Apple Silicon-native virtual machines"
   homepage "https://github.com/trycua/cua"
-  url "https://github.com/trycua/cua/archive/refs/tags/lume-v0.2.15.tar.gz"
-  sha256 "13e33eeaa7cc459975a2045cc7c81128ea030988f8c493d2e903967fefd98d8c"
+  url "https://github.com/trycua/cua/archive/refs/tags/lume-v0.2.22.tar.gz"
+  sha256 "39a401f59a51d404db2458907af6786a2e625d542d36339f15c9358b1e1f9b6e"
   license "MIT"
   head "https://github.com/trycua/cua.git", branch: "main"
 
@@ -12,8 +12,8 @@ class Lume < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "24daf74bc4a40c20664689c07289628f95e28b6f809d291ebf9d064a7d140abe"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "20eb306a5ac5f378fa4a2c3686941ef3ca418105be222e653e0ea28fc0d25330"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c30490fd0d2ae219b00fc2428dee485f4d241a0db491e0c369828ccd1d5ffae8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5940b327e623da53d2c5109a1432481eb10cd3053fb8a1baf2bce9a8571b41d0"
   end
 
   depends_on xcode: ["16.0", :build]
@@ -30,15 +30,27 @@ class Lume < Formula
     end
   end
 
+  service do
+    run [opt_bin/"lume", "serve"]
+    keep_alive true
+    working_dir var
+    log_path var/"log/lume.log"
+    error_log_path var/"log/lume.log"
+  end
+
   test do
     # Test ipsw command
     assert_match "Found latest IPSW URL", shell_output("#{bin}/lume ipsw")
 
     # Test management HTTP server
-    # Serves 404 Not found if no machines created
     port = free_port
-    fork { exec bin/"lume", "serve", "--port", port.to_s }
+    pid = spawn bin/"lume", "serve", "--port", port.to_s
     sleep 5
-    assert_match %r{^HTTP/\d(.\d)? (200|404)}, shell_output("curl -si localhost:#{port}/lume").lines.first
+    begin
+      # Serves 404 Not found if no machines created
+      assert_match %r{^HTTP/\d(.\d)? (200|404)}, shell_output("curl -si localhost:#{port}/lume").lines.first
+    ensure
+      Process.kill "SIGTERM", pid
+    end
   end
 end

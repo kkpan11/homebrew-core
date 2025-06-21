@@ -1,20 +1,19 @@
 class Slumber < Formula
   desc "Terminal-based HTTP/REST client"
   homepage "https://slumber.lucaspickering.me/"
-  url "https://github.com/LucasPickering/slumber/archive/refs/tags/v3.1.1.tar.gz"
-  sha256 "b7e6bdaae2ba181d5cb213cd1b8bb6e5e1341728bd26e74ca4b692537d4a7ead"
+  url "https://github.com/LucasPickering/slumber/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "dcd3f5d74abc6fa764164ead0cd52368d92122f395353ed43091ad1f02498d95"
   license "MIT"
   head "https://github.com/LucasPickering/slumber.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad7bc8e3e46c086a4c93d814795f928cb0418ad45f55b0c4e1ca4214f5846cb3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e1e060c547138ec5e31af522468cd29436bea9cfde5d8e5c15204fa49f279046"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "768f586f80d8ab02c5bf47e936c137c858603a4db27ce80ee639c97bee96fa86"
-    sha256 cellar: :any_skip_relocation, sonoma:        "0ef040f0e33616c051a6f7d19981829beb1747f4a55fb992157bebe3272076fc"
-    sha256 cellar: :any_skip_relocation, ventura:       "6f44f9edc62c191099861448a54b88272fa186af63f5b69970dafbf57633a030"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "27721677aa58690109c4a1987c1b4307d4bc664562c76532e4591b40ffcbc7e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a4872dd735264feecacf8bc029d273dc2776987613d9b672478b2521d1581f48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "0dcece418e59817739e3a2fd7c6d2882bf55b9a2c5432d84aac8eaad8860b45b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e593f93abad659727f59a298ae44c1947742dc842d7e17ce231314cf3eb56cf3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c3fc180f5273c549b2a23833c31768b3ee1feda416e2ee2f8ada2e94a88f8433"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d659db420c63df323695811a89d5e884f873660f1af2171c32cb4d29e26fe888"
+    sha256 cellar: :any_skip_relocation, ventura:       "ca8b1a461c051925d684e387ab92e837e93e7977c1df804bc4c6c559c37b3ed7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "700ec0b83b6bfa7a7586cf4d1c60c58cc453a02d9624b7200c73e6fb3fcb3355"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "8f8c857687cafc558d7daaf3da169f1938a5b5697d880801fcf6b749840c58f4"
   end
 
   depends_on "rust" => :build

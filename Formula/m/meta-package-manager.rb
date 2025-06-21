@@ -7,16 +7,17 @@ class MetaPackageManager < Formula
   url "https://files.pythonhosted.org/packages/5b/49/d4e663f67c2376f4e26864fa10ec78a6047f765d580daa6a510766ef2d2b/meta_package_manager-5.21.0.tar.gz"
   sha256 "9d438f4cf34b2bebbd46525759f6d5305d98e9ff02975be4e1b18befc4fffffa"
   license "GPL-2.0-or-later"
+  revision 2
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "48ddbe964235db930c0dea68e41d6c63458d0e460d4b7e0c2ebd49793510402a"
-    sha256 cellar: :any,                 arm64_sonoma:  "373ec44cac41a5415a9b7c79296aa5bc8ab41b2229ae449919d5d98213c5e5f7"
-    sha256 cellar: :any,                 arm64_ventura: "73485a7b2585380d2dd6754ad11f0b0e95acaf1269f0c6097994ccb7f613b17a"
-    sha256 cellar: :any,                 sonoma:        "b36ab2d6d5068c47961c73a637ec36cd807a8edf06b75d23922a59cb58391728"
-    sha256 cellar: :any,                 ventura:       "f359420956d1255570ade7cff69c5f4de8861817d0a7214c5ccff0a13fbd978d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "5d2849773bbfcd986c02fc213c81421fc16fb6f27c93a19172092f1d5c396cfd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "402b2cd5df12b4ecc5978b53d42c2bfb936cdedb0f8270f0e7f331c788a7bc18"
+    sha256 cellar: :any,                 arm64_sequoia: "3b76194c131eec7f94c39eb56af545aca112f7a2abab10b190f2473d161f8716"
+    sha256 cellar: :any,                 arm64_sonoma:  "b8dd2d1ee0388db84b26a3b1ec2ea0d37eee72f5ce50ce2821d4c4a145fbec60"
+    sha256 cellar: :any,                 arm64_ventura: "3c09ac51da7a00f7b733440d9d7630226cf68a45d85ef8ba27aa371f2e76f565"
+    sha256 cellar: :any,                 sonoma:        "fb3b8eee8b71b57c7164d96c1efcf01df3fcd8d486a42839f3c64f5b9fcfd6e5"
+    sha256 cellar: :any,                 ventura:       "2c811dd3897778fb90dce7a74a6f31907bd945592a637b80a0bc55f9c45f4b09"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "55a2543423f626da0297a66a9cc64fec0f4e8c1faaa853a01e149136e6a33d86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb0f47a483a944b6baab6f6f0c2c981217f5d73c627ca95330c67e7433196b43"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -68,8 +69,8 @@ class MetaPackageManager < Formula
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/7c/0a/80624abf9c2fe72d9fb1b0a30deafe8bdd421a67162518c65bcd4f4827f0/click_extra-5.0.1.tar.gz"
-    sha256 "0f67e86c812f0880abf54b255e80a51df03281081ac68ef5d2c857297cd4302c"
+    url "https://files.pythonhosted.org/packages/e3/33/32aea2ec2bbb3c3723a8a46a50e210637cd20686447a0977738fe3b51032/click_extra-5.0.2.tar.gz"
+    sha256 "53d7ce1a048c8777fa4efcc9c8d786d09a99484cf9cc6de91e258055af36265d"
   end
 
   resource "cloup" do
@@ -78,8 +79,8 @@ class MetaPackageManager < Formula
   end
 
   resource "cyclonedx-python-lib" do
-    url "https://files.pythonhosted.org/packages/bf/70/c5ab120047230e2c9db8e04b55f9b547fcf52ec6a4a5155dd5a3a3185fd2/cyclonedx_python_lib-10.0.1.tar.gz"
-    sha256 "6c7a8c27a28279d22d92d4e0982e59beed3076a1aa4928a27830b0eaa2ca4f29"
+    url "https://files.pythonhosted.org/packages/a1/70/75c253be1ec80bd25d14ce900ff1d49d96e0ed21368fb7117868b55cc0a2/cyclonedx_python_lib-10.0.2.tar.gz"
+    sha256 "2722ec36d5acc8d41117946967864094571bdc847986e41cfd74415ec9d02fd4"
   end
 
   resource "defusedxml" do
@@ -177,14 +178,19 @@ class MetaPackageManager < Formula
     sha256 "e9e6491dd7d29c31daf1050232b57f9657f9e8a43b867cca1ff204752cf420a5"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/7c/2d/c3338d48ea6cc0feb8446d8e6937e1408088a72a39937982cc6111d17f84/pygments-2.19.1.tar.gz"
+    sha256 "61c16d2a8576dc0649d9f39e089b5f02bcd27fba10d8fb4dcc28173f7a45151f"
+  end
+
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/bb/22/f1129e69d94ffff626bdb5c835506b3a5b4f3d070f17ea295e12c2c6f60f/pyparsing-3.2.3.tar.gz"
     sha256 "b9c13f1ab8b3b542f72e28f634bad4de758ab3ce4546e4301970ad6fa77c38be"
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/ae/3c/c9d525a414d506893f0cd8a8d0de7706446213181570cdbd766691164e40/pytest-8.3.5.tar.gz"
-    sha256 "f4efe70cc14e511565ac476b57c279e12a855b11f48f212af1080ef2263d3845"
+    url "https://files.pythonhosted.org/packages/08/ba/45911d754e8eba3d5a841a5ce61a65a685ff1798421ac054f85aa8747dfb/pytest-8.4.1.tar.gz"
+    sha256 "7c67fd69174877359ed9371ec3af8a3d2b04741818c51e5e99cc1742251fa93c"
   end
 
   resource "python-dateutil" do
@@ -208,8 +214,8 @@ class MetaPackageManager < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "rfc3339-validator" do
@@ -273,8 +279,8 @@ class MetaPackageManager < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "wcmatch" do

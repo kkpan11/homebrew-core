@@ -1,25 +1,27 @@
 class PythonAT313 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.13.3/Python-3.13.3.tgz"
-  sha256 "988d735a6d33568cbaff1384a65cb22a1fb18a9ecb73d43ef868000193ce23ed"
+  url "https://www.python.org/ftp/python/3.13.5/Python-3.13.5.tgz"
+  sha256 "e6190f52699b534ee203d9f417bdbca05a92f23e35c19c691a50ed2942835385"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
     regex(%r{href=.*?v?(3\.13(?:\.\d+)*)/?["' >]}i)
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    sha256 arm64_sequoia: "dc65e80c2e67b98e2b5a610c599a6caf6e5cc9f94b385f7930c6555d47b9c12e"
-    sha256 arm64_sonoma:  "e14e0976380241105b8c4737071993963aa87147bede5f2a323e55550416ad39"
-    sha256 arm64_ventura: "2381209e4fb6d953475633da2ccca863e2dd50fea0f9880583f651a2d562561c"
-    sha256 sequoia:       "674123b52921d6534a78cfd389ea9b4a72a90a4da785e255181a181b754382db"
-    sha256 sonoma:        "bed042b37aca3b6f1aaf850158fd9cb89493f93b0d3bf6aa53646e022bf140b6"
-    sha256 ventura:       "b6f6d2b014c4ab61b1ccebf03778179dd738d75e98880d5ebddb033681279a09"
-    sha256 arm64_linux:   "4ea057be0d5d34b687f2ff8bcb479f087ac8ef0e276487a55aed47adfa6106c1"
-    sha256 x86_64_linux:  "9d6fcd14d185e1c4ca5cdada7941749ce18211d6c328e8abb4e4e3bf0061303f"
+    rebuild 1
+    sha256 arm64_sequoia: "7bd6e87235b8bf2d4cf4835a5ddbd49cc7cee08d14ab2465ef24c34290a63a8e"
+    sha256 arm64_sonoma:  "c879de56d1a234d03739cf526cecbb0673f3771d7f4c40d0d764edcb0a6eeab0"
+    sha256 arm64_ventura: "16a255eedff03379cc2e7d85173cd755ecc6071c3ded2d296d4cbeaa378682a9"
+    sha256 sequoia:       "60d51cebd864b7b7f60c20533e4a86707fc5a9fd7d6235a3f705fedcae372792"
+    sha256 sonoma:        "bb3eeaefaa9df64e055fc88eec7672c044e35569a4ca8e8f9affcb3779a4f4b9"
+    sha256 ventura:       "de1f3fd0c023711c72acbe737f475d10ad9dc65038f35b207c4fb3178df7d456"
+    sha256 arm64_linux:   "ca4d8f6523c6fdfc7cb56571d1d4222bf8902c3938c436b58d71a05662e54b9b"
+    sha256 x86_64_linux:  "23885628da95ae6a51e56e231216927982b35e2a228fae8d1a64be93b7c231b8"
   end
 
   depends_on "pkgconf" => :build
@@ -70,8 +72,8 @@ class PythonAT313 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "wheel" do
@@ -85,6 +87,18 @@ class PythonAT313 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/8b5bcbb262d1ea4e572bba55043bf7d2341a6821/python/3.13-sysconfig.diff"
     sha256 "e1c2699cf3e39731a19207ed69400a67336cda7767aa08f6f46029f26b1d733b"
+  end
+
+  # Fix os.getlogin for users with longer usernames on macOS.
+  # Change accepted upstream and backported, remove on next release.
+  # https://github.com/Homebrew/homebrew-core/issues/226857
+  # https://github.com/python/cpython/issues/135497
+  # https://github.com/python/cpython/pull/135508
+  # https://github.com/python/cpython/pull/135517
+  # https://github.com/python/cpython/pull/135516
+  patch do
+    url "https://github.com/python/cpython/commit/15340775f8ded517e98604fb416e6f758d21f635.patch?full_index=1"
+    sha256 "921de8bbbf20cebb8b695279bfaf138999460bc39ff8320d1495b61f67ae2e65"
   end
 
   def lib_cellar

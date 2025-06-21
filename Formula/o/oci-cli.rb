@@ -3,19 +3,19 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/15/43/06ae658d4c3de1c4ee3420660ab40191aedc95a53f6259e9dbf0f1b60333/oci_cli-3.57.0.tar.gz"
-  sha256 "2e0a2d7bf2aa7b96c0deee895cbab06c0d4d6b865f4fa668fff921ebc85739cc"
+  url "https://files.pythonhosted.org/packages/e7/df/f6795aaf7c480ff95ff38cbbcfe84110f161392f44f8e6c614a63271b9a0/oci_cli-3.59.0.tar.gz"
+  sha256 "fd4cec2d138f218bd6edc0be03759469e10ae0538f1ef133c8820e513988094c"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "af1402b74e46e3584182871f62427db0c297c3528f25244f492d8b8801c19cea"
-    sha256 cellar: :any,                 arm64_sonoma:  "b6a8099cd22f3b3c8fd59f1e28c836e42b420a1046b725d1fd7b9052c5d6026e"
-    sha256 cellar: :any,                 arm64_ventura: "f486cabc46f460853c27a6f0a99b7a3cd068318255a2705fd5f4eebd3cffa71f"
-    sha256 cellar: :any,                 sonoma:        "77f01c37b461f90f4c2637ac5d7f01826c1894bbbf2640bba4517e55959956df"
-    sha256 cellar: :any,                 ventura:       "274760278b059cf861235e5465c946251da60783b78a33b51739953a122f9790"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "0575e66c047848be573baa7db6876c4ecadbda07a0a04c7d3607efe33a00dfc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "abbfcea508a3d3b7e1769682c61188df6231dcaecc0717b7ad1630c23676b63c"
+    sha256 cellar: :any,                 arm64_sequoia: "b080f34de5f36fa13ba7c802b3567bbc697f7a339b8ebe905624422bb80c4eef"
+    sha256 cellar: :any,                 arm64_sonoma:  "50b9169101054d07463122605aae2d0acf2a4b5b5e653097fffaab9f446e29bf"
+    sha256 cellar: :any,                 arm64_ventura: "c6f99be244060020251426d44df7420a386e29f5e49c83574fd79190c723feb5"
+    sha256 cellar: :any,                 sonoma:        "805761f31f28c3f704d60ce242bc074267b43646d326307584eb7ed7af18ff52"
+    sha256 cellar: :any,                 ventura:       "69b78bc8d73f65e5e36ceaebad6157ef5498b738324cb82ba3d77e5ddafc8bef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "c222ff50f5d3136cc9e79ec741fffedc2b3eff2b9786e2775f0bc46f1150c829"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6c326fb291caa34f120839b98fd5db08d8a3e37cbc48d280556042de86c16e2d"
   end
 
   depends_on "certifi"
@@ -44,8 +44,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/d7/a2/97ad6bb85467ef3331202929a7ef45292bc7b291f0d69d6adcbe3670939c/oci-2.153.0.tar.gz"
-    sha256 "2acccc4394af18d34117d3f3b6a4c5f7ceaa4cafa55f54fa9accdbd21b309dbd"
+    url "https://files.pythonhosted.org/packages/bf/be/d429f4fbd481670deb6613d4702eb135eca903a0001478e4dc6b78c9d904/oci-2.154.2.tar.gz"
+    sha256 "4927255e3a573e56ad10a904d498fc8de306eee379157ecf7dcfef1cd53713b1"
   end
 
   resource "prompt-toolkit" do
@@ -94,9 +94,6 @@ class OciCli < Formula
   end
 
   def install
-    # Loosen `pyyaml` version pin: https://github.com/oracle/oci-cli/pull/858
-    inreplace "setup.py", "PyYAML>=5.4,<=6.0.1", "PyYAML>=5.4,<=6.0.2"
-
     venv = virtualenv_install_with_resources without: "terminaltables"
 
     # Switch build-system to poetry-core to avoid rust dependency on Linux.

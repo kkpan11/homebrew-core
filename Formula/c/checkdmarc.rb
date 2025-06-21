@@ -3,13 +3,14 @@ class Checkdmarc < Formula
 
   desc "Command-line parser for SPF and DMARC DNS records"
   homepage "https://domainaware.github.io/checkdmarc/"
-  url "https://files.pythonhosted.org/packages/96/3c/1cbfb77062ead4620265f9471f8ac9eef8310ae9469c01bcd14fea5d9aa1/checkdmarc-5.8.3.tar.gz"
-  sha256 "fc90695a9eb61771025e3c1a7c41d18d683559638e99ca345f028b191cabf2a2"
+  url "https://files.pythonhosted.org/packages/de/86/0f0d08402bc7184d5cd04be366b66087c93cd8616f008f8b808888e3a0da/checkdmarc-5.8.6.tar.gz"
+  sha256 "1e36d52fc73bdcad8f9904e47c3213c71126eb1ca69b6aa8e43f460cf8e4d52c"
   license "Apache-2.0"
+  revision 2
   head "https://github.com/domainaware/checkdmarc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6e5aa9973aff8d1bc12eda49f67f06feb9cf98c46cd119bbc8270681e2689b17"
+    sha256 cellar: :any_skip_relocation, all: "6453b2bbf9d383ed7d84e9dc6d225d5d5da59f3f1e5a3be45c83d3a586372677"
   end
 
   depends_on "certifi"
@@ -47,8 +48,8 @@ class Checkdmarc < Formula
   end
 
   resource "publicsuffixlist" do
-    url "https://files.pythonhosted.org/packages/5f/35/6214d06a89518dbd7532739a121932d3e788f338229af902eacc9a650cdc/publicsuffixlist-1.0.2.20250521.tar.gz"
-    sha256 "890584857bc21cdd474d6cccf73e2be371c20fb9e844fc885adbdd957e990829"
+    url "https://files.pythonhosted.org/packages/68/99/b5da90350576ccdd09f7399448675ca17c1482692f4b3e8986e01a0ef098/publicsuffixlist-1.0.2.20250617.tar.gz"
+    sha256 "5042d7fc63f572f92632936efb3ce6432c1a2a464f24fd43f25af742618790e6"
   end
 
   resource "pyleri" do
@@ -62,8 +63,8 @@ class Checkdmarc < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "timeout-decorator" do
@@ -72,8 +73,8 @@ class Checkdmarc < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "xmltodict" do

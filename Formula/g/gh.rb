@@ -1,8 +1,8 @@
 class Gh < Formula
   desc "GitHub command-line tool"
   homepage "https://cli.github.com/"
-  url "https://github.com/cli/cli/archive/refs/tags/v2.73.0.tar.gz"
-  sha256 "e432fd7e8944f94624fbd287b3bdd46f6bbed23609178c940bdb7b5d55a6d1c4"
+  url "https://github.com/cli/cli/archive/refs/tags/v2.74.2.tar.gz"
+  sha256 "58d383e75e1a6f3eb5e5694f232d1ed6f7f53681fda9c6a997e6e1be344edd94"
   license "MIT"
   head "https://github.com/cli/cli.git", branch: "trunk"
 
@@ -11,14 +11,15 @@ class Gh < Formula
     strategy :github_latest
   end
 
+  no_autobump! because: :requires_manual_review
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "046beaade0306d23d0ee28e7e701ef159d44b26aa324d7b8fc80a1b1df6f8feb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "046beaade0306d23d0ee28e7e701ef159d44b26aa324d7b8fc80a1b1df6f8feb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "046beaade0306d23d0ee28e7e701ef159d44b26aa324d7b8fc80a1b1df6f8feb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "9946753c758f993c9b0fb9801fb786bdac09bafda1f75636d92a20235491710c"
-    sha256 cellar: :any_skip_relocation, ventura:       "fe5234f1da080ed707089ac8612560a53ac1aba3a6c86011f9df245e87d93b03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "626c7ba266656072f14a5e64972af3958d07e08b7184c6963f0efaf6409a219c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "d8d12facc23d7e2efdb21bc4eaa55058d8385609d1c8734685f406996074ff12"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "d8d12facc23d7e2efdb21bc4eaa55058d8385609d1c8734685f406996074ff12"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d8d12facc23d7e2efdb21bc4eaa55058d8385609d1c8734685f406996074ff12"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f3f8a873387da7e9087c2ce2e38ddcf9bdd8e5365033db59c10517972c741062"
+    sha256 cellar: :any_skip_relocation, ventura:       "53d91576a846085b553ec452e38ebbca52202fa5957b5576140fdc8aa42965e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f3e209130aadf0f998201e5b588498b6f538488bf55eadd4672822a7ab4a8161"
   end
 
   depends_on "go" => :build

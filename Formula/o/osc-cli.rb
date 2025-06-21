@@ -6,16 +6,18 @@ class OscCli < Formula
   url "https://files.pythonhosted.org/packages/02/cd/f1b796f5e7a301f6a3c0b910be07188cbfd329d2758e036d24ef26b4ee96/osc-sdk-1.11.0.tar.gz"
   sha256 "d3b71b326b0698da1b9a503cd511a992fe578375fd01b30bdec0d63d8328af66"
   license "BSD-3-Clause"
-  revision 7
+  revision 9
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b5480ac70e1c6e5fc2704d8fbcfe1d58ccb068e67ac464b2181701b12314386d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b5480ac70e1c6e5fc2704d8fbcfe1d58ccb068e67ac464b2181701b12314386d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "b5480ac70e1c6e5fc2704d8fbcfe1d58ccb068e67ac464b2181701b12314386d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "668ded3aba21a8525fc876113e89ed7c0091d2bf83a94564f1710d49d25ef593"
-    sha256 cellar: :any_skip_relocation, ventura:       "668ded3aba21a8525fc876113e89ed7c0091d2bf83a94564f1710d49d25ef593"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "3866b920f7dd7f489bfa721df763810338597bbd0eb747796f65fa9ffaca744b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3866b920f7dd7f489bfa721df763810338597bbd0eb747796f65fa9ffaca744b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "c7235b2b658f8bbb90bb5137056fb050ca83e1b7d5d18c1a31e2eaa66d83b6aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c7235b2b658f8bbb90bb5137056fb050ca83e1b7d5d18c1a31e2eaa66d83b6aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "c7235b2b658f8bbb90bb5137056fb050ca83e1b7d5d18c1a31e2eaa66d83b6aa"
+    sha256 cellar: :any_skip_relocation, sonoma:        "19a5cb9c5204c8b1b3bc76a9b61cb8a7c7a419fb98dde5794c034590850d405d"
+    sha256 cellar: :any_skip_relocation, ventura:       "19a5cb9c5204c8b1b3bc76a9b61cb8a7c7a419fb98dde5794c034590850d405d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "4305632f73a966761815f07ed20f13644c37f0e8303c23963587d419e55d96b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4305632f73a966761815f07ed20f13644c37f0e8303c23963587d419e55d96b6"
   end
 
   depends_on "certifi"
@@ -42,13 +44,13 @@ class OscCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "termcolor" do
@@ -57,13 +59,13 @@ class OscCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/f6/37/23083fcd6e35492953e8d2aaaa68b860eb422b34627b13f2ce3eb6106061/typing_extensions-4.13.2.tar.gz"
-    sha256 "e6c81219bd689f51865d9e372991c540bda33a0379d5573cddb9a3a23f7caaef"
+    url "https://files.pythonhosted.org/packages/d1/bc/51647cd02527e87d05cb083ccc402f93e441606ff1f01739a62c8ad09ba5/typing_extensions-4.14.0.tar.gz"
+    sha256 "8676b788e32f02ab42d9e7c61324048ae4c6d844a399eebace3d4979d75ceef4"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "xmltodict" do

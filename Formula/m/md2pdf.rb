@@ -1,18 +1,18 @@
 class Md2pdf < Formula
   desc "CLI utility that generates PDF from Markdown"
   homepage "https://github.com/solworktech/mdtopdf"
-  url "https://github.com/solworktech/mdtopdf/archive/refs/tags/v2.2.15.tar.gz"
-  sha256 "a7efad310c97440e6320678cde7fc51ecd1d552e2da417faefc191f9e5037805"
+  url "https://github.com/solworktech/mdtopdf/archive/refs/tags/v2.2.18.tar.gz"
+  sha256 "c231d18742d9b0618bd1feaf1f3ab8864173a838b1847d9dcba6018fe5888f10"
   license "MIT"
   head "https://github.com/solworktech/mdtopdf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "618ca3284115e532e2ce80889792492b1d22077124cedb2cc7085a7b2212b026"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "618ca3284115e532e2ce80889792492b1d22077124cedb2cc7085a7b2212b026"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "618ca3284115e532e2ce80889792492b1d22077124cedb2cc7085a7b2212b026"
-    sha256 cellar: :any_skip_relocation, sonoma:        "c9ad997fa07601ffe927913ea0e9c05dbdccdddee707770086057a79ad5f7ec4"
-    sha256 cellar: :any_skip_relocation, ventura:       "c9ad997fa07601ffe927913ea0e9c05dbdccdddee707770086057a79ad5f7ec4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ee9e901ede7735cbee52dee13ccb89fd7f1cf4b8450b35574f533065273501f0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a3f31a7fd7fc59f484e62023b815331c624d0caac12e8573e3dce5a72a53d9f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "a3f31a7fd7fc59f484e62023b815331c624d0caac12e8573e3dce5a72a53d9f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "a3f31a7fd7fc59f484e62023b815331c624d0caac12e8573e3dce5a72a53d9f7"
+    sha256 cellar: :any_skip_relocation, sonoma:        "1067ffc7b46773d8b98334e7ce11bc5e654f06ec4d891e545856191d5d0ca597"
+    sha256 cellar: :any_skip_relocation, ventura:       "1067ffc7b46773d8b98334e7ce11bc5e654f06ec4d891e545856191d5d0ca597"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "210dde51799b9cd2fa6037e4f1be39042346be5ea96a1a4cceef8bfb8df00180"
   end
 
   depends_on "go" => :build

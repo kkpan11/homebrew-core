@@ -3,18 +3,21 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/1b/76/5621ce9d7e3a4fa2b7015a422023a238089a2628bc522762b2193cc6e8c0/aider_chat-0.83.2.tar.gz"
-  sha256 "b3b1d8d532313d22cec3f418773f2c7623e21c09fd6ae2bcaeba9726b73b0022"
+  url "https://files.pythonhosted.org/packages/76/94/8cbf0e10a01bd24c68a0b14e256b75abaa4bae662f955669e14fc5902b0e/aider_chat-0.84.0.tar.gz"
+  sha256 "b5001eaae8741816c28fa7a06adb616f2ba5293553de94ee123b99038c98fae0"
   license "Apache-2.0"
-  head "https://github.com/paul-gauthier/aider.git", branch: "main"
+  revision 1
+  head "https://github.com/Aider-AI/aider.git", branch: "main"
+
+  no_autobump! because: :requires_manual_review
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "fdd59056418e25a87d7e90d5d69cee7bb563d7b43237c01214f71dd580bd77f3"
-    sha256 cellar: :any,                 arm64_sonoma:  "2517fd3ce44b123fb4d4ce5e693e2e0e330cee26977a728b5db31a6e4e8af919"
-    sha256 cellar: :any,                 arm64_ventura: "70b0bbb63ea8435811049d658687fae2054bc1e2baaa77c3937a66c69529bb79"
-    sha256 cellar: :any,                 sonoma:        "7dd19b8a55054fad73f278a687c46c32c469a00eb15f4e9be5c356a678b870d4"
-    sha256 cellar: :any,                 ventura:       "3d02adf57cc0e0f77bc05ac9576105a9bb016f61e719ba5a8f65dfb725ea5d48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "039b70ce858567d9fd262aee7bde938d43fd52d016c41e4eb9c87f2c6e7e861f"
+    sha256 cellar: :any,                 arm64_sequoia: "2ebf8800fb5162238196d04b27e099728f2d639cd3517fabb392107fa1c7857e"
+    sha256 cellar: :any,                 arm64_sonoma:  "8e5411c0b630c158398629c0e16ed9a27dfcae7382b3f2d6a7e33a8cfbd5aec2"
+    sha256 cellar: :any,                 arm64_ventura: "1d43691d9dcdb723cea9c6bb711dd8ec2975f8ddaa9d2e02dbdd1b6378153849"
+    sha256 cellar: :any,                 sonoma:        "756bedd14719dec3139f615736ce05867d67352b14e3608e5fd54cc2e2b4f188"
+    sha256 cellar: :any,                 ventura:       "6e5c18bf1cd2fc4fecb86249282573c6333d56df3a3269bdbd3ca83c3a559fe8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7a60a91d01195ed0d5334c1eee9624494ee90bda202b4c5e62764a028a94d260"
   end
 
   depends_on "maturin" => :build # for `hf-xet`
@@ -180,13 +183,13 @@ class Aider < Formula
   end
 
   resource "grpcio" do
-    url "https://files.pythonhosted.org/packages/d1/33/bf7bf9188cfce1c626e4c5d55523fec7f2f1d905e003df5da025f532916e/grpcio-1.72.0rc1.tar.gz"
-    sha256 "221793dccd3332060f426975a041d319d6d57323d857d4afc25257ec4a5a67f3"
+    url "https://files.pythonhosted.org/packages/8e/7b/ca3f561aeecf0c846d15e1b38921a60dffffd5d4113931198fbf455334ee/grpcio-1.73.0.tar.gz"
+    sha256 "3af4c30918a7f0d39de500d11255f8d9da4f30e94a2033e70fe2a720e184bd8e"
   end
 
   resource "grpcio-status" do
-    url "https://files.pythonhosted.org/packages/5b/b2/f5caba63bb0c1637f468d820c46756b8bae28187928ffbe097157f478429/grpcio_status-1.72.0rc1.tar.gz"
-    sha256 "20b9cabe989824eeb5d8322189fdc084dfc69bb9fff7cb165cd28340cdbc73e1"
+    url "https://files.pythonhosted.org/packages/6d/07/1c7b5ec7c72b8e2efc32cf82e2fe72497c579c8fa94edb8c3e430874cd42/grpcio_status-1.73.0.tar.gz"
+    sha256 "a2b7f430568217f884fe52a5a0133b6f4c9338beae33fb5370134a8eaf58f974"
   end
 
   resource "h11" do
@@ -195,8 +198,8 @@ class Aider < Formula
   end
 
   resource "hf-xet" do
-    url "https://files.pythonhosted.org/packages/95/be/58f20728a5b445f8b064e74f0618897b3439f5ef90934da1916b9dfac76f/hf_xet-1.1.2.tar.gz"
-    sha256 "3712d6d4819d3976a1c18e36db9f503e296283f9363af818f50703506ed63da3"
+    url "https://files.pythonhosted.org/packages/8d/11/b480bb7515db97d5b2b703927a59bbdd3f87e68d47dff5591aada467b4a9/hf_xet-1.1.4.tar.gz"
+    sha256 "875158df90cb13547752532ed73cad9dfaad3b29e203143838f67178418d08a4"
   end
 
   resource "httpcore" do
@@ -560,8 +563,8 @@ class Aider < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   resource "watchfiles" do
@@ -589,7 +592,13 @@ class Aider < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "tree-sitter-language-pack"
+
+    # Remove prebuilt bindings: https://github.com/Goldziher/tree-sitter-language-pack/issues/46
+    resource("tree-sitter-language-pack").stage do
+      Pathname.pwd.glob("tree_sitter_language_pack/bindings/*").map(&:unlink)
+      venv.pip_install Pathname.pwd
+    end
   end
 
   test do

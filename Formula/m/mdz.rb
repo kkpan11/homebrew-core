@@ -1,18 +1,18 @@
 class Mdz < Formula
   desc "CLI for the mdz ledger Open Source"
   homepage "https://github.com/LerianStudio/midaz"
-  url "https://github.com/LerianStudio/midaz/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "67a8acfbf3df32effcb73495257ec499071589c2094ba5d29e4576ce74457d8c"
+  url "https://github.com/LerianStudio/midaz/archive/refs/tags/v2.2.2.tar.gz"
+  sha256 "c9406dcccd2fc7b306cd251370bcc2b0e42e54e7a336df2762ea667d76633f54"
   license "Apache-2.0"
   head "https://github.com/LerianStudio/midaz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "295b0dd5614208b7f400a010b9d4b8da9fa6d8b6fa92ba8aa786517b5b4d6e15"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f354d43debe30a22365fd2d31daadf20a7ab1a1b5e3b3de529d8c9fbad314f32"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "00494a3d29be3c5afa74d0bc9674faccd29e0358260ef0cf1e316905da07fbf9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ad60b38715faf799a93d909d7d3db5997075e2b3049c517913a31bace81748f0"
-    sha256 cellar: :any_skip_relocation, ventura:       "6924a972f36ccbfe48a88215e8e74e7db68e81cc9851368b19df94f889d053ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "87c467d4ec0bd584048544b804e232cede3f2f568ab36ee9dbfc4263c3c74401"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "3939c4923a695fd5e43faa02a7a31ce25c19a1d7b13fcf551e4410ea9e7ea4f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "043dc8846b3f44a0953ff390b877b438764be28931fde8b34c3abeee737ba320"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "620db76749f92ebd4a3e85382f54aa1cf4e55a73dbad6cec156cf59a7ac73790"
+    sha256 cellar: :any_skip_relocation, sonoma:        "82e14402c501b864aaf6f28c5668a70887aaa1053992d6e61b6006c93e6fa2ea"
+    sha256 cellar: :any_skip_relocation, ventura:       "84732e1c15e5a82e760d932f2ff93e649b60c214ef542918a37a0a05dfee7e1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bb91aea455c8710fc6791026a2957bd1f095611b2e68477d8151bbd33c7cc372"
   end
 
   depends_on "go" => :build

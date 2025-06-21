@@ -6,17 +6,17 @@ class Httpie < Formula
   url "https://github.com/httpie/cli/archive/refs/tags/3.2.4.tar.gz"
   sha256 "b185cd8d81325f97c773582e50f1c5e047c2d8575b53d676469c9daf2a52f341"
   license "BSD-3-Clause"
-  revision 1
+  revision 3
   head "https://github.com/httpie/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a451ae630be688ea83dfd2cd2030873bbdb7b13fc2d2b77048d091d58a27beac"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7acdfde3fc34526a586f1df5077e9c722d85c46b88dd583d5d3feccb6aa94cbc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "a8d43ba63c0924a439c81387b6a7432703e00daae965173912618be026a203e1"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e994062c42733f358a4752ec41c205526a4934e4d132d6f0ce4005677677dbdc"
-    sha256 cellar: :any_skip_relocation, ventura:       "eab041f8bebb9f83a3b81e25b6b1a7654659951a80563d39356be37402f35c77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "996b86869f1524e55deb98f33bbc0484e87877ad3f22ceb7ba219b0fa40663ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "95f70667f58908f43f116c1773d04821163a4638e79aad8a2f68358aebd0adbb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ad6f4550d781c22d796e23ba8e92fb03b34906da05fd527a7f9fb57930157458"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "eda7c60d40adb6aa1c0b29fcc13c874327e2d8856ddd8740e00894da3dc46077"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7801dbbc9b305f9cc1d1fe31c5fe0bc912a5287f3cc142e0b303b71797f9446b"
+    sha256 cellar: :any_skip_relocation, sonoma:        "5a1f7841e53bd6341fdf80acc2c329b4cadef07889b2afcdf90c7466de568b2e"
+    sha256 cellar: :any_skip_relocation, ventura:       "06f5697bb8d7e656083a84b3982dc0d6d6e56dd47b80011c3a142d66b433d70f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "40791df8fe2938242a5c75c65cce7ddfca12b1f95d3e06ed85fd1bfc2bd236e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "2b4746efa50922ae0839f4aceb892ba60dabfa6ff706bb83f9d6592c4ff42593"
   end
 
   depends_on "certifi"
@@ -48,8 +48,8 @@ class Httpie < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/91/2f/a3470242707058fe856fe59241eee5635d79087100b7042a867368863a27/multidict-6.4.4.tar.gz"
-    sha256 "69ee9e6ba214b5245031b76233dd95408a0fd57fdb019ddcc1ead4790932a8e8"
+    url "https://files.pythonhosted.org/packages/46/b5/59f27b4ce9951a4bce56b88ba5ff5159486797ab18863f2b4c1c5e8465bd/multidict-6.5.0.tar.gz"
+    sha256 "942bd8002492ba819426a8d7aefde3189c1b87099cdf18aaaefefcf7f3f7b6d2"
   end
 
   resource "pygments" do
@@ -63,8 +63,8 @@ class Httpie < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
-    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+    url "https://files.pythonhosted.org/packages/e1/0a/929373653770d8a0d7ea76c37de6e41f11eb07559b103b1c02cafb3f7cf8/requests-2.32.4.tar.gz"
+    sha256 "27d0316682c8a29834d3264820024b62a36942083d52caf2f14c0591336d3422"
   end
 
   resource "requests-toolbelt" do
@@ -78,13 +78,13 @@ class Httpie < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/9e/8b/dc1773e8e5d07fd27c1632c45c1de856ac3dbf09c0147f782ca6d990cf15/setuptools-80.7.1.tar.gz"
-    sha256 "f6ffc5f0142b1bd8d0ca94ee91b30c0ca862ffd50826da1ea85258a06fd94552"
+    url "https://files.pythonhosted.org/packages/18/5d/3bf57dcd21979b887f014ea83c24ae194cfcd12b9e0fda66b957c69d1fca/setuptools-80.9.0.tar.gz"
+    sha256 "f36b47402ecde768dbfafc46e8e4207b4360c654f1f3bb84475f0a28628fb19c"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/8a/78/16493d9c386d8e60e442a35feac5e00f0913c0f4b7c217c11e8ec2ff53e0/urllib3-2.4.0.tar.gz"
-    sha256 "414bc6535b787febd7567804cc015fee39daab8ad86268f1310a9250697de466"
+    url "https://files.pythonhosted.org/packages/15/22/9ee70a2574a4f4599c47dd506532914ce044817c7752a79b6a51286319bc/urllib3-2.5.0.tar.gz"
+    sha256 "3fc47733c7e419d4bc3f6b3dc2b4f890bb743906a30d56ba4a5bfa4bbff92760"
   end
 
   def install
